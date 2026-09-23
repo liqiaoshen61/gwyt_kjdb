@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white"
+    android:orientation="vertical">
+
+    <!--    标题-->
+    <RelativeLayout
+        android:id="@+id/top"
+        style="@style/layout_normal"
+        android:background="@drawable/bg_header"
+        android:padding="@dimen/nSize10">
+
+        <TextView
+            android:id="@+id/tv_layer_name"
+            style="@style/txt_big_white"
+            android:text="坐标定位" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:padding="@dimen/nSize10">
+
+        <TextView
+            style="@style/txt_normal"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="坐标范围:" />
+
+        <TextView
+            android:id="@+id/tvLimit"
+            style="@style/txt_normal"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/rgSwitch"
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize30"
+        android:layout_margin="@dimen/nSize15"
+        android:background="@drawable/white_radius"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/rbPlane"
+            style="@style/layout_allmatch"
+            android:layout_weight="1"
+            android:background="@drawable/coordinate_switch_style"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="平面坐标"
+            android:textColor="@drawable/coordinate_text_style"
+            android:visibility="visible" />
+
+        <RadioButton
+            android:id="@+id/rbSphere"
+            style="@style/layout_allmatch"
+            android:layout_marginLeft="2px"
+            android:layout_weight="1"
+            android:background="@drawable/coordinate_switch_style"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="球面坐标"
+            android:textColor="@drawable/coordinate_text_style" />
+
+        <RadioButton
+            android:id="@+id/rbSphere2"
+            style="@style/layout_allmatch"
+            android:layout_marginLeft="2px"
+            android:layout_weight="1"
+            android:background="@drawable/coordinate_switch_style"
+            android:button="@null"
+            android:gravity="center"
+            android:text="球面坐标(度分秒)"
+            android:textColor="@drawable/coordinate_text_style" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/llPlane"
+        style="@style/layout_linear_vertical">
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:gravity="center"
+            android:padding="@dimen/nSize12">
+
+            <TextView
+                style="@style/txt_big"
+                android:text="X：" />
+
+            <EditText
+                android:id="@+id/etX"
+                style="@style/edit_number"
+                android:text="" />
+            <!--            590104.478-->
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:gravity="center"
+            android:padding="@dimen/nSize12">
+
+            <TextView
+                style="@style/txt_big"
+                android:text="Y：" />
+
+            <EditText
+                android:id="@+id/etY"
+                style="@style/edit_number"
+                android:text="" />
+            <!--            2701526.867-->
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--    球面坐标-->
+    <LinearLayout
+        android:id="@+id/llSphere"
+        style="@style/layout_linear_vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:gravity="center"
+            android:padding="@dimen/nSize12">
+
+            <TextView
+                style="@style/txt_big"
+                android:text="经度：" />
+
+            <EditText
+                android:id="@+id/etLongitude"
+                style="@style/edit_number"
+                android:text="" />
+            <!--            117.88837977847872-->
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:gravity="center"
+            android:padding="@dimen/nSize12">
+
+            <TextView
+                style="@style/txt_big"
+                android:text="纬度：" />
+
+            <EditText
+                android:id="@+id/etLatitude"
+                style="@style/edit_number"
+                android:text="" />
+            <!--            24.41485150511088-->
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--    球面坐标2-->
+    <LinearLayout
+        android:id="@+id/llSphere2"
+        style="@style/layout_linear_vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:gravity="center"
+            android:padding="@dimen/nSize12">
+
+            <TextView
+                style="@style/txt_big"
+                android:text="经度：" />
+
+
+            <EditText
+                android:id="@+id/etLongitudeDegree"
+                style="@style/edit_number"
+                android:layout_weight="1" />
+
+
+            <TextView
+                style="@style/txt_big"
+                android:layout_marginLeft="@dimen/nSize2"
+                android:layout_marginRight="@dimen/nSize8"
+                android:text="°" />
+
+            <EditText
+                android:id="@+id/etLongitudeMinute"
+                style="@style/edit_number"
+                android:layout_weight="1" />
+
+
+            <TextView
+                style="@style/txt_big"
+                android:layout_marginLeft="@dimen/nSize2"
+                android:layout_marginRight="@dimen/nSize8"
+                android:text="′" />
+
+            <EditText
+                android:id="@+id/etLongitudeSecond"
+                style="@style/edit_number"
+                android:layout_weight="1" />
+
+
+            <TextView
+                style="@style/txt_big"
+                android:layout_marginLeft="@dimen/nSize2"
+                android:layout_marginRight="@dimen/nSize8"
+                android:text="″" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:gravity="center"
+            android:padding="@dimen/nSize12">
+
+            <TextView
+                style="@style/txt_big"
+                android:text="纬度：" />
+
+            <EditText
+                android:id="@+id/etLatitudeDegree"
+                style="@style/edit_number"
+                android:layout_weight="1" />
+
+
+            <TextView
+                style="@style/txt_big"
+                android:layout_marginLeft="@dimen/nSize2"
+                android:layout_marginRight="@dimen/nSize8"
+                android:text="°" />
+
+            <EditText
+                android:id="@+id/etLatitudeMinute"
+                style="@style/edit_number"
+                android:layout_weight="1" />
+
+
+            <TextView
+                style="@style/txt_big"
+                android:layout_marginLeft="@dimen/nSize2"
+                android:layout_marginRight="@dimen/nSize8"
+                android:text="′" />
+
+            <EditText
+                android:id="@+id/etLatitudeSecond"
+                style="@style/edit_number"
+                android:layout_weight="1" />
+
+            <TextView
+                style="@style/txt_big"
+                android:layout_marginLeft="@dimen/nSize2"
+                android:layout_marginRight="@dimen/nSize8"
+                android:text="″" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <View
+        style="@style/layout_normal"
+        android:layout_height="@dimen/nSize1"
+        android:layout_marginTop="@dimen/nSize10"
+        android:background="@color/txt_gray" />
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize45"
+        android:background="@color/bg_gray">
+
+        <TextView
+            android:id="@+id/tvCancle"
+            style="@style/txt_big"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:text="取消" />
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:background="@color/txt_gray" />
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/txt_big"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:text="确定" />
+
+    </LinearLayout>
+
+</LinearLayout>

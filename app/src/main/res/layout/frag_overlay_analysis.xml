@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_allmatch"
+    android:background="@drawable/bg_main_gradient"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/nSize10"
+    android:visibility="visible">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="叠加分析结果"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/feedback_close" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize4"
+        android:layout_marginBottom="@dimen/nSize8"
+        android:background="@drawable/bg_blue_line" />
+
+    <com.jameni.jamenilistlib.view.RefreshView
+        android:id="@+id/lvMain"
+        style="@style/layout_allmatch" />
+
+
+</LinearLayout>

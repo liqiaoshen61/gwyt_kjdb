@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_width="350dp"
+    android:background="@mipmap/bg_callout"
+    android:padding="@dimen/nSize20">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/icon_little_location2"
+            android:drawablePadding="@dimen/nSize5"
+            android:padding="5dp"
+            android:text="名称"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="@dimen/nSize28"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/feedback_close" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize1"
+        android:layout_marginBottom="@dimen/nSize2"
+        android:background="#ffffff" />
+
+    <LinearLayout
+        android:id="@+id/llcontent"
+        style="@style/layout_linear_vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tvDes"
+            style="@style/txt_normal_white"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/nSize10"
+            android:layout_marginTop="@dimen/nSize8"
+            android:layout_marginBottom="@dimen/nSize20"
+            android:padding="@dimen/nSize2"
+            android:text="des"/>
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:layout_marginBottom="@dimen/nSize3"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/imgCamera"
+                style="@style/callout_action"
+                android:drawableTop="@mipmap/icon_camera"
+                android:text="现场拍照" />
+
+            <TextView
+                android:id="@+id/imgCollect"
+                style="@style/callout_action"
+                android:layout_marginLeft="@dimen/nSize10"
+                android:layout_marginRight="@dimen/nSize10"
+                android:drawableTop="@mipmap/icon_star"
+                android:text="  收   藏  " />
+
+            <TextView
+                android:id="@+id/imgMore"
+                style="@style/callout_action"
+                android:drawableTop="@mipmap/icon_detail"
+                android:text="更多详情" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

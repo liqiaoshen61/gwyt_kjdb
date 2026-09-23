@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llGeometryEditor"
+    style="@style/layout_allwarp"
+    android:background="@mipmap/bg_marker_action"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/nSize5"
+    android:visibility="gone">
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:paddingHorizontal="@dimen/nSize10">
+
+        <RadioGroup
+            android:id="@+id/rgGeometryMode"
+            style="@style/layout_allwarp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbGeoPoint"
+                style="@style/work_record_darw_type"
+                android:background="@drawable/measure_switch_style2"
+                android:button="@null"
+                android:drawableTop="@mipmap/icon_mark_point"
+                android:drawablePadding="2dp"
+                android:text="点"
+                android:textColor="@color/whiteColor"
+                android:textSize="@dimen/nSize16" />
+
+            <RadioButton
+                android:id="@+id/rbGeoLine"
+                style="@style/work_record_darw_type"
+                android:background="@drawable/measure_switch_style2"
+                android:button="@null"
+                android:drawableTop="@mipmap/icon_mark_polyline"
+                android:drawablePadding="2dp"
+                android:text="线"
+                android:textColor="@color/whiteColor"
+                android:textSize="@dimen/nSize16" />
+
+            <RadioButton
+                android:id="@+id/rbGeoPolygon"
+                style="@style/work_record_darw_type"
+                android:background="@drawable/measure_switch_style2"
+                android:button="@null"
+                android:drawableTop="@mipmap/icon_mark_polygon"
+                android:drawablePadding="2dp"
+                android:text="面"
+                android:textColor="@color/whiteColor"
+                android:textSize="@dimen/nSize16" />
+
+            <RadioButton
+                android:id="@+id/rbGeoSelect"
+                style="@style/work_record_darw_type"
+                android:background="@drawable/measure_switch_style2"
+                android:button="@null"
+                android:drawableTop="@mipmap/icon_tools_c"
+                android:drawablePadding="2dp"
+                android:text="编辑"
+                android:textColor="@color/whiteColor"
+                android:textSize="@dimen/nSize16" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/llGeoUndo"
+            style="@style/layout_allwarp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvGeoUndo"
+                style="@style/measureMarkerBtns2"
+                android:drawableTop="@mipmap/icon_prestep"
+                android:drawablePadding="@dimen/nSize3"
+                android:text="撤销"
+                android:textColor="@color/whiteColor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llGeoClear"
+            style="@style/layout_allwarp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvGeoClear"
+                style="@style/measureMarkerBtns2"
+                android:drawableTop="@mipmap/icon_reset"
+                android:drawablePadding="@dimen/nSize3"
+                android:text="清除"
+                android:textColor="@color/whiteColor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llGeoClose"
+            style="@style/layout_allwarp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvGeoClose"
+                style="@style/measureMarkerBtns2"
+                android:drawableTop="@mipmap/icon_cancel_measure"
+                android:drawablePadding="@dimen/nSize3"
+                android:text="关闭"
+                android:textColor="@color/whiteColor" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center"
+        android:paddingVertical="2dp">
+
+        <TextView
+            android:id="@+id/tvGeoMeasureInfo"
+            style="@style/txt_small"
+            android:gravity="center"
+            android:textColor="#80FFFFFF"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

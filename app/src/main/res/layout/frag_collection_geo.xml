@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:background="@color/whiteColor">
+
+    <LinearLayout style="@style/layout_linear_vertical">
+
+        <TextView
+            android:id="@+id/tvGeoNodata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="暂无收藏"
+            android:textColor="@color/txt_black"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <!--        标绘收藏夹-->
+        <LinearLayout
+            android:id="@+id/llMarkerResult"
+            style="@style/layout_linear_vertical"
+            android:layout_weight="1"
+            android:background="@color/whiteColor"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <com.jameni.jamenilistlib.view.RefreshView
+                android:id="@+id/lvGeometyList"
+                style="@style/layout_linear_horizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:padding="8dp">
+
+            <TextView
+                    android:id="@+id/tvNewFolder"
+                    style="@style/txt_big"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="@dimen/nSize15"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_white_square"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize7"
+                    android:text="新建文件夹" />
+
+                <TextView
+                    android:id="@+id/tvOutPut"
+                    style="@style/txt_big"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_white_square"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize7"
+                    android:text="导出" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

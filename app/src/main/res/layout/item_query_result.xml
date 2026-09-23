@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="5dp">
+
+
+    <LinearLayout style="@style/layout_linear_horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="建设用地"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textColor="@color/whiteColor"/>
+        <TextView
+            android:id="@+id/tv_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 23条记录"
+            android:textSize="14sp"
+            android:textColor="@color/whiteColor"/>
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/arrow_right"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="@dimen/nSize5"
+        android:background="@drawable/bg_dash_line"
+        android:layerType="software"/>
+
+</LinearLayout>

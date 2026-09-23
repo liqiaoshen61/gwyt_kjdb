@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white"
+    android:orientation="vertical">
+
+    <!--    标题-->
+    <RelativeLayout
+        android:id="@+id/top"
+        style="@style/layout_normal"
+        android:background="@drawable/bg_header"
+        android:padding="@dimen/nSize10">
+
+        <TextView
+            android:id="@+id/tv_layer_name"
+            style="@style/txt_big_white"
+            android:layout_centerVertical="true"
+            android:text="坐标标绘" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:padding="@dimen/nSize10">
+
+        <TextView
+            style="@style/txt_normal"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="坐标范围:" />
+
+        <TextView
+            android:id="@+id/tvLimit"
+            style="@style/txt_normal"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="" />
+
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/layout_linear_horizontal">
+
+        <!--    左侧 点线面radioButton-->
+        <LinearLayout
+            style="@style/layout_allwarp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/nSize10"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/rgGeoType"
+                style="@style/layout_linear_vertical"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/nSize5"
+                android:background="@drawable/white_radius"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rbCoordinatePoint"
+                    style="@style/layout_allwarp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/coordinate_switch_style"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12"
+                    android:text="点"
+                    android:textColor="@drawable/coordinate_text_style"
+                    android:visibility="visible" />
+
+                <RadioButton
+                    android:id="@+id/rbCoordinatePolyline"
+                    style="@style/layout_allwarp"
+                    android:layout_marginTop="2px"
+                    android:background="@drawable/coordinate_switch_style"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12"
+                    android:text="线"
+                    android:textColor="@drawable/coordinate_text_style" />
+
+                <RadioButton
+                    android:id="@+id/rbCoordinatePolygon"
+                    style="@style/layout_allwarp"
+                    android:layout_marginTop="2px"
+                    android:background="@drawable/coordinate_switch_style"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12"
+                    android:text="面"
+                    android:textColor="@drawable/coordinate_text_style" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <!-- 点输入-->
+        <LinearLayout
+            android:id="@+id/llPointInput"
+            style="@style/layout_linear_vertical"
+            android:visibility="visible">
+
+            <RadioGroup
+                android:id="@+id/rgSwitch"
+                style="@style/layout_linear_horizontal"
+                android:layout_height="@dimen/nSize30"
+                android:layout_margin="@dimen/nSize15"
+                android:background="@drawable/white_radius"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/rbPlanePoint"
+                    style="@style/layout_allmatch"
+                    android:layout_weight="1"
+                    android:background="@drawable/coordinate_switch_style"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="平面坐标"
+                    android:textColor="@drawable/coordinate_text_style"
+                    android:visibility="visible" />
+
+                <RadioButton
+                    android:id="@+id/rbSpherePoint"
+                    style="@style/layout_allmatch"
+                    android:layout_marginLeft="2px"
+                    android:layout_weight="1"
+                    android:background="@drawable/coordinate_switch_style"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="球面坐标"
+                    android:textColor="@drawable/coordinate_text_style" />
+
+                <RadioButton
+                    android:id="@+id/rbSphere2Point"
+                    style="@style/layout_allmatch"
+                    android:layout_marginLeft="2px"
+                    android:layout_weight="1"
+                    android:background="@drawable/coordinate_switch_style"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="球面坐标(度分秒)"
+                    android:textColor="@drawable/coordinate_text_style" />
+            </RadioGroup>
+
+            <!--    平面坐标-->
+            <LinearLayout
+                android:id="@+id/llPlanePoint"
+                style="@style/layout_linear_vertical">
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="X：" />
+
+                    <EditText
+                        android:id="@+id/etXPoint"
+                        style="@style/edit_number" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="Y：" />
+
+                    <EditText
+                        android:id="@+id/etYPoint"
+                        style="@style/edit_number" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--    球面坐标-->
+            <LinearLayout
+                android:id="@+id/llSpherePoint"
+                style="@style/layout_linear_vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="经度：" />
+
+                    <EditText
+                        android:id="@+id/etLongitudePoint"
+                        style="@style/edit_number" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="纬度：" />
+
+                    <EditText
+                        android:id="@+id/etLatitudePoint"
+                        style="@style/edit_number" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--    球面坐标2-->
+            <LinearLayout
+                android:id="@+id/llSphere2Point"
+                style="@style/layout_linear_vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="经度：" />
+
+
+                    <EditText
+                        android:id="@+id/etLongitudeDegree"
+                        style="@style/edit_number"
+                        android:layout_weight="1" />
+
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:layout_marginLeft="@dimen/nSize2"
+                        android:layout_marginRight="@dimen/nSize8"
+                        android:text="°" />
+
+                    <EditText
+                        android:id="@+id/etLongitudeMinute"
+                        style="@style/edit_number"
+                        android:layout_weight="1" />
+
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:layout_marginLeft="@dimen/nSize2"
+                        android:layout_marginRight="@dimen/nSize8"
+                        android:text="′" />
+
+                    <EditText
+                        android:id="@+id/etLongitudeSecond"
+                        style="@style/edit_number"
+                        android:layout_weight="1" />
+
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:layout_marginLeft="@dimen/nSize2"
+                        android:layout_marginRight="@dimen/nSize8"
+                        android:text="″" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="纬度：" />
+
+                    <EditText
+                        android:id="@+id/etLatitudeDegree"
+                        style="@style/edit_number"
+                        android:layout_weight="1" />
+
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:layout_marginLeft="@dimen/nSize2"
+                        android:layout_marginRight="@dimen/nSize8"
+                        android:text="°" />
+
+                    <EditText
+                        android:id="@+id/etLatitudeMinute"
+                        style="@style/edit_number"
+                        android:layout_weight="1" />
+
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:layout_marginLeft="@dimen/nSize2"
+                        android:layout_marginRight="@dimen/nSize8"
+                        android:text="′" />
+
+                    <EditText
+                        android:id="@+id/etLatitudeSecond"
+                        style="@style/edit_number"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:layout_marginLeft="@dimen/nSize2"
+                        android:layout_marginRight="@dimen/nSize8"
+                        android:text="″" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 线和面输入-->
+        <LinearLayout
+            android:id="@+id/llPolyInput"
+            style="@style/layout_linear_vertical"
+            android:visibility="gone">
+
+            <RadioGroup
+                style="@style/layout_linear_horizontal"
+                android:layout_height="@dimen/nSize30"
+                android:layout_margin="@dimen/nSize15"
+                android:background="@drawable/white_radius"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/rbPlaneSingle"
+                    style="@style/layout_allmatch"
+                    android:layout_weight="1"
+                    android:background="@drawable/coordinate_switch_style"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="平面坐标"
+                    android:textColor="@drawable/coordinate_text_style"
+                    android:visibility="visible" />
+
+                <RadioButton
+                    android:id="@+id/rbPlaneMuti"
+                    style="@style/layout_allmatch"
+                    android:layout_marginLeft="2px"
+                    android:layout_weight="1"
+                    android:background="@drawable/coordinate_switch_style"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="平面坐标(多点)"
+                    android:textColor="@drawable/coordinate_text_style"
+                    android:visibility="visible" />
+
+
+                <RadioButton
+                    android:id="@+id/rbSphereSingele"
+                    style="@style/layout_allmatch"
+                    android:layout_marginLeft="2px"
+                    android:layout_weight="1"
+                    android:background="@drawable/coordinate_switch_style"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="球面坐标"
+                    android:textColor="@drawable/coordinate_text_style" />
+
+                <RadioButton
+                    android:id="@+id/rbSphereMuti"
+                    style="@style/layout_allmatch"
+                    android:layout_marginLeft="2px"
+                    android:layout_weight="1"
+                    android:background="@drawable/coordinate_switch_style"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="球面坐标(多点)"
+                    android:textColor="@drawable/coordinate_text_style" />
+            </RadioGroup>
+
+            <!--    平面坐标(单点输入)-->
+            <LinearLayout
+                android:id="@+id/llPlaneSingle"
+                style="@style/layout_linear_vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="X：" />
+
+                    <EditText
+                        android:id="@+id/etXSingle"
+                        style="@style/edit_number" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="Y：" />
+
+                    <EditText
+                        android:id="@+id/etYSingle"
+                        style="@style/edit_number" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/layout_linear_vertical"
+                    android:padding="@dimen/nSize10">
+
+                    <TextView
+                        android:id="@+id/tvAddPlanePoint"
+                        style="@style/txt_normal"
+                        android:background="@drawable/bg_area_town"
+                        android:padding="8dp"
+                        android:text="添加坐标" />
+
+                    <TextView
+                        android:id="@+id/tvPlanepointList"
+                        style="@style/txt_normal"
+                        android:layout_marginTop="@dimen/nSize10"
+                        android:text="" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--    平面坐标(多点输入)-->
+            <LinearLayout
+                android:id="@+id/llPlaneMuti"
+                style="@style/layout_linear_vertical"
+                android:layout_marginTop="@dimen/nSize20"
+                android:layout_marginBottom="@dimen/nSize20"
+                android:visibility="gone">
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="坐标：" />
+
+                    <EditText
+                        android:id="@+id/etPlaneMuti"
+                        style="@style/edit_coordinate"
+                        android:digits="1234567890.,;"
+                        android:hint="格式：x1,y1;x2,y2" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--    球面坐标(单点输入)-->
+            <LinearLayout
+                android:id="@+id/llSphereSingle"
+                style="@style/layout_linear_vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="经度：" />
+
+                    <EditText
+                        android:id="@+id/etLongitudeSingle"
+                        style="@style/edit_number" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="纬度：" />
+
+                    <EditText
+                        android:id="@+id/etLatitudeSingle"
+                        style="@style/edit_number" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/layout_linear_vertical"
+                    android:padding="@dimen/nSize10">
+
+                    <TextView
+                        android:id="@+id/tvAddSpherePoint"
+                        style="@style/txt_normal"
+                        android:background="@drawable/bg_area_town"
+                        android:padding="8dp"
+                        android:text="添加坐标" />
+
+                    <TextView
+                        android:id="@+id/tvSpherepointList"
+                        style="@style/txt_normal"
+                        android:layout_marginTop="@dimen/nSize10"
+                        android:text="" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--    球面坐标(多点输入)-->
+            <LinearLayout
+                android:id="@+id/llSphereMuti"
+                style="@style/layout_linear_vertical"
+                android:layout_marginTop="@dimen/nSize20"
+                android:layout_marginBottom="@dimen/nSize20"
+                android:visibility="gone">
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center"
+                    android:padding="@dimen/nSize12">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:text="坐标：" />
+
+                    <EditText
+                        android:id="@+id/etSphereMuti"
+                        style="@style/edit_coordinate"
+                        android:digits="1234567890.,;"
+                        android:hint="格式：经度1,纬度1;经度2,纬度2"
+                        android:inputType="text" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <View
+        style="@style/layout_normal"
+        android:layout_height="@dimen/nSize1"
+        android:layout_marginTop="@dimen/nSize10"
+        android:background="@color/txt_gray" />
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize45"
+        android:background="@color/bg_gray">
+
+        <TextView
+            android:id="@+id/tvCancle"
+            style="@style/txt_big"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:text="取消" />
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:background="@color/txt_gray" />
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/txt_big"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:text="确定" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/llDialog"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@color/whiteColor">
+
+    <TextView
+        style="@style/txt_normal_blue"
+        android:padding="@dimen/nSize10"
+        android:text="标绘"
+        android:textSize="@dimen/t20sp" />
+
+    <View
+        style="@style/layout_normal"
+        android:layout_height="@dimen/nSize1"
+        android:background="@color/main_color"
+        android:layout_marginBottom="@dimen/nSize10"/>
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:padding="@dimen/nSize5">
+
+        <TextView
+            style="@style/txt_big"
+            android:text="移动至"
+            android:layout_gravity="center"/>
+        <Spinner
+            android:id="@+id/spType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"></Spinner>
+    </LinearLayout>
+
+
+    <View
+        style="@style/layout_normal"
+        android:layout_height="@dimen/nSize1"
+        android:layout_marginTop="@dimen/nSize10"
+        android:background="@color/txt_gray" />
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize45"
+        android:background="@color/bg_gray">
+
+        <TextView
+            android:id="@+id/tvCancle"
+            style="@style/txt_big"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:text="取消" />
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:background="@color/txt_gray" />
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/txt_big"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:text="确定" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,52 @@
+[
+    {
+        "distName": "福州市",
+        "distCode": "3501",
+        "distLevel": 2
+    },
+    {
+        "distName": "厦门市",
+        "distCode": "3502",
+        "distLevel": 2
+    },
+    {
+        "distName": "莆田市",
+        "distCode": "3503",
+        "distLevel": 2
+    },
+    {
+        "distName": "三明市",
+        "distCode": "3504",
+        "distLevel": 2
+    },
+    {
+        "distName": "泉州市",
+        "distCode": "3505",
+        "distLevel": 2
+    },
+    {
+        "distName": "漳州市",
+        "distCode": "3506",
+        "distLevel": 2
+    },
+    {
+        "distName": "南平市",
+        "distCode": "3507",
+        "distLevel": 2
+    },
+    {
+        "distName": "龙岩市",
+        "distCode": "3508",
+        "distLevel": 2
+    },
+    {
+        "distName": "宁德市",
+        "distCode": "3509",
+        "distLevel": 2
+    },
+    {
+        "distName": "平潭综合实验区",
+        "distCode": "3510",
+        "distLevel": 2
+    }
+]

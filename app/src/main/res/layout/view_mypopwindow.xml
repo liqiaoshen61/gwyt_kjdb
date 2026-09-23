@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   style="@style/layout_allwarp"
+    android:orientation="vertical"
+    android:padding="@dimen/nSize5"
+    android:background="@drawable/bg_blue_square6">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lvMain"
+        style="@style/layout_allwarp" />
+</LinearLayout>

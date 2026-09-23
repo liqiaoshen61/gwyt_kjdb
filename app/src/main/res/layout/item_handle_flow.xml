@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llItem"
+    style="@style/layout_linear_horizontal">
+
+    <View
+        android:id="@+id/viewLift"
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_blue_btn2"/>
+
+    <LinearLayout
+        style="@style/layout_linear_vertical"
+        android:paddingHorizontal="@dimen/nSize10"
+        android:paddingVertical="@dimen/nSize10">
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvUser"
+                style="@style/txt_normal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="处理人"
+                android:textColor="#343434"
+                android:textSize="@dimen/nSize18" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                style="@style/txt_normal_gray"
+                android:layout_marginHorizontal="@dimen/nSize2"
+                android:paddingHorizontal="@dimen/nSize8"
+                android:paddingVertical="@dimen/nSize4"
+                android:text="处理时间"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvContent"
+            style="@style/txt_normal"
+            android:text="处理内容"
+            android:textColor="#343434"
+            android:textSize="@dimen/nSize16" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            style="@style/txt_normal"
+            android:text="处理状态"
+            android:textColor="#343434"
+            android:textSize="@dimen/nSize16" />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

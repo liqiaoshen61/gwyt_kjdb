@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout_allmatch"
+    android:background="@color/whiteColor">
+
+
+
+    <LinearLayout
+        style="@style/layout_allmatch"
+        android:orientation="horizontal"
+        android:gravity="top">
+
+        <!--地图-->
+        <RelativeLayout
+            android:id="@+id/llMap"
+            style="@style/layout_allmatch"
+            android:layout_weight="1">
+
+            <com.esri.arcgisruntime.mapping.view.MapView
+                android:id="@+id/mapView"
+                style="@style/layout_allmatch" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal">
+
+                <!--右下角小工具-->
+                <include
+                    android:id="@+id/includeViewRightTools"
+                    layout="@layout/view_rigth_tools" />
+
+                <ImageView
+                    android:id="@+id/ivFragmentSwitch"
+                    android:layout_width="@dimen/nSize25"
+                    android:layout_height="@dimen/nSize200"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/icon_arrow_close"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/llRightFragment"
+                    style="@style/layout_allmatch">
+                    <!--行政区划-->
+                    <include
+                        android:id="@+id/includeViewAreaList"
+                        layout="@layout/view_area_list" />
+                    <!--我的收藏-->
+                    <include
+                        android:id="@+id/includeViewCollection"
+                        layout="@layout/view_collection" />
+                    <!--标绘收藏(工作记录)-->
+                    <include
+                        android:id="@+id/includeViewGeoCollection"
+                        layout="@layout/view_geo_collection" />
+                    <!---标绘收藏(工作记录) 统计-->
+                    <include
+                        android:id="@+id/includeViewCollectionStatis"
+                        layout="@layout/view_collection_statis" />
+                    <!--搜索-->
+                    <include
+                        android:id="@+id/includeViewSearch"
+                        layout="@layout/view_search" />
+                    <!--切换地图-->
+                    <include
+                        android:id="@+id/includeViewSwitchMap"
+                        layout="@layout/view_switch_map" />
+
+                    <!--空间查询结果列表-->
+                    <include
+                        android:id="@+id/includeViewQueryResultList"
+                        layout="@layout/view_query_result_list" />
+                    <!--空间查询结果列表的详情-->
+                    <include
+                        android:id="@+id/includeViewQueryResultDetail"
+                        layout="@layout/view_query_result_detail" />
+                    <!--空间查询结果列表的详情列表-->
+                    <include
+                        android:id="@+id/includeViewQueryResultDetailList"
+                        layout="@layout/view_query_result_detail_list" />
+                    <!--空间查询结果 一键分析报告-->
+                    <include
+                        android:id="@+id/includeViewQueryResultReport"
+                        layout="@layout/view_query_result_report" />
+                    <!--叠加分析结果列表-->
+                    <include
+                        android:id="@+id/includeViewOverlyAnalysisResultList"
+                        layout="@layout/view_overlay_analysis_result_list" />
+
+                    <include
+                        android:id="@+id/includeViewQueryBufferResultList"
+                        layout="@layout/view_query_buffer_result_list" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <CheckBox
+                android:id="@+id/cbLegend"
+                style="@style/measureMarkerBtns"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_tuli"
+                android:padding="@dimen/nSize11"
+                android:text="图例"
+                android:visibility="gone" />
+
+            <!--图例-->
+            <uk.co.senab.photoview.PhotoView
+                android:id="@+id/imgLegend"
+                style="@style/layout_allwarp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/nSize90"
+                android:background="@color/red"
+                android:visibility="gone" />
+
+            <!-- 几何编辑：浮动完成按钮（跟随最后一个顶点） -->
+            <TextView
+                android:id="@+id/tvGeoFinishFloating"
+                style="@style/layout_allwarp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="✓"
+                android:textColor="@color/whiteColor"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_green_gradient_border"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <!--对比地图-->
+        <RelativeLayout
+            android:id="@+id/llMap2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/bg_gray"
+            android:visibility="gone">
+
+            <com.esri.arcgisruntime.mapping.view.MapView
+                android:id="@+id/mapView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                style="@style/layout_allwarp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:gravity="left"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/ivClearCompareMap"
+                    android:layout_width="@dimen/nSize40"
+                    android:layout_height="@dimen/nSize40"
+                    android:layout_marginBottom="@dimen/nSize12"
+                    android:src="@mipmap/icon_little_clear_map" />
+
+                <ImageView
+                    android:id="@+id/tvShowCompareLayer"
+                    android:layout_width="@dimen/nSize40"
+                    android:layout_height="@dimen/nSize40"
+                    android:layout_marginBottom="@dimen/nSize5"
+                    android:src="@mipmap/logo_layerlist_complete"
+                    android:text="地图" />
+
+                <ImageView
+                    android:id="@+id/ivChangeBaseMap2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/icon_vector_map" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgCancleCompareMap"
+                android:layout_width="@dimen/nSize35"
+                android:layout_height="@dimen/nSize35"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/nSize5"
+                android:layout_margin="@dimen/nSize10"
+                android:src="@mipmap/feedback_close2" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal">
+
+                <include
+                    android:id="@+id/includeSwitchMapPare"
+                    layout="@layout/view_switch_map_compare" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvBaseMapInfo"
+        style="@style/txt_normal_white"
+        android:layout_alignParentBottom="true"
+        android:paddingHorizontal="@dimen/nSize6"
+        android:paddingVertical="@dimen/nSize3"
+        android:text="当前影像：影像底图2018"
+        android:visibility="visible"
+        android:background="@color/half_black2"/>
+
+    <!--  顶部模块：行政区划 全局搜索 空间检索  -->
+    <LinearLayout
+        style="@style/layout_allwarp"
+        android:layout_marginLeft="@dimen/nSize100"
+        android:layout_marginTop="@dimen/nSize20"
+        android:gravity="top">
+
+        <!--    1行政区划    -->
+        <RelativeLayout
+            style="@style/layout_allwarp"
+            android:layout_width="@dimen/nSize100"
+            android:gravity="center"
+            android:background="@mipmap/bg_marker_action"
+            android:visibility="gone">
+
+
+            <LinearLayout
+               style="@style/layout_linear_horizontal"
+                android:layout_width="wrap_content"
+                android:gravity="center">
+
+                <ImageView
+                   style="@style/imgStyle20"
+                    android:src="@mipmap/icon_top_menu_location"/>
+
+                <TextView
+                    android:id="@+id/tvArea"
+                    style="@style/layout_allwarp"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="@dimen/nSize3"
+                    android:text="行政区划" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!--  1行政区划    -->
+        <com.jwch.gwyt_project.view.EasyAreaView
+            android:id="@+id/easyArea"
+            android:layout_height="wrap_content"
+            style="@style/layout_linear_vertical"
+            android:layout_width="wrap_content"
+            android:paddingVertical="10dp" />
+
+        <!--  2全局搜索    -->
+        <com.jwch.gwyt_project.view.EasySearchBarView
+            android:id="@+id/easySearchBar"
+            android:layout_height="wrap_content"
+            style="@style/layout_linear_vertical"
+            android:layout_width="wrap_content"
+            android:paddingVertical="10dp"
+            android:layout_marginStart="@dimen/nSize20"/>
+
+        <!--  3空间检索    -->
+        <com.jwch.gwyt_project.view.EasyBufferQueryView
+            android:id="@+id/easyBufferQuery"
+            android:layout_height="wrap_content"
+            style="@style/layout_linear_vertical"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/nSize20"
+            android:paddingVertical="10dp" />
+    </LinearLayout>
+
+
+
+    <!--左侧菜单栏-->
+    <include
+        android:id="@+id/includeMenuList"
+        layout="@layout/view_menu_list" />
+    <!--测量操作-->
+    <include
+        android:id="@+id/includeViewMeasureActions"
+        layout="@layout/view_mesure_actions" />
+    <!--标绘操作-->
+    <RelativeLayout
+       style="@style/layout_allwarp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+        <include
+            android:id="@+id/includeViewMarkerActions"
+            layout="@layout/view_marker_actions" />
+    </RelativeLayout>
+
+    <!--空间检索（缓冲区分析）操作 -->
+    <include
+        android:id="@+id/includeViewBufferActions"
+        layout="@layout/view_buffer_analysis_actions" />
+
+
+
+    <!--手势查询操作-->
+    <include
+        android:id="@+id/includeViewHandSearchActions"
+        layout="@layout/view_hand_search_actions" />
+    <!--工具箱-->
+    <include
+        android:id="@+id/includeViewTool"
+        layout="@layout/view_tools" />
+    <!--数据加载进度-->
+    <include
+        android:id="@+id/includeViewLoadingData"
+        layout="@layout/view_loading_data" />
+    <!--搜索详情-->
+    <include
+        android:id="@+id/includeViewFragDatail"
+        layout="@layout/view_frag_detail" />
+    <!--搜索详情2-->
+    <include
+        android:id="@+id/includeViewFragDatail2"
+        layout="@layout/view_frag_detail2" />
+    <!--叠加分析操作-->
+    <include
+        android:id="@+id/includeViewOverlyAnalysisActions"
+        layout="@layout/view_overly_analysis_actions" />
+
+
+    <TextView
+        android:id="@+id/tvContinuous"
+        style="@style/txt_big"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/nSize5"
+        android:text="持续定位中..."
+        android:textStyle="bold"
+        android:textColor="@color/main_color"
+        android:visibility="gone"/>
+
+    <!-- 单次定位：等待GPS锁定期间的状态提示（在 tvContinuous 上方，避免叠加） -->
+    <TextView
+        android:id="@+id/tvLocating"
+        style="@style/txt_big"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/nSize5"
+        android:layout_marginEnd="@dimen/nSize5"
+        android:layout_marginBottom="@dimen/nSize30"
+        android:background="@color/half_black2"
+        android:paddingHorizontal="@dimen/nSize10"
+        android:paddingVertical="@dimen/nSize3"
+        android:text="正在定位，请稍候…"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnVerifyGpkg"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="验证 GPKG" />
+
+    <!-- 几何编辑器 -->
+    <include
+        android:id="@+id/includeViewGeometryEditor"
+        layout="@layout/view_geometry_editor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
+
+    <Button
+        android:id="@+id/btnGeometryEditor"
+        style="@style/layout_allwarp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/nSize10"
+        android:layout_width="60dp"
+        android:layout_height="36dp"
+        android:text="编辑"
+        android:textSize="13sp"
+        android:textColor="@color/whiteColor"
+        android:background="@drawable/bg_green_gradient_border"
+        android:visibility="gone"/>
+
+
+
+
+
+</RelativeLayout>

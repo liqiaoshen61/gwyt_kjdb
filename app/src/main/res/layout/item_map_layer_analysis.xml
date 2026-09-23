@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemContent"
+    style="@style/layout_linear_vertical"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="8dp"
+    android:paddingTop="@dimen/nSize5">
+
+
+    <LinearLayout style="@style/layout_linear_horizontal">
+
+        <TextView
+            android:id="@+id/tvIndex"
+            style="@style/layout_allwarp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/nSize12"
+            android:textStyle="bold"
+            android:textColor="@color/whiteColor"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            style="@style/layout_linear_vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/txt_normal_white"
+                android:layout_weight="1"
+                android:text="@string/app_name"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tvAreaSize"
+                style="@style/txt_normal_white"
+                android:layout_marginTop="@dimen/nSize8"
+                android:layout_weight="1"
+                android:text="@string/app_name"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvExpertExcel"
+            style="@style/txt_normal_white"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/nSize5"
+            android:text="导出"
+            android:visibility="visible"
+            android:padding="@dimen/nSize3"
+            android:background="@drawable/bg_white_square"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/vDashLine"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/bg_dash_line"
+        android:layerType="software"
+        android:layout_marginTop="6dp"
+/>
+
+
+</LinearLayout>

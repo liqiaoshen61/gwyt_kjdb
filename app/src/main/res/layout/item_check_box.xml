@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlCheckItem"
+    style="@style/layout_allwarp"
+    android:background="@drawable/bg_checkbox_unselect"
+    android:layout_marginVertical="@dimen/nSize2"
+    android:layout_marginEnd="@dimen/nSize6"
+    android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ivCheckItem"
+            style="@style/imgStyle20"
+            android:src="@mipmap/icon_square_unselect"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvCheckItem"
+            android:paddingLeft="@dimen/nSize15"
+            android:paddingRight="@dimen/nSize15"
+            android:paddingTop="@dimen/nSize4"
+            android:paddingBottom="@dimen/nSize4"
+            style="@style/txt_normal_white"
+            android:textSize="@dimen/nSize13"
+            android:text="item" />
+
+
+        <ImageView
+            android:id="@+id/ivCheckIcon"
+            style="@style/imgStyle20"
+            android:src="@mipmap/icon_check_blue"
+            android:layout_alignEnd="@+id/tvCheckItem"
+            android:layout_alignBottom="@+id/tvCheckItem"
+            android:visibility="gone" />
+
+
+
+</RelativeLayout>

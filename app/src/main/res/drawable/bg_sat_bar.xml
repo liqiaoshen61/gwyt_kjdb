@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 轨道底色 -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="2dp" />
+            <solid android:color="@color/sat_bar_bg" />
+        </shape>
+    </item>
+    <!-- 信号进度（颜色由代码 progressTint 覆盖为各星座色） -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <corners android:radius="2dp" />
+                <solid android:color="@color/white" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

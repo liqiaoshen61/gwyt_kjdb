@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="#33000000"
+    android:padding="24dp">
+
+    <LinearLayout
+      style="@style/layout_linear_horizontal"
+        android:layout_marginVertical="@dimen/nSize2">
+        <TextView
+            android:id="@+id/tvTime"
+            style="@style/txt_big_white"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="26sp"
+            android:text="时间时间时间时间时间时间时间时间时间时间时间时间时间时间" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_marginVertical="@dimen/nSize2">
+        <TextView
+            android:id="@+id/tvLocation"
+            style="@style/txt_big_white"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="26sp"
+            android:text="9999999999999999999999999999999999999999999999999"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_marginVertical="@dimen/nSize2">
+        <TextView
+            android:id="@+id/tvLatLng"
+            style="@style/txt_big_white"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="26sp"
+            android:text="经纬度经纬度经纬度经纬度经纬度经纬度经纬度经纬度" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

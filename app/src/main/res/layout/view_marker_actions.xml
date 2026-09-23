@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llMarkerActions"
+    style="@style/layout_allwarp"
+    android:background="@mipmap/bg_marker_action"
+    android:gravity="center"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    android:padding="@dimen/nSize5"
+    android:layout_marginBottom="@dimen/nSize10"
+    android:visibility="gone">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:paddingHorizontal="@dimen/nSize10">
+
+        <RadioGroup
+            android:id="@+id/rgMarker"
+            style="@style/layout_allwarp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbPoint"
+                style="@style/work_record_darw_type"
+                android:background="@drawable/measure_switch_style2"
+                android:button="@null"
+                android:drawableStart="@mipmap/icon_mark_point"
+                android:drawablePadding="4dp"
+                android:text="点"
+                android:textColor="@color/whiteColor"
+                android:textSize="@dimen/nSize16" />
+
+            <RadioButton
+                android:id="@+id/rbLine"
+                style="@style/work_record_darw_type"
+                android:background="@drawable/measure_switch_style2"
+                android:button="@null"
+                android:drawableStart="@mipmap/icon_mark_polyline"
+                android:drawablePadding="4dp"
+                android:text="线"
+                android:textSize="@dimen/nSize16"
+                android:textColor="@color/whiteColor" />
+
+            <RadioButton
+                android:id="@+id/rbPolygon"
+                style="@style/work_record_darw_type"
+                android:layout_width="wrap_content"
+                android:background="@drawable/measure_switch_style2"
+                android:button="@null"
+                android:drawableLeft="@mipmap/icon_mark_polygon"
+                android:drawablePadding="4dp"
+                android:text="面"
+                android:textSize="@dimen/nSize16"
+                android:textColor="@color/whiteColor" />
+
+
+            <RadioButton
+                android:id="@+id/tvPoiMarker"
+                style="@style/measureMarkerBtns"
+                android:layout_width="wrap_content"
+                android:background="@drawable/measure_switch_style2"
+                android:button="@null"
+                android:drawableTop="@mipmap/icon_coordinate"
+                android:drawablePadding="3dp"
+                android:text="坐标标绘"
+                android:textColor="@color/whiteColor"
+                android:visibility="gone" />
+
+
+            <RadioButton
+                android:id="@+id/rbText"
+                style="@style/measureMarkerBtns"
+                android:button="@null"
+                android:drawableTop="@drawable/m_text"
+                android:text="文字"
+                android:visibility="gone" />
+        </RadioGroup>
+
+
+        <LinearLayout
+            android:id="@+id/llMarkerUnit"
+            style="@style/layout_allwarp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvMarkerUnit"
+                style="@style/measureMarkerBtns2"
+                android:text="单位"
+                android:drawablePadding="@dimen/nSize3"
+                android:drawableLeft="@mipmap/icon_unit"
+                android:textColor="@color/whiteColor" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llMarkerPreStep"
+            style="@style/layout_allwarp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvMarkerPreStep"
+                style="@style/measureMarkerBtns2"
+                android:text="回退"
+                android:drawablePadding="@dimen/nSize3"
+                android:drawableLeft="@mipmap/icon_prestep"
+                android:textColor="@color/whiteColor" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llMarkerReset"
+            style="@style/layout_allwarp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvMarkerReset"
+                style="@style/measureMarkerBtns2"
+                android:text="重置"
+                android:drawablePadding="@dimen/nSize3"
+                android:drawableLeft="@mipmap/icon_reset"
+                android:textColor="@color/whiteColor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMarkerSave"
+            style="@style/layout_allwarp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvMarkerSave"
+                style="@style/measureMarkerBtns2"
+                android:text="保存"
+                android:drawablePadding="@dimen/nSize3"
+                android:drawableLeft="@mipmap/icon_mark_save"
+                android:textColor="@color/whiteColor" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llCancleMarker"
+            style="@style/layout_allwarp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvCancleMarker"
+                style="@style/measureMarkerBtns2"
+                android:text="关闭"
+                android:drawablePadding="@dimen/nSize3"
+                android:drawableLeft="@mipmap/icon_cancel_measure"
+                android:textColor="@color/whiteColor" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+       style="@style/layout_linear_vertical"
+        android:paddingVertical="6dp"
+        android:paddingHorizontal="@dimen/nSize8">
+
+        <TextView
+            style="@style/txt_normal_white"
+            android:layout_gravity="center"
+            android:text="操作说明：1.选择绘制模式   2.标记点位   3.保存"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlItem"
+    style="@style/layout_normal"
+    android:background="@color/whiteColor"
+    android:paddingBottom="@dimen/nSize9"
+    android:paddingTop="@dimen/nSize9">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/nSize30"
+        android:layout_height="@dimen/nSize30"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/nSize10"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="visible" />
+
+
+    <TextView
+        android:id="@+id/tvName"
+        style="@style/txt_normal_singleLine"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/nSize10"
+        android:layout_toRightOf="@+id/logo"
+        android:text="text" />
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/nSize10"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvTip"
+            style="@style/txt_normal_singleLine"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/nSize5"
+            android:text="aada"
+            android:textColor="@color/txt_gray" />
+
+        <ImageView
+            android:id="@+id/imgArrow"
+            android:layout_width="@dimen/nSize30"
+            android:layout_height="@dimen/nSize30"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_launcher"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/nSize30"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

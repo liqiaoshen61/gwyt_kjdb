@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/llEasyAreaView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_width="wrap_content"
+    android:background="@drawable/bg_te11111111111"
+    android:padding="@dimen/nSize8"
+    android:layout_marginBottom="@dimen/nSize5">
+
+    <LinearLayout
+        android:id="@+id/llArea"
+        style="@style/layout_allwarp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/nSize3">
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                style="@style/imgStyle20"
+                android:layout_marginEnd="@dimen/nSize3"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_buffer_query"/>
+
+            <TextView
+                android:id="@+id/tvArea"
+                style="@style/txt_big_white"
+                android:textColor="@color/white"
+                android:text="空间检索" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivClose"
+            style="@style/imgStyle25"
+            android:src="@mipmap/close_wd"
+            android:layout_marginStart="@dimen/nSize5"
+            android:padding="@dimen/nSize5"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llcontent"
+        style="@style/layout_linear_vertical"
+        android:layout_width="wrap_content"
+        android:layout_marginVertical="@dimen/nSize12"
+        android:layout_marginStart="@dimen/nSize3"
+        android:visibility="gone">
+
+        <!--   查询模式选择 -->
+        <LinearLayout
+            style="@style/layout_linear_horizontal">
+
+            <LinearLayout
+                android:id="@+id/llBufferLoaction"
+                style="@style/layout_allwarp"
+                android:orientation="horizontal"
+                android:layout_marginEnd="@dimen/nSize20"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/ivBufferLoaction"
+                    style="@style/imgStyle20"
+                    android:layout_marginRight="@dimen/nSize5"
+                    android:src="@mipmap/icon_buffer_location2"/>
+
+                <TextView
+                    android:id="@+id/tvBufferLoaction"
+                    style="@style/txt_big_white"
+                    android:text="当前定位" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llBufferCustom"
+                style="@style/layout_allwarp"
+                android:orientation="horizontal"
+                android:layout_marginEnd="@dimen/nSize20"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/ivBufferCustom"
+                    style="@style/imgStyle20"
+                    android:layout_marginRight="@dimen/nSize5"
+                    android:src="@mipmap/icon_buffer_click2"/>
+
+                <TextView
+                    android:id="@+id/tvBufferCustom"
+                    style="@style/txt_big_white"
+                    android:text="地图选点" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llBufferInput"
+                style="@style/layout_allwarp"
+                android:orientation="horizontal"
+                android:layout_marginEnd="@dimen/nSize20"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/ivBufferInput"
+                    style="@style/imgStyle20"
+                    android:layout_marginRight="@dimen/nSize5"
+                    android:src="@mipmap/icon_edit2"/>
+
+                <TextView
+                    android:id="@+id/tvBufferInput"
+                    style="@style/txt_big_white"
+                    android:text="输入坐标" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llBufferReset"
+                style="@style/layout_allwarp"
+                android:layout_marginEnd="@dimen/nSize5"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="gone">
+                <ImageView
+                    android:id="@+id/ivBufferReset"
+                    style="@style/imgStyle15"
+                    android:src="@mipmap/icon_reset"/>
+
+                <TextView
+                    android:id="@+id/tvBufferReset"
+                    style="@style/txt_normal_white"
+                    android:text="重置" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llCancelBuffer"
+                style="@style/layout_allwarp"
+                android:orientation="horizontal"
+                android:layout_marginEnd="@dimen/nSize5"
+                android:gravity="center"
+                android:visibility="gone">
+                <ImageView
+                    android:id="@+id/ivCancelBuffer"
+                    style="@style/imgStyle15"
+                    android:src="@mipmap/icon_cancel_measure"/>
+
+                <TextView
+                    android:id="@+id/tvCancelBuffer"
+                    style="@style/txt_normal_white"
+                    android:text="关闭" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--     缓冲区选择 -->
+        <LinearLayout
+           style="@style/layout_linear_horizontal"
+            android:layout_marginTop="@dimen/nSize8">
+
+            <TextView
+                style="@style/txt_big_white"
+                android:layout_width="wrap_content"
+                android:text="缓冲范围："/>
+
+            <TextView
+                android:id="@+id/tvDistance"
+                style="@style/txt_big_white"
+                android:layout_width="@dimen/nSize55"
+                android:text="100米" />
+
+            <SeekBar
+                android:id="@+id/sbBuffer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:max="100"
+                android:maxHeight="6dp"
+                android:progress="0"
+                android:progressDrawable="@drawable/bg_seekbar"
+                android:thumb="@drawable/icon_seekbar_thumb" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
+
+
+

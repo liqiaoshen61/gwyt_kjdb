@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layout_linear_vertical">
+
+
+    <LinearLayout
+       style="@style/layout_linear_vertical"
+        android:paddingHorizontal="@dimen/nSize9"
+        android:paddingVertical="@dimen/nSize8">
+
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+               style="@style/layout_linear_vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvQuestionDes"
+                    style="@style/txt_normal"
+                    android:textColor="#343434"
+                    android:textSize="@dimen/nSize18"
+                    android:text="1235" />
+
+                <TextView
+                    android:id="@+id/tvTime"
+                    style="@style/txt_normal_gray"
+                    android:layout_marginHorizontal="@dimen/nSize2"
+                    android:paddingVertical="@dimen/nSize2"
+                    android:text="复核时间"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/imgEdit"
+                style="@style/txt_big_blue"
+                android:paddingHorizontal="@dimen/nSize8"
+                android:paddingVertical="@dimen/nSize4"
+                android:text="编辑"
+                android:background="@drawable/bg_blue_hollow_border6"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/imgDelete"
+                style="@style/txt_big_blue"
+                android:paddingHorizontal="@dimen/nSize8"
+                android:paddingVertical="@dimen/nSize4"
+                android:layout_marginStart="@dimen/nSize10"
+                android:text="删除"
+                android:textColor="@color/red"
+                android:background="@drawable/bg_red_hollow_border6"
+                android:visibility="visible"/>
+
+
+        </LinearLayout>
+
+        <com.jwch.gwyt_project.view.GridAddImage
+            android:id="@+id/viewImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:column_count="3"
+            app:isLoadFromMemory="false"
+            app:max_count="3"
+            app:nameColor="1"
+            app:title_visiable="false"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

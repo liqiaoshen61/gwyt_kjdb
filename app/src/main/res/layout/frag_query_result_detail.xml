@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:padding="@dimen/nSize10"
+    android:background="@drawable/bg_main_gradient"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:text="标题"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/ivQueryDetailBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/icon_back"/>
+
+        <ImageView
+            android:id="@+id/ivQueryDetailClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/feedback_close"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize3"
+        android:layout_marginBottom="@dimen/nSize8"
+        android:background="@drawable/bg_blue_line"/>
+
+    <!--    切换Tap-->
+    <RadioGroup
+        android:id="@+id/rgSwitch"
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize30"
+        android:background="@drawable/bg_switch_map_bar"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/rbPie"
+            style="@style/layout_allmatch"
+            android:layout_weight="1"
+            android:background="@drawable/map_switch_style"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="统计图"
+            android:textColor="@drawable/map_text_style"
+            android:visibility="visible" />
+
+        <RadioButton
+            android:id="@+id/rbList"
+            style="@style/layout_allmatch"
+            android:layout_weight="1"
+            android:background="@drawable/map_switch_style"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="统计表"
+            android:textColor="@drawable/map_text_style"
+            android:visibility="visible" />
+
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="@dimen/nSize5">
+
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/llList"
+            style="@style/layout_linear_vertical"
+            android:paddingTop="@dimen/nSize15"
+            android:visibility="gone">
+
+            <include layout="@layout/item_table_title" />
+
+            <com.jameni.jamenilistlib.view.RefreshView
+                android:id="@+id/lvTable"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="visible"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/bg_blue_line" />
+
+    <LinearLayout
+        android:id="@+id/rlDetail"
+        style="@style/layout_normal"
+        android:background="@drawable/bg_clear_maps"
+        android:padding="@dimen/nSize5">
+
+        <TextView
+            style="@style/txt_normal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="详情"
+            android:textColor="@color/very_dark_blue"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</LinearLayout>

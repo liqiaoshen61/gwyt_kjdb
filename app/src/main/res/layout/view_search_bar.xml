@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_marginTop="@dimen/nSize5"
+    android:layout_marginBottom="@dimen/nSize5"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/llSearchBar"
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize35"
+        android:background="@drawable/bg_search_bar"
+        android:gravity="center_vertical"
+        android:padding="3dp">
+
+        <EditText
+            android:id="@+id/etSearch"
+            style="@style/layout_allmatch"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请输入搜索内容"
+            android:textColor="@color/whiteColor"
+            android:textColorHint="@color/bg_gray"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+
+
+        <ImageView
+            android:id="@+id/tvClear"
+            style="@style/txt_normal"
+            android:layout_height="@dimen/nSize25"
+            android:gravity="center"
+            android:src="@mipmap/close_wd"
+            android:padding="5dp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvSearch"
+            style="@style/txt_normal"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/whiteColor"
+            android:paddingLeft="@dimen/nSize7"
+            android:paddingRight="@dimen/nSize7"
+            android:text="搜索" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

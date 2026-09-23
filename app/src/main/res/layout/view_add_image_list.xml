@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llAddImage"
+    style="@style/layout_linear_vertical"
+    android:background="@color/bg_gray">
+
+    <com.jwch.gwyt_project.view.TextLine
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/nSize1"
+        app:key="上传照片" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lvPic"
+        style="@style/layout_normal"
+        android:padding="@dimen/nSize10"
+        android:background="@color/whiteColor" />
+
+
+
+
+
+</LinearLayout>

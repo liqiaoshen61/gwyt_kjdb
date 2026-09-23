@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pageContent"
+    style="@style/layout_allmatch">
+
+    <ListView
+        android:id="@+id/lvMain"
+        style="@style/layout_allmatch"
+        android:scrollbars="none"/>
+</RelativeLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray">
+
+    <LinearLayout
+        style="@style/layout_normal"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.jwch.gwyt_project.view.EditLine
+            style="@style/layout_normal"
+            android:layout_marginTop="@dimen/nSize1"
+            app:hint="请输入农房面积"
+            app:key="农房面积：" />
+
+        <com.jwch.gwyt_project.view.EditLine
+            style="@style/layout_normal"
+            android:layout_marginTop="@dimen/nSize1"
+            app:hint="请输入农房地址"
+            app:key="农房地址：" />
+
+        <com.jwch.gwyt_project.view.EditLine
+            style="@style/layout_normal"
+            android:layout_marginTop="@dimen/nSize1"
+            app:hint="请输入占用生态红线面积"
+            app:key="占用面积：" />
+
+        <com.jwch.gwyt_project.view.EditLine
+            style="@style/layout_normal"
+            android:layout_marginTop="@dimen/nSize1"
+            app:hint="请输入处理单位"
+            app:key="处理单位：" />
+
+        <com.jwch.gwyt_project.view.EditLine
+            style="@style/layout_normal"
+            android:layout_marginTop="@dimen/nSize1"
+            app:hint="请输入处理人"
+            app:key="处理人：" />
+
+        <com.jwch.gwyt_project.view.EditLine
+            style="@style/layout_normal"
+            android:layout_marginTop="@dimen/nSize1"
+            app:hint="请输入截止时间"
+            app:key="截止时间：" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvOk"
+        style="@style/btnMain"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/nSize15"
+        android:background="@drawable/btn_dialog"
+        android:text="         确   定         " />
+
+
+</LinearLayout>

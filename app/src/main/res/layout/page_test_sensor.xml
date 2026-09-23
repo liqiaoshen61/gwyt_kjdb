@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sv"
+    style="@style/layout_allmatch"
+    android:background="@color/black">
+
+    <LinearLayout style="@style/layout_linear_vertical">
+
+        <LinearLayout style="@style/layout_linear_horizontal">
+
+            <TextView
+                android:id="@+id/tv"
+                style="@style/txt_big_white"
+                android:padding="@dimen/nSize10"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/tvDirection"
+                style="@style/txt_big_white"
+                android:padding="@dimen/nSize10"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/layout_linear_horizontal">
+
+            <TextView
+                android:id="@+id/tvY"
+                style="@style/txt_big_white"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/nSize10"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/tvZ"
+                style="@style/txt_big_white"
+                android:layout_weight="1"
+                android:padding="@dimen/nSize10"
+                android:gravity="center"
+                android:text="" />
+        </LinearLayout>
+        <com.jwch.gwyt_project.view.CompassView
+            android:id="@+id/compass_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:src="@mipmap/compass_level_detail" />
+
+    </LinearLayout>
+
+
+</ScrollView>

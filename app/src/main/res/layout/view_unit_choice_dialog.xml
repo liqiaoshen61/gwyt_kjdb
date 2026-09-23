@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llDialog"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_callout2">
+
+
+
+    <RelativeLayout
+        style="@style/layout_linear_horizontal"
+        android:background="@mipmap/bg_frag_title"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/nSize5"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textStyle="italic|bold"
+            android:layout_marginStart="@dimen/nSize20"
+            android:text="单位设置"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            style="@style/layout_allwarp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/nSize7"
+            android:layout_marginRight="@dimen/nSize15"
+            android:src="@mipmap/feedback_close2" />
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/nSize25"
+        android:paddingVertical="@dimen/nSize10">
+
+        <com.jwch.gwyt_project.view.CheckBoxtView
+            android:id="@+id/cbUnitType"
+            style="@style/layout_normal"
+            app:isMustFillIn="true"
+            app:key="面积单位："
+            app:key_txt_size="14"
+            app:lable_array="自动,平方米,平方千米,亩" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_marginTop="@dimen/nSize20"
+        android:layout_height="@dimen/nSize40">
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+
+        <TextView
+            android:id="@+id/tvCancel"
+            style="@style/txt_big_white"
+            android:layout_weight="1"
+            android:background="@drawable/bg_hollow_gray2_border6"
+            android:gravity="center"
+            android:paddingVertical="@dimen/nSize8"
+            android:text="取消" />
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/txt_big_white"
+            android:layout_weight="1"
+            android:background="@drawable/bg_blue_border6"
+            android:gravity="center"
+            android:paddingVertical="@dimen/nSize8"
+            android:text="保存" />
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

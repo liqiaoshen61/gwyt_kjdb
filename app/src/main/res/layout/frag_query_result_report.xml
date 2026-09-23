@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:padding="@dimen/nSize10"
+    android:background="@drawable/bg_main_gradient"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:text="一键分析报告"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/ivQueryDetailBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/icon_back"/>
+
+        <ImageView
+            android:id="@+id/ivQueryDetailClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/feedback_close"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize3"
+        android:layout_marginBottom="@dimen/nSize8"
+        android:background="@drawable/bg_blue_line"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="@dimen/nSize5">
+
+
+
+        <LinearLayout
+            android:id="@+id/llList"
+            style="@style/layout_linear_vertical"
+            android:paddingTop="@dimen/nSize8"
+            android:visibility="visible">
+
+            <TextView
+                android:padding="@dimen/nSize5"
+                style="@style/txt_big_white"
+                android:text="一、项目基本情况"/>
+
+            <TextView
+                android:id="@+id/tvBriefInfo"
+                android:padding="@dimen/nSize5"
+                style="@style/txt_normal_white"
+                android:text="该地块位于XX镇，总面积XX亩。"/>
+
+            <TextView
+                android:padding="@dimen/nSize5"
+                style="@style/txt_big_white"
+                android:text="二、分析结果"/>
+
+            <com.jameni.jamenilistlib.view.RefreshView
+                android:id="@+id/lvTable"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="visible"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/bg_blue_line" />
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="v_padding">@dimen/px1</dimen>
+
+    <dimen name="imgHeigh">@dimen/nSize40</dimen>
+    <dimen name="fragment_width">300dp</dimen>
+    <dimen name="measure_padding">5dp</dimen>
+
+    <dimen name="nSize500">500dp</dimen>
+
+</resources>

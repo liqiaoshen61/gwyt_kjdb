@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llMapCompare"
+    style="@style/layout_allmatch"
+    android:background="@drawable/bg_main_gradient"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/nSize10"
+    android:visibility="visible">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvSwitchMapTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="专题图"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/ivMapsClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/feedback_close" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize4"
+        android:layout_marginBottom="@dimen/nSize8"
+        android:background="@drawable/bg_blue_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <com.jameni.jamenilistlib.view.RefreshView
+            android:id="@+id/lvZtt"
+            style="@style/layout_allmatch" />
+
+        <com.jameni.jamenilistlib.view.RefreshView
+            android:id="@+id/lvYxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <com.jameni.jamenilistlib.view.RefreshView
+            android:id="@+id/lvDtc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llClearData"
+        style="@style/layout_linear_horizontal"
+        android:background="@drawable/bg_clear_maps"
+        android:gravity="center"
+        android:padding="4dp"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/txt_big_white"
+            android:text="清除数据"
+            android:textColor="@color/dark_blue" />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="@dimen/nSize5"
+            android:src="@mipmap/icon_clear_maps" />
+    </LinearLayout>
+</LinearLayout>

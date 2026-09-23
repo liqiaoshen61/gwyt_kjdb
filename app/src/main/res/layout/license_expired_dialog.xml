@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llDialog"
+    style="@style/layout_linear_vertical"
+    android:orientation="vertical"
+    android:background="@drawable/bg_te11111111111">
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_frag_title"
+        android:layout_margin="@dimen/nSize3"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/nSize5">
+
+        <TextView
+            android:id="@+id/num_layer_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:padding="7sp"
+            android:text="授权提示"
+            android:layout_marginHorizontal="@dimen/nSize5"
+            android:textColor="@color/whiteColor"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvMessage"
+        style="@style/txt_big_white"
+        android:layout_marginVertical="@dimen/nSize30"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/nSize5"
+        android:text="软件授权已过期\n请联系管理员续期" />
+
+</LinearLayout>

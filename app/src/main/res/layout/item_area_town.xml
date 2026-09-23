@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_margin="@dimen/nSize5"
+    android:paddingVertical="@dimen/nSize15"
+    android:background="@mipmap/bg_status_area_full">
+
+    <LinearLayout
+        style="@style/layout_linear_vertical"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+
+        <TextView
+            android:id="@+id/tvAreaTown"
+            style="@style/txt_normal"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:layout_marginHorizontal="@dimen/nSize6"
+            android:fontFamily="@font/douyu1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="name" />
+
+        <TextView
+            android:id="@+id/tvCount"
+            style="@style/txt_normal"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="count" />
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

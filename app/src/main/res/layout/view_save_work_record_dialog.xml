@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llDialog"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_te11111111111">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/nSize5"
+        android:layout_marginTop="@dimen/nSize3"
+        android:background="@mipmap/bg_frag_title"
+        android:paddingTop="@dimen/nSize2">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/nSize18"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="保存工作记录"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp"
+            android:textStyle="italic|bold" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="@dimen/nSize10"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/icon_close_blue" />
+    </LinearLayout>
+
+
+    <ScrollView
+        style="@style/layout_allmatch"
+        android:layout_weight="1"
+        android:background="@drawable/trans"
+        android:scrollbars="none"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/llItems"
+            style="@style/layout_linear_vertical"
+            android:paddingLeft="@dimen/nSize10"
+            android:paddingRight="@dimen/nSize10"
+            android:paddingBottom="@dimen/nSize5">
+
+
+            <com.jwch.gwyt_project.view.TextLineCompat2
+                android:id="@+id/tvRiverName"
+                style="@style/layout_normal"
+                app:bg_color="@color/transColor"
+                app:hint="请输入"
+                app:isMustFillIn="false"
+                app:isOnTextChanged="true"
+                app:key="河流名称"
+                app:key_color="@color/whiteColor"
+                app:showValueBorder="true"
+                app:value_color="@color/whiteColor"
+                app:view_type="edit_text_normal" />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                style="@style/layout_linear_vertical">
+
+                <LinearLayout
+                    android:id="@+id/llTextline"
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/nSize8"
+                    android:paddingVertical="@dimen/nSize6">
+
+                    <TextView
+                        android:id="@+id/viewIndent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tvMustFillFlag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingRight="@dimen/nSize3"
+                        android:text="*"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/t16sp"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/tvKey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="行政区划"
+                        android:textColor="@color/whiteColor"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        style="@style/layout_linear_horizontal"
+                        android:layout_weight="1">
+
+                        <com.jwch.gwyt_project.view.TextLineCompat2
+                            android:id="@+id/tvCity"
+                            style="@style/layout_normal"
+                            android:layout_weight="1"
+                            app:bg_color="@color/transColor"
+                            app:hint="选择所在市"
+                            app:isMustFillIn="true"
+                            app:key="所在市"
+                            app:key_color="@color/whiteColor"
+                            app:showKeyView="false"
+                            app:showValueBorder="true"
+                            app:value_color="@color/whiteColor"
+                            app:view_type="selection_list_single" />
+
+
+                        <com.jwch.gwyt_project.view.TextLineCompat2
+                            android:id="@+id/tvCounty"
+                            style="@style/layout_normal"
+                            android:layout_weight="1"
+                            app:bg_color="@color/transColor"
+                            app:hint="选择所在县"
+                            app:isMustFillIn="true"
+                            app:key="所在县"
+                            app:key_color="@color/whiteColor"
+                            app:showKeyView="false"
+                            app:showValueBorder="true"
+                            app:value_color="@color/whiteColor"
+                            app:view_type="selection_list_single" />
+
+                        <com.jwch.gwyt_project.view.TextLineCompat2
+                            android:id="@+id/tvTown"
+                            style="@style/layout_normal"
+                            android:layout_weight="1"
+                            app:bg_color="@color/transColor"
+                            app:hint="选择所在镇"
+                            app:isMustFillIn="true"
+                            app:key="所在镇"
+                            app:key_color="@color/whiteColor"
+                            app:showKeyView="false"
+                            app:showValueBorder="true"
+                            app:value_color="@color/whiteColor"
+                            app:view_type="selection_list_single" />
+
+                        <com.jwch.gwyt_project.view.TextLineCompat2
+                            android:id="@+id/tvVillage"
+                            style="@style/layout_normal"
+                            android:layout_weight="1"
+                            app:bg_color="@color/transColor"
+                            app:hint="选择所在村"
+                            app:isMustFillIn="false"
+                            app:key="所在村"
+                            app:key_color="@color/whiteColor"
+                            app:showKeyView="false"
+                            app:showValueBorder="true"
+                            app:value_color="@color/whiteColor"
+                            app:view_type="edit_text_normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.jwch.gwyt_project.view.TextLineCompat2
+                android:id="@+id/tvLatLng"
+                style="@style/layout_normal"
+                app:bg_color="@color/transColor"
+                app:hint="请输入"
+                app:isMustFillIn="true"
+                app:key="坐标"
+                app:key_color="@color/whiteColor"
+                app:showValueBorder="true"
+                app:value_color="@color/whiteColor"
+                app:view_type="edit_text_normal" />
+
+            <com.jwch.gwyt_project.view.TextLineCompat2
+                android:id="@+id/tvCheckTime"
+                style="@style/layout_normal"
+                app:bg_color="@color/transColor"
+                app:hint="请选择"
+                app:isMustFillIn="true"
+                app:key="复核时间"
+                app:key_color="@color/whiteColor"
+                app:showValueBorder="true"
+                app:value_color="@color/whiteColor"
+                app:view_type="selection_time" />
+
+            <com.jwch.gwyt_project.view.CheckBoxtView
+                android:id="@+id/cbQuestionType"
+                style="@style/layout_normal"
+                app:key="问题分类"
+                app:isMustFillIn="true"
+                app:key_txt_size="16"
+                app:lable_array="乱占,乱采,乱堆,乱建,其他" />
+
+
+            <com.jwch.gwyt_project.view.TextLineCompat2
+                android:id="@+id/tvQuestionAttr"
+                style="@style/layout_normal"
+                app:bg_color="@color/transColor"
+                app:hint="请选择问题属性"
+                app:isMustFillIn="true"
+                app:key="问题属性"
+                app:key_color="@color/whiteColor"
+                app:showValueBorder="true"
+                app:value_color="@color/whiteColor"
+                app:view_type="selection_list_single" />
+
+            <com.jwch.gwyt_project.view.CheckBoxtView
+                android:id="@+id/cbSeverity"
+                style="@style/layout_normal"
+                app:key="严重程度"
+                app:isMustFillIn="true"
+                app:key_txt_size="16"
+                app:lable_array="一般,中等,严重" />
+
+
+            <com.jwch.gwyt_project.view.TextLineCompat2
+                android:id="@+id/tvDescription"
+                style="@style/layout_normal"
+                app:bg_color="@color/transColor"
+                app:hint="请输入"
+                app:isMustFillIn="true"
+                app:key="问题描述"
+                app:key_color="@color/whiteColor"
+                app:showValueBorder="true"
+                app:value_color="@color/whiteColor"
+                app:view_type="edit_text_normal" />
+
+            <com.jwch.gwyt_project.view.TextLineCompat2
+                android:id="@+id/tvLocation"
+                style="@style/layout_normal"
+                app:bg_color="@color/transColor"
+                app:hint="请输入"
+                app:isMustFillIn="true"
+                app:key="发生位置描述"
+                app:key_color="@color/whiteColor"
+                app:showValueBorder="true"
+                app:value_color="@color/whiteColor"
+                app:view_type="edit_text_normal" />
+
+
+            <com.jwch.gwyt_project.view.CheckBoxtView
+                android:id="@+id/cbIsFinish"
+                style="@style/layout_normal"
+                app:key="是否整改"
+                app:isMustFillIn="true"
+                app:key_txt_size="16"
+                app:lable_array="未整改,已整改" />
+
+
+            <com.jwch.gwyt_project.view.TextLineCompat2
+                android:id="@+id/tvSpotRectificationSituation"
+                style="@style/layout_normal"
+                app:bg_color="@color/transColor"
+                app:hint="请输入"
+                app:isMustFillIn="false"
+                app:key="图斑整改情况"
+                app:key_color="@color/whiteColor"
+                app:showValueBorder="true"
+                app:value_color="@color/whiteColor"
+                app:view_type="edit_text_normal"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                style="@style/layout_linear_vertical">
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/nSize8"
+                    android:paddingVertical="@dimen/nSize6">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingRight="@dimen/nSize3"
+                        android:text="*"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/t16sp"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="现场拍照"
+                        android:textColor="@color/whiteColor"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:id="@+id/btn_camera"
+                        style="@style/layout_linear_horizontal"
+                        android:background="@drawable/bg_hollow_gray2_border6_dash"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/layout_allwarp"
+                            android:text="打开相册"
+                            android:padding="@dimen/nSize5"
+                            android:textColor="@color/whiteColor" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize40"
+        android:layout_margin="@dimen/nSize15">
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+
+        <TextView
+            android:id="@+id/tvCancle"
+            style="@style/txt_big_white"
+            android:layout_weight="1"
+            android:background="@drawable/bg_hollow_gray2_border6"
+            android:gravity="center"
+            android:paddingVertical="@dimen/nSize8"
+            android:text="取消" />
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/txt_big_white"
+            android:layout_weight="1"
+            android:background="@drawable/bg_blue_border6"
+            android:gravity="center"
+            android:paddingVertical="@dimen/nSize8"
+            android:text="保存" />
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+</LinearLayout>

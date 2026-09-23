@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_allmatch"
+    android:background="@mipmap/bg_right_frag"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/nSize10"
+    android:visibility="visible">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:background="@mipmap/bg_frag_title"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textStyle="italic|bold"
+            android:layout_marginStart="@dimen/nSize20"
+            android:text="数据统计"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="@dimen/nSize7"
+            android:src="@mipmap/icon_frag_close" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize3"
+        android:background="@drawable/bg_blue_line" />
+
+
+    <ScrollView
+        style="@style/layout_allmatch"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout style="@style/layout_linear_vertical">
+
+            <LinearLayout
+                android:id="@+id/llTitle"
+                style="@style/layout_linear_horizontal"
+                android:gravity="center"
+                android:paddingVertical="@dimen/nSize5"
+                android:paddingHorizontal="@dimen/nSize10">
+
+                <ImageView
+                    android:layout_width="@dimen/nSize20"
+                    android:layout_height="@dimen/nSize25"
+                    android:layout_marginEnd="@dimen/nSize3"
+                    android:src="@mipmap/icon_blue_loaction_point" />
+
+                <TextView
+                    android:id="@+id/tvCurrentArea"
+                    style="@style/txt_big_white"
+                    android:layout_weight="1"
+                    android:text="当前区域：xxx"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvAreaBack"
+                    style="@style/txt_normal_white"
+                    android:drawableRight="@mipmap/icon_back_arrow"
+                    android:drawablePadding="@dimen/nSize5"
+                    android:paddingHorizontal="10dp"
+                    android:text="返回"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llTown"
+                style="@style/layout_linear_vertical"
+                android:visibility="visible">
+
+
+                <com.jwch.gwyt_project.view.AreaStatsView
+                    android:id="@+id/viewAreaStats"
+                    style="@style/layout_allmatch"
+                    android:layout_marginVertical="@dimen/nSize3"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/llChildArea"
+                    style="@style/layout_linear_vertical">
+
+                    <LinearLayout
+                        android:id="@+id/llChildAreaTitle"
+                        style="@style/layout_linear_horizontal"
+                        android:paddingHorizontal="@dimen/nSize10"
+                        android:paddingVertical="@dimen/nSize5">
+
+                        <ImageView
+                            android:layout_width="@dimen/nSize20"
+                            android:layout_height="@dimen/nSize25"
+                            android:layout_marginEnd="@dimen/nSize3"
+                            android:src="@mipmap/icon_blue_loaction_point" />
+
+                        <TextView
+                            style="@style/txt_big_white"
+                            android:layout_weight="1"
+                            android:text="下级区域"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <com.jameni.jamenilistlib.view.RefreshView
+                        android:id="@+id/lvTown"
+                        style="@style/layout_allmatch"
+                        android:visibility="gone" />
+
+                    <com.jwch.gwyt_project.view.NoScrollGridView
+                        android:id="@+id/lvTown2"
+                        style="@style/layout_normal"
+                        android:divider="@color/transColor"
+                        android:padding="@dimen/nSize10"
+                        android:horizontalSpacing="@dimen/nSize10"
+                        android:numColumns="3"
+                        android:verticalSpacing="@dimen/nSize10" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

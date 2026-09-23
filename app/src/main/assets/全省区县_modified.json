@@ -1,0 +1,422 @@
+[
+    {
+        "distName": "安溪县",
+        "distCode": "350524",
+        "distLevel": 3
+    },
+    {
+        "distName": "仓山区",
+        "distCode": "350104",
+        "distLevel": 3
+    },
+    {
+        "distName": "城厢区",
+        "distCode": "350302",
+        "distLevel": 3
+    },
+    {
+        "distName": "大田县",
+        "distCode": "350425",
+        "distLevel": 3
+    },
+    {
+        "distName": "德化县",
+        "distCode": "350526",
+        "distLevel": 3
+    },
+    {
+        "distName": "东山县",
+        "distCode": "350626",
+        "distLevel": 3
+    },
+    {
+        "distName": "丰泽区",
+        "distCode": "350503",
+        "distLevel": 3
+    },
+    {
+        "distName": "福安市",
+        "distCode": "350981",
+        "distLevel": 3
+    },
+    {
+        "distName": "福鼎市",
+        "distCode": "350982",
+        "distLevel": 3
+    },
+    {
+        "distName": "福清市",
+        "distCode": "350181",
+        "distLevel": 3
+    },
+    {
+        "distName": "古田县",
+        "distCode": "350922",
+        "distLevel": 3
+    },
+    {
+        "distName": "光泽县",
+        "distCode": "350723",
+        "distLevel": 3
+    },
+    {
+        "distName": "海沧区",
+        "distCode": "350205",
+        "distLevel": 3
+    },
+    {
+        "distName": "涵江区",
+        "distCode": "350303",
+        "distLevel": 3
+    },
+    {
+        "distName": "湖里区",
+        "distCode": "350206",
+        "distLevel": 3
+    },
+    {
+        "distName": "华安县",
+        "distCode": "350629",
+        "distLevel": 3
+    },
+    {
+        "distName": "惠安县",
+        "distCode": "350521",
+        "distLevel": 3
+    },
+    {
+        "distName": "集美区",
+        "distCode": "350211",
+        "distLevel": 3
+    },
+    {
+        "distName": "建宁县",
+        "distCode": "350430",
+        "distLevel": 3
+    },
+    {
+        "distName": "建瓯市",
+        "distCode": "350783",
+        "distLevel": 3
+    },
+    {
+        "distName": "建阳区",
+        "distCode": "350703",
+        "distLevel": 3
+    },
+    {
+        "distName": "将乐县",
+        "distCode": "350428",
+        "distLevel": 3
+    },
+    {
+        "distName": "蕉城区",
+        "distCode": "350902",
+        "distLevel": 3
+    },
+    {
+        "distName": "金门县",
+        "distCode": "350527",
+        "distLevel": 3
+    },
+    {
+        "distName": "晋安区",
+        "distCode": "350111",
+        "distLevel": 3
+    },
+    {
+        "distName": "晋江市",
+        "distCode": "350582",
+        "distLevel": 3
+    },
+    {
+        "distName": "鲤城区",
+        "distCode": "350502",
+        "distLevel": 3
+    },
+    {
+        "distName": "荔城区",
+        "distCode": "350304",
+        "distLevel": 3
+    },
+    {
+        "distName": "连城县",
+        "distCode": "350825",
+        "distLevel": 3
+    },
+    {
+        "distName": "连江县",
+        "distCode": "350122",
+        "distLevel": 3
+    },
+    {
+        "distName": "龙海区",
+        "distCode": "350681",
+        "distLevel": 3
+    },
+    {
+        "distName": "龙文区",
+        "distCode": "350603",
+        "distLevel": 3
+    },
+    {
+        "distName": "罗源县",
+        "distCode": "350123",
+        "distLevel": 3
+    },
+    {
+        "distName": "洛江区",
+        "distCode": "350504",
+        "distLevel": 3
+    },
+    {
+        "distName": "马尾区",
+        "distCode": "350105",
+        "distLevel": 3
+    },
+    {
+        "distName": "闽侯县",
+        "distCode": "350121",
+        "distLevel": 3
+    },
+    {
+        "distName": "闽清县",
+        "distCode": "350124",
+        "distLevel": 3
+    },
+    {
+        "distName": "明溪县",
+        "distCode": "350421",
+        "distLevel": 3
+    },
+    {
+        "distName": "南安市",
+        "distCode": "350583",
+        "distLevel": 3
+    },
+    {
+        "distName": "南靖县",
+        "distCode": "350627",
+        "distLevel": 3
+    },
+    {
+        "distName": "宁化县",
+        "distCode": "350424",
+        "distLevel": 3
+    },
+    {
+        "distName": "平和县",
+        "distCode": "350628",
+        "distLevel": 3
+    },
+    {
+        "distName": "平潭县",
+        "distCode": "350128",
+        "distLevel": 3
+    },
+    {
+        "distName": "屏南县",
+        "distCode": "350923",
+        "distLevel": 3
+    },
+    {
+        "distName": "浦城县",
+        "distCode": "350722",
+        "distLevel": 3
+    },
+    {
+        "distName": "清流县",
+        "distCode": "350423",
+        "distLevel": 3
+    },
+    {
+        "distName": "泉港区",
+        "distCode": "350505",
+        "distLevel": 3
+    },
+    {
+        "distName": "三元区",
+        "distCode": "350404",
+        "distLevel": 3
+    },
+    {
+        "distName": "沙县区",
+        "distCode": "350405",
+        "distLevel": 3
+    },
+    {
+        "distName": "上杭县",
+        "distCode": "350823",
+        "distLevel": 3
+    },
+    {
+        "distName": "邵武市",
+        "distCode": "350781",
+        "distLevel": 3
+    },
+    {
+        "distName": "石狮市",
+        "distCode": "350581",
+        "distLevel": 3
+    },
+    {
+        "distName": "寿宁县",
+        "distCode": "350924",
+        "distLevel": 3
+    },
+    {
+        "distName": "顺昌县",
+        "distCode": "350721",
+        "distLevel": 3
+    },
+    {
+        "distName": "思明区",
+        "distCode": "350203",
+        "distLevel": 3
+    },
+    {
+        "distName": "松溪县",
+        "distCode": "350724",
+        "distLevel": 3
+    },
+    {
+        "distName": "台江区",
+        "distCode": "350103",
+        "distLevel": 3
+    },
+    {
+        "distName": "泰宁县",
+        "distCode": "350429",
+        "distLevel": 3
+    },
+    {
+        "distName": "同安区",
+        "distCode": "350212",
+        "distLevel": 3
+    },
+    {
+        "distName": "武平县",
+        "distCode": "350824",
+        "distLevel": 3
+    },
+    {
+        "distName": "武夷山市",
+        "distCode": "350782",
+        "distLevel": 3
+    },
+    {
+        "distName": "霞浦县",
+        "distCode": "350921",
+        "distLevel": 3
+    },
+    {
+        "distName": "仙游县",
+        "distCode": "350322",
+        "distLevel": 3
+    },
+    {
+        "distName": "芗城区",
+        "distCode": "350602",
+        "distLevel": 3
+    },
+    {
+        "distName": "翔安区",
+        "distCode": "350213",
+        "distLevel": 3
+    },
+    {
+        "distName": "新罗区",
+        "distCode": "350802",
+        "distLevel": 3
+    },
+    {
+        "distName": "秀屿区",
+        "distCode": "350305",
+        "distLevel": 3
+    },
+    {
+        "distName": "延平区",
+        "distCode": "350702",
+        "distLevel": 3
+    },
+    {
+        "distName": "永安市",
+        "distCode": "350481",
+        "distLevel": 3
+    },
+    {
+        "distName": "永春县",
+        "distCode": "350525",
+        "distLevel": 3
+    },
+    {
+        "distName": "永泰县",
+        "distCode": "350125",
+        "distLevel": 3
+    },
+    {
+        "distName": "尤溪县",
+        "distCode": "350426",
+        "distLevel": 3
+    },
+    {
+        "distName": "云霄县",
+        "distCode": "350622",
+        "distLevel": 3
+    },
+    {
+        "distName": "漳平市",
+        "distCode": "350881",
+        "distLevel": 3
+    },
+    {
+        "distName": "漳浦县",
+        "distCode": "350623",
+        "distLevel": 3
+    },
+    {
+        "distName": "长乐区",
+        "distCode": "350112",
+        "distLevel": 3
+    },
+    {
+        "distName": "长泰区",
+        "distCode": "350605",
+        "distLevel": 3
+    },
+    {
+        "distName": "长汀县",
+        "distCode": "350821",
+        "distLevel": 3
+    },
+    {
+        "distName": "诏安县",
+        "distCode": "350624",
+        "distLevel": 3
+    },
+    {
+        "distName": "柘荣县",
+        "distCode": "350926",
+        "distLevel": 3
+    },
+    {
+        "distName": "政和县",
+        "distCode": "350725",
+        "distLevel": 3
+    },
+    {
+        "distName": "周宁县",
+        "distCode": "350925",
+        "distLevel": 3
+    },
+    {
+        "distName": "鼓楼区",
+        "distCode": "350102",
+        "distLevel": 3
+    },
+    {
+        "distName": "永定区",
+        "distCode": "350803",
+        "distLevel": 3
+    }
+]

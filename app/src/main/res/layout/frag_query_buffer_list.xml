@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_right_frag"
+    android:padding="@dimen/nSize10">
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:background="@mipmap/bg_frag_title"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textStyle="italic|bold"
+            android:layout_marginStart="@dimen/nSize20"
+            android:text="检索结果"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/ivHandSearchClose"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="@dimen/nSize7"
+            android:src="@mipmap/icon_frag_close" />
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize3"
+        android:background="@drawable/bg_blue_line"/>
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvEventStatusFilter"
+            style="@style/txt_normal_white"
+            android:layout_margin="@dimen/nSize4"
+            android:padding="@dimen/nSize6"
+            android:text="事件状态"
+            android:background="@drawable/bg_blue_square6"
+            android:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/tvIsQuestionFilter"
+            style="@style/txt_normal_white"
+            android:layout_margin="@dimen/nSize4"
+            android:padding="@dimen/nSize6"
+            android:text="是否问题"
+            android:background="@drawable/bg_blue_square6"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llQueryList"
+        style="@style/layout_linear_vertical"
+        android:visibility="visible">
+
+        <com.jameni.jamenilistlib.view.RefreshView
+            android:id="@+id/lvQueryList"
+            style="@style/layout_allmatch"
+            android:layout_weight="1"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/llPagination"
+            style="@style/layout_linear_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvPrevPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上一页"
+                android:textColor="@color/whiteColor"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_trans_white_border"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp" />
+
+            <TextView
+                android:id="@+id/tvPageInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:textColor="@color/whiteColor"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="1/1" />
+
+            <TextView
+                android:id="@+id/tvNextPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="下一页"
+                android:textColor="@color/whiteColor"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_trans_white_border"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTotoalCount"
+            style="@style/txt_small_white"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/nSize3"
+            android:text="- 共0条 -"/>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/tvNoData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="无相关查询结果"
+        android:textColor="@color/whiteColor"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+</LinearLayout>

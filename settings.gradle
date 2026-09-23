@@ -1,0 +1,38 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven {url "https://jitpack.io" }
+        maven {url "https://esri.jfrog.io/artifactory/arcgis" }
+        maven {url "https://developer.huawei.com/repo/" }
+        maven {url "https://maven.aliyun.com/nexus/content/repositories/releases/" }
+        maven {url "https://maven.aliyun.com/repository/jcenter" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+
+        maven { url = uri("https://repo.osgeo.org/repository/release/") }
+        maven { url = uri("https://maven.geotoolkit.org") }  // 包含jai_core的仓库:ml-citation{ref="5,6" data="citationList"}
+        maven { url = uri("https://repo.osgeo.org/repository/release/") }  // OSGeo官方仓库:ml-citation{ref="5,6" data="citationList"}
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven{url "https://jitpack.io" }
+        maven{url "https://esri.jfrog.io/artifactory/arcgis" }
+        maven{url "https://developer.huawei.com/repo/" }
+        maven{url "https://maven.aliyun.com/nexus/content/repositories/releases/" }
+        maven{url "https://maven.aliyun.com/repository/jcenter" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+
+        maven { url = uri("https://repo.osgeo.org/repository/release/") }
+        maven { url = uri("https://maven.geotoolkit.org") }  // 包含jai_core的仓库:ml-citation{ref="5,6" data="citationList"}
+        maven { url = uri("https://repo.osgeo.org/repository/release/") }  // OSGeo官方仓库:ml-citation{ref="5,6" data="citationList"}
+
+    }
+}
+rootProject.name = "gwyt_project"
+include ':app'

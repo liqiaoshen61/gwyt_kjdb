@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layout_allmatch"
+    android:background="@color/whiteColor">
+
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdfView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_gray" />
+
+    <LinearLayout
+        android:id="@+id/llLoading"
+        style="@style/layout_allwarp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/nSize30"
+            android:layout_height="@dimen/nSize30"
+            android:indeterminateTint="@color/main_color" />
+
+        <TextView
+            android:id="@+id/tvLoadingText"
+            style="@style/txt_normal_blue"
+            android:layout_marginTop="@dimen/nSize5"
+            android:text="加载中" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivBack"
+        style="@style/imgStyle40"
+        android:src="@mipmap/feedback_close"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/nSize5"
+        android:layout_marginTop="@dimen/nSize12"
+        android:layout_marginRight="@dimen/nSize12"
+        app:tint="@color/black" />
+
+</RelativeLayout>

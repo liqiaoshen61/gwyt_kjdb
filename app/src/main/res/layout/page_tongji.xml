@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@color/whiteColor">
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pChart"
+        style="@style/layout_allmatch"
+        android:layout_height="250dp"
+        android:background="@color/transColor" />
+
+    <TextView
+        style="@style/txt_normal_blue"
+        android:layout_width="match_parent"
+        android:background="@color/bg_gray"
+        android:padding="@dimen/nSize10"
+        android:text="数据列表" />
+
+    <com.jameni.jamenilistlib.view.RefreshView
+        android:id="@+id/lvMain"
+        style="@style/layout_allmatch"
+        android:layout_weight="1" />
+</LinearLayout>

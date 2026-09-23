@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <!--相机预览视图-->
+    <FrameLayout
+        android:id="@+id/camera_preview_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <!--    闪光灯-->
+    <ImageView
+        android:id="@+id/switch_flash"
+        style="@style/imgStyle45"
+        android:layout_margin="@dimen/nSize10"
+        android:padding="@dimen/nSize8"
+        android:scaleType="centerInside"
+        android:src="@drawable/vector_drawable_canera_lighting_off"
+        android:visibility="visible" />
+
+    <!--    拍照完成预览视图-->
+    <ImageView
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        android:visibility="visible" />
+
+
+    <!-- 底部按钮 取消 快门 镜头转换-->
+    <RelativeLayout
+        android:id="@+id/ll_take_photo"
+        android:layout_width="@dimen/nSize80"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:visibility="visible">
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            style="@style/imgStyle50"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/nSize15"
+            android:padding="@dimen/nSize5"
+            android:scaleType="centerInside"
+            android:src="@drawable/vector_drawable_svg_delete_x" />
+
+
+        <ImageView
+            android:id="@+id/take_photo"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/vector_drawable_svg_kuai_men" />
+
+        <ImageView
+            android:id="@+id/switch_camera"
+            style="@style/imgStyle50"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/nSize15"
+            android:padding="@dimen/nSize5"
+            android:scaleType="centerInside"
+            android:src="@drawable/vector_drawable_svg_camera_roll"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <!--取消/保存图片-->
+    <RelativeLayout
+        android:id="@+id/ll_save_delete"
+        android:layout_width="@dimen/nSize80"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/delete"
+            style="@style/imgStyle50"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/nSize15"
+            android:padding="@dimen/nSize5"
+            android:scaleType="centerInside"
+            android:src="@drawable/vector_drawable_back_camera" />
+
+
+        <ImageView
+            android:id="@+id/save"
+            style="@style/imgStyle50"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/nSize15"
+            android:padding="@dimen/nSize5"
+            android:scaleType="centerInside"
+            android:src="@drawable/vector_drawable_select_gou" />
+    </RelativeLayout>
+
+    <!--    水印信息-->
+    <LinearLayout
+        android:id="@+id/ll_photo_message"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/camera_preview_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/nSize5"
+        android:layout_marginBottom="@dimen/nSize5"
+        android:background="@drawable/bg_gray_radius2"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/nSize5"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/stv_time"
+                style="@style/txt_big_white"
+                android:padding="@dimen/nSize3"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/stv_position"
+                style="@style/txt_normal_white"
+                android:hint="点击获取地址信息"
+                android:padding="@dimen/nSize3"
+                android:text="" />
+
+            <LinearLayout
+                style="@style/layout_linear_horizontal"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content">
+
+                <TextView
+                    style="@style/txt_normal_white"
+                    android:padding="@dimen/nSize3"
+                    android:text="方位角:" />
+
+                <TextView
+                    android:id="@+id/tvOrient"
+                    style="@style/txt_normal_white"
+                    android:padding="@dimen/nSize3"
+                    android:text="" />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/stv_remark"
+                style="@style/txt_normal_white"
+                android:background="@android:color/transparent"
+                android:hint="添加备注"
+                android:padding="@dimen/nSize3"
+                android:textColorHint="@color/white"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

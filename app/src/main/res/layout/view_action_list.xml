@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/actionList"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_alignParentRight="true"
+    android:visibility="gone">
+
+    <LinearLayout
+        style="@style/layout_linear_vertical"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="@dimen/nSize5"
+        android:layout_marginBottom="@dimen/nSize5"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/tv360"
+            style="@style/btn_Action"
+            android:text="360°全景" />
+
+        <TextView
+            android:id="@+id/tvCamera"
+            style="@style/btn_Action"
+            android:text="离线视频监控" />
+
+        <TextView
+            android:id="@+id/tvCameraOnline"
+            style="@style/btn_Action"
+            android:text="在线视频监控" />
+
+        <TextView
+            android:id="@+id/tvUpdateOnline"
+            style="@style/btn_Action"
+            android:text="在线更新底图" />
+
+        <TextView
+            android:id="@+id/tvUpdateOffLine"
+            style="@style/btn_Action"
+            android:text="加载手动导入底图" />
+
+        <TextView
+            android:id="@+id/tvLayerList"
+            style="@style/btn_Action"
+            android:text="专题图层" />
+
+        <TextView
+            android:id="@+id/tvLoadOverLyingFarm"
+            style="@style/btn_Action"
+            android:text="导入叠加专题图农房" />
+
+        <TextView
+            android:id="@+id/tvAnalyOverLying"
+            style="@style/btn_Action"
+            android:singleLine="false"
+            android:text="@string/analysis_farm_overlay" />
+
+        <TextView
+            android:id="@+id/tvLoadFramArea"
+            style="@style/btn_Action"
+            android:text="导入农房范围" />
+
+        <TextView
+            android:id="@+id/tvAnaly"
+            style="@style/btn_Action"
+            android:singleLine="false"
+            android:text="@string/analysis_farm" />
+
+        <TextView
+            android:id="@+id/tvReport"
+            style="@style/btn_Action"
+            android:text="占用红线上报" />
+        <TextView
+            android:id="@+id/tvReportCheck"
+            style="@style/btn_Action"
+            android:text="审核上报问题" />
+
+        <TextView
+            android:id="@+id/tvCompare"
+            style="@style/btn_Action"
+            android:text="地图对比" />
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemContent"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <ImageView
+        android:id="@+id/id_treenode_icon"
+        android:layout_width="@dimen/nSize18"
+        android:layout_height="@dimen/nSize18"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="6dp"
+        android:src="@mipmap/tree_ec" />
+
+    <TextView
+        android:id="@+id/id_treenode_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/whiteColor"
+        android:textStyle="bold"
+        android:textSize="17dp" />
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:padding="3dp"
+        android:src="@mipmap/feedback_close" />
+
+    <ImageView
+        android:id="@+id/ivLayerCheck"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="10dp"
+        android:padding="@dimen/nSize4"
+        android:src="@mipmap/icon_square_unselect"
+        android:visibility="invisible" />
+</LinearLayout>

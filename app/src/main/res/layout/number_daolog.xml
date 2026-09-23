@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llDialog"
+    style="@style/layout_allmatch"
+    android:background="@mipmap/bg_callout2"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/top"
+        style="@style/dialog_header"
+        android:layout_margin="@dimen/nSize5"
+        android:paddingHorizontal="@dimen/nSize2"
+        android:background="@mipmap/bg_frag_title">
+
+        <TextView
+            android:id="@+id/tvDialogTitle"
+            style="@style/txt_big_white"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/nSize5"
+            android:text="设置密码" />
+
+        <ImageButton
+            android:id="@+id/imgClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/nSize3"
+            android:background="@mipmap/feedback_close2" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="请输入密码"
+        android:textColor="@color/whiteColor"
+        android:textSize="18dp" />
+
+    <!--忘记密码按钮（放在密码键盘上方，避免被截断）-->
+    <TextView
+        android:id="@+id/tvForgetWatermarkPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/nSize15"
+        android:layout_marginBottom="@dimen/nSize5"
+        android:padding="@dimen/nSize5"
+        android:text="忘记密码？"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <com.jwch.gwyt_project.view.NumLockPanel
+        android:id="@+id/numLockView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

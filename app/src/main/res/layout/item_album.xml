@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_allwarp"
+    android:layout_marginTop="@dimen/nSize15"
+    android:layout_marginLeft="@dimen/nSize15"
+    android:background="@color/whiteColor">
+
+
+    <ImageView
+        android:id="@+id/imgPic"
+        android:layout_width="@dimen/nSize120"
+        android:layout_height="@dimen/nSize80"
+        android:layout_centerInParent="true"
+        android:background="@color/bg_gray"
+        android:scaleType="fitXY" />
+
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llDialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white"
+    android:orientation="vertical">
+
+    <!--    标题-->
+    <RelativeLayout
+        android:id="@+id/top"
+        style="@style/dialog_header">
+
+        <TextView
+            android:id="@+id/tv_layer_name"
+            style="@style/txt_big_white"
+            android:layout_centerVertical="true"
+            android:text="标绘收藏列表" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            style="@style/layout_allwarp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/feedback_close2" />
+
+    </RelativeLayout>
+
+
+    <!--    标绘收藏夹-->
+    <LinearLayout
+        android:id="@+id/llGeoCollection"
+        style="@style/layout_allmatch"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvGeoNodata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="暂无收藏"
+            android:textColor="@color/whiteColor"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <!--        标绘收藏夹-->
+        <LinearLayout
+            android:id="@+id/llMarkerResult"
+            style="@style/layout_linear_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <com.jameni.jamenilistlib.view.RefreshView
+                android:id="@+id/lvGeometyList"
+                style="@style/layout_linear_horizontal" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

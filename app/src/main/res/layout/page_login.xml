@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layout_allmatch"
+    android:background="@color/bg_gray">
+
+    <LinearLayout
+        android:id="@+id/rlCard"
+        style="@style/layout_allmatch"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="@dimen/nSize100"
+        android:layout_marginVertical="@dimen/nSize50"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            style="@style/layout_linear_vertical"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/llLoginInfo"
+            style="@style/layout_linear_vertical"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/nSize50"
+            android:paddingRight="@dimen/nSize100">
+
+            <TextView
+                android:id="@+id/test"
+                style="@style/txt_big"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="账号密码登录"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llAccount"
+
+                style="@style/layout_linear_horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/nSize50"
+                android:background="@drawable/bg_green_square4"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingVertical="@dimen/nSize5">
+
+                <ImageView
+                    style="@style/imgStyle30"
+                    android:layout_marginLeft="@dimen/nSize10"
+                    android:padding="@dimen/nSize3"
+                    android:src="@mipmap/login_normal_acc" />
+
+                <EditText
+                    android:id="@+id/etAcc"
+                    style="@style/et_zz"
+                    android:layout_marginLeft="@dimen/nSize10"
+                    android:layout_weight="1"
+                    android:hint="请输入手机号"
+                    android:textSize="@dimen/t16sp" />
+
+                <ImageView
+                    android:id="@+id/imgClearAccount"
+                    android:layout_width="@dimen/nSize40"
+                    android:layout_height="@dimen/nSize40"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/icon_x"
+                    android:visibility="visible"
+                    app:tint="@color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llpassword"
+                style="@style/layout_linear_horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/nSize10"
+                android:background="@drawable/bg_green_square4"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="@dimen/nSize5">
+
+                <ImageView
+                    style="@style/imgStyle30"
+                    android:layout_marginLeft="@dimen/nSize10"
+                    android:padding="@dimen/nSize2"
+                    android:src="@mipmap/login_normal_pw" />
+
+                <EditText
+                    android:id="@+id/etPw"
+                    style="@style/et_zz"
+                    android:layout_marginLeft="@dimen/nSize10"
+                    android:layout_weight="1"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/t16sp" />
+
+                <ImageView
+                    android:id="@+id/imgViewPw"
+                    android:layout_width="@dimen/nSize40"
+                    android:layout_height="@dimen/nSize40"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/logo_pw_invisiable"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+
+
+
+
+
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nSize50"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/nSize30"
+                android:background="@drawable/bg_hollow_gray2_border6"
+                android:gravity="center"
+                android:text="登 录"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvVersion"
+        style="@style/txt_small_white"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/nSize10"
+        android:text="" />
+
+    <!--  账号  -->
+    <LinearLayout
+        android:id="@+id/llAction"
+        style="@style/layout_linear_vertical"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/nSize30"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvTest1"
+            style="@style/btnMain"
+            android:text="管理员" />
+
+
+        <TextView
+            android:id="@+id/tvTest6"
+            style="@style/btnMain"
+            android:text="市级主管" />
+
+        <TextView
+            android:id="@+id/tvTest7"
+            style="@style/btnMain"
+            android:text="县级-办公室主任" />
+
+        <TextView
+            android:id="@+id/tvTest8"
+            style="@style/btnMain"
+            android:text="县级-林改股-股长" />
+
+        <TextView
+            android:id="@+id/tvTest9"
+            style="@style/btnMain"
+            android:text="市林改经办" />
+
+        <TextView
+            android:id="@+id/tvTest10"
+            style="@style/btnMain"
+            android:text="市级科室普通员工" />
+
+        <TextView
+            android:id="@+id/tvTest11"
+            style="@style/btnMain"
+            android:text="局长" />
+
+        <TextView
+            android:id="@+id/tvTest12"
+            style="@style/btnMain"
+            android:text="副局长" />
+
+        <TextView
+            android:id="@+id/tvTest13"
+            style="@style/btnMain"
+            android:text="新登录" />
+
+        <TextView
+            android:id="@+id/tvTest14"
+            style="@style/btnMain"
+            android:text="lqs" />
+    </LinearLayout>
+
+</RelativeLayout>

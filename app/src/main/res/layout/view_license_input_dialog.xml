@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white"
+    android:orientation="vertical">
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/top"
+        style="@style/layout_normal"
+        android:background="@drawable/bg_header"
+        android:padding="@dimen/nSize10">
+
+        <TextView
+            android:id="@+id/tv_layer_name"
+            style="@style/txt_big_white"
+            android:text="授权延长使用期限" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            style="@style/layout_allwarp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/feedback_close2" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llSphere"
+        style="@style/layout_linear_vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:gravity="center"
+            android:padding="@dimen/nSize12">
+
+
+            <EditText
+                android:id="@+id/etCode"
+                style="@style/edit_1"
+                android:hint="请输入授权码"
+                android:textColorHint="@color/half_black"
+                android:text="" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <View
+        style="@style/layout_normal"
+        android:layout_height="@dimen/nSize1"
+        android:layout_marginTop="@dimen/nSize10"
+        android:background="@color/txt_gray" />
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize45"
+        android:background="@color/bg_gray">
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:background="@color/txt_gray" />
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/txt_big"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:text="确定" />
+
+    </LinearLayout>
+
+</LinearLayout>

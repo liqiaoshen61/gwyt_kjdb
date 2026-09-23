@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@color/whiteColor">
+
+
+    <cn.jzvd.JzvdStd
+        android:id="@+id/jzLocalVideo"
+        style="@style/layout_allmatch" />
+
+    <View
+        android:id="@+id/vMask"
+        style="@style/layout_allmatch"
+        android:background="@color/transColor" />
+
+    <View
+        style="@style/layout_allmatch"
+        android:visibility="visible"
+        android:layout_height="@dimen/nSize15"
+        android:background="@android:color/black" />
+
+    <View
+        style="@style/layout_allmatch"
+        android:layout_height="@dimen/nSize15"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible"
+        android:background="@android:color/black" />
+
+    <ImageView
+        android:id="@+id/imgClose"
+        style="@style/layout_allwarp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/nSize10"
+        android:padding="@dimen/nSize20"
+        android:src="@mipmap/close" />
+
+
+</RelativeLayout>

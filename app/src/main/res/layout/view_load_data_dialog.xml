@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:background="@drawable/bg_white_square"
+    android:gravity="center"
+    android:padding="@dimen/nSize30">
+
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="@dimen/nSize60"
+        android:layout_height="@dimen/nSize60" />
+
+    <TextView
+        android:id="@+id/tvLoadingText"
+        style="@style/txt_big_blue"
+        android:layout_marginTop="@dimen/nSize10"
+        android:text="正在加载" />
+</LinearLayout>

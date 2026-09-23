@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical">
+
+    <LinearLayout
+        android:id="@+id/llTextline"
+        style="@style/layout_linear_horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="#eaf4ff"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:textColor="@color/txt_black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/nSize5"
+            android:layout_weight="0.8"
+            android:background="@color/transColor"
+            android:gravity="center_vertical"
+            android:padding="@dimen/nSize10"
+            android:textColor="@color/txt_black"
+            android:textColorHint="@color/txt_gray"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/underLine"
+        style="@style/form_divier" />
+
+</LinearLayout>

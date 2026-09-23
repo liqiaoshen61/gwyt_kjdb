@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layout_linear_vertical"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:paddingHorizontal="@dimen/nSize3">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            style="@style/layout_linear_vertical"
+            android:gravity="center">
+
+
+            <com.jwch.gwyt_project.view.CheckBoxtView
+                android:id="@+id/cbType"
+                style="@style/layout_normal"
+                android:layout_marginHorizontal="@dimen/nSize6"
+                app:key="年份"
+                app:oneLine="true"
+                app:ui_type="3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lvTable"
+                style="@style/layout_normal"
+                android:background="@drawable/bg_hollow_statis_table"
+                android:layout_height="240dp"
+                android:layout_margin="@dimen/nSize12"/>
+
+            <TextView
+                android:id="@+id/barChartTitle"
+                style="@style/txt_normal_white"
+                android:layout_marginTop="8dp"
+                android:textColor="#29B66A"
+                android:text="统计图名称"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:layout_marginStart="@dimen/nSize15"
+                android:background="#1929B66A"
+                android:paddingVertical="4dp"
+                android:paddingHorizontal="@dimen/nSize10"/>
+
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChart"
+                style="@style/layout_allmatch"
+                android:layout_height="150dp"
+                android:layout_gravity="center" />
+
+            <RelativeLayout
+                android:id="@+id/rlLoading"
+                style="@style/layout_allmatch"
+                android:layout_height="@dimen/nSize60"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="@dimen/nSize60"
+                    android:layout_height="@dimen/nSize60"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    style="@style/txt_normal_white"
+                    android:layout_below="@id/progressBar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/nSize15"
+                    android:text="正在加载" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tvNoData"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:text="无相关查询结果"
+                android:textColor="@color/whiteColor"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

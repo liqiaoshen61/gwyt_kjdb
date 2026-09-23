@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_right_frag"
+    android:padding="@dimen/nSize10">
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:background="@mipmap/bg_frag_title"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/nSize20"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="工作记录统计"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize6"
+            android:src="@mipmap/icon_back_arrow" />
+
+
+        <ImageView
+            android:id="@+id/ivCollectionClose"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="@dimen/nSize7"
+            android:src="@mipmap/icon_frag_close" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize4"
+        android:layout_marginBottom="@dimen/nSize8"
+        android:background="@drawable/bg_blue_line" />
+
+    <com.bin.david.form.core.SmartTable
+        android:id="@+id/viewTable2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/nSize10"
+        android:layout_marginBottom="@dimen/nSize20"
+        android:visibility="visible" />
+
+
+    <com.jwch.gwyt_project.view.NoScrollGridView
+        android:id="@+id/lvTown2"
+        style="@style/layout_normal"
+        android:divider="@color/transColor"
+        android:horizontalSpacing="@dimen/nSize10"
+        android:numColumns="3"
+        android:verticalSpacing="@dimen/nSize10" />
+
+    <TextView
+        android:id="@+id/tvNodata"
+        style="@style/txt_big_white"
+        android:layout_centerInParent="true"
+        android:text="暂无数据"
+        android:visibility="gone" />
+
+</LinearLayout>

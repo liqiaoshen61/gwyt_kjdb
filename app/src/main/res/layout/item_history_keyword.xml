@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llItem"
+    style="@style/layout_linear_vertical"
+    android:background="@color/whiteColor">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal">
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/txt_big"
+            android:layout_weight="1"
+            android:padding="@dimen/nSize8" />
+    </LinearLayout>
+
+    <View
+        style="@style/horizontal_line"
+        android:layout_height="@dimen/nSize1" />
+
+
+</LinearLayout>

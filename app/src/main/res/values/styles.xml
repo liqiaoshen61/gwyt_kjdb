@@ -1,0 +1,248 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/whiteColor</item>
+        <item name="colorPrimaryDark">@color/whiteColor</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme_FullScreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="txt_cell_title" parent="txt_normal">
+        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/nSize5</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="txt_cell" parent="txt_cell_title">
+        <item name="android:textColor">@color/txt_black</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="vline">
+        <item name="android:layout_width">@dimen/px1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/primaryColor</item>
+    </style>
+
+    <style name="hline">
+        <item name="android:layout_height">@dimen/px1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/primaryColor</item>
+    </style>
+
+    <style name="DialogActivity" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFrame">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item><!--浮在其他Activity之上-->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@android:color/transparent</item><!--背景透明-->
+        <item name="android:backgroundDimAmount">0.5</item><!--透明度 0.0f到1.0f。1.0完全不透明，0.0f完全透明-->
+    </style>
+
+    <style name="btn_Action" parent="btnMain">
+        <item name="android:layout_marginTop">@dimen/nSize5</item>
+        <item name="android:textSize">@dimen/t14sp</item>
+        <item name="android:padding">@dimen/nSize5</item>
+    </style>
+
+    <style name="measureMarkerBtns" parent="layout_allwarp">
+        <item name="android:drawablePadding">-3dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingLeft">@dimen/nSize15</item>
+        <item name="android:paddingRight">@dimen/nSize15</item>
+        <item name="android:paddingTop">@dimen/measure_padding</item>
+        <item name="android:paddingBottom">@dimen/measure_padding</item>
+        <item name="android:textColor">@drawable/selector_rb_select_text_color</item>
+        <item name="android:textSize">@dimen/t14sp</item>
+    </style>
+
+    <style name="form_divier" parent="hline">
+        <item name="android:background">@color/bg_gray</item>
+    </style>
+    <!-- 弹出窗体样式 -->
+    <style name="Theme.HalfTranslucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--设置dialog的背景-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--设置Dialog的windowFrame框为无-->
+        <item name="android:windowFrame">@null</item>
+        <!--设置无标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否半透明-->
+        <item name="android:windowIsTranslucent">false</item>
+        <!--设置窗口内容不覆盖-->
+        <item name="android:windowContentOverlay">@null</item>
+        <!--设置动画，在这里使用让它继承系统的Animation.Dialog-->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <!--背景是否模糊显示-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="txt_main_menu" parent="txt_normal">
+<!--        <item name="android:textColor">@color/color_menu_unselect</item>-->
+        <item name="android:textColor">@color/txt_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="callout_action" parent="txt_normal_white">
+        <item name="android:paddingTop">@dimen/nSize5</item>
+        <item name="android:paddingBottom">@dimen/nSize5</item>
+        <item name="android:paddingLeft">@dimen/nSize10</item>
+        <item name="android:paddingRight">@dimen/nSize10</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">@dimen/nSize3</item>
+        <item name="android:background">@drawable/bg_measure</item>
+
+
+    </style>
+
+    <style name="edit_number" parent="layout_linear_horizontal">
+        <item name="android:background">@drawable/bg_edittext_bar</item>
+        <item name="android:hint">@string/please_input</item>
+        <item name="android:inputType">number|numberDecimal</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">@dimen/nSize5</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+<!--        <item name="android:imeOptions">actionNone</item>-->
+
+    </style>
+
+    <style name="edit_coordinate" parent="layout_linear_horizontal">
+        <item name="android:background">@drawable/bg_edittext_bar</item>
+        <item name="android:hint">@string/please_input</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">@dimen/nSize5</item>
+
+    </style>
+
+    <style name="dialog_header" parent="layout_linear_horizontal">
+        <item name="android:background">@drawable/bg_header</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">@dimen/nSize10</item>
+
+    </style>
+
+
+    <style name="measureMarkerBtns2" parent="layout_allwarp">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingLeft">@dimen/nSize8</item>
+        <item name="android:paddingRight">@dimen/nSize8</item>
+        <item name="android:paddingTop">@dimen/measure_padding</item>
+        <item name="android:paddingBottom">@dimen/measure_padding</item>
+        <item name="android:textColor">@drawable/selector_rb_select_text_color</item>
+        <item name="android:textSize">@dimen/t16sp</item>
+    </style>
+
+    <!--   图片大小 START-->
+    <style name="imgStyle15">
+        <item name="android:layout_width">@dimen/nSize15</item>
+        <item name="android:layout_height">@dimen/nSize15</item>
+    </style>
+
+    <style name="imgStyle18">
+        <item name="android:layout_width">@dimen/nSize18</item>
+        <item name="android:layout_height">@dimen/nSize18</item>
+    </style>
+
+    <style name="imgStyle20">
+        <item name="android:layout_width">@dimen/nSize20</item>
+        <item name="android:layout_height">@dimen/nSize20</item>
+    </style>
+
+    <style name="imgStyle23">
+        <item name="android:layout_width">@dimen/nSize23</item>
+        <item name="android:layout_height">@dimen/nSize23</item>
+    </style>
+
+    <style name="imgStyle25">
+        <item name="android:layout_width">@dimen/nSize25</item>
+        <item name="android:layout_height">@dimen/nSize25</item>
+    </style>
+
+    <style name="imgStyle30">
+        <item name="android:layout_width">@dimen/nSize30</item>
+        <item name="android:layout_height">@dimen/nSize30</item>
+    </style>
+
+    <style name="imgStyle35">
+        <item name="android:layout_width">@dimen/nSize35</item>
+        <item name="android:layout_height">@dimen/nSize35</item>
+    </style>
+
+    <style name="imgStyle40">
+        <item name="android:layout_width">@dimen/nSize40</item>
+        <item name="android:layout_height">@dimen/nSize40</item>
+    </style>
+
+    <style name="imgStyle45">
+        <item name="android:layout_width">@dimen/nSize45</item>
+        <item name="android:layout_height">@dimen/nSize45</item>
+    </style>
+
+    <style name="imgStyle50">
+        <item name="android:layout_width">@dimen/nSize50</item>
+        <item name="android:layout_height">@dimen/nSize50</item>
+    </style>
+
+    <style name="imgStyle60">
+        <item name="android:layout_width">@dimen/nSize60</item>
+        <item name="android:layout_height">@dimen/nSize60</item>
+    </style>
+
+    <style name="imgStyle65">
+        <item name="android:layout_width">@dimen/nSize65</item>
+        <item name="android:layout_height">@dimen/nSize65</item>
+    </style>
+
+    <style name="imgStyle80">
+        <item name="android:layout_width">@dimen/nSize80</item>
+        <item name="android:layout_height">@dimen/nSize80</item>
+    </style>
+
+    <style name="imgStyle100">
+        <item name="android:layout_width">@dimen/nSize100</item>
+        <item name="android:layout_height">@dimen/nSize100</item>
+    </style>
+
+    <style name="et_zz" parent="txt_normal">
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@color/transColor</item>
+        <item name="android:padding">@dimen/nSize7</item>
+        <item name="android:textColorHint">#666666</item>
+    </style>
+
+    <style name="CheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/main_color</item>
+    </style>
+    <!--   图片大小 END-->
+
+    <style name="edit_1" parent="layout_linear_horizontal">
+    <item name="android:background">@drawable/bg_edittext_bar</item>
+    <item name="android:hint">@string/please_input</item>
+    <item name="android:gravity">left</item>
+    <item name="android:padding">@dimen/nSize5</item>
+    <item name="android:maxLines">1</item>
+    <item name="android:singleLine">true</item>
+
+    </style>
+
+    <style name="work_record_darw_type" parent="layout_allwarp">
+        <item name="android:drawablePadding">-3dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingLeft">@dimen/nSize10</item>
+        <item name="android:paddingRight">@dimen/nSize10</item>
+        <item name="android:paddingTop">@dimen/measure_padding</item>
+        <item name="android:paddingBottom">@dimen/measure_padding</item>
+        <item name="android:textColor">@drawable/selector_rb_select_text_color</item>
+        <item name="android:textSize">@dimen/t14sp</item>
+    </style>
+</resources>

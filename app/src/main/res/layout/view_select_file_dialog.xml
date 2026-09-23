@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout_linear_vertical"
+    android:background="@drawable/bg_white_square"
+    android:gravity="center">
+
+    <RelativeLayout style="@style/layout_normal">
+
+        <TextView
+            style="@style/txt_big"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/nSize10"
+            android:text="文件目录" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="@dimen/nSize30"
+            android:layout_height="@dimen/nSize30"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/nSize5"
+            android:padding="@dimen/nSize10"
+            android:src="@mipmap/close" />
+    </RelativeLayout>
+
+    <View style="@style/hline" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lvSelect"
+        style="@style/layout_normal"
+        tools:listitem="@layout/item_select_file" />
+
+    <TextView
+        android:id="@+id/tvOk"
+        style="@style/txt_big_blue"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:padding="@dimen/nSize10"
+        android:text="  确  定  " />
+
+</LinearLayout>

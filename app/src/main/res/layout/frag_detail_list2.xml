@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llDetail"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:id="@+id/rlTitle"
+        style="@style/layout_normal"
+        android:background="#F4F4F4"
+        android:paddingVertical="12dp">
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/nSize20">
+
+            <ImageView
+                style="@style/imgStyle30"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_detail_title" />
+
+            <TextView
+                style="@style/txt_big"
+                android:layout_marginLeft="@dimen/nSize8"
+                android:gravity="center"
+                android:text="处理情况"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llGoDetailFrag"
+            style="@style/layout_linear_horizontal"
+            android:layout_width="@dimen/nSize100"
+            android:layout_marginEnd="@dimen/nSize10"
+            android:layout_toStartOf="@+id/llCollect"
+            android:background="@drawable/bg_blue_btn2"
+            android:gravity="center"
+            android:padding="@dimen/nSize5"
+            android:visibility="visible">
+
+            <TextView
+                style="@style/txt_big_white"
+                android:gravity="center"
+                android:text="查看详情" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llCollect"
+            style="@style/layout_linear_horizontal"
+            android:layout_width="@dimen/nSize100"
+            android:layout_marginEnd="@dimen/nSize10"
+            android:layout_toStartOf="@+id/btnColse"
+            android:background="@drawable/bg_blue_btn2"
+            android:gravity="center"
+            android:padding="@dimen/nSize5"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivCollect"
+                style="@style/imgStyle15"
+                android:layout_marginEnd="@dimen/nSize5"
+                android:src="@mipmap/icon_star" />
+
+            <TextView
+                android:id="@+id/tvCollect"
+                style="@style/txt_big_white"
+                android:gravity="center"
+                android:text="收 藏" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnColse"
+            style="@style/layout_allwarp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/nSize10"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/close"
+            app:tint="@color/txt_black" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_marginTop="@dimen/nSize16"
+        android:paddingHorizontal="@dimen/nSize30"
+        android:paddingVertical="@dimen/nSize5">
+
+        <!--   左半边  -->
+        <LinearLayout
+            style="@style/layout_linear_vertical"
+            android:layout_weight="1">
+
+
+            <!--   图片整改情况  -->
+            <LinearLayout
+                android:id="@+id/llTopLeft"
+                android:layout_marginTop="@dimen/nSize15"
+                style="@style/layout_linear_vertical">
+
+                <TextView
+                    android:id="@+id/llTopLeftTitle"
+                    style="@style/txt_big"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/nSize5"
+                    android:text="整改前图片"
+                    android:textSize="@dimen/nSize20"
+                    android:textStyle="bold" />
+
+                <LinearLayout style="@style/layout_allmatch">
+
+                    <com.jwch.gwyt_project.view.GridAddImage
+                        android:id="@+id/viewAddImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:background_trans="true"
+                        app:column_count="3"
+                        app:isLoadFromMemory="false"
+                        app:max_count="9"
+                        app:title_visiable="false" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <!--   整改后附件  -->
+            <LinearLayout
+                android:id="@+id/llTopRight"
+                android:layout_marginTop="@dimen/nSize15"
+                style="@style/layout_linear_vertical">
+
+                <TextView
+                    android:id="@+id/llTopRightTitle"
+                    style="@style/txt_big"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="8"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/nSize5"
+                    android:text="整改后附件列表"
+                    android:textSize="@dimen/nSize20"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lvFile"
+                    style="@style/layout_allmatch"
+                    android:background="@drawable/bg_hollow_gray2_border6"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:background="@color/bg_gray"
+            android:layout_marginHorizontal="@dimen/nSize15"/>
+
+        <!--   右半边  -->
+        <LinearLayout
+            style="@style/layout_linear_vertical"
+            android:layout_weight="1">
+
+            <!--   图斑处理流程  -->
+            <LinearLayout
+                android:id="@+id/llSpotHandleFlow"
+                style="@style/layout_linear_vertical">
+
+                <TextView
+                    style="@style/txt_big"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="@dimen/nSize10"
+                    android:text="图斑处理流程"
+                    android:textSize="@dimen/nSize20"
+                    android:textStyle="bold" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lvSpotHandleFlow"
+                    style="@style/layout_allmatch"
+                    android:layout_height="220dp"
+                    android:background="@drawable/bg_hollow_gray2_border6" />
+
+            </LinearLayout>
+
+
+            <!--   办理流程  -->
+            <LinearLayout
+                android:id="@+id/llProcessingStatus"
+                style="@style/layout_linear_vertical"
+                android:layout_marginTop="@dimen/nSize15"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/txt_big"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="@dimen/nSize10"
+                    android:text="办理情况"
+                    android:textSize="@dimen/nSize20"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lvProcessingStatus"
+                    style="@style/layout_allmatch"
+                    android:layout_height="220dp"
+                    android:background="@drawable/bg_hollow_gray2_border6" />
+
+
+            </LinearLayout>
+
+
+            <!--   复核记录  -->
+            <LinearLayout
+                style="@style/layout_linear_vertical"
+                android:layout_marginTop="@dimen/nSize15"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    style="@style/layout_linear_horizontal"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        style="@style/txt_big"
+                        android:paddingVertical="@dimen/nSize10"
+                        android:text="复核记录"
+                        android:textSize="@dimen/nSize20"
+                        android:layout_weight="1"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        style="@style/layout_linear_horizontal"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        >
+
+                        <TextView
+                            android:id="@+id/tvAddReviewRecord"
+                            style="@style/txt_normal"
+                            android:layout_width="@dimen/nSize80"
+                            android:background="@drawable/bg_hollow_gray2_border6"
+                            android:gravity="center"
+                            android:padding="@dimen/nSize5"
+                            android:text="新增记录" />
+
+                        <TextView
+                            android:id="@+id/tvOutPutReviewRecord"
+                            style="@style/txt_normal"
+                            android:layout_width="@dimen/nSize80"
+                            android:layout_marginLeft="@dimen/nSize5"
+                            android:background="@drawable/bg_hollow_gray2_border6"
+                            android:gravity="center"
+                            android:padding="@dimen/nSize5"
+                            android:layout_marginStart="@dimen/nSize10"
+                            android:text="导 出" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lvReviewList"
+                    style="@style/layout_allmatch"
+                    android:background="@drawable/bg_hollow_gray2_border6" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

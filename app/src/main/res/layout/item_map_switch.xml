@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemContent2"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--    android:paddingLeft="30dp"-->
+    <!--    android:paddingTop="5dp"-->
+    <!--    android:paddingBottom="5dp"-->
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/id_treenode_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/tree_ec"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_legend"
+            style="@style/imgStyle18"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/icon_luanjian"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/id_treenode_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textColor="@color/whiteColor"
+            android:textSize="16dp" />
+
+
+        <ImageView
+            android:id="@+id/ivLayerOpactiy"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:padding="@dimen/nSize4"
+            android:src="@mipmap/icon_layer_opacity_c"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/ivLayerCheck"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:padding="@dimen/nSize4"
+            android:src="@mipmap/icon_square_unselect"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_op"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/nSize10"
+        android:gravity="center"
+        android:paddingLeft="@dimen/nSize0"
+        android:paddingRight="@dimen/nSize20"
+        android:visibility="visible">
+
+        <SeekBar
+            android:id="@+id/sb_ztt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:max="100"
+            android:maxHeight="5dp"
+            android:progress="100"
+            android:progressDrawable="@drawable/bg_seekbar"
+            android:thumb="@drawable/logo_silder_white" />
+    </LinearLayout>
+
+</LinearLayout>

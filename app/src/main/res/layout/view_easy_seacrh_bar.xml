@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layout_linear_vertical"
+    android:layout_width="wrap_content"
+    android:background="@drawable/bg_te11111111111"
+    android:padding="@dimen/nSize4"
+    android:layout_marginBottom="@dimen/nSize5">
+
+    <!-- 顶部常驻搜索栏：输入框 + 清除 + 下拉箭头(切换更多筛选) -->
+    <LinearLayout
+        android:id="@+id/llGlobalSearch"
+        style="@style/layout_linear_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize30"
+        android:gravity="center_vertical"
+        android:layout_marginHorizontal="@dimen/nSize3"
+        android:padding="1dp">
+
+        <ImageView
+            style="@style/imgStyle20"
+            android:layout_marginHorizontal="@dimen/nSize3"
+            android:src="@mipmap/icon_search"
+            app:tint="#3FBFFF" />
+
+        <!-- 搜索框（常驻可见，回车直接搜索） -->
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="3dp"
+            android:background="@null"
+            android:hint="请输入搜索内容"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColor="@color/whiteColor"
+            android:textColorHint="@color/statis_year_unselect"
+            android:completionThreshold="0"
+            android:inputType="text"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/tvClear"
+            style="@style/txt_normal"
+            android:layout_height="@dimen/nSize20"
+            android:gravity="center"
+            android:paddingVertical="4dp"
+            android:src="@mipmap/close_wd" />
+
+        <TextView
+            android:id="@+id/tvSearch"
+            style="@style/txt_normal"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/nSize7"
+            android:paddingRight="@dimen/nSize7"
+            android:text="搜索"
+            android:textColor="@color/whiteColor"
+            android:background="@drawable/bg_blue_hollow_border6"
+            android:visibility="gone"/>
+
+        <!-- 顶部标题文字（保留id，不再作为展开入口显示） -->
+        <TextView
+            android:id="@+id/tvGlobalSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/whiteColor"
+            android:text="全局搜索"
+            android:visibility="gone" />
+
+        <!-- 下拉箭头：点击切换 llFilterContainer 显隐 -->
+        <ImageView
+            android:id="@+id/ivToggle"
+            style="@style/imgStyle25"
+            android:src="@mipmap/icon_arrow_down"
+            android:layout_gravity="center"
+            android:padding="@dimen/nSize6"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
+
+    <!-- 更多筛选条件（默认隐藏，点击下拉箭头切换） -->
+    <LinearLayout
+        android:id="@+id/llFilterContainer"
+        style="@style/layout_linear_vertical"
+        android:layout_width="wrap_content"
+        android:layout_marginVertical="@dimen/nSize6"
+        android:layout_marginStart="@dimen/nSize3"
+        android:visibility="gone">
+
+        <!-- 分隔线 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#4CFFFFFF"
+            android:layout_marginBottom="10dp" />
+
+
+        <!-- 搜索框占位（保留旧 id，避免影响历史逻辑；不再展示） -->
+        <LinearLayout
+            android:id="@+id/llSearchBar"
+            style="@style/layout_linear_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/nSize8"
+            android:padding="3dp"
+            android:visibility="gone">
+
+        </LinearLayout>
+
+
+        <!-- 行政区划筛选 - 市级、区县、乡镇在同一行，三等分 -->
+
+        <LinearLayout
+            android:id="@+id/llDistrictFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:visibility="visible">
+
+
+            <TextView
+                android:id="@+id/tvCityLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/whiteColor"
+                android:text="行政区划："
+                android:textSize="12sp" />
+
+
+            <!-- 市级 -->
+
+            <LinearLayout
+                android:id="@+id/llCityFilter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="@dimen/nSize5"
+                android:visibility="gone">
+
+
+                <TextView
+                    android:id="@+id/tvCityValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:background="@drawable/bg_trans_white_border"
+                    android:padding="3dp" />
+
+            </LinearLayout>
+
+
+            <!-- 区县 -->
+
+            <LinearLayout
+                android:id="@+id/llCountyFilter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/nSize5"
+                android:gravity="center_vertical"
+                android:visibility="gone">
+
+
+                <TextView
+                    android:id="@+id/tvCountyValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:background="@drawable/bg_trans_white_border"
+                    android:padding="3dp" />
+
+            </LinearLayout>
+
+
+            <!-- 乡镇 -->
+
+            <LinearLayout
+                android:id="@+id/llTownFilter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:visibility="gone">
+
+
+
+                <TextView
+                    android:id="@+id/tvTownValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:background="@drawable/bg_trans_white_border"
+                    android:padding="3dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!-- 问题类型 + 年份筛选，各占二分之一 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+
+            <!-- 年份，占1/2 -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+
+                <ImageView
+                    style="@style/imgStyle20"
+                    android:src="@mipmap/icon_search_year"
+                    android:padding="@dimen/nSize2"
+                    android:layout_marginRight="@dimen/nSize2"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/whiteColor"
+                    android:text="年份："
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/tvYearValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_trans_white_border"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/nSize3"
+                    android:layout_marginHorizontal="@dimen/nSize6"
+                    android:text="全部"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <!-- 问题类型，占1/2 -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+
+                <ImageView
+                    style="@style/imgStyle20"
+                    android:src="@mipmap/icon_search_type"
+                    android:padding="@dimen/nSize1"
+                    android:layout_marginRight="@dimen/nSize1"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/whiteColor"
+                    android:text="类型："
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/tvProblemTypeValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp"
+                    android:text="全部"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:background="@drawable/bg_trans_white_border"
+                    android:paddingVertical="@dimen/nSize3"
+                    android:layout_marginHorizontal="@dimen/nSize3"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 是否问题 -->
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/whiteColor"
+                android:text="是否问题："
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/tvProblemAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部"
+                android:textColor="@color/txt_chip_selector"
+                android:textSize="12sp"
+                android:background="@drawable/bg_chip_selector"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp" />
+
+
+            <TextView
+                android:id="@+id/tvProblemYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/bg_chip_selector"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:text="是"
+                android:textColor="@color/txt_chip_selector"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/tvProblemNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="否"
+                android:textColor="@color/txt_chip_selector"
+                android:textSize="12sp"
+                android:background="@drawable/bg_chip_selector"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp" />
+
+
+            <TextView
+                android:id="@+id/tvProblemPending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="待复核"
+                android:textColor="@color/txt_chip_selector"
+                android:textSize="12sp"
+                android:background="@drawable/bg_chip_selector"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp" />
+
+        </LinearLayout>
+
+
+        <!-- 是否办结 -->
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/whiteColor"
+                android:text="是否办结："
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/tvFinishedAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部"
+                android:textColor="@color/txt_chip_selector"
+                android:textSize="12sp"
+                android:background="@drawable/bg_chip_selector"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp" />
+
+
+            <TextView
+                android:id="@+id/tvFinishedYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="是"
+                android:textColor="@color/txt_chip_selector"
+                android:textSize="12sp"
+                android:background="@drawable/bg_chip_selector"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp" />
+
+
+            <TextView
+                android:id="@+id/tvFinishedNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="否"
+                android:textColor="@color/txt_chip_selector"
+                android:textSize="12sp"
+                android:background="@drawable/bg_chip_selector"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp" />
+
+        </LinearLayout>
+
+
+        <!-- 底部按钮：确定 + 重置筛选，平分宽度 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/nSize5"
+            android:gravity="center_vertical">
+
+
+            <!-- 重置筛选按钮 -->
+
+            <TextView
+                android:id="@+id/tvClearFilters"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/nSize15"
+                android:textColor="@color/whiteColor"
+                android:textSize="13sp"
+                android:background="@drawable/bg_btn_red_solid"
+                android:text="重置筛选"
+                android:gravity="center"
+                android:padding="6dp" />
+
+
+            <!-- 确定按钮 -->
+
+            <TextView
+                android:id="@+id/tvConfirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/whiteColor"
+                android:textSize="13sp"
+                android:background="@drawable/bg_btn_blue_solid"
+                android:text="确认筛选"
+                android:gravity="center"
+                android:padding="6dp" />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

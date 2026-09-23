@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_allmatch"
+    android:background="@color/whiteColor">
+
+    <LinearLayout style="@style/layout_linear_vertical">
+
+        <TextView
+            android:id="@+id/tvAdd"
+            style="@style/btnMain"
+            android:text="@string/add" />
+
+        <TextView
+            android:id="@+id/tvDelete"
+            style="@style/btnMain"
+            android:text="@string/remove" />
+
+        <TextView
+            android:id="@+id/tvQuery"
+            style="@style/btnMain"
+            android:text="@string/query" />
+
+        <TextView
+            android:id="@+id/tvClear"
+            style="@style/btnMain"
+            android:text="清空" />
+
+        <TextView
+            android:id="@+id/tvDetail"
+            android:layout_marginTop="@dimen/dp_10"
+            style="@style/txt_normal" />
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,581 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "95ce730e-fe36-49a3-b5bd-42c176a94dbb",
+      "typeName": "专题数据",
+      "sortCode": 1,
+      "children": [
+        {
+          "id": "10535c8c-2a6a-4b61-9625-d6d75fa29a0d",
+          "typeName": "基础数据",
+          "sortCode": 1,
+          "themes": [
+            {
+              "id": "ed81c139-dd90-4b2d-7093-80116a0d5b60",
+              "themeName": "影像底图2022"
+            },
+            {
+              "id": "f3d39d95-55dc-83af-5842-2b8994574861",
+              "themeName": "影像底图2024"
+            },
+            {
+              "id": "f3d39d95-55dc-83af-5842-2b8994574872",
+              "themeName": "影像底图2025"
+            },
+            {
+              "id": "34f2569e-446a-8056-d456-a7cab240bc82",
+              "themeName": "河流"
+            },
+            {
+              "id": "f9410777-712d-8e5c-5b42-90bb0e4e0067",
+              "themeName": "河道管理范围线"
+            },
+            {
+              "id": "85d4ccf3-887e-7886-30f8-9692641620bd",
+              "themeName": "行政区划"
+            }
+          ]
+        },
+        {
+          "id": "53c98d14-4a94-40bb-af5d-0b666909d34c",
+          "typeName": "业务数据",
+          "sortCode": 2,
+          "children": [
+            {
+              "id": "c4cede12-55f7-4c24-b7c5-7d3583f8685e",
+              "typeName": "2022",
+              "sortCode": 1,
+              "children": [
+                {
+                  "id": "ec07d4de-abdb-4e41-9f8f-7bb88884f47a",
+                  "typeName": "遥感图斑",
+                  "sortCode": 1,
+                  "children": [
+                    {
+                      "id": "0e51d381-2108-47f3-acfd-e71d8b09bffb",
+                      "typeName": "部级图斑(部平台)",
+                      "sortCode": 1,
+                      "themes": [
+                        {
+                          "id": "7fb3ceb8-4ef9-0c5b-f400-604ecf7970f1",
+                          "themeName": "水利部图斑2022"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "ba23e053-f3f0-4d13-82f4-5884ea0a5cee",
+              "typeName": "2023",
+              "sortCode": 2,
+              "children": [
+                {
+                  "id": "15a4ca91-23fa-42d3-b471-19d88d14cc43",
+                  "typeName": "遥感图斑",
+                  "sortCode": 1,
+                  "children": [
+                    {
+                      "id": "b6ce92c9-2b00-408e-83ec-d2e903aec986",
+                      "typeName": "省级图斑(省平台)",
+                      "sortCode": 1,
+                      "themes": [
+                        {
+                          "id": "34f88944-9cd6-65d9-ac59-6db9c2013232",
+                          "themeName": "其他2023"
+                        },
+                        {
+                          "id": "90d37c1f-0a7a-5892-8698-7a471726ee9a",
+                          "themeName": "乱采2023"
+                        },
+                        {
+                          "id": "7d09d85c-60d9-6e1a-6104-8fc2ac591df2",
+                          "themeName": "乱占2023"
+                        },
+                        {
+                          "id": "51dc4d96-ea22-3880-f970-aa365a96f211",
+                          "themeName": "乱堆2023"
+                        },
+                        {
+                          "id": "0063a0fa-5a10-2fa0-4161-4949942fb285",
+                          "themeName": "乱建2023"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "bb80e288-d7ae-47ae-a1d6-c5e5a27b3a4e",
+                      "typeName": "部级图斑(部平台)",
+                      "sortCode": 2,
+                      "themes": [
+                        {
+                          "id": "04f34351-5255-4ff3-a4cd-3e01af3b9126",
+                          "themeName": "水利部图斑2023"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "1898879a-6c1e-4e55-89b3-d474560f7ecb",
+                  "typeName": "暗访事件(省平台)",
+                  "sortCode": 2,
+                  "themes": [
+                    {
+                      "id": "f5de00bf-e6f5-6f9c-39d3-c342205b7c39",
+                      "themeName": "暗访-乱采2023"
+                    },
+                    {
+                      "id": "e5f2090e-f2d4-2045-eb1a-a7376f018aca",
+                      "themeName": "暗访-乱占2023"
+                    },
+                    {
+                      "id": "8de1ca46-8e32-8d61-ee13-ae320dcaf809",
+                      "themeName": "暗访-乱建2023"
+                    },
+                    {
+                      "id": "37649ff6-8aed-9bf9-d1da-4d92ed8922ab",
+                      "themeName": "暗访-乱堆2023"
+                    },
+                    {
+                      "id": "06638628-01a3-d757-8b1c-8a044ef5ea0e",
+                      "themeName": "暗访-其他2023"
+                    }
+                  ]
+                },
+                {
+                  "id": "55abd127-8c05-425f-ac9a-cf2f6678f0de",
+                  "typeName": "督办事件(省平台)",
+                  "sortCode": 3,
+                  "themes": [
+                    {
+                      "id": "f4de5e79-b1bc-a699-0bed-2eb2f8cc0b70",
+                      "themeName": "督办-其他2023"
+                    },
+                    {
+                      "id": "e24d9b93-a547-053b-a1da-fa2cd623a9f3",
+                      "themeName": "督办-乱建2023"
+                    },
+                    {
+                      "id": "9495cf4f-495a-4c59-7a73-3cc744a5aef0",
+                      "themeName": "督办-乱占2023"
+                    },
+                    {
+                      "id": "320d806e-6379-59a2-c1be-a84def0654d5",
+                      "themeName": "督办-乱采2023"
+                    },
+                    {
+                      "id": "2a04a936-ea2a-0ee8-b4b5-d6729a243f2f",
+                      "themeName": "督办-乱堆2023"
+                    }
+                  ]
+                },
+                {
+                  "id": "b5d9aa97-273f-47cc-9564-4839dbe13898",
+                  "typeName": "县区自查(部平台)",
+                  "sortCode": 4,
+                  "themes": [
+                    {
+                      "id": "d5829307-dddf-c2d9-992f-eb3c9baeaa89",
+                      "themeName": "自查自纠问题2023"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "b4e62558-27e1-4e01-8b3a-3e2fc6625401",
+              "typeName": "2024",
+              "sortCode": 3,
+              "children": [
+                {
+                  "id": "c17cddbf-c62a-45e6-8c9f-6f18153c0c96",
+                  "typeName": "遥感图斑",
+                  "sortCode": 1,
+                  "children": [
+                    {
+                      "id": "417aba18-311e-420b-bf71-dafe648d9e2d",
+                      "typeName": "省级图斑(省平台)",
+                      "sortCode": 1,
+                      "themes": [
+                        {
+                          "id": "e9ee2e84-2d5c-4be9-99c3-3aac69085434",
+                          "themeName": "乱堆2024"
+                        },
+                        {
+                          "id": "ca4e95e8-4588-4add-8a54-6e73807bee1c",
+                          "themeName": "其他2024"
+                        },
+                        {
+                          "id": "c57b3adb-2a36-919e-34f8-f110ae2d5310",
+                          "themeName": "乱建2024"
+                        },
+                        {
+                          "id": "a46222ce-5362-8f8a-6007-5e6b66768212",
+                          "themeName": "乱占2024"
+                        },
+                        {
+                          "id": "3244ea97-e19e-4bab-8a27-cdab2354b50a",
+                          "themeName": "乱采2024"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "0efdbbdf-9f0e-4c19-b6da-3604def7e9f5",
+                      "typeName": "部级图斑(部平台)",
+                      "sortCode": 2,
+                      "themes": [
+                        {
+                          "id": "b93674c0-3001-3d0a-b742-85e7adc472a1",
+                          "themeName": "水利部图斑2024"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "d296f0c2-06c9-4958-a1e1-a2c754e53cd5",
+                  "typeName": "暗访事件(省平台)",
+                  "sortCode": 2,
+                  "themes": [
+                    {
+                      "id": "e8bd17ee-937c-d403-8180-7db9a3bb48a6",
+                      "themeName": "暗访-乱采2024"
+                    },
+                    {
+                      "id": "d32c9bd4-1ec1-68cf-9f23-e91d5dde3b32",
+                      "themeName": "暗访-乱建2024"
+                    },
+                    {
+                      "id": "92e23247-ec5a-73ff-99f7-c4326f8758ba",
+                      "themeName": "暗访-乱堆2024"
+                    },
+                    {
+                      "id": "c0882c9e-dd39-ddb2-af2c-a6ac6492a1c6",
+                      "themeName": "暗访-其他2024"
+                    },
+                    {
+                      "id": "9518bea5-04b3-7bfa-a037-b418e133b3b0",
+                      "themeName": "暗访-乱占2024"
+                    },
+                    {
+                      "id": "4287c8f9-91d2-7cb9-04be-5da07daef8ae",
+                      "themeName": "暗访-乱采2024"
+                    }
+                  ]
+                },
+                {
+                  "id": "e97fe5fb-b7ba-423f-a7bb-acc4c9e61a8c",
+                  "typeName": "督办事件(省平台)",
+                  "sortCode": 3,
+                  "themes": [
+                    {
+                      "id": "a6d1df70-510e-3cf4-9ce2-b7ff2c2367b1",
+                      "themeName": "督办-乱堆2024"
+                    },
+                    {
+                      "id": "711cbafa-9525-76cd-32ea-8a3325e84274",
+                      "themeName": "督办-其他2024"
+                    },
+                    {
+                      "id": "714e3dc3-755a-bced-2b97-49609b2ec41f",
+                      "themeName": "督办-乱采2024"
+                    },
+                    {
+                      "id": "37a9d587-66a1-84ff-b8c5-0c361a3d2ce7",
+                      "themeName": "督办-乱建2024"
+                    },
+                    {
+                      "id": "004a4b75-fc14-d7d7-935c-02612bd66066",
+                      "themeName": "督办-乱占2024"
+                    }
+                  ]
+                },
+                {
+                  "id": "713139b1-c8ff-4b1a-8a7e-23b69ff9251a",
+                  "typeName": "县区自查(部平台)",
+                  "sortCode": 4,
+                  "themes": [
+                    {
+                      "id": "820fcdc6-45fc-d466-287e-d6f47a1ad042",
+                      "themeName": "自查自纠问题2024"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "e35b949d-62c8-441c-9694-0e09d1da0ac1",
+              "typeName": "2025",
+              "sortCode": 4,
+              "children": [
+                {
+                  "id": "bbf22afd-c0d6-49e0-b88f-173b816909e3",
+                  "typeName": "遥感图斑",
+                  "sortCode": 1,
+                  "children": [
+                    {
+                      "id": "7ed35795-4425-4530-99c2-6da327bf158d",
+                      "typeName": "省级图斑(省平台)",
+                      "sortCode": 1,
+                      "themes": [
+                        {
+                          "id": "8580bc5e-9f73-743a-6730-adbd0218b3db",
+                          "themeName": "其他2025"
+                        },
+                        {
+                          "id": "60550bec-39da-727e-135f-ef57b9f43355",
+                          "themeName": "乱堆2025"
+                        },
+                        {
+                          "id": "4b63edce-4b19-8710-48d5-494288cd2877",
+                          "themeName": "乱建2025"
+                        },
+                        {
+                          "id": "40a3a152-3e96-036b-9d3b-14fc980050c5",
+                          "themeName": "乱采2025"
+                        },
+                        {
+                          "id": "392210e4-3d81-5e9b-fd15-2e4e7dd438fb",
+                          "themeName": "乱占2025"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "22aa6927-1c04-4f12-aeef-1cb2365eb69c",
+                      "typeName": "部级图斑(部平台)",
+                      "sortCode": 2,
+                      "themes": [
+                        {
+                          "id": "fdb4a730-c9bf-90dc-1308-4c6ff6adfa40",
+                          "themeName": "水利部图斑2025"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "909a7021-5762-4481-951c-4b97026b228b",
+                  "typeName": "暗访事件(省平台)",
+                  "sortCode": 2,
+                  "themes": [
+                    {
+                      "id": "f7ba3c69-99c6-d954-a5bd-a9f94b71c600",
+                      "themeName": "暗访-乱堆2025"
+                    },
+                    {
+                      "id": "b8ebecf5-7af6-481a-6180-8ba3783924ff",
+                      "themeName": "暗访-乱占2025"
+                    },
+                    {
+                      "id": "61e9ae68-5644-737f-2d5f-604ea07e9281",
+                      "themeName": "暗访-其他2025"
+                    },
+                    {
+                      "id": "3fed9805-d5fc-e8aa-ee75-517ca8cba66f",
+                      "themeName": "暗访-乱建2025"
+                    },
+                    {
+                      "id": "316a53de-3e47-e34c-71a1-195b2392d970",
+                      "themeName": "暗访-乱采2025"
+                    }
+                  ]
+                },
+                {
+                  "id": "0a0eb51c-f1c0-42f9-ad00-04d9a3fbd63e",
+                  "typeName": "督办事件(省平台)",
+                  "sortCode": 3,
+                  "themes": [
+                    {
+                      "id": "f905bc79-bfa3-81a8-cb39-c049db4f2d22",
+                      "themeName": "督办-乱建2025"
+                    },
+                    {
+                      "id": "ef7de618-2028-0fa3-e704-599dad4d68f8",
+                      "themeName": "督办-乱堆2025"
+                    },
+                    {
+                      "id": "7e4584f4-9711-44b7-7b4d-1fe83c92305a",
+                      "themeName": "督办-乱采2025"
+                    },
+                    {
+                      "id": "7f904603-c0e5-3c94-cc17-fe955388b747",
+                      "themeName": "督办-其他2025"
+                    },
+                    {
+                      "id": "0d077225-159a-20f8-3591-3874b92ef78c",
+                      "themeName": "督办-乱占2025"
+                    }
+                  ]
+                },
+                {
+                  "id": "cd83d752-fef1-4bbd-9766-77b1b3995914",
+                  "typeName": "县区自查(部平台)",
+                  "sortCode": 4,
+                  "themes": [
+                    {
+                      "id": "36302997-400b-c5ad-b901-c01a801c532c",
+                      "themeName": "自查自纠问题2025"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "63d417f6-9fce-457b-8ff8-2fc407a4ad6e",
+              "typeName": "2026",
+              "sortCode": 5,
+              "children": [
+                {
+                  "id": "d1cf700e-4017-48da-bba8-7194dfa2d43e",
+                  "typeName": "遥感图斑",
+                  "sortCode": 1,
+                  "children": [
+                    {
+                      "id": "61b4c101-726f-44e0-b577-5dc74ac2159e",
+                      "typeName": "省级图斑(省平台)",
+                      "sortCode": 1,
+                      "themes": [
+                        {
+                          "id": "5b8f674a-0581-3f8c-482a-e07de24c1e16",
+                          "themeName": "乱占2026"
+                        },
+                        {
+                          "id": "6e5b53c5-5f09-76be-42ac-608b7d31e610",
+                          "themeName": "乱堆2026"
+                        },
+                        {
+                          "id": "b3a32537-0ca4-3ae5-1bc8-5d1e80c14af7",
+                          "themeName": "乱建2026"
+                        },
+                        {
+                          "id": "f48b4a0b-1813-bc4e-eae9-6541df44b246",
+                          "themeName": "乱采2026"
+                        },
+                        {
+                          "id": "c7255760-43de-1805-bd59-376cba283cdd",
+                          "themeName": "其他2026"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "e7f87f41-aac1-4bd1-8014-510e1b50f089",
+                      "typeName": "部级图斑(部平台)",
+                      "sortCode": 2,
+                      "themes": [
+                        {
+                          "id": "db3edcd0-690e-5ded-25cc-b5c863227f96",
+                          "themeName": "水利部图斑2026"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "cbe8911d-2b29-4abd-93b7-3cebce2c08c2",
+                  "typeName": "暗访事件(省平台)",
+                  "sortCode": 2,
+                  "themes": [
+                    {
+                      "id": "674e1737-f13a-8eea-2eac-e9c4474b3f30",
+                      "themeName": "暗访-乱堆2026"
+                    },
+                    {
+                      "id": "70dd2e06-3a34-7d6d-79e3-eb59bbc78c04",
+                      "themeName": "暗访-乱占2026"
+                    },
+                    {
+                      "id": "8c385cc9-4939-cf75-383a-77b0ae59218c",
+                      "themeName": "暗访-乱建2026"
+                    },
+                    {
+                      "id": "8cb4ca00-a1bb-3832-c67b-4a2bfd3ef990",
+                      "themeName": "暗访-乱采2026"
+                    },
+                    {
+                      "id": "432ae61d-e70d-1f66-c430-5aab543eb965",
+                      "themeName": "暗访-其他2026"
+                    }
+                  ]
+                },
+                {
+                  "id": "7891bf59-2ba7-4180-87d3-2deb71f8914a",
+                  "typeName": "督办事件(省平台)",
+                  "sortCode": 3,
+                  "themes": [
+                    {
+                      "id": "6a4e2647-b495-37f0-2bdb-323ef07580c5",
+                      "themeName": "督办-乱堆2026"
+                    },
+                    {
+                      "id": "7dfba9e6-2b72-e0bc-d6ce-23c7e82eb899",
+                      "themeName": "督办-乱占2026"
+                    },
+                    {
+                      "id": "26519a3b-1903-dbbf-010c-f3365ad7c631",
+                      "themeName": "督办-乱建2026"
+                    },
+                    {
+                      "id": "92b7e542-791d-96d2-020a-9a25218ddf06",
+                      "themeName": "督办-乱采2026"
+                    },
+                    {
+                      "id": "613a01dc-335d-d25a-916b-1db82353d605",
+                      "themeName": "督办-其他2026"
+                    }
+                  ]
+                },
+                {
+                  "id": "aa886da3-e440-411b-a2f2-a22d25f29151",
+                  "typeName": "县区自查(部平台)",
+                  "sortCode": 4,
+                  "themes": [
+                    {
+                      "id": "7c7f2855-5700-7cac-bf4a-7020f43bf222",
+                      "themeName": "自查自纠问题2026"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "regionThemes": {
+    "长汀县": {
+      "themes": [
+        { "themeName": "无人机影像" },
+        { "themeName": "生态保护蓝线" },
+        { "themeName": "河道岸线" }
+      ]
+    },
+    "闽侯县": {
+      "themes": [
+        { "themeName": "红线" },
+        { "themeName": "蓝线" }
+      ]
+    },
+    "永春县": {
+      "themes": [
+        { "themeName": "2021年以来已许可涉河建设项目" }
+      ]
+    },
+    "xxx": {
+      "categories": [
+        {
+          "typeName": "控制区",
+          "themes": [
+            { "themeName": "一般控制区" },
+            { "themeName": "核心保护区" }
+          ]
+        }
+      ],
+      "themes": [
+        { "themeName": "红树林" }
+      ]
+    }
+  }
+}

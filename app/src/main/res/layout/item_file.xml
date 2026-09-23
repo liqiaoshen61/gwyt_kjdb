@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_weight="2"
+        android:paddingVertical="@dimen/nSize10"
+        android:paddingHorizontal="@dimen/nSize8"
+        android:gravity="center_vertical">
+
+        <RelativeLayout
+            android:id="@+id/rlImage"
+            android:layout_width="@dimen/nSize28"
+            android:layout_height="@dimen/nSize28"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="@dimen/nSize20"
+                android:layout_height="@dimen/nSize20"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/icon_file" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvName1"
+            style="@style/txt_normal"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:textColor="#343434"
+            android:textSize="@dimen/nSize18"
+            android:text="123" />
+
+        <TextView
+            android:id="@+id/imgCheck"
+            style="@style/txt_big_blue"
+            android:paddingHorizontal="@dimen/nSize8"
+            android:paddingVertical="@dimen/nSize4"
+            android:layout_marginHorizontal="@dimen/nSize2"
+            android:text="查看"
+            android:background="@drawable/bg_blue_hollow_border6"
+            android:visibility="visible"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

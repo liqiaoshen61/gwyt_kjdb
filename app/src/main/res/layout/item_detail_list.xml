@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="5dp">
+
+
+    <LinearLayout style="@style/layout_linear_horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvDetaliListName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="xxx"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textColor="@color/whiteColor"/>
+
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="@dimen/nSize5"
+        android:background="@drawable/bg_dash_line"
+        android:layerType="software"/>
+
+</LinearLayout>

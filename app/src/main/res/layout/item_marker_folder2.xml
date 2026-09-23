@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:paddingHorizontal="@dimen/nSize5">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgFolder"
+            android:layout_width="@dimen/nSize30"
+            android:layout_height="@dimen/nSize30"
+            android:layout_marginRight="3dp"
+            android:padding="@dimen/nSize6"
+            android:src="@mipmap/folder_closed"
+            android:visibility="visible"
+            app:tint="@color/main_color" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:textStyle="bold"
+            style="@style/txt_big"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/imgDelete"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/nSize6"
+            android:src="@mipmap/clear" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/nSize5"
+        android:background="@drawable/bg_dash_line_blue"
+        android:layerType="software"
+        android:paddingTop="@dimen/nSize5" />
+
+</LinearLayout>

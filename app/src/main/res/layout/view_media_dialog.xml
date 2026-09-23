@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white">
+
+    <!--    标题-->
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_header"
+        android:gravity="center_vertical"
+        android:padding="@dimen/nSize5">
+
+        <TextView
+            android:id="@+id/tv_layer_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:padding="5sp"
+            android:text="多媒体文件"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/tvClose"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/nSize5"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/feedback_close2" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_weight="1"
+        android:padding="@dimen/nSize5">
+
+        <com.jameni.jamenilistlib.view.RefreshView
+            android:id="@+id/lvOutputList"
+            style="@style/layout_linear_horizontal" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/layout_normal"
+        android:layout_height="@dimen/nSize1"
+        android:layout_marginTop="@dimen/nSize10"
+        android:background="@color/txt_gray" />
+
+
+    <LinearLayout
+        android:id="@+id/llAddFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/nSize5">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_add_file" />
+
+        <TextView
+            style="@style/txt_small"
+            android:text="添加附件" />
+    </LinearLayout>
+
+
+</LinearLayout>

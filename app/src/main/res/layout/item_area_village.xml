@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   style="@style/layout_linear_horizontal">
+
+    <TextView
+        android:id="@+id/tvAreaVillage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/nSize15"
+        android:paddingRight="@dimen/nSize15"
+        android:paddingTop="@dimen/nSize8"
+        android:paddingBottom="@dimen/nSize8"
+        android:textColor="#d4e9ff"
+        android:text="xx村" />
+
+</LinearLayout>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical">
+
+    <LinearLayout
+        android:id="@+id/llTextline"
+        style="@style/layout_linear_horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/nSize8"
+        android:paddingVertical="@dimen/nSize6">
+
+        <TextView
+            android:id="@+id/viewIndent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvMustFillFlag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingRight="@dimen/nSize3"
+            android:text="*"
+            android:textColor="@color/red"
+            android:textSize="@dimen/t16sp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/tvKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:textColor="@color/txt_black"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:id="@+id/rlValue"
+            style="@style/layout_normal"
+            android:layout_marginStart="@dimen/nSize5"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvValue"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:background="@color/transColor"
+                android:gravity="center_vertical"
+                android:padding="@dimen/nSize5"
+                android:visibility="gone"
+                android:textColorHint="@color/txt_gray" />
+
+            <EditText
+                android:id="@+id/etValue"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:background="@color/transColor"
+                android:gravity="center_vertical"
+                android:inputType="text"
+                android:padding="@dimen/nSize5"
+                android:text=""
+                android:singleLine="false"
+                android:textColorHint="@color/txt_gray"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/etValueMultiLine"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:background="@color/transColor"
+                android:gravity="center_vertical"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/nSize5"
+                android:text=""
+                android:singleLine="false"
+                android:textColorHint="@color/txt_gray"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/etValueNumber"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:background="@color/transColor"
+                android:gravity="center_vertical"
+                android:inputType="numberDecimal"
+                android:padding="@dimen/nSize5"
+                android:text=""
+                android:textColorHint="@color/txt_gray"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/etValueNumberOnly"
+                style="@style/txt_normal"
+                android:layout_width="match_parent"
+                android:background="@color/transColor"
+                android:digits="1234567890"
+                android:gravity="center_vertical"
+                android:inputType="number"
+                android:padding="@dimen/nSize5"
+                android:text=""
+                android:textColorHint="@color/txt_gray"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/txt_black"
+            android:visibility="visible"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imgClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/logo_lib_back"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/imgCustom"
+            style="@style/imgStyle20"
+            android:src="@mipmap/location"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvCustom"
+            style="@style/txt_small_white"
+            android:text="坐标"
+            android:background="@drawable/btn_main"
+            android:layout_marginStart="8dp"
+            android:paddingHorizontal="@dimen/nSize5"
+            android:paddingVertical="@dimen/nSize2"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/underLine"
+        style="@style/form_divier" />
+
+</LinearLayout>

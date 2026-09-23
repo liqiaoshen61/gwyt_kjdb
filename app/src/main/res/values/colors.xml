@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">@color/main_color</color>
+
+    <color name="txt_brown">#7f5c41</color>
+    <color name="txt_yellow">#dfaf6c</color>
+    <color name="txt_black">#505050</color>
+    <color name="brown">#4b0000</color>
+    <color name="color_et_bg">#efe7d3</color>
+    <color name="color_title_bar">#74553e</color>
+    <color name="color_txt_search">#dbc7a9</color>
+    <color name="txt_detail_info">#6d0408</color>
+    <color name="color_txt_location">#74553e</color>
+    <color name="color_search_text">#82664b</color>
+
+    <color name="color_txt_unselect_indicator">#af743a</color>
+    <color name="primaryColor">#1BBC9B</color>
+    <color name="green_dark">#118F77</color>
+    <color name="des_bg">#70118F77</color>
+
+    <color name="color_menu_unselect">#0664e5</color>
+    <color name="color_menu_select">#FFA106</color>
+    <color name="color_menu_bg">#001633</color>
+    <color name="color_dialog_btn">#fdd2bc</color>
+    <!-- 半透明颜色 -->
+    <color name="half_transparent">#aa000000</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="dark_blue">#226EBD</color>
+    <color name="very_dark_blue">#203497</color>
+    <color name="bg_switch_map_title">#e4faff</color>
+
+    <color name="bg_village_select">#aed1fe</color>
+
+    <color name="half_blue">#80aed1fe</color>
+    <color name="transColor">@android:color/transparent</color>
+
+    <color name="half_black2">#80444444</color>
+    <color name="half_black">#80000000</color>
+
+    <color name="light_white">#4cFFFFFF</color>
+
+
+    <color name="main_blue">#d4e9ff</color>
+    <color name="green2">#00843b</color>
+    <color name="green3">#33bf64</color>
+    <color name="bar1_c1">#85e3a4</color>
+    <color name="bar1_c2">#37a3dc</color>
+    <color name="form_highlight">#d5eaff</color>
+
+    <color name="dark_blue_bg">#1C3465</color>
+    <color name="dark_blue_dash">#00B4FC</color>
+
+    <color name="bg_form">#eff3f9</color>
+    <color name="key_form_color">#656565</color>
+    <color name="value_form_color">#3e3e3f</color>
+    <color name="record_count">#2373ad</color>
+
+
+    <color name="table_select">#C1D0F9</color>
+
+    <color name="statis_year_select">#1FA4EF</color>
+    <color name="statis_year_unselect">#D1D4D6</color>
+
+
+    <color name="statis_table_title">#3359c6f5</color>
+    <color name="statis_table_total">#1A59c6f5</color>
+    <color name="statis_table_select">#1A2abc6f</color>
+
+    <!-- 卫星信号检测页配色 -->
+    <color name="sat_bg">#0E1925</color>
+    <color name="sat_card">#17293A</color>
+    <color name="sat_sub">#7E97AD</color>
+    <color name="sat_divider">#26394D</color>
+    <color name="sat_bar_bg">#22364A</color>
+
+
+</resources>

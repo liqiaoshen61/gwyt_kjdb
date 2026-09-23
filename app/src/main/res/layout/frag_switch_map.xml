@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llMapCompare"
+    style="@style/layout_allmatch"
+    android:background="@mipmap/bg_right_frag"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/nSize10"
+    android:visibility="visible">
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:background="@mipmap/bg_frag_title"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:id="@+id/tvSwitchMapTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textStyle="italic|bold"
+            android:layout_marginStart="@dimen/nSize20"
+            android:text="数据资源"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/ivMapsClose"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="@dimen/nSize7"
+            android:src="@mipmap/icon_frag_close" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize4"
+        android:layout_marginBottom="@dimen/nSize8"
+        android:background="@drawable/bg_blue_line" />
+
+    <!-- 顶层 Tab：数据资源 / 外部导入（胶囊风格） -->
+    <RadioGroup
+        android:id="@+id/rgTopTab"
+        style="@style/layout_linear_horizontal"
+        android:layout_height="36dp"
+        android:layout_marginHorizontal="@dimen/nSize12"
+        android:layout_marginTop="@dimen/nSize4"
+        android:background="@drawable/bg_segment_bar"
+        android:gravity="center"
+        android:padding="2dp">
+
+        <RadioButton
+            android:id="@+id/rbDataResource"
+            style="@style/layout_allmatch"
+            android:layout_weight="1"
+            android:background="@drawable/segment_tab_bg"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="数据资源"
+            android:textColor="@drawable/segment_tab_text_style"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rbExternalImport"
+            style="@style/layout_allmatch"
+            android:layout_weight="1"
+            android:background="@drawable/segment_tab_bg"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="外部导入"
+            android:textColor="@drawable/segment_tab_text_style"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+    <!-- 数据资源面板（原内容） -->
+    <LinearLayout
+        android:id="@+id/llDataResource"
+        style="@style/layout_linear_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="visible">
+
+        <RadioGroup
+            android:id="@+id/rgSwitch"
+            style="@style/layout_linear_horizontal"
+            android:layout_height="@dimen/nSize30"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_switch_map_bar"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/rbZtt"
+                style="@style/layout_allmatch"
+                android:layout_weight="1"
+                android:background="@drawable/map_switch_style"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="专题图"
+                android:textColor="@drawable/map_text_style"
+                android:visibility="visible" />
+
+            <RadioButton
+                android:id="@+id/rbYxt"
+                style="@style/layout_allmatch"
+                android:layout_weight="1"
+                android:background="@drawable/map_switch_style"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="历年影像"
+                android:textColor="@drawable/map_text_style"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/rbDtc"
+                style="@style/layout_allmatch"
+                android:layout_marginStart="1px"
+                android:layout_weight="1"
+                android:background="@drawable/map_switch_style"
+                android:button="@null"
+                android:gravity="center"
+                android:text="地图册"
+                android:textColor="@drawable/map_text_style" />
+        </RadioGroup>
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/tvEventStatusFilter"
+                style="@style/txt_normal_white"
+                android:layout_margin="@dimen/nSize4"
+                android:paddingHorizontal="@dimen/nSize15"
+                android:paddingVertical="@dimen/nSize6"
+                android:text="事件状态"
+                android:background="@drawable/bg_te11111111111"
+                android:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/tvIsQuestionFilter"
+                style="@style/txt_normal_white"
+                android:layout_margin="@dimen/nSize4"
+                android:padding="@dimen/nSize6"
+                android:text="是否问题"
+                android:background="@drawable/bg_te11111111111"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+
+
+            <com.jameni.jamenilistlib.view.RefreshView
+                android:id="@+id/lvZtt"
+                style="@style/layout_allmatch" />
+
+            <com.jameni.jamenilistlib.view.RefreshView
+                android:id="@+id/lvYxt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <com.jameni.jamenilistlib.view.RefreshView
+                android:id="@+id/lvDtc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvNodata"
+                style="@style/txt_big_white"
+                android:layout_centerInParent="true"
+                android:text="暂无数据"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llClearData"
+            style="@style/layout_linear_horizontal"
+            android:background="@drawable/bg_clear_maps"
+            android:gravity="center"
+            android:padding="4dp"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/txt_big_white"
+                android:text="清除数据"
+                android:textColor="@color/dark_blue" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="@dimen/nSize5"
+                android:src="@mipmap/icon_clear_maps" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 外部导入面板 -->
+    <LinearLayout
+        android:id="@+id/llExternalImportPanel"
+        style="@style/layout_linear_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <!-- 二级 Tab：geojson / shp -->
+        <RadioGroup
+            android:id="@+id/rgImportSubTab"
+            style="@style/layout_linear_horizontal"
+            android:layout_height="36dp"
+            android:layout_marginHorizontal="@dimen/nSize16"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/rbSubGeojson"
+                style="@style/layout_allmatch"
+                android:layout_weight="1"
+                android:background="@drawable/sub_tab_bg"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="geojson"
+                android:textColor="@color/sub_tab_text"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rbSubShp"
+                style="@style/layout_allmatch"
+                android:layout_weight="1"
+                android:background="@drawable/sub_tab_bg"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="shp"
+                android:textColor="@color/sub_tab_text"
+                android:textSize="14sp" />
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@+id/flExternalImport"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <FrameLayout
+            android:id="@+id/flShpImport"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

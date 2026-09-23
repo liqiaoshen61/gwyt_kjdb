@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   style="@style/layout_linear_horizontal">
+
+    <TextView
+        android:id="@+id/tvText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/nSize12"
+        android:paddingVertical="@dimen/nSize5"
+        android:textColor="#d4e9ff"
+        android:textSize="@dimen/t15sp"
+        android:text="xx村"
+        android:lineSpacingExtra="@dimen/nSize4"/>
+
+</LinearLayout>

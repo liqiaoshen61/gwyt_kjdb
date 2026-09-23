@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:visibility="visible"
+    android:layout_height="match_parent"
+    android:gravity="bottom">
+
+    <LinearLayout
+        android:padding="5dp"
+        style="@style/layout_allwarp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:gravity="right">
+
+        <ImageView
+            android:id="@+id/ivRelocation"
+            android:layout_height="34dp"
+            android:layout_width="34dp"
+            android:layout_marginBottom="@dimen/nSize12"
+            android:src="@mipmap/icon_little_relocation"/>
+
+
+        <ImageView
+            android:id="@+id/ivScreenshots"
+            android:layout_height="34dp"
+            android:layout_width="34dp"
+            android:layout_marginBottom="@dimen/nSize12"
+            android:visibility="visible"
+            android:src="@mipmap/icon_little_screenshots"/>
+
+        <ImageView
+            android:id="@+id/ivMyLocation"
+            android:layout_height="34dp"
+            android:layout_width="34dp"
+            android:layout_marginBottom="@dimen/nSize12"
+            android:src="@mipmap/icon_little_location"/>
+
+        <ImageView
+            android:id="@+id/ivClearMap"
+            android:layout_height="34dp"
+            android:layout_width="34dp"
+            android:layout_marginBottom="@dimen/nSize12"
+            android:src="@mipmap/icon_little_clear_map"/>
+
+
+
+        <ImageView
+            android:id="@+id/ivChangeBaseMap"
+            android:layout_height="60dp"
+            android:layout_width="60dp"
+            android:src="@mipmap/icon_vector_map"/>
+    </LinearLayout>
+
+</LinearLayout>

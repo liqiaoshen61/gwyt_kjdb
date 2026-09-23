@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llAnalysisActions"
+    style="@style/layout_allwarp"
+    android:layout_marginTop="@dimen/nSize40"
+    android:background="@drawable/bg_measure_gradient"
+    android:layout_centerHorizontal="true"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/nSize5"
+    android:paddingRight="@dimen/nSize5"
+    android:paddingTop="@dimen/nSize5"
+    android:paddingBottom="@dimen/nSize5"
+    android:visibility="gone">
+
+
+    <LinearLayout
+        android:id="@+id/llOverlyAnalysis"
+        style="@style/layout_allwarp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/ivOverlyAnalysis"
+            android:layout_width="@dimen/nSize24"
+            android:layout_height="@dimen/nSize24"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/icon_search"/>
+        <TextView
+            android:id="@+id/tvOverlyAnalysis"
+            style="@style/measureMarkerBtns2"
+            android:text="分析"
+            android:textColor="@color/whiteColor" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llPoiInputMarker"
+        style="@style/layout_allwarp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/ivPoiInputMarker"
+            android:layout_width="@dimen/nSize24"
+            android:layout_height="@dimen/nSize24"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/icon_coordinate"/>
+
+        <TextView
+            android:id="@+id/tvPoiInputMarker"
+            style="@style/measureMarkerBtns2"
+            android:text="输入坐标"
+            android:textColor="@color/whiteColor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llImportExcel"
+        style="@style/layout_allwarp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="visible">
+        <ImageView
+            android:id="@+id/ivImportExcel"
+            android:layout_width="@dimen/nSize24"
+            android:layout_height="@dimen/nSize24"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/logo_output_excel"/>
+        <TextView
+            android:id="@+id/tvImportExcel"
+            style="@style/measureMarkerBtns2"
+            android:text="导入Excel"
+            android:textColor="@color/whiteColor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llImportCollection"
+        style="@style/layout_allwarp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="visible">
+        <ImageView
+            android:id="@+id/ivImportCollection"
+            android:layout_width="@dimen/nSize24"
+            android:layout_height="@dimen/nSize24"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/icon_inport_collection"/>
+        <TextView
+            android:id="@+id/tvImportCollection"
+            style="@style/measureMarkerBtns2"
+            android:text="导入标绘"
+            android:textColor="@color/whiteColor" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llAnalysisPreStep"
+        style="@style/layout_allwarp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/ivAnalysisPreStep"
+            android:layout_width="@dimen/nSize24"
+            android:layout_height="@dimen/nSize24"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/icon_prestep"/>
+        <TextView
+            android:id="@+id/tvAnalysisPreStep"
+            style="@style/measureMarkerBtns2"
+            android:text="回退"
+            android:textColor="@color/whiteColor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llAnalysisReset"
+        style="@style/layout_allwarp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/ivAnalysisReset"
+            android:layout_width="@dimen/nSize24"
+            android:layout_height="@dimen/nSize24"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/icon_reset"/>
+        <TextView
+            android:id="@+id/tvAnalysisReset"
+            style="@style/measureMarkerBtns2"
+            android:text="重置"
+            android:textColor="@color/whiteColor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llAnalysisSave"
+        style="@style/layout_allwarp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/ivAnalysisSave"
+            android:layout_width="@dimen/nSize24"
+            android:layout_height="@dimen/nSize24"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/icon_mark_save"/>
+
+        <TextView
+            android:id="@+id/tvMarkerSave"
+            style="@style/measureMarkerBtns2"
+            android:text="保存"
+            android:textColor="@color/whiteColor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llCancleAnalysis"
+        style="@style/layout_allwarp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/ivCancleAnalysis"
+            android:layout_width="@dimen/nSize24"
+            android:layout_height="@dimen/nSize24"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/icon_cancel_measure"/>
+        <TextView
+            android:id="@+id/tvCancleAnalysis"
+            style="@style/measureMarkerBtns2"
+            android:text="关闭"
+            android:textColor="@color/whiteColor" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

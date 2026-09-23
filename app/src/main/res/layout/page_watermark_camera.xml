@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    android:id="@+id/rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--相机预览视图-->
+    <FrameLayout
+        android:id="@+id/camera_preview_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <!--    闪光灯-->
+    <ImageView
+        android:visibility="visible"
+        android:id="@+id/switch_flash"
+        android:layout_marginTop="16dp"
+        android:layout_width="28dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:scaleType="fitEnd"
+        android:src="@mipmap/flash_close"/>
+
+    <!--    拍照完成预览视图-->
+    <ImageView
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="100dp"
+        android:visibility="visible" />
+
+    <!-- 顶部-->
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize50"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:paddingBottom="@dimen/nSize15"
+        android:paddingTop="@dimen/nSize15"
+        android:visibility="visible">
+
+
+    </LinearLayout>
+
+    <!-- 底部按钮 取消 快门 镜头转换-->
+    <LinearLayout
+        android:id="@+id/ll_take_photo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize80"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:visibility="visible">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:visibility="visible"
+            android:orientation="horizontal">
+            <LinearLayout
+                style="@style/layout_linear_vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="58dp"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/icon_x"/>
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/take_photo"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@mipmap/icon_shutter"/>
+            <ImageView
+                android:id="@+id/switch_camera"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="58dp"
+                android:scaleType="center"
+                android:visibility="invisible"
+                android:src="@drawable/bg_gray"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--取消/保存图片-->
+    <LinearLayout
+        android:id="@+id/ll_save_delete"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize80"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="5dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="45dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_back_arrow"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="0.1dp"/>
+        <ImageView
+            android:id="@+id/save"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="5dp"
+            android:layout_gravity="end"
+            android:layout_marginRight="45dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_ok_arrow"
+            />
+    </LinearLayout>
+
+    <!--    水印信息-->
+    <LinearLayout
+        android:id="@+id/ll_photo_message"
+        android:visibility="visible"
+        android:layout_above="@+id/ll_take_photo"
+
+        android:layout_marginLeft="@dimen/nSize5"
+        android:layout_marginBottom="@dimen/nSize5"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gray_radius2"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/nSize5"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/stv_time"
+                style="@style/txt_big_white"
+                android:padding="@dimen/nSize3"
+                android:text="2021.01.01 13:14" />
+            <TextView
+                android:id="@+id/stv_position"
+                style="@style/txt_normal_white"
+                android:padding="@dimen/nSize3"
+                android:text="AA省BB市CC区DD路" />
+            <EditText
+                android:id="@+id/stv_remark"
+                style="@style/txt_normal_white"
+                android:padding="@dimen/nSize3"
+                android:hint="添加备注"
+                android:background="@android:color/transparent"
+                android:textColorHint="@color/white"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

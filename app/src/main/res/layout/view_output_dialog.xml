@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llDialog"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_te11111111111">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:background="@mipmap/bg_frag_title"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/nSize8"
+        android:layout_marginHorizontal="@dimen/nSize5"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textStyle="italic|bold"
+            android:layout_marginStart="@dimen/nSize20"
+            android:text="选择导出文件"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="@dimen/nSize7"
+            android:layout_marginEnd="@dimen/nSize10"
+            android:src="@mipmap/icon_frag_close" />
+    </LinearLayout>
+
+
+    <View
+        style="@style/layout_normal"
+        android:layout_height="@dimen/nSize1"
+        android:background="@color/main_color"
+        android:layout_marginBottom="@dimen/nSize10"/>
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_weight="1"
+        android:padding="@dimen/nSize5">
+
+
+        <com.jameni.jamenilistlib.view.RefreshView
+            android:id="@+id/lvOutputList"
+            style="@style/layout_linear_horizontal" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize45"
+        android:layout_margin="@dimen/nSize15">
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/txt_big_white"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:background="#82C0D9"
+            android:text="确定" />
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

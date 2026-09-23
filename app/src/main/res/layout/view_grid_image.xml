@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_allmatch"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="@dimen/nSize30"
+    android:background="@color/whiteColor"
+    android:layout_gravity="center">
+
+
+    <com.jwch.gwyt_project.view.GridAddImage
+        android:id="@+id/viewAddImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:max_count="99"
+        app:title_visiable="false"
+        app:isLoadFromMemory="false"
+        android:background="@color/transColor"/>
+
+
+
+</LinearLayout>

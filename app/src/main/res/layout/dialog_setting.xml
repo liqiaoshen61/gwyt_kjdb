@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_callout2"
+    android:orientation="vertical">
+
+
+
+
+    <RelativeLayout
+        style="@style/layout_linear_horizontal"
+        android:background="@mipmap/bg_frag_title"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/nSize5"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textStyle="italic|bold"
+            android:layout_marginStart="@dimen/nSize20"
+            android:text="设置"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            style="@style/layout_allwarp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/nSize7"
+            android:layout_marginRight="@dimen/nSize15"
+            android:src="@mipmap/feedback_close2" />
+    </RelativeLayout>
+
+    <LinearLayout
+      style="@style/layout_linear_vertical"
+        android:padding="@dimen/nSize15">
+
+        <!--    持续定位-->
+        <LinearLayout
+            android:id="@+id/llContinuousLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/nSize10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="是否开启持续定位"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+
+            <ImageView
+                android:id="@+id/imgContinuousLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/nSize10"
+                android:src="@mipmap/icon_switch_off" />
+
+        </LinearLayout>
+
+        <!--    水印开关-->
+        <LinearLayout
+            android:id="@+id/llWatermark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/nSize10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="启用水印防护"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <!--修改水印密码按钮（水印开启后显示）-->
+            <TextView
+                android:id="@+id/tvWatermarkPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/nSize8"
+                android:background="@drawable/btn_gray"
+                android:paddingHorizontal="@dimen/nSize10"
+                android:paddingVertical="@dimen/nSize5"
+                android:text="修改密码"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <!--编辑水印按钮（水印开启后显示，圆角弧度与修改密码按钮一致）-->
+            <TextView
+                android:id="@+id/tvWatermarkEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/nSize10"
+                android:background="@drawable/btn_gray"
+                android:paddingHorizontal="@dimen/nSize12"
+                android:paddingVertical="@dimen/nSize5"
+                android:text="编辑水印"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/imgWatermark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/nSize10"
+                android:src="@mipmap/icon_switch_off" />
+
+        </LinearLayout>
+
+
+
+        <!--    使用数字密码-->
+        <LinearLayout
+            android:id="@+id/llpw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/nSize10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="启用软件密码"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <CheckBox
+                android:id="@+id/cbPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/nSize10"
+                android:button="@drawable/checkbox_style"
+                android:visibility="gone"
+                android:enabled="true" />
+
+            <ImageView
+                android:id="@+id/imgPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/nSize10"
+                android:src="@mipmap/icon_switch_off" />
+
+        </LinearLayout>
+
+
+        <!--    修改密码-->
+        <LinearLayout
+            android:id="@+id/llEditPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="修改密码"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="@dimen/nSize20"
+                android:layout_height="@dimen/nSize20"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/icon_arrow_gray" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDataUpdateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="数据更新时间"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvDataUpdateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="1.0"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="系统版本号"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="1.0"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="设备ID"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvDeviceId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textIsSelectable="true"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:text="技术支持单位"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="福建省卫星数据开发有限公司"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <!--    卫星信号检测-->
+        <LinearLayout
+            android:id="@+id/llSatellite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="卫星信号检测"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="@dimen/nSize20"
+                android:layout_height="@dimen/nSize20"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/icon_arrow_gray" />
+
+        </LinearLayout>
+
+        <!--    定位详细信息-->
+        <LinearLayout
+            android:id="@+id/llLocationDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="定位详细信息"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="@dimen/nSize20"
+                android:layout_height="@dimen/nSize20"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/icon_arrow_gray" />
+
+        </LinearLayout>
+
+        <!--    定位测试-->
+        <LinearLayout
+            android:id="@+id/llLocationTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="定位测试"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="@dimen/nSize20"
+                android:layout_height="@dimen/nSize20"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/icon_arrow_gray" />
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/llLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginVertical="@dimen/nSize20"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/txt_normal_white"
+                android:background="@drawable/btn_main"
+                android:paddingVertical="@dimen/nSize8"
+                android:paddingHorizontal="@dimen/nSize50"
+                android:text="退出登录"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

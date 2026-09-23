@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llDialog"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:padding="@dimen/nSize5"
+    android:background="@mipmap/bg_callout2">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_width="match_parent"
+        android:background="@mipmap/bg_frag_title"
+        android:layout_marginTop="@dimen/nSize2"
+        android:layout_marginHorizontal="@dimen/nSize3"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/nSize20"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="相册"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp"
+            android:textStyle="italic|bold" />
+
+        <ImageView
+            android:id="@+id/tvCloseDialogAcitvity"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="@dimen/nSize10"
+            android:padding="@dimen/nSize7"
+            android:src="@mipmap/icon_frag_close" />
+    </LinearLayout>
+
+    <com.jwch.gwyt_project.view.GridAddImage
+        android:id="@+id/viewAddImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:background_trans="true"
+        app:isLoadFromMemory="false"
+        app:max_count="99"
+        app:nameColor="1"
+        app:column_count="5"
+        app:title_visiable="false" />
+
+    <include layout="@layout/view_upload_img" />
+
+
+    <LinearLayout
+        android:id="@+id/llBottom"
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize45"
+        android:layout_margin="@dimen/nSize15">
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/tvCancle"
+            style="@style/txt_big_white"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:background="#82C0D9"
+            android:text="取消" />
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/txt_big_white"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:background="#82C0D9"
+            android:text="确定" />
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

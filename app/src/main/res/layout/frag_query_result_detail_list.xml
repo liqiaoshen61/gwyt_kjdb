@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_gradient"
+    android:padding="@dimen/nSize10">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tvDetailListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:text="手势查询"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/ivDetailListBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize3"
+            android:src="@mipmap/icon_back"/>
+
+        <ImageView
+            android:id="@+id/ivDetailListClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/feedback_close"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize3"
+        android:background="@drawable/bg_blue_line"/>
+
+
+    <com.jameni.jamenilistlib.view.RefreshView
+        android:id="@+id/lvDetailList"
+        style="@style/layout_allmatch"
+        android:layout_weight="@integer/material_motion_duration_long_1"
+        android:visibility="visible" />
+
+
+    <LinearLayout
+        android:id="@+id/rlOutputAll"
+        style="@style/layout_normal"
+        android:background="@drawable/bg_clear_maps"
+        android:padding="@dimen/nSize5">
+
+        <TextView
+            style="@style/txt_normal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="导出全部"
+            android:textColor="@color/very_dark_blue"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

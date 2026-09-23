@@ -1,0 +1,50 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#40000000"
+    android:padding="12dp">
+
+    <LinearLayout
+      style="@style/layout_linear_horizontal"
+        android:layout_marginVertical="@dimen/nSize2">
+        <TextView
+            android:id="@+id/tvTime"
+            style="@style/txt_big_white"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="16sp"
+            android:textColor="#E6FFFFFF"
+            android:text="时间时间时间时间时间时间时间时间时间时间时间时间时间时间" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_marginVertical="@dimen/nSize2">
+        <TextView
+            android:id="@+id/tvLocation"
+            style="@style/txt_big_white"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="16sp"
+            android:textColor="#E6FFFFFF"
+            android:text="9999999999999999999999999999999999999999999999999" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_marginVertical="@dimen/nSize2">
+        <TextView
+            android:id="@+id/tvLatLng"
+            style="@style/txt_big_white"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="16sp"
+            android:textColor="#E6FFFFFF"
+            android:text="经纬度经纬度经纬度经纬度经纬度经纬度经纬度经纬度" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

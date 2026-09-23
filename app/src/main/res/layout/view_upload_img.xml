@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlUpload"
+    style="@style/layout_allmatch"
+    android:visibility="gone"
+    android:background="#80999999">
+
+    <LinearLayout
+        style="@style/layout_allwarp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="@dimen/nSize60"
+            android:layout_height="@dimen/nSize60" />
+
+        <TextView
+            style="@style/txt_big_singleLine"
+            android:layout_marginTop="@dimen/nSize10"
+            android:text="正在上传图片"
+            android:textColor="@color/main_color" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="260dp"
+    android:background="@mipmap/bg_callout2"
+    android:paddingBottom="@dimen/nSize10">
+
+    <!-- 标题栏 -->
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/nSize20"
+            android:padding="8dp"
+            android:text="要素属性"
+            android:textColor="@color/whiteColor"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="@dimen/nSize10"
+            android:padding="@dimen/nSize6"
+            android:src="@mipmap/icon_frag_close" />
+    </LinearLayout>
+
+    <!-- 分割线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/nSize10"
+        android:background="#33FFFFFF" />
+
+    <!-- 可滚动属性内容列表 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="200dp"
+        android:fillViewport="false"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:id="@+id/llContent"
+            style="@style/layout_linear_vertical"
+            android:layout_width="match_parent"
+            android:paddingHorizontal="@dimen/nSize20"
+            android:paddingBottom="@dimen/nSize12" />
+    </ScrollView>
+</LinearLayout>

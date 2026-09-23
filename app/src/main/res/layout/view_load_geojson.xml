@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llLoadGeojson"
+    android:padding="10dp"
+    style="@style/layout_linear_vertical"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:layout_alignParentRight="true"
+    android:visibility="gone">
+
+    <fragment
+        android:id="@+id/fragLoadGeojson"
+        android:name="com.jwch.gwyt_project.fragment.LoadGeojsonFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/frag_load_geojson" />
+
+</LinearLayout>

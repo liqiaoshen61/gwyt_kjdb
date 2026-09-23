@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlTap"
+    style="@style/layout_allwarp"
+    android:padding="@dimen/nSize5">
+
+    <TextView
+        android:id="@+id/tvTap"
+        style="@style/txt_big"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="@dimen/nSize5"
+        android:text="" />
+
+
+    <View
+        android:id="@+id/underLine"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/nSize1"
+        android:layout_below="@id/tvTap"
+        android:layout_alignLeft="@+id/tvTap"
+        android:layout_alignRight="@+id/tvTap"
+        android:layout_marginTop="@dimen/nSize5"
+        android:background="@color/main_color" />
+
+
+<!--    android:layout_alignParentRight="true"-->
+<!--    android:layout_alignParentLeft="true"-->
+</RelativeLayout>

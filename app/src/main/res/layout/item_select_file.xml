@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_weight="2"
+        android:gravity="center_vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/rlImage"
+            android:layout_width="@dimen/nSize40"
+            android:layout_height="@dimen/nSize40"
+            android:layout_marginLeft="@dimen/nSize5">
+
+            <ImageView
+                android:layout_width="@dimen/nSize35"
+                android:layout_height="@dimen/nSize35"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/nSize10"
+                android:scaleType="centerInside"
+                android:src="@mipmap/logo_docment" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/txt_normal"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/nSize12"
+            android:text="123" />
+
+        <ImageView
+            android:id="@+id/imgCheck"
+            android:layout_width="@dimen/nSize20"
+            android:layout_height="@dimen/nSize20"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/nSize10"
+            android:layout_marginRight="@dimen/nSize5"
+            android:scaleType="centerInside"
+            android:src="@mipmap/logo_unselected" />
+
+
+    </LinearLayout>
+
+    <View style="@style/hline" />
+
+
+</LinearLayout>

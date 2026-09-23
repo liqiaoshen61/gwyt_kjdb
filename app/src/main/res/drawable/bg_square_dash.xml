@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!--边线颜色-->
+    <stroke
+        android:width="@dimen/px2"
+        android:color="#FFFFFF"
+        android:dashWidth="4dp"
+        android:dashGap="2dp" />
+
+</shape>

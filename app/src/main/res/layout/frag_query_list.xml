@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_gradient"
+    android:padding="@dimen/nSize10">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:text="叠加分析--专题图结果列表"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/ivHandSearchClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/feedback_close"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize3"
+        android:background="@drawable/bg_blue_line"/>
+
+
+    <LinearLayout
+        android:id="@+id/llQueryList"
+        style="@style/layout_linear_vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/rlReport"
+            style="@style/layout_normal"
+            android:gravity="center"
+            android:background="@drawable/bg_clear_maps"
+            android:layout_marginTop="@dimen/nSize8"
+            android:layout_marginBottom="@dimen/nSize8"
+            android:padding="@dimen/nSize5"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/txt_normal"
+                android:text="一键分析报告"
+                android:textColor="@color/very_dark_blue"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/txt_big_white"
+            android:layout_margin="@dimen/nSize5"
+            android:text="详情列表："
+            android:visibility="gone"/>
+
+        <com.jameni.jamenilistlib.view.RefreshView
+            android:id="@+id/lvQueryList"
+            style="@style/layout_allmatch"
+            android:visibility="visible"
+             />
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvNoData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="无相关查询结果"
+        android:textColor="@color/whiteColor"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+</LinearLayout>

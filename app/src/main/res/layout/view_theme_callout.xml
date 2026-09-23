@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layout_linear_vertical"
+    android:layout_width="match_parent"
+    android:background="@mipmap/bg_callout2">
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:background="@mipmap/bg_frag_title"
+        android:layout_width="match_parent"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textStyle="italic|bold"
+            android:layout_marginStart="@dimen/nSize20"
+            android:text="标题"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="@dimen/nSize6"
+            android:layout_marginEnd="@dimen/nSize10"
+            android:src="@mipmap/icon_frag_close" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llcontent"
+        style="@style/layout_linear_vertical"
+        android:paddingHorizontal="@dimen/nSize20"
+        android:paddingVertical="@dimen/nSize12"
+        android:layout_weight="1">
+
+        <!-- 统计信息行：是否问题、是否办结、问题类型 -->
+        <LinearLayout
+            android:id="@+id/topCard"
+            style="@style/layout_linear_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/nSize6"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="是否问题"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvStatIsProblem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="--"
+                    android:textColor="#3FBFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:background="#33FFFFFF" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="是否办结"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvStatIsFinished"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="--"
+                    android:textColor="#3FBFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:background="#33FFFFFF" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="问题类型"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvStatProblemType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="--"
+                    android:textColor="#3FBFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lvMain"
+            style="@style/layout_allmatch"
+            android:layout_weight="1"
+            android:visibility="visible" />
+
+        <!-- 分割线 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="@dimen/nSize8"
+            android:background="#33FFFFFF" />
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <!-- 详情按钮 -->
+            <LinearLayout
+                android:id="@+id/llMore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/nSize4"
+                android:gravity="center"
+                android:background="@drawable/bg_callout_btn_selector"
+                android:orientation="horizontal"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:id="@+id/ivMore"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@mipmap/icon_detail" />
+
+
+                <TextView
+                    android:id="@+id/tvMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="详 情"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 处理按钮 -->
+            <LinearLayout
+                android:id="@+id/llHandleStaus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/nSize4"
+                android:layout_weight="1"
+                android:background="@drawable/bg_callout_btn_selector"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:id="@+id/ivHandleStaus"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@mipmap/icon_handle_status" />
+
+                <TextView
+                    android:id="@+id/tvHandleStaus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="处 理"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 拍照按钮 -->
+            <LinearLayout
+                android:id="@+id/llCamera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/nSize4"
+                android:gravity="center"
+                android:background="@drawable/bg_callout_btn_selector"
+                android:orientation="horizontal"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:id="@+id/ivCamera"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@mipmap/icon_camera" />
+
+                <TextView
+                    android:id="@+id/tvCamera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="拍 照"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 导航按钮 -->
+            <LinearLayout
+                android:id="@+id/llNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/nSize4"
+                android:gravity="center"
+                android:background="@drawable/bg_callout_btn_selector"
+                android:orientation="horizontal"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:id="@+id/ivNavigation"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@mipmap/icon_navigation" />
+
+                <TextView
+                    android:id="@+id/tvNavigation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="导 航"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 收藏按钮 -->
+            <LinearLayout
+                android:id="@+id/llCollect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/bg_callout_btn_selector"
+                android:orientation="horizontal"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="10dp">
+
+                <ImageView
+                    android:id="@+id/ivCollect"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@mipmap/icon_star" />
+
+
+                <TextView
+                    android:id="@+id/tvCollect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="收藏"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

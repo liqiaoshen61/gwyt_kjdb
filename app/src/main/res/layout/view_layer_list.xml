@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@color/whiteColor">
+
+    <RelativeLayout style="@style/layout_normal">
+
+        <TextView
+            style="@style/txt_normal"
+            android:layout_width="match_parent"
+            android:background="@color/bg_gray"
+            android:padding="@dimen/nSize10"
+            android:text="专题图层" />
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="@dimen/nSize30"
+            android:layout_height="@dimen/nSize30"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/nSize5"
+            android:padding="@dimen/nSize10"
+            android:src="@mipmap/close" />
+
+
+    </RelativeLayout>
+
+
+    <com.jameni.jamenilistlib.view.RefreshView
+        android:id="@+id/lvMain"
+        style="@style/layout_allmatch"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tvLoadFile"
+        style="@style/txt_big_white"
+        android:layout_width="match_parent"
+        android:background="@color/main_color"
+        android:gravity="center"
+        android:padding="@dimen/nSize10"
+        android:text="选择导入图层" />
+</LinearLayout>

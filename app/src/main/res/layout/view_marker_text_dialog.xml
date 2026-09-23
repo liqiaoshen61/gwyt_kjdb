@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:background="@drawable/bg_white"
+    android:padding="@dimen/nSize10">
+
+    <TextView
+        style="@style/txt_normal"
+        android:layout_marginLeft="@dimen/nSize5"
+        android:text="文字标绘：" />
+
+    <EditText
+        android:id="@+id/etText"
+        style="@style/et_normal"
+        android:layout_height="@dimen/nSize70"
+        android:layout_marginTop="@dimen/nSize10"
+        android:background="@drawable/bg_white_square"
+        android:gravity="left|top"
+        android:hint="请输入您的标绘内容"
+        android:singleLine="false" />
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_marginTop="@dimen/nSize10"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvCancle"
+            style="@style/btnMain"
+            android:background="@drawable/bg_white_square"
+            android:paddingLeft="@dimen/nSize15"
+            android:paddingTop="@dimen/nSize5"
+            android:paddingRight="@dimen/nSize15"
+            android:paddingBottom="@dimen/nSize5"
+            android:text="@string/cancle"
+            android:textColor="@color/primaryColor" />
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/btnMain"
+            android:layout_marginLeft="@dimen/nSize15"
+            android:text="@string/ok" />
+
+    </LinearLayout>
+
+</LinearLayout>

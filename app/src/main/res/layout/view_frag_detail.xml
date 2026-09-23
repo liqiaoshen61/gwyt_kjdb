@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llFragDetail"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_weight="1"
+    android:visibility="gone">
+
+    <fragment
+        android:id="@+id/fragDetail"
+        android:name="com.jwch.gwyt_project.fragment.DetailListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/frag_detail_list" />
+
+
+</LinearLayout>

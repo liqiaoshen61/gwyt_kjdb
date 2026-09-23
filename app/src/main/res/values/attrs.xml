@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <declare-styleable name="LinearView">
+        <attr name="name_color" format="color" />
+        <attr name="item_background" format="color" />
+        <attr name="tip_color" format="color" />
+        <attr name="txt_name" format="string" />
+        <attr name="txt_tip" format="string" />
+        <attr name="logo_resid" format="reference" />
+        <attr name="arrow_resid" format="reference" />
+        <attr name="arrow_visiable" format="boolean" />
+        <attr name="logo_visiable" format="boolean" />
+        <attr name="name_visiable" format="boolean" />
+        <attr name="tip_visiable" format="boolean" />
+        <attr name="txt_is_blod" format="boolean" />
+
+        <attr name="tip_margin_right" format="dimension" />
+        <attr name="view_padding_top" format="dimension" />
+        <attr name="view_padding_bottom" format="dimension" />
+        <attr name="txt_size" format="integer" />
+        <attr name="tip_size" format="integer" />
+    </declare-styleable>
+
+
+    <attr name="key" format="string" />
+    <attr name="value" format="string" />
+    <attr name="key_color" format="color" />
+    <attr name="value_color" format="color" />
+    <attr name="hint" format="string" />
+    <attr name="hint_color" format="color" />
+    <attr name="bg_color" format="color" />
+    <attr name="key_txt_size" format="integer" />
+    <attr name="value_txt_size" format="integer" />
+    <attr name="max_length" format="integer" />
+    <attr name="singleLine" format="boolean" />
+    <attr name="editable" format="boolean" />
+    <attr name="key_weight" format="float" />
+    <attr name="value_height" format="dimension" />
+    <attr name="horizontal_padding" format="dimension" />
+    <attr name="vertical_padding" format="dimension" />
+    <attr name="isLoadFromMemory" format="boolean" />
+
+
+    <declare-styleable name="EditLine">
+        <attr name="key" />
+        <attr name="value" />
+        <attr name="key_color" />
+        <attr name="value_color" />
+        <attr name="hint" />
+        <attr name="hint_color" />
+        <attr name="bg_color" />
+        <attr name="key_txt_size" />
+        <attr name="value_txt_size" />
+        <attr name="max_length" />
+        <attr name="singleLine" />
+        <attr name="editable" />
+        <attr name="key_weight" />
+        <attr name="value_height" />
+        <attr name="horizontal_padding" />
+        <attr name="vertical_padding" />
+        <attr name="value_input_type">
+            <flag name="none" value="0x00000000" />
+            <flag name="text" value="0x00000001" />
+            <flag name="textPassword" value="0x00000081" />
+            <flag name="number" value="0x00000002" />
+            <flag name="numberDecimal" value="0x00002002" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TextLine">
+
+        <attr name="key" />
+        <attr name="value" />
+        <attr name="key_color" />
+        <attr name="value_color" />
+        <attr name="hint" />
+        <attr name="hint_color" />
+        <attr name="bg_color" />
+        <attr name="key_txt_size" />
+        <attr name="value_txt_size" />
+        <attr name="max_length" />
+        <attr name="singleLine" />
+        <attr name="editable" />
+        <attr name="key_weight" />
+        <attr name="value_height" />
+        <attr name="horizontal_padding" />
+        <attr name="vertical_padding" />
+
+        <attr name="end_type" format="boolean">
+            <flag name="end" value="0x00000000" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="GridAddImage">
+        <attr name="title_value" format="string" />
+        <attr name="title_visiable" format="boolean" />
+        <attr name="max_count" format="integer" />
+        <attr name="column_count" format="integer" />
+        <attr name="isLoadFromMemory" />
+        <attr name="enable_selection" format="boolean" />
+        <attr name="background_trans" format="boolean" />
+        <attr name="nameColor" format="integer" />
+
+    </declare-styleable>
+
+    <declare-styleable name="SelectionLine">
+
+        <attr name="key" />
+        <attr name="value" />
+        <attr name="key_color" />
+        <attr name="value_color" />
+        <attr name="hint" />
+        <attr name="hint_color" />
+        <attr name="bg_color" />
+        <attr name="key_txt_size" />
+        <attr name="value_txt_size" />
+        <attr name="max_length" />
+        <attr name="singleLine" />
+        <attr name="editable" />
+        <attr name="key_weight" />
+        <attr name="value_height" />
+        <attr name="dialog_center" format="boolean" />
+        <attr name="outsie_cancleable" format="boolean" />
+        <attr name="height_scale" format="dimension" />
+        <attr name="dialog_tag" format="integer" />
+
+    </declare-styleable>
+
+    <declare-styleable name="HeaderTapView">
+        <attr name="lable_array" format="string" />
+        <attr name="underline_color" format="color" />
+        <attr name="tap_txt_size" format="integer" />
+
+
+        <attr name="text_padding" format="dimension" />
+
+        <attr name="lable_gravity">
+            <enum name="center" value="0" />
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+
+        <attr name="isaverage" format="boolean" />
+        <attr name="isunderline_match" format="boolean" />
+
+        <attr name="underline_match" format="boolean" />
+
+        <attr name="select_text_color" format="color" />
+        <attr name="unselect_text_color" format="color" />
+    </declare-styleable>
+
+    <!-- 有描边的自定义TextView-->
+    <declare-styleable name="StrokeTextView">
+        <!--描边的颜色 -->
+        <attr name="stroke_color" format="color" />
+        <!-- 描边的宽度 -->
+        <attr name="stroke_width" format="dimension" />
+    </declare-styleable>
+
+    <attr name="def_check" format="integer" />
+    <attr name="defCheckAll" format="boolean" />
+    <attr name="icon_resid" format="reference" />
+    <attr name="customTxt" format="string" />
+    <attr name="isReadOnly" />
+    <attr name="isMustFillIn" />
+    <attr name="showMustFillIn" format="boolean" />
+    <attr name="underline_visiable" />
+    <attr name="start_indent" />
+    <attr name="isMultiSelect" />
+    <attr name="hideKey" />
+    <attr name="isKeyTop" />
+    <attr name="ui_type" />
+    <attr name="oneLine" />
+    <attr name="unselect_able" />
+
+    <declare-styleable name="CheckBoxView">
+        <attr name="key" />
+        <attr name="defCheckAll" />
+        <attr name="lable_array" />
+        <attr name="isReadOnly" />
+        <attr name="isMustFillIn" />
+        <attr name="underline_visiable" />
+        <attr name="start_indent" />
+        <attr name="key_weight" />
+        <attr name="isMultiSelect" />
+        <attr name="hideKey" />
+        <attr name="isKeyTop" />
+        <attr name="ui_type" />
+        <attr name="oneLine" />
+        <attr name="unselect_able" />
+        <attr name="key_color" />
+
+    </declare-styleable>
+
+
+
+
+    <attr name="view_type">
+        <flag name="text" value="0" />
+        <flag name="edit_text_normal" value="1" />
+        <flag name="edit_text_area" value="2" />
+        <flag name="edit_text_number_only" value="3" />
+        <flag name="edit_text_number" value="4" />
+        <flag name="selection_list_single" value="5" />
+        <flag name="selection_list_multi" value="6" />
+        <flag name="selection_time" value="7" />
+        <flag name="location" value="8" />
+    </attr>
+
+    <attr name="max_time" format="string" />
+    <attr name="mini_time" format="string" />
+    <attr name="def_time" format="string" />
+    <attr name="time_format_type" format="string" />
+    <attr name="isAutoGetLocation" format="boolean" />
+    <attr name="clearAble" format="boolean" />
+    <attr name="unit" format="string" />
+    <attr name="copyAble" format="boolean" />
+    <attr name="get_location_type" />
+    <attr name="select_time_type" />
+    <attr name="old_model" />
+    <attr name="showImgCustom" />
+    <attr name="showTvCustom" />
+    <attr name="showValueBorder" />
+    <attr name="showValueBorder2" />
+    <attr name="showKeyView" format="boolean"/>
+    <attr name="field_name" />
+
+
+
+    <declare-styleable name="TextLineCompat">
+        <attr name="view_type" />
+        <attr name="key" />
+        <attr name="value" />
+        <attr name="key_color" />
+        <attr name="value_color" />
+        <attr name="hint" />
+        <attr name="hint_color" />
+        <attr name="bg_color" />
+        <attr name="key_txt_size" />
+        <attr name="value_txt_size" />
+        <attr name="max_length" />
+        <attr name="singleLine" />
+        <attr name="editable" />
+        <attr name="key_weight" />
+        <attr name="value_height" />
+        <attr name="horizontal_padding" />
+        <attr name="vertical_padding" />
+        <attr name="underline_visiable" />
+        <attr name="field_name" />
+        <attr name="isMustFillIn" />
+        <attr name="showMustFillIn" />
+        <attr name="start_indent" />
+        <attr name="clearAble" />
+        <attr name="isOnTextChanged"  format="boolean"  />
+
+        <attr name="dialog_center" />
+        <attr name="outsie_cancleable" />
+        <attr name="height_scale" />
+        <attr name="dialog_tag" />
+        <attr name="lable_array" />
+        <attr name="isReadOnly" />
+        <attr name="max_time" />
+        <attr name="mini_time" />
+        <attr name="def_time" />
+        <attr name="time_format_type" />
+        <attr name="isAutoGetLocation" />
+        <attr name="unit" />
+        <attr name="copyAble" />
+        <attr name="get_location_type" />
+        <attr name="select_time_type" />
+        <attr name="old_model" />
+        <attr name="showImgCustom" />
+        <attr name="showTvCustom" />
+        <attr name="icon_resid" />
+        <attr name="customTxt" />
+        <attr name="showValueBorder" />
+        <attr name="showValueBorder2" />
+        <attr name="showKeyView" />
+        <attr name="backgroundTrans" format="boolean" />
+    </declare-styleable>
+
+
+</resources>

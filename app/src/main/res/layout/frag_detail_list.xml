@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llDetail"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+    <!--兴趣点详情-->
+
+    <RelativeLayout
+        android:id="@+id/rlTitle"
+        style="@style/layout_normal"
+        android:background="#F4F4F4"
+        android:paddingVertical="12dp">
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/nSize20">
+
+            <ImageView
+                style="@style/imgStyle30"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_detail_title" />
+
+            <TextView
+                style="@style/txt_big"
+                android:layout_marginLeft="@dimen/nSize8"
+                android:gravity="center"
+                android:text="更多详情"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llGoHanldeStatusFrag"
+            style="@style/layout_linear_horizontal"
+            android:layout_width="@dimen/nSize100"
+            android:layout_marginEnd="@dimen/nSize10"
+            android:layout_toStartOf="@+id/llCollect"
+            android:background="@drawable/bg_blue_btn2"
+            android:gravity="center"
+            android:padding="@dimen/nSize5"
+            android:visibility="visible">
+
+            <TextView
+                style="@style/txt_big_white"
+                android:gravity="center"
+                android:text="处理情况" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llCollect"
+            style="@style/layout_linear_horizontal"
+            android:layout_width="@dimen/nSize100"
+            android:layout_marginEnd="@dimen/nSize10"
+            android:layout_toStartOf="@+id/btnColse"
+            android:background="@drawable/bg_blue_btn2"
+            android:gravity="center"
+            android:padding="@dimen/nSize5"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivCollect"
+                style="@style/imgStyle15"
+                android:src="@mipmap/icon_star"
+                android:layout_marginEnd="@dimen/nSize5"/>
+
+            <TextView
+                android:id="@+id/tvCollect"
+                style="@style/txt_big_white"
+                android:gravity="center"
+                android:text="收 藏" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnColse"
+            style="@style/layout_allwarp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/nSize10"
+            android:padding="@dimen/nSize5"
+            android:src="@mipmap/close"
+            app:tint="@color/txt_black" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        style="@style/layout_linear_vertical"
+        android:paddingHorizontal="@dimen/nSize50"
+        android:paddingVertical="@dimen/nSize5">
+
+        <ScrollView
+            style="@style/layout_allmatch"
+            android:layout_marginTop="@dimen/nSize10"
+            android:scrollbars="none">
+
+            <LinearLayout style="@style/layout_linear_vertical"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/llDetailContainer"
+                    style="@style/layout_linear_vertical" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lvMain"
+                    style="@style/layout_allmatch" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

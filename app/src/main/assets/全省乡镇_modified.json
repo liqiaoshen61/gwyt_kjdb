@@ -1,0 +1,5842 @@
+[
+    {
+        "distName": "/",
+        "distCode": "/",
+        "distLevel": 4
+    },
+    {
+        "distName": "松山街道",
+        "distCode": "350921003",
+        "distLevel": 4
+    },
+    {
+        "distName": "安海镇",
+        "distCode": "350582101",
+        "distLevel": 4
+    },
+    {
+        "distName": "安厚镇",
+        "distCode": "350628105",
+        "distLevel": 4
+    },
+    {
+        "distName": "安凯乡",
+        "distCode": "350122203",
+        "distLevel": 4
+    },
+    {
+        "distName": "安乐镇",
+        "distCode": "350424205",
+        "distLevel": 4
+    },
+    {
+        "distName": "安仁乡",
+        "distCode": "350428204",
+        "distLevel": 4
+    },
+    {
+        "distName": "安砂镇",
+        "distCode": "350481102",
+        "distLevel": 4
+    },
+    {
+        "distName": "安泰街道",
+        "distCode": "350102006",
+        "distLevel": 4
+    },
+    {
+        "distName": "安远镇",
+        "distCode": "350424105",
+        "distLevel": 4
+    },
+    {
+        "distName": "庵杰乡",
+        "distCode": "350821202",
+        "distLevel": 4
+    },
+    {
+        "distName": "敖东镇",
+        "distCode": "350128106",
+        "distLevel": 4
+    },
+    {
+        "distName": "敖江镇",
+        "distCode": "350122101",
+        "distLevel": 4
+    },
+    {
+        "distName": "鳌峰街道",
+        "distCode": "350103011",
+        "distLevel": 4
+    },
+    {
+        "distName": "鳌阳镇",
+        "distCode": "350924100",
+        "distLevel": 4
+    },
+    {
+        "distName": "澳前镇",
+        "distCode": "350128103",
+        "distLevel": 4
+    },
+    {
+        "distName": "八都镇",
+        "distCode": "350902103",
+        "distLevel": 4
+    },
+    {
+        "distName": "八字桥乡",
+        "distCode": "350426206",
+        "distLevel": 4
+    },
+    {
+        "distName": "白濑乡",
+        "distCode": "350524201",
+        "distLevel": 4
+    },
+    {
+        "distName": "白莲镇",
+        "distCode": "350428103",
+        "distLevel": 4
+    },
+    {
+        "distName": "白琳镇",
+        "distCode": "350982106",
+        "distLevel": 4
+    },
+    {
+        "distName": "白青乡",
+        "distCode": "350128200",
+        "distLevel": 4
+    },
+    {
+        "distName": "白沙镇",
+        "distCode": "350121101",
+        "distLevel": 4
+    },
+    {
+        "distName": "白沙镇",
+        "distCode": "350303106",
+        "distLevel": 4
+    },
+    {
+        "distName": "白沙镇",
+        "distCode": "350802103",
+        "distLevel": 4
+    },
+    {
+        "distName": "白砂镇",
+        "distCode": "350823105",
+        "distLevel": 4
+    },
+    {
+        "distName": "白水镇",
+        "distCode": "350681103",
+        "distLevel": 4
+    },
+    {
+        "distName": "白塔乡",
+        "distCode": "350123200",
+        "distLevel": 4
+    },
+    {
+        "distName": "白塘镇",
+        "distCode": "350303101",
+        "distLevel": 4
+    },
+    {
+        "distName": "白洋乡",
+        "distCode": "350624202",
+        "distLevel": 4
+    },
+    {
+        "distName": "白云乡",
+        "distCode": "350125210",
+        "distLevel": 4
+    },
+    {
+        "distName": "白樟镇",
+        "distCode": "350124102",
+        "distLevel": 4
+    },
+    {
+        "distName": "白中镇",
+        "distCode": "350124104",
+        "distLevel": 4
+    },
+    {
+        "distName": "白竹湖农场",
+        "distCode": "350623404",
+        "distLevel": 4
+    },
+    {
+        "distName": "百崎回族乡",
+        "distCode": "350521200",
+        "distLevel": 4
+    },
+    {
+        "distName": "柏洋乡",
+        "distCode": "350921203",
+        "distLevel": 4
+    },
+    {
+        "distName": "坂东镇",
+        "distCode": "350124106",
+        "distLevel": 4
+    },
+    {
+        "distName": "坂里乡",
+        "distCode": "350625200",
+        "distLevel": 4
+    },
+    {
+        "distName": "坂面镇",
+        "distCode": "350426108",
+        "distLevel": 4
+    },
+    {
+        "distName": "坂仔镇",
+        "distCode": "350628104",
+        "distLevel": 4
+    },
+    {
+        "distName": "坂中畲族乡",
+        "distCode": "350981201",
+        "distLevel": 4
+    },
+    {
+        "distName": "榜山镇",
+        "distCode": "350681109",
+        "distLevel": 4
+    },
+    {
+        "distName": "榜头镇",
+        "distCode": "350322101",
+        "distLevel": 4
+    },
+    {
+        "distName": "宝盖镇",
+        "distCode": "350581101",
+        "distLevel": 4
+    },
+    {
+        "distName": "北壁乡",
+        "distCode": "350921204",
+        "distLevel": 4
+    },
+    {
+        "distName": "北城街道",
+        "distCode": "350802010",
+        "distLevel": 4
+    },
+    {
+        "distName": "北厝镇",
+        "distCode": "350128104",
+        "distLevel": 4
+    },
+    {
+        "distName": "北峰街道",
+        "distCode": "350503008",
+        "distLevel": 4
+    },
+    {
+        "distName": "北高镇",
+        "distCode": "350304103",
+        "distLevel": 4
+    },
+    {
+        "distName": "北团镇",
+        "distCode": "350825101",
+        "distLevel": 4
+    },
+    {
+        "distName": "碧里乡",
+        "distCode": "350123204",
+        "distLevel": 4
+    },
+    {
+        "distName": "滨海街道",
+        "distCode": "350203005",
+        "distLevel": 4
+    },
+    {
+        "distName": "磻溪镇",
+        "distCode": "350982105",
+        "distLevel": 4
+    },
+    {
+        "distName": "碧湖街道",
+        "distCode": "350603002",
+        "distLevel": 4
+    },
+    {
+        "distName": "步云乡",
+        "distCode": "350823208",
+        "distLevel": 4
+    },
+    {
+        "distName": "才溪镇",
+        "distCode": "350823107",
+        "distLevel": 4
+    },
+    {
+        "distName": "菜溪乡",
+        "distCode": "350322204",
+        "distLevel": 4
+    },
+    {
+        "distName": "参内镇",
+        "distCode": "350524200",
+        "distLevel": 4
+    },
+    {
+        "distName": "仓前街道",
+        "distCode": "350104001",
+        "distLevel": 4
+    },
+    {
+        "distName": "仓山镇",
+        "distCode": "350104100",
+        "distLevel": 4
+    },
+    {
+        "distName": "苍霞街道",
+        "distCode": "350103007",
+        "distLevel": 4
+    },
+    {
+        "distName": "曹坊镇",
+        "distCode": "350424104",
+        "distLevel": 4
+    },
+    {
+        "distName": "曹溪街道",
+        "distCode": "350802006",
+        "distLevel": 4
+    },
+    {
+        "distName": "曹远镇",
+        "distCode": "350481105",
+        "distLevel": 4
+    },
+    {
+        "distName": "策武镇",
+        "distCode": "350821111",
+        "distLevel": 4
+    },
+    {
+        "distName": "茶地镇",
+        "distCode": "350823205",
+        "distLevel": 4
+    },
+    {
+        "distName": "茶平乡",
+        "distCode": "350724201",
+        "distLevel": 4
+    },
+    {
+        "distName": "茶亭街道",
+        "distCode": "350103009",
+        "distLevel": 4
+    },
+    {
+        "distName": "茶园街道",
+        "distCode": "350111001",
+        "distLevel": 4
+    },
+    {
+        "distName": "常山华侨经济开发区",
+        "distCode": "350622500",
+        "distLevel": 4
+    },
+    {
+        "distName": "常太镇",
+        "distCode": "350302100",
+        "distLevel": 4
+    },
+    {
+        "distName": "常泰街道",
+        "distCode": "350502008",
+        "distLevel": 4
+    },
+    {
+        "distName": "朝阳街道",
+        "distCode": "350603102",
+        "distLevel": 4
+    },
+    {
+        "distName": "陈城镇",
+        "distCode": "350626104",
+        "distLevel": 4
+    },
+    {
+        "distName": "陈大镇",
+        "distCode": "350402100",
+        "distLevel": 4
+    },
+    {
+        "distName": "陈岱镇",
+        "distCode": "350622101",
+        "distLevel": 4
+    },
+    {
+        "distName": "陈埭镇",
+        "distCode": "350582103",
+        "distLevel": 4
+    },
+    {
+        "distName": "陈东乡",
+        "distCode": "350803212",
+        "distLevel": 4
+    },
+    {
+        "distName": "陈巷镇",
+        "distCode": "350625102",
+        "distLevel": 4
+    },
+    {
+        "distName": "呈祥乡",
+        "distCode": "350525201",
+        "distLevel": 4
+    },
+    {
+        "distName": "城北街道",
+        "distCode": "350981002",
+        "distLevel": 4
+    },
+    {
+        "distName": "城东街道",
+        "distCode": "350503006",
+        "distLevel": 4
+    },
+    {
+        "distName": "城东街道",
+        "distCode": "350922001",
+        "distLevel": 4
+    },
+    {
+        "distName": "城峰镇",
+        "distCode": "350125104",
+        "distLevel": 4
+    },
+    {
+        "distName": "城关乡",
+        "distCode": "350421200",
+        "distLevel": 4
+    },
+    {
+        "distName": "城关镇",
+        "distCode": "350426100",
+        "distLevel": 4
+    },
+    {
+        "distName": "城郊镇",
+        "distCode": "350424200",
+        "distLevel": 4
+    },
+    {
+        "distName": "城郊乡",
+        "distCode": "350926200",
+        "distLevel": 4
+    },
+    {
+        "distName": "城郊镇",
+        "distCode": "350781100",
+        "distLevel": 4
+    },
+    {
+        "distName": "城郊镇",
+        "distCode": "350803200",
+        "distLevel": 4
+    },
+    {
+        "distName": "城门镇",
+        "distCode": "350104101",
+        "distLevel": 4
+    },
+    {
+        "distName": "城南工业区",
+        "distCode": "350521400",
+        "distLevel": 4
+    },
+    {
+        "distName": "城南街道",
+        "distCode": "350981001",
+        "distLevel": 4
+    },
+    {
+        "distName": "城南镇",
+        "distCode": "350424201",
+        "distLevel": 4
+    },
+    {
+        "distName": "城南镇",
+        "distCode": "350902100",
+        "distLevel": 4
+    },
+    {
+        "distName": "城头镇",
+        "distCode": "350181104",
+        "distLevel": 4
+    },
+    {
+        "distName": "城西街道",
+        "distCode": "350922002",
+        "distLevel": 4
+    },
+    {
+        "distName": "城厢镇",
+        "distCode": "350524105",
+        "distLevel": 4
+    },
+    {
+        "distName": "城厢镇",
+        "distCode": "350824106",
+        "distLevel": 4
+    },
+    {
+        "distName": "城阳镇",
+        "distCode": "350981112",
+        "distLevel": 4
+    },
+    {
+        "distName": "程溪农场",
+        "distCode": "350681402",
+        "distLevel": 4
+    },
+    {
+        "distName": "程溪镇",
+        "distCode": "350681105",
+        "distLevel": 4
+    },
+    {
+        "distName": "澄源乡",
+        "distCode": "350725203",
+        "distLevel": 4
+    },
+    {
+        "distName": "池店镇",
+        "distCode": "350582107",
+        "distLevel": 4
+    },
+    {
+        "distName": "池园镇",
+        "distCode": "350124105",
+        "distLevel": 4
+    },
+    {
+        "distName": "赤港开发区",
+        "distCode": "350303500",
+        "distLevel": 4
+    },
+    {
+        "distName": "赤湖镇",
+        "distCode": "350623103",
+        "distLevel": 4
+    },
+    {
+        "distName": "赤岭畲族乡",
+        "distCode": "350623201",
+        "distLevel": 4
+    },
+    {
+        "distName": "赤门乡",
+        "distCode": "350702202",
+        "distLevel": 4
+    },
+    {
+        "distName": "赤水镇",
+        "distCode": "350526107",
+        "distLevel": 4
+    },
+    {
+        "distName": "赤水镇",
+        "distCode": "350881107",
+        "distLevel": 4
+    },
+    {
+        "distName": "赤土乡",
+        "distCode": "350623203",
+        "distLevel": 4
+    },
+    {
+        "distName": "赤锡乡",
+        "distCode": "350125203",
+        "distLevel": 4
+    },
+    {
+        "distName": "赤溪镇",
+        "distCode": "350902106",
+        "distLevel": 4
+    },
+    {
+        "distName": "崇安街道",
+        "distCode": "350782001",
+        "distLevel": 4
+    },
+    {
+        "distName": "崇雒乡",
+        "distCode": "350703200",
+        "distLevel": 4
+    },
+    {
+        "distName": "崇仁乡",
+        "distCode": "350723201",
+        "distLevel": 4
+    },
+    {
+        "distName": "崇儒畲族乡",
+        "distCode": "350921202",
+        "distLevel": 4
+    },
+    {
+        "distName": "崇武镇",
+        "distCode": "350521107",
+        "distLevel": 4
+    },
+    {
+        "distName": "楮坪乡",
+        "distCode": "350926205",
+        "distLevel": 4
+    },
+    {
+        "distName": "川石乡",
+        "distCode": "350783202",
+        "distLevel": 4
+    },
+    {
+        "distName": "船场镇",
+        "distCode": "350627109",
+        "distLevel": 4
+    },
+    {
+        "distName": "春美乡",
+        "distCode": "350526209",
+        "distLevel": 4
+    },
+    {
+        "distName": "纯池镇",
+        "distCode": "350925105",
+        "distLevel": 4
+    },
+    {
+        "distName": "磁灶镇",
+        "distCode": "350582102",
+        "distLevel": 4
+    },
+    {
+        "distName": "翠江镇",
+        "distCode": "350424100",
+        "distLevel": 4
+    },
+    {
+        "distName": "达埔镇",
+        "distCode": "350525105",
+        "distLevel": 4
+    },
+    {
+        "distName": "大安乡",
+        "distCode": "350924200",
+        "distLevel": 4
+    },
+    {
+        "distName": "大埠岗镇",
+        "distCode": "350781107",
+        "distLevel": 4
+    },
+    {
+        "distName": "大池镇",
+        "distCode": "350802105",
+        "distLevel": 4
+    },
+    {
+        "distName": "大嶝街道",
+        "distCode": "350213001",
+        "distLevel": 4
+    },
+    {
+        "distName": "大干镇",
+        "distCode": "350721105",
+        "distLevel": 4
+    },
+    {
+        "distName": "大禾镇",
+        "distCode": "350824210",
+        "distLevel": 4
+    },
+    {
+        "distName": "大横镇",
+        "distCode": "350702106",
+        "distLevel": 4
+    },
+    {
+        "distName": "大湖乡",
+        "distCode": "350121203",
+        "distLevel": 4
+    },
+    {
+        "distName": "大湖镇",
+        "distCode": "350481104",
+        "distLevel": 4
+    },
+    {
+        "distName": "大济镇",
+        "distCode": "350322108",
+        "distLevel": 4
+    },
+    {
+        "distName": "大甲镇",
+        "distCode": "350922108",
+        "distLevel": 4
+    },
+    {
+        "distName": "大历镇",
+        "distCode": "350721104",
+        "distLevel": 4
+    },
+    {
+        "distName": "大练乡",
+        "distCode": "350128202",
+        "distLevel": 4
+    },
+    {
+        "distName": "大龙乡",
+        "distCode": "350429208",
+        "distLevel": 4
+    },
+    {
+        "distName": "大洛镇",
+        "distCode": "350427107",
+        "distLevel": 4
+    },
+    {
+        "distName": "大铭乡",
+        "distCode": "350526208",
+        "distLevel": 4
+    },
+    {
+        "distName": "大南坂镇",
+        "distCode": "350623116",
+        "distLevel": 4
+    },
+    {
+        "distName": "大坪乡",
+        "distCode": "350524204",
+        "distLevel": 4
+    },
+    {
+        "distName": "大桥镇",
+        "distCode": "350922102",
+        "distLevel": 4
+    },
+    {
+        "distName": "大田乡",
+        "distCode": "350429202",
+        "distLevel": 4
+    },
+    {
+        "distName": "大同街道",
+        "distCode": "350212001",
+        "distLevel": 4
+    },
+    {
+        "distName": "大同镇",
+        "distCode": "350821101",
+        "distLevel": 4
+    },
+    {
+        "distName": "大溪乡",
+        "distCode": "350803211",
+        "distLevel": 4
+    },
+    {
+        "distName": "大溪镇",
+        "distCode": "350628106",
+        "distLevel": 4
+    },
+    {
+        "distName": "大洋乡",
+        "distCode": "350303200",
+        "distLevel": 4
+    },
+    {
+        "distName": "大洋镇",
+        "distCode": "350125108",
+        "distLevel": 4
+    },
+    {
+        "distName": "大源乡",
+        "distCode": "350428205",
+        "distLevel": 4
+    },
+    {
+        "distName": "大竹镇",
+        "distCode": "350781110",
+        "distLevel": 4
+    },
+    {
+        "distName": "玳瑁山茶场",
+        "distCode": "350623407",
+        "distLevel": 4
+    },
+    {
+        "distName": "埭头镇",
+        "distCode": "350305105",
+        "distLevel": 4
+    },
+    {
+        "distName": "代溪镇",
+        "distCode": "350923102",
+        "distLevel": 4
+    },
+    {
+        "distName": "丹阳镇",
+        "distCode": "350122106",
+        "distLevel": 4
+    },
+    {
+        "distName": "丹云乡",
+        "distCode": "350125211",
+        "distLevel": 4
+    },
+    {
+        "distName": "迪口镇",
+        "distCode": "350783104",
+        "distLevel": 4
+    },
+    {
+        "distName": "点头镇",
+        "distCode": "350982107",
+        "distLevel": 4
+    },
+    {
+        "distName": "店下镇",
+        "distCode": "350982103",
+        "distLevel": 4
+    },
+    {
+        "distName": "殿前街道",
+        "distCode": "350206002",
+        "distLevel": 4
+    },
+    {
+        "distName": "叠石乡",
+        "distCode": "350982201",
+        "distLevel": 4
+    },
+    {
+        "distName": "东城街道",
+        "distCode": "350802001",
+        "distLevel": 4
+    },
+    {
+        "distName": "东岱镇",
+        "distCode": "350122102",
+        "distLevel": 4
+    },
+    {
+        "distName": "东风农场",
+        "distCode": "350425400",
+        "distLevel": 4
+    },
+    {
+        "distName": "东峰镇",
+        "distCode": "350783108",
+        "distLevel": 4
+    },
+    {
+        "distName": "东孚街道",
+        "distCode": "350205103",
+        "distLevel": 4
+    },
+    {
+        "distName": "东阁华侨",
+        "distCode": "350181401",
+        "distLevel": 4
+    },
+    {
+        "distName": "东关镇",
+        "distCode": "350525114",
+        "distLevel": 4
+    },
+    {
+        "distName": "东海街道",
+        "distCode": "350503007",
+        "distLevel": 4
+    },
+    {
+        "distName": "东海镇",
+        "distCode": "350302103",
+        "distLevel": 4
+    },
+    {
+        "distName": "东瀚镇",
+        "distCode": "350181112",
+        "distLevel": 4
+    },
+    {
+        "distName": "东湖街道",
+        "distCode": "350503001",
+        "distLevel": 4
+    },
+    {
+        "distName": "东湖镇",
+        "distCode": "350122105",
+        "distLevel": 4
+    },
+    {
+        "distName": "东街街道",
+        "distCode": "350102004",
+        "distLevel": 4
+    },
+    {
+        "distName": "东岭镇",
+        "distCode": "350521110",
+        "distLevel": 4
+    },
+    {
+        "distName": "东留镇",
+        "distCode": "350824202",
+        "distLevel": 4
+    },
+    {
+        "distName": "东平镇",
+        "distCode": "350525109",
+        "distLevel": 4
+    },
+    {
+        "distName": "东平镇",
+        "distCode": "350725101",
+        "distLevel": 4
+    },
+    {
+        "distName": "东铺头街道",
+        "distCode": "350602001",
+        "distLevel": 4
+    },
+    {
+        "distName": "东埔镇",
+        "distCode": "350305103",
+        "distLevel": 4
+    },
+    {
+        "distName": "东侨开发区",
+        "distCode": "350902500",
+        "distLevel": 4
+    },
+    {
+        "distName": "东峤镇",
+        "distCode": "350305104",
+        "distLevel": 4
+    },
+    {
+        "distName": "东桥镇",
+        "distCode": "350124110",
+        "distLevel": 4
+    },
+    {
+        "distName": "东桥镇",
+        "distCode": "350521111",
+        "distLevel": 4
+    },
+    {
+        "distName": "东厦镇",
+        "distCode": "350622102",
+        "distLevel": 4
+    },
+    {
+        "distName": "东升街道",
+        "distCode": "350104002",
+        "distLevel": 4
+    },
+    {
+        "distName": "东石镇",
+        "distCode": "350582104",
+        "distLevel": 4
+    },
+    {
+        "distName": "东泗乡",
+        "distCode": "350681200",
+        "distLevel": 4
+    },
+    {
+        "distName": "东田镇",
+        "distCode": "350583102",
+        "distLevel": 4
+    },
+    {
+        "distName": "东庠乡",
+        "distCode": "350128205",
+        "distLevel": 4
+    },
+    {
+        "distName": "东肖街道",
+        "distCode": "350802007",
+        "distLevel": 4
+    },
+    {
+        "distName": "东洋乡",
+        "distCode": "350125206",
+        "distLevel": 4
+    },
+    {
+        "distName": "东游镇",
+        "distCode": "350783107",
+        "distLevel": 4
+    },
+    {
+        "distName": "东园镇",
+        "distCode": "350521105",
+        "distLevel": 4
+    },
+    {
+        "distName": "东园镇",
+        "distCode": "350681111",
+        "distLevel": 4
+    },
+    {
+        "distName": "东源乡",
+        "distCode": "350926202",
+        "distLevel": 4
+    },
+    {
+        "distName": "东张镇",
+        "distCode": "350181117",
+        "distLevel": 4
+    },
+    {
+        "distName": "东庄镇",
+        "distCode": "350305101",
+        "distLevel": 4
+    },
+    {
+        "distName": "杜浔镇",
+        "distCode": "350623104",
+        "distLevel": 4
+    },
+    {
+        "distName": "度尾镇",
+        "distCode": "350322103",
+        "distLevel": 4
+    },
+    {
+        "distName": "对湖街道",
+        "distCode": "350104003",
+        "distLevel": 4
+    },
+    {
+        "distName": "范坑乡",
+        "distCode": "350981202",
+        "distLevel": 4
+    },
+    {
+        "distName": "方田乡",
+        "distCode": "350424204",
+        "distLevel": 4
+    },
+    {
+        "distName": "枋洋镇",
+        "distCode": "350625103",
+        "distLevel": 4
+    },
+    {
+        "distName": "房道镇",
+        "distCode": "350783102",
+        "distLevel": 4
+    },
+    {
+        "distName": "飞鸾镇",
+        "distCode": "350902108",
+        "distLevel": 4
+    },
+    {
+        "distName": "飞竹镇",
+        "distCode": "350123104",
+        "distLevel": 4
+    },
+    {
+        "distName": "丰山镇",
+        "distCode": "350629101",
+        "distLevel": 4
+    },
+    {
+        "distName": "丰田镇",
+        "distCode": "350627101",
+        "distLevel": 4
+    },
+    {
+        "distName": "丰泽街道",
+        "distCode": "350503002",
+        "distLevel": 4
+    },
+    {
+        "distName": "丰州镇",
+        "distCode": "350583116",
+        "distLevel": 4
+    },
+    {
+        "distName": "枫亭镇",
+        "distCode": "350322100",
+        "distLevel": 4
+    },
+    {
+        "distName": "枫溪乡",
+        "distCode": "350421203",
+        "distLevel": 4
+    },
+    {
+        "distName": "枫溪乡",
+        "distCode": "350722203",
+        "distLevel": 4
+    },
+    {
+        "distName": "峰市镇",
+        "distCode": "350803109",
+        "distLevel": 4
+    },
+    {
+        "distName": "峰尾镇",
+        "distCode": "350505103",
+        "distLevel": 4
+    },
+    {
+        "distName": "凤城街道",
+        "distCode": "350803100",
+        "distLevel": 4
+    },
+    {
+        "distName": "凤城镇",
+        "distCode": "350122100",
+        "distLevel": 4
+    },
+    {
+        "distName": "凤城镇",
+        "distCode": "350524100",
+        "distLevel": 4
+    },
+    {
+        "distName": "凤都镇",
+        "distCode": "350922106",
+        "distLevel": 4
+    },
+    {
+        "distName": "凤岗街道",
+        "distCode": "350427001",
+        "distLevel": 4
+    },
+    {
+        "distName": "凤凰山街道",
+        "distCode": "350302002",
+        "distLevel": 4
+    },
+    {
+        "distName": "凤里街道",
+        "distCode": "350581002",
+        "distLevel": 4
+    },
+    {
+        "distName": "凤埔乡",
+        "distCode": "350922204",
+        "distLevel": 4
+    },
+    {
+        "distName": "凤山镇",
+        "distCode": "350123100",
+        "distLevel": 4
+    },
+    {
+        "distName": "凤阳镇",
+        "distCode": "350924208",
+        "distLevel": 4
+    },
+    {
+        "distName": "佛昙镇",
+        "distCode": "350623102",
+        "distLevel": 4
+    },
+    {
+        "distName": "洑口乡",
+        "distCode": "350125204",
+        "distLevel": 4
+    },
+    {
+        "distName": "浮宫镇",
+        "distCode": "350681104",
+        "distLevel": 4
+    },
+    {
+        "distName": "浮桥街道",
+        "distCode": "350502005",
+        "distLevel": 4
+    },
+    {
+        "distName": "福安畲族开发区",
+        "distCode": "350981501",
+        "distLevel": 4
+    },
+    {
+        "distName": "福建建宁经济开发区",
+        "distCode": "350430400",
+        "distLevel": 4
+    },
+    {
+        "distName": "福建平和工业园区",
+        "distCode": "350628401",
+        "distLevel": 4
+    },
+    {
+        "distName": "福建土楼（华安）旅游区",
+        "distCode": "350629400",
+        "distLevel": 4
+    },
+    {
+        "distName": "福田乡",
+        "distCode": "350524210",
+        "distLevel": 4
+    },
+    {
+        "distName": "抚市镇",
+        "distCode": "350803105",
+        "distLevel": 4
+    },
+    {
+        "distName": "富口镇",
+        "distCode": "350427106",
+        "distLevel": 4
+    },
+    {
+        "distName": "富岭镇",
+        "distCode": "350722101",
+        "distLevel": 4
+    },
+    {
+        "distName": "富泉乡",
+        "distCode": "350125201",
+        "distLevel": 4
+    },
+    {
+        "distName": "富溪镇",
+        "distCode": "350926101",
+        "distLevel": 4
+    },
+    {
+        "distName": "盖德镇",
+        "distCode": "350526110",
+        "distLevel": 4
+    },
+    {
+        "distName": "盖山镇",
+        "distCode": "350104102",
+        "distLevel": 4
+    },
+    {
+        "distName": "盖尾镇",
+        "distCode": "350322106",
+        "distLevel": 4
+    },
+    {
+        "distName": "盖洋乡",
+        "distCode": "350125205",
+        "distLevel": 4
+    },
+    {
+        "distName": "盖洋镇",
+        "distCode": "350421101",
+        "distLevel": 4
+    },
+    {
+        "distName": "甘棠乡",
+        "distCode": "350923202",
+        "distLevel": 4
+    },
+    {
+        "distName": "甘棠镇",
+        "distCode": "350981107",
+        "distLevel": 4
+    },
+    {
+        "distName": "甘蔗街道",
+        "distCode": "350121001",
+        "distLevel": 4
+    },
+    {
+        "distName": "感德镇",
+        "distCode": "350524110",
+        "distLevel": 4
+    },
+    {
+        "distName": "港头镇",
+        "distCode": "350181108",
+        "distLevel": 4
+    },
+    {
+        "distName": "港尾镇",
+        "distCode": "350681106",
+        "distLevel": 4
+    },
+    {
+        "distName": "高安镇",
+        "distCode": "350629104",
+        "distLevel": 4
+    },
+    {
+        "distName": "高陂镇",
+        "distCode": "350803104",
+        "distLevel": 4
+    },
+    {
+        "distName": "高车乡",
+        "distCode": "350629200",
+        "distLevel": 4
+    },
+    {
+        "distName": "高桥镇",
+        "distCode": "350427105",
+        "distLevel": 4
+    },
+    {
+        "distName": "高砂镇",
+        "distCode": "350427104",
+        "distLevel": 4
+    },
+    {
+        "distName": "高山镇",
+        "distCode": "350181109",
+        "distLevel": 4
+    },
+    {
+        "distName": "高唐镇",
+        "distCode": "350428102",
+        "distLevel": 4
+    },
+    {
+        "distName": "高头镇",
+        "distCode": "350803213",
+        "distLevel": 4
+    },
+    {
+        "distName": "高阳乡",
+        "distCode": "350721203",
+        "distLevel": 4
+    },
+    {
+        "distName": "隔川镇",
+        "distCode": "350825202",
+        "distLevel": 4
+    },
+    {
+        "distName": "葛坑镇",
+        "distCode": "350526109",
+        "distLevel": 4
+    },
+    {
+        "distName": "葛岭镇",
+        "distCode": "350125103",
+        "distLevel": 4
+    },
+    {
+        "distName": "拱辰街道",
+        "distCode": "350304002",
+        "distLevel": 4
+    },
+    {
+        "distName": "拱桥镇",
+        "distCode": "350881105",
+        "distLevel": 4
+    },
+    {
+        "distName": "贡川镇",
+        "distCode": "350481101",
+        "distLevel": 4
+    },
+    {
+        "distName": "姑田镇",
+        "distCode": "350825102",
+        "distLevel": 4
+    },
+    {
+        "distName": "古城镇",
+        "distCode": "350821102",
+        "distLevel": 4
+    },
+    {
+        "distName": "古峰镇",
+        "distCode": "350923100",
+        "distLevel": 4
+    },
+    {
+        "distName": "古槐镇",
+        "distCode": "350182106",
+        "distLevel": 4
+    },
+    {
+        "distName": "古雷镇",
+        "distCode": "350623115",
+        "distLevel": 4
+    },
+    {
+        "distName": "古楼乡",
+        "distCode": "350722201",
+        "distLevel": 4
+    },
+    {
+        "distName": "古田镇",
+        "distCode": "350823106",
+        "distLevel": 4
+    },
+    {
+        "distName": "古镛镇",
+        "distCode": "350428100",
+        "distLevel": 4
+    },
+    {
+        "distName": "古竹乡",
+        "distCode": "350803207",
+        "distLevel": 4
+    },
+    {
+        "distName": "鼓东街道",
+        "distCode": "350102001",
+        "distLevel": 4
+    },
+    {
+        "distName": "鼓浪屿街道",
+        "distCode": "350203012",
+        "distLevel": 4
+    },
+    {
+        "distName": "鼓山镇",
+        "distCode": "350111100",
+        "distLevel": 4
+    },
+    {
+        "distName": "鼓西街道",
+        "distCode": "350102002",
+        "distLevel": 4
+    },
+    {
+        "distName": "官坂镇",
+        "distCode": "350122110",
+        "distLevel": 4
+    },
+    {
+        "distName": "官陂镇",
+        "distCode": "350624107",
+        "distLevel": 4
+    },
+    {
+        "distName": "官路乡",
+        "distCode": "350722207",
+        "distLevel": 4
+    },
+    {
+        "distName": "官桥镇",
+        "distCode": "350524103",
+        "distLevel": 4
+    },
+    {
+        "distName": "官桥镇",
+        "distCode": "350583118",
+        "distLevel": 4
+    },
+    {
+        "distName": "官田乡",
+        "distCode": "350881203",
+        "distLevel": 4
+    },
+    {
+        "distName": "官浔镇",
+        "distCode": "350623106",
+        "distLevel": 4
+    },
+    {
+        "distName": "官庄畲族乡",
+        "distCode": "350823211",
+        "distLevel": 4
+    },
+    {
+        "distName": "馆前镇",
+        "distCode": "350821104",
+        "distLevel": 4
+    },
+    {
+        "distName": "管厝乡",
+        "distCode": "350722205",
+        "distLevel": 4
+    },
+    {
+        "distName": "管前镇",
+        "distCode": "350426105",
+        "distLevel": 4
+    },
+    {
+        "distName": "管阳镇",
+        "distCode": "350982108",
+        "distLevel": 4
+    },
+    {
+        "distName": "贯岭镇",
+        "distCode": "350982100",
+        "distLevel": 4
+    },
+    {
+        "distName": "灌口镇",
+        "distCode": "350211102",
+        "distLevel": 4
+    },
+    {
+        "distName": "光明镇",
+        "distCode": "350428200",
+        "distLevel": 4
+    },
+    {
+        "distName": "广平镇",
+        "distCode": "350425103",
+        "distLevel": 4
+    },
+    {
+        "distName": "桂林街道",
+        "distCode": "350881002",
+        "distLevel": 4
+    },
+    {
+        "distName": "桂林乡",
+        "distCode": "350781200",
+        "distLevel": 4
+    },
+    {
+        "distName": "桂阳乡",
+        "distCode": "350526204",
+        "distLevel": 4
+    },
+    {
+        "distName": "桂洋镇",
+        "distCode": "350525115",
+        "distLevel": 4
+    },
+    {
+        "distName": "琯头镇",
+        "distCode": "350122103",
+        "distLevel": 4
+    },
+    {
+        "distName": "郭坑镇",
+        "distCode": "350603103",
+        "distLevel": 4
+    },
+    {
+        "distName": "国宝乡",
+        "distCode": "350526206",
+        "distLevel": 4
+    },
+    {
+        "distName": "国欢镇",
+        "distCode": "350303102",
+        "distLevel": 4
+    },
+    {
+        "distName": "国强乡",
+        "distCode": "350628201",
+        "distLevel": 4
+    },
+    {
+        "distName": "国营古农农场",
+        "distCode": "350625400",
+        "distLevel": 4
+    },
+    {
+        "distName": "国营湖内林场",
+        "distCode": "350624402",
+        "distLevel": 4
+    },
+    {
+        "distName": "国营西山农场",
+        "distCode": "350624401",
+        "distLevel": 4
+    },
+    {
+        "distName": "海滨街道",
+        "distCode": "350502001",
+        "distLevel": 4
+    },
+    {
+        "distName": "海沧街道",
+        "distCode": "350205001",
+        "distLevel": 4
+    },
+    {
+        "distName": "海澄镇",
+        "distCode": "350681101",
+        "distLevel": 4
+    },
+    {
+        "distName": "海岛乡",
+        "distCode": "350921205",
+        "distLevel": 4
+    },
+    {
+        "distName": "海口镇",
+        "distCode": "350181103",
+        "distLevel": 4
+    },
+    {
+        "distName": "蚶江镇",
+        "distCode": "350581102",
+        "distLevel": 4
+    },
+    {
+        "distName": "涵东街道",
+        "distCode": "350303001",
+        "distLevel": 4
+    },
+    {
+        "distName": "涵西街道",
+        "distCode": "350303002",
+        "distLevel": 4
+    },
+    {
+        "distName": "瀚仙镇",
+        "distCode": "350421103",
+        "distLevel": 4
+    },
+    {
+        "distName": "杭川镇",
+        "distCode": "350723100",
+        "distLevel": 4
+    },
+    {
+        "distName": "航城街道",
+        "distCode": "350182002",
+        "distLevel": 4
+    },
+    {
+        "distName": "濠村乡",
+        "distCode": "350722204",
+        "distLevel": 4
+    },
+    {
+        "distName": "禾山街道",
+        "distCode": "350206003",
+        "distLevel": 4
+    },
+    {
+        "distName": "合溪乡",
+        "distCode": "350803209",
+        "distLevel": 4
+    },
+    {
+        "distName": "和平乡",
+        "distCode": "350622202",
+        "distLevel": 4
+    },
+    {
+        "distName": "和平镇",
+        "distCode": "350781108",
+        "distLevel": 4
+    },
+    {
+        "distName": "和平镇",
+        "distCode": "350881104",
+        "distLevel": 4
+    },
+    {
+        "distName": "和溪镇",
+        "distCode": "350627105",
+        "distLevel": 4
+    },
+    {
+        "distName": "河滨街道",
+        "distCode": "350722002",
+        "distLevel": 4
+    },
+    {
+        "distName": "河东乡",
+        "distCode": "350724200",
+        "distLevel": 4
+    },
+    {
+        "distName": "河龙乡",
+        "distCode": "350424209",
+        "distLevel": 4
+    },
+    {
+        "distName": "河市镇",
+        "distCode": "350504102",
+        "distLevel": 4
+    },
+    {
+        "distName": "河田镇",
+        "distCode": "350821106",
+        "distLevel": 4
+    },
+    {
+        "distName": "鹤上镇",
+        "distCode": "350182108",
+        "distLevel": 4
+    },
+    {
+        "distName": "鹤塘镇",
+        "distCode": "350922104",
+        "distLevel": 4
+    },
+    {
+        "distName": "横口乡",
+        "distCode": "350525200",
+        "distLevel": 4
+    },
+    {
+        "distName": "红坊镇",
+        "distCode": "350802100",
+        "distLevel": 4
+    },
+    {
+        "distName": "红山乡",
+        "distCode": "350821205",
+        "distLevel": 4
+    },
+    {
+        "distName": "红星乡",
+        "distCode": "350125209",
+        "distLevel": 4
+    },
+    {
+        "distName": "红星乡",
+        "distCode": "350624204",
+        "distLevel": 4
+    },
+    {
+        "distName": "宏路街道",
+        "distCode": "350181005",
+        "distLevel": 4
+    },
+    {
+        "distName": "虹山乡",
+        "distCode": "350504200",
+        "distLevel": 4
+    },
+    {
+        "distName": "洪墩镇",
+        "distCode": "350781106",
+        "distLevel": 4
+    },
+    {
+        "distName": "洪口乡",
+        "distCode": "350902201",
+        "distLevel": 4
+    },
+    {
+        "distName": "洪濑镇",
+        "distCode": "350583113",
+        "distLevel": 4
+    },
+    {
+        "distName": "洪梅镇",
+        "distCode": "350583114",
+        "distLevel": 4
+    },
+    {
+        "distName": "洪山镇",
+        "distCode": "350803204",
+        "distLevel": 4
+    },
+    {
+        "distName": "洪山镇",
+        "distCode": "350102100",
+        "distLevel": 4
+    },
+    {
+        "distName": "洪塘镇",
+        "distCode": "350212107",
+        "distLevel": 4
+    },
+    {
+        "distName": "洪田镇",
+        "distCode": "350481106",
+        "distLevel": 4
+    },
+    {
+        "distName": "洪洋乡",
+        "distCode": "350123201",
+        "distLevel": 4
+    },
+    {
+        "distName": "鸿山镇",
+        "distCode": "350581104",
+        "distLevel": 4
+    },
+    {
+        "distName": "鸿尾乡",
+        "distCode": "350121201",
+        "distLevel": 4
+    },
+    {
+        "distName": "猴屿乡",
+        "distCode": "350182201",
+        "distLevel": 4
+    },
+    {
+        "distName": "后海管理局",
+        "distCode": "350305401",
+        "distLevel": 4
+    },
+    {
+        "distName": "后龙镇",
+        "distCode": "350505102",
+        "distLevel": 4
+    },
+    {
+        "distName": "坂头防护林场",
+        "distCode": "350211404",
+        "distLevel": 4
+    },
+    {
+        "distName": "后洲街道",
+        "distCode": "350103002",
+        "distLevel": 4
+    },
+    {
+        "distName": "胡坊镇",
+        "distCode": "350421102",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖滨街道",
+        "distCode": "350581001",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖村镇",
+        "distCode": "350424102",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖坑镇",
+        "distCode": "350803106",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖雷镇",
+        "distCode": "350803103",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖里街道",
+        "distCode": "350206001",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖林乡",
+        "distCode": "350629203",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖美乡",
+        "distCode": "350425208",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖南镇",
+        "distCode": "350182110",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖山乡",
+        "distCode": "350803205",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖上乡",
+        "distCode": "350524202",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖头镇",
+        "distCode": "350524102",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖西畲族乡",
+        "distCode": "350623202",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖洋镇",
+        "distCode": "350525110",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖洋镇",
+        "distCode": "350823111",
+        "distLevel": 4
+    },
+    {
+        "distName": "湖源乡",
+        "distCode": "350427205",
+        "distLevel": 4
+    },
+    {
+        "distName": "虎背镇",
+        "distCode": "350902203",
+        "distLevel": 4
+    },
+    {
+        "distName": "虎岗镇",
+        "distCode": "350803210",
+        "distLevel": 4
+    },
+    {
+        "distName": "虎邱镇",
+        "distCode": "350524108",
+        "distLevel": 4
+    },
+    {
+        "distName": "岵山镇",
+        "distCode": "350525108",
+        "distLevel": 4
+    },
+    {
+        "distName": "笏石镇",
+        "distCode": "350305100",
+        "distLevel": 4
+    },
+    {
+        "distName": "花桥乡",
+        "distCode": "350724204",
+        "distLevel": 4
+    },
+    {
+        "distName": "华大街道",
+        "distCode": "350102007",
+        "distLevel": 4
+    },
+    {
+        "distName": "华大街道",
+        "distCode": "350503005",
+        "distLevel": 4
+    },
+    {
+        "distName": "华丰镇",
+        "distCode": "350629100",
+        "distLevel": 4
+    },
+    {
+        "distName": "华桥乡",
+        "distCode": "350723203",
+        "distLevel": 4
+    },
+    {
+        "distName": "华亭镇",
+        "distCode": "350302101",
+        "distLevel": 4
+    },
+    {
+        "distName": "华兴镇",
+        "distCode": "350425200",
+        "distLevel": 4
+    },
+    {
+        "distName": "淮土镇",
+        "distCode": "350424203",
+        "distLevel": 4
+    },
+    {
+        "distName": "槐南镇",
+        "distCode": "350481107",
+        "distLevel": 4
+    },
+    {
+        "distName": "宦溪镇",
+        "distCode": "350111103",
+        "distLevel": 4
+    },
+    {
+        "distName": "黄柏乡",
+        "distCode": "350926203",
+        "distLevel": 4
+    },
+    {
+        "distName": "黄埠乡",
+        "distCode": "350430205",
+        "distLevel": 4
+    },
+    {
+        "distName": "黄墩街道",
+        "distCode": "350702002",
+        "distLevel": 4
+    },
+    {
+        "distName": "黄坊乡",
+        "distCode": "350430202",
+        "distLevel": 4
+    },
+    {
+        "distName": "黄坑镇",
+        "distCode": "350703106",
+        "distLevel": 4
+    },
+    {
+        "distName": "黄岐镇",
+        "distCode": "350122112",
+        "distLevel": 4
+    },
+    {
+        "distName": "黄石镇",
+        "distCode": "350304101",
+        "distLevel": 4
+    },
+    {
+        "distName": "黄潭镇",
+        "distCode": "350428104",
+        "distLevel": 4
+    },
+    {
+        "distName": "黄塘镇",
+        "distCode": "350521102",
+        "distLevel": 4
+    },
+    {
+        "distName": "黄田镇",
+        "distCode": "350922103",
+        "distLevel": 4
+    },
+    {
+        "distName": "回龙乡",
+        "distCode": "350703202",
+        "distLevel": 4
+    },
+    {
+        "distName": "惠南工业区",
+        "distCode": "350521401",
+        "distLevel": 4
+    },
+    {
+        "distName": "火田镇",
+        "distCode": "350622105",
+        "distLevel": 4
+    },
+    {
+        "distName": "霍口畲族乡",
+        "distCode": "350123203",
+        "distLevel": 4
+    },
+    {
+        "distName": "霍童镇",
+        "distCode": "350902105",
+        "distLevel": 4
+    },
+    {
+        "distName": "吉巷乡",
+        "distCode": "350922201",
+        "distLevel": 4
+    },
+    {
+        "distName": "吉阳镇",
+        "distCode": "350783101",
+        "distLevel": 4
+    },
+    {
+        "distName": "集美街道",
+        "distCode": "350211001",
+        "distLevel": 4
+    },
+    {
+        "distName": "济村乡",
+        "distCode": "350424202",
+        "distLevel": 4
+    },
+    {
+        "distName": "济阳乡",
+        "distCode": "350425203",
+        "distLevel": 4
+    },
+    {
+        "distName": "佳阳乡",
+        "distCode": "350982202",
+        "distLevel": 4
+    },
+    {
+        "distName": "嘉莲街道",
+        "distCode": "350203011",
+        "distLevel": 4
+    },
+    {
+        "distName": "建安街道",
+        "distCode": "350783001",
+        "distLevel": 4
+    },
+    {
+        "distName": "建设乡",
+        "distCode": "350624203",
+        "distLevel": 4
+    },
+    {
+        "distName": "建设镇",
+        "distCode": "350425106",
+        "distLevel": 4
+    },
+    {
+        "distName": "建西镇",
+        "distCode": "350721100",
+        "distLevel": 4
+    },
+    {
+        "distName": "建新镇",
+        "distCode": "350104103",
+        "distLevel": 4
+    },
+    {
+        "distName": "剑斗镇",
+        "distCode": "350524104",
+        "distLevel": 4
+    },
+    {
+        "distName": "鉴江镇",
+        "distCode": "350123105",
+        "distLevel": 4
+    },
+    {
+        "distName": "江镜华侨",
+        "distCode": "350181400",
+        "distLevel": 4
+    },
+    {
+        "distName": "江镜镇",
+        "distCode": "350181107",
+        "distLevel": 4
+    },
+    {
+        "distName": "江口镇",
+        "distCode": "350303104",
+        "distLevel": 4
+    },
+    {
+        "distName": "江南街道",
+        "distCode": "350502006",
+        "distLevel": 4
+    },
+    {
+        "distName": "江南乡",
+        "distCode": "350122201",
+        "distLevel": 4
+    },
+    {
+        "distName": "江山镇",
+        "distCode": "350802107",
+        "distLevel": 4
+    },
+    {
+        "distName": "江田镇",
+        "distCode": "350182105",
+        "distLevel": 4
+    },
+    {
+        "distName": "江头街道",
+        "distCode": "350206004",
+        "distLevel": 4
+    },
+    {
+        "distName": "江阴镇",
+        "distCode": "350181116",
+        "distLevel": 4
+    },
+    {
+        "distName": "将口镇",
+        "distCode": "350703102",
+        "distLevel": 4
+    },
+    {
+        "distName": "郊尾镇",
+        "distCode": "350322102",
+        "distLevel": 4
+    },
+    {
+        "distName": "蛟洋镇",
+        "distCode": "350823109",
+        "distLevel": 4
+    },
+    {
+        "distName": "蕉北街道",
+        "distCode": "350902002",
+        "distLevel": 4
+    },
+    {
+        "distName": "蕉南街道",
+        "distCode": "350902001",
+        "distLevel": 4
+    },
+    {
+        "distName": "角美镇",
+        "distCode": "350681102",
+        "distLevel": 4
+    },
+    {
+        "distName": "揭乐乡",
+        "distCode": "350825200",
+        "distLevel": 4
+    },
+    {
+        "distName": "介福乡",
+        "distCode": "350525202",
+        "distLevel": 4
+    },
+    {
+        "distName": "界山镇",
+        "distCode": "350505101",
+        "distLevel": 4
+    },
+    {
+        "distName": "金峰镇",
+        "distCode": "350182111",
+        "distLevel": 4
+    },
+    {
+        "distName": "金谷镇",
+        "distCode": "350524106",
+        "distLevel": 4
+    },
+    {
+        "distName": "金涵畲族乡",
+        "distCode": "350902200",
+        "distLevel": 4
+    },
+    {
+        "distName": "金井镇",
+        "distCode": "350582106",
+        "distLevel": 4
+    },
+    {
+        "distName": "金坑乡",
+        "distCode": "350781202",
+        "distLevel": 4
+    },
+    {
+        "distName": "金龙街道",
+        "distCode": "350502007",
+        "distLevel": 4
+    },
+    {
+        "distName": "金沙镇",
+        "distCode": "350124103",
+        "distLevel": 4
+    },
+    {
+        "distName": "金砂镇",
+        "distCode": "350803202",
+        "distLevel": 4
+    },
+    {
+        "distName": "金山街道",
+        "distCode": "350104008",
+        "distLevel": 4
+    },
+    {
+        "distName": "金山街道",
+        "distCode": "350206005",
+        "distLevel": 4
+    },
+    {
+        "distName": "金山镇",
+        "distCode": "350627104",
+        "distLevel": 4
+    },
+    {
+        "distName": "金淘镇",
+        "distCode": "350583105",
+        "distLevel": 4
+    },
+    {
+        "distName": "金星乡",
+        "distCode": "350624200",
+        "distLevel": 4
+    },
+    {
+        "distName": "锦斗镇",
+        "distCode": "350525113",
+        "distLevel": 4
+    },
+    {
+        "distName": "锦尚镇",
+        "distCode": "350581105",
+        "distLevel": 4
+    },
+    {
+        "distName": "荆西街道",
+        "distCode": "350403004",
+        "distLevel": 4
+    },
+    {
+        "distName": "荆溪镇",
+        "distCode": "350121108",
+        "distLevel": 4
+    },
+    {
+        "distName": "菁城街道",
+        "distCode": "350881001",
+        "distLevel": 4
+    },
+    {
+        "distName": "净峰镇",
+        "distCode": "350521112",
+        "distLevel": 4
+    },
+    {
+        "distName": "靖城镇",
+        "distCode": "350627102",
+        "distLevel": 4
+    },
+    {
+        "distName": "镜洋镇",
+        "distCode": "350181118",
+        "distLevel": 4
+    },
+    {
+        "distName": "九都镇",
+        "distCode": "350583109",
+        "distLevel": 4
+    },
+    {
+        "distName": "九都镇",
+        "distCode": "350902104",
+        "distLevel": 4
+    },
+    {
+        "distName": "九峰镇",
+        "distCode": "350628108",
+        "distLevel": 4
+    },
+    {
+        "distName": "九湖镇",
+        "distCode": "350681107",
+        "distLevel": 4
+    },
+    {
+        "distName": "九龙岭林场",
+        "distCode": "350681401",
+        "distLevel": 4
+    },
+    {
+        "distName": "九牧镇",
+        "distCode": "350722109",
+        "distLevel": 4
+    },
+    {
+        "distName": "旧县乡",
+        "distCode": "350724202",
+        "distLevel": 4
+    },
+    {
+        "distName": "旧县镇",
+        "distCode": "350823110",
+        "distLevel": 4
+    },
+    {
+        "distName": "旧镇镇",
+        "distCode": "350623101",
+        "distLevel": 4
+    },
+    {
+        "distName": "桔林乡",
+        "distCode": "350124205",
+        "distLevel": 4
+    },
+    {
+        "distName": "莒口镇",
+        "distCode": "350703104",
+        "distLevel": 4
+    },
+    {
+        "distName": "莒溪镇",
+        "distCode": "350825104",
+        "distLevel": 4
+    },
+    {
+        "distName": "巨口乡",
+        "distCode": "350702200",
+        "distLevel": 4
+    },
+    {
+        "distName": "均口镇",
+        "distCode": "350430103",
+        "distLevel": 4
+    },
+    {
+        "distName": "均溪镇",
+        "distCode": "350425100",
+        "distLevel": 4
+    },
+    {
+        "distName": "开善乡",
+        "distCode": "350429205",
+        "distLevel": 4
+    },
+    {
+        "distName": "开元街道",
+        "distCode": "350203007",
+        "distLevel": 4
+    },
+    {
+        "distName": "开元街道",
+        "distCode": "350502004",
+        "distLevel": 4
+    },
+    {
+        "distName": "坎市镇",
+        "distCode": "350803101",
+        "distLevel": 4
+    },
+    {
+        "distName": "康厝畲族乡",
+        "distCode": "350981204",
+        "distLevel": 4
+    },
+    {
+        "distName": "康美镇",
+        "distCode": "350583115",
+        "distLevel": 4
+    },
+    {
+        "distName": "康美镇",
+        "distCode": "350626102",
+        "distLevel": 4
+    },
+    {
+        "distName": "客坊乡",
+        "distCode": "350430204",
+        "distLevel": 4
+    },
+    {
+        "distName": "坑底乡",
+        "distCode": "350924201",
+        "distLevel": 4
+    },
+    {
+        "distName": "坑园镇",
+        "distCode": "350122115",
+        "distLevel": 4
+    },
+    {
+        "distName": "坑仔口镇",
+        "distCode": "350525111",
+        "distLevel": 4
+    },
+    {
+        "distName": "奎洋镇",
+        "distCode": "350627106",
+        "distLevel": 4
+    },
+    {
+        "distName": "魁斗镇",
+        "distCode": "350524111",
+        "distLevel": 4
+    },
+    {
+        "distName": "来舟镇",
+        "distCode": "350702100",
+        "distLevel": 4
+    },
+    {
+        "distName": "赖店镇",
+        "distCode": "350322105",
+        "distLevel": 4
+    },
+    {
+        "distName": "赖坊镇",
+        "distCode": "350423205",
+        "distLevel": 4
+    },
+    {
+        "distName": "赖源乡",
+        "distCode": "350825209",
+        "distLevel": 4
+    },
+    {
+        "distName": "岚城乡",
+        "distCode": "350128206",
+        "distLevel": 4
+    },
+    {
+        "distName": "岚谷乡",
+        "distCode": "350782202",
+        "distLevel": 4
+    },
+    {
+        "distName": "岚下乡",
+        "distCode": "350721202",
+        "distLevel": 4
+    },
+    {
+        "distName": "蓝田开发区",
+        "distCode": "350603500",
+        "distLevel": 4
+    },
+    {
+        "distName": "蓝田乡",
+        "distCode": "350524207",
+        "distLevel": 4
+    },
+    {
+        "distName": "蓝田镇",
+        "distCode": "350603100",
+        "distLevel": 4
+    },
+    {
+        "distName": "蓝溪镇",
+        "distCode": "350823103",
+        "distLevel": 4
+    },
+    {
+        "distName": "琅岐镇",
+        "distCode": "350105102",
+        "distLevel": 4
+    },
+    {
+        "distName": "乐峰镇",
+        "distCode": "350583110",
+        "distLevel": 4
+    },
+    {
+        "distName": "雷峰镇",
+        "distCode": "350526104",
+        "distLevel": 4
+    },
+    {
+        "distName": "礼门乡",
+        "distCode": "350925201",
+        "distLevel": 4
+    },
+    {
+        "distName": "李墩镇",
+        "distCode": "350925104",
+        "distLevel": 4
+    },
+    {
+        "distName": "李坊乡",
+        "distCode": "350723202",
+        "distLevel": 4
+    },
+    {
+        "distName": "李家乡",
+        "distCode": "350423208",
+        "distLevel": 4
+    },
+    {
+        "distName": "里田乡",
+        "distCode": "350423209",
+        "distLevel": 4
+    },
+    {
+        "distName": "里心镇",
+        "distCode": "350430101",
+        "distLevel": 4
+    },
+    {
+        "distName": "鲤城街道",
+        "distCode": "350322001",
+        "distLevel": 4
+    },
+    {
+        "distName": "鲤南镇",
+        "distCode": "350322104",
+        "distLevel": 4
+    },
+    {
+        "distName": "鲤中街道",
+        "distCode": "350502003",
+        "distLevel": 4
+    },
+    {
+        "distName": "莲峰镇",
+        "distCode": "350825100",
+        "distLevel": 4
+    },
+    {
+        "distName": "莲花镇",
+        "distCode": "350212105",
+        "distLevel": 4
+    },
+    {
+        "distName": "莲前街道",
+        "distCode": "350203010",
+        "distLevel": 4
+    },
+    {
+        "distName": "莲塘镇",
+        "distCode": "350722108",
+        "distLevel": 4
+    },
+    {
+        "distName": "联合镇",
+        "distCode": "350426200",
+        "distLevel": 4
+    },
+    {
+        "distName": "良种场",
+        "distCode": "350681403",
+        "distLevel": 4
+    },
+    {
+        "distName": "蓼沿乡",
+        "distCode": "350122202",
+        "distLevel": 4
+    },
+    {
+        "distName": "列东街道",
+        "distCode": "350402001",
+        "distLevel": 4
+    },
+    {
+        "distName": "列西街道",
+        "distCode": "350402002",
+        "distLevel": 4
+    },
+    {
+        "distName": "列屿镇",
+        "distCode": "350622104",
+        "distLevel": 4
+    },
+    {
+        "distName": "林墩工业区",
+        "distCode": "350625502",
+        "distLevel": 4
+    },
+    {
+        "distName": "林坊镇",
+        "distCode": "350825205",
+        "distLevel": 4
+    },
+    {
+        "distName": "林畲镇",
+        "distCode": "350423202",
+        "distLevel": 4
+    },
+    {
+        "distName": "林下林场",
+        "distCode": "350681405",
+        "distLevel": 4
+    },
+    {
+        "distName": "临城镇",
+        "distCode": "350823101",
+        "distLevel": 4
+    },
+    {
+        "distName": "临江街道",
+        "distCode": "350104004",
+        "distLevel": 4
+    },
+    {
+        "distName": "临江街道",
+        "distCode": "350502002",
+        "distLevel": 4
+    },
+    {
+        "distName": "临江镇",
+        "distCode": "350722103",
+        "distLevel": 4
+    },
+    {
+        "distName": "临江镇",
+        "distCode": "350823100",
+        "distLevel": 4
+    },
+    {
+        "distName": "灵川镇",
+        "distCode": "350302102",
+        "distLevel": 4
+    },
+    {
+        "distName": "灵地乡",
+        "distCode": "350881205",
+        "distLevel": 4
+    },
+    {
+        "distName": "灵地镇",
+        "distCode": "350423103",
+        "distLevel": 4
+    },
+    {
+        "distName": "灵秀镇",
+        "distCode": "350581100",
+        "distLevel": 4
+    },
+    {
+        "distName": "灵源街道",
+        "distCode": "350582006",
+        "distLevel": 4
+    },
+    {
+        "distName": "岭路乡",
+        "distCode": "350125202",
+        "distLevel": 4
+    },
+    {
+        "distName": "岭下溪国有防护林场",
+        "distCode": "350624403",
+        "distLevel": 4
+    },
+    {
+        "distName": "岭下乡",
+        "distCode": "350923206",
+        "distLevel": 4
+    },
+    {
+        "distName": "岭腰乡",
+        "distCode": "350725204",
+        "distLevel": 4
+    },
+    {
+        "distName": "流水镇",
+        "distCode": "350128102",
+        "distLevel": 4
+    },
+    {
+        "distName": "柳城街道",
+        "distCode": "350583002",
+        "distLevel": 4
+    },
+    {
+        "distName": "六鳌镇",
+        "distCode": "350623113",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙安开发区",
+        "distCode": "350982500",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙村乡",
+        "distCode": "350783203",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙湖镇",
+        "distCode": "350582110",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙华镇",
+        "distCode": "350322109",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙江街道",
+        "distCode": "350181004",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙津镇",
+        "distCode": "350423100",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙涓乡",
+        "distCode": "350524205",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙门街道",
+        "distCode": "350802008",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙门滩镇",
+        "distCode": "350526103",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙门镇",
+        "distCode": "350524107",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙桥街道",
+        "distCode": "350302001",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙山街道",
+        "distCode": "350181003",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙山镇",
+        "distCode": "350627103",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙潭镇",
+        "distCode": "350803108",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙田镇",
+        "distCode": "350181106",
+        "distLevel": 4
+    },
+    {
+        "distName": "龙浔镇",
+        "distCode": "350526101",
+        "distLevel": 4
+    },
+    {
+        "distName": "隆教畲族乡",
+        "distCode": "350681201",
+        "distLevel": 4
+    },
+    {
+        "distName": "芦田镇",
+        "distCode": "350524109",
+        "distLevel": 4
+    },
+    {
+        "distName": "芦溪镇",
+        "distCode": "350628109",
+        "distLevel": 4
+    },
+    {
+        "distName": "芦洋乡",
+        "distCode": "350128203",
+        "distLevel": 4
+    },
+    {
+        "distName": "芦芝镇",
+        "distCode": "350881200",
+        "distLevel": 4
+    },
+    {
+        "distName": "庐丰畲族乡",
+        "distCode": "350823202",
+        "distLevel": 4
+    },
+    {
+        "distName": "炉下镇",
+        "distCode": "350702112",
+        "distLevel": 4
+    },
+    {
+        "distName": "路下乡",
+        "distCode": "350923204",
+        "distLevel": 4
+    },
+    {
+        "distName": "鹭江街道",
+        "distCode": "350203006",
+        "distLevel": 4
+    },
+    {
+        "distName": "鸾凤乡",
+        "distCode": "350723200",
+        "distLevel": 4
+    },
+    {
+        "distName": "仑苍镇",
+        "distCode": "350583101",
+        "distLevel": 4
+    },
+    {
+        "distName": "罗东镇",
+        "distCode": "350583111",
+        "distLevel": 4
+    },
+    {
+        "distName": "罗坊乡",
+        "distCode": "350481203",
+        "distLevel": 4
+    },
+    {
+        "distName": "罗坊乡",
+        "distCode": "350825204",
+        "distLevel": 4
+    },
+    {
+        "distName": "罗江街道",
+        "distCode": "350981004",
+        "distLevel": 4
+    },
+    {
+        "distName": "罗联乡",
+        "distCode": "350182200",
+        "distLevel": 4
+    },
+    {
+        "distName": "罗山街道",
+        "distCode": "350582004",
+        "distLevel": 4
+    },
+    {
+        "distName": "罗溪镇",
+        "distCode": "350504100",
+        "distLevel": 4
+    },
+    {
+        "distName": "罗星街道",
+        "distCode": "350105001",
+        "distLevel": 4
+    },
+    {
+        "distName": "螺城镇",
+        "distCode": "350521100",
+        "distLevel": 4
+    },
+    {
+        "distName": "螺阳镇",
+        "distCode": "350521101",
+        "distLevel": 4
+    },
+    {
+        "distName": "螺洲镇",
+        "distCode": "350104104",
+        "distLevel": 4
+    },
+    {
+        "distName": "洛阳镇",
+        "distCode": "350521104",
+        "distLevel": 4
+    },
+    {
+        "distName": "麻沙镇",
+        "distCode": "350703105",
+        "distLevel": 4
+    },
+    {
+        "distName": "马鼻镇",
+        "distCode": "350122109",
+        "distLevel": 4
+    },
+    {
+        "distName": "马甲镇",
+        "distCode": "350504101",
+        "distLevel": 4
+    },
+    {
+        "distName": "马坑乡",
+        "distCode": "350629201",
+        "distLevel": 4
+    },
+    {
+        "distName": "马坪镇",
+        "distCode": "350623111",
+        "distLevel": 4
+    },
+    {
+        "distName": "马铺乡",
+        "distCode": "350622201",
+        "distLevel": 4
+    },
+    {
+        "distName": "马尾镇",
+        "distCode": "350105100",
+        "distLevel": 4
+    },
+    {
+        "distName": "马巷街道",
+        "distCode": "350213102",
+        "distLevel": 4
+    },
+    {
+        "distName": "马洋溪生态旅游区",
+        "distCode": "350625501",
+        "distLevel": 4
+    },
+    {
+        "distName": "玛坑乡",
+        "distCode": "350925202",
+        "distLevel": 4
+    },
+    {
+        "distName": "码头镇",
+        "distCode": "350583108",
+        "distLevel": 4
+    },
+    {
+        "distName": "茫荡镇",
+        "distCode": "350702110",
+        "distLevel": 4
+    },
+    {
+        "distName": "眉山乡",
+        "distCode": "350583200",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅城镇",
+        "distCode": "350124100",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅花镇",
+        "distCode": "350182113",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅口乡",
+        "distCode": "350429203",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅林镇",
+        "distCode": "350627107",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅岭街道",
+        "distCode": "350582002",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅岭镇",
+        "distCode": "350624102",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅山街道",
+        "distCode": "350702001",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅山镇",
+        "distCode": "350425207",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅山镇",
+        "distCode": "350583112",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅溪镇",
+        "distCode": "350124101",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅仙镇",
+        "distCode": "350426101",
+        "distLevel": 4
+    },
+    {
+        "distName": "梅洲乡",
+        "distCode": "350624205",
+        "distLevel": 4
+    },
+    {
+        "distName": "湄洲镇",
+        "distCode": "350305108",
+        "distLevel": 4
+    },
+    {
+        "distName": "美湖镇",
+        "distCode": "350526207",
+        "distLevel": 4
+    },
+    {
+        "distName": "美林街道",
+        "distCode": "350583003",
+        "distLevel": 4
+    },
+    {
+        "distName": "庙前镇",
+        "distCode": "350825106",
+        "distLevel": 4
+    },
+    {
+        "distName": "民主乡",
+        "distCode": "350824203",
+        "distLevel": 4
+    },
+    {
+        "distName": "漠源乡",
+        "distCode": "350428201",
+        "distLevel": 4
+    },
+    {
+        "distName": "穆阳镇",
+        "distCode": "350981101",
+        "distLevel": 4
+    },
+    {
+        "distName": "穆云畲族乡",
+        "distCode": "350981203",
+        "distLevel": 4
+    },
+    {
+        "distName": "拿口镇",
+        "distCode": "350781105",
+        "distLevel": 4
+    },
+    {
+        "distName": "南城街道",
+        "distCode": "350802002",
+        "distLevel": 4
+    },
+    {
+        "distName": "南埕镇",
+        "distCode": "350526105",
+        "distLevel": 4
+    },
+    {
+        "distName": "南海乡",
+        "distCode": "350128207",
+        "distLevel": 4
+    },
+    {
+        "distName": "南街街道",
+        "distCode": "350102005",
+        "distLevel": 4
+    },
+    {
+        "distName": "南坑街道",
+        "distCode": "350602005",
+        "distLevel": 4
+    },
+    {
+        "distName": "南坑镇",
+        "distCode": "350627110",
+        "distLevel": 4
+    },
+    {
+        "distName": "南口镇",
+        "distCode": "350428202",
+        "distLevel": 4
+    },
+    {
+        "distName": "南岭镇",
+        "distCode": "350181105",
+        "distLevel": 4
+    },
+    {
+        "distName": "南埔镇",
+        "distCode": "350505100",
+        "distLevel": 4
+    },
+    {
+        "distName": "南浦街道",
+        "distCode": "350722001",
+        "distLevel": 4
+    },
+    {
+        "distName": "南浦乡",
+        "distCode": "350623200",
+        "distLevel": 4
+    },
+    {
+        "distName": "南日镇",
+        "distCode": "350305107",
+        "distLevel": 4
+    },
+    {
+        "distName": "南山华侨茶果场",
+        "distCode": "350623405",
+        "distLevel": 4
+    },
+    {
+        "distName": "南山镇",
+        "distCode": "350702105",
+        "distLevel": 4
+    },
+    {
+        "distName": "南山镇",
+        "distCode": "350821107",
+        "distLevel": 4
+    },
+    {
+        "distName": "南胜镇",
+        "distCode": "350628103",
+        "distLevel": 4
+    },
+    {
+        "distName": "南通镇",
+        "distCode": "350121106",
+        "distLevel": 4
+    },
+    {
+        "distName": "南霞乡",
+        "distCode": "350427201",
+        "distLevel": 4
+    },
+    {
+        "distName": "南雅镇",
+        "distCode": "350783103",
+        "distLevel": 4
+    },
+    {
+        "distName": "南阳乡",
+        "distCode": "350427203",
+        "distLevel": 4
+    },
+    {
+        "distName": "南阳镇",
+        "distCode": "350823108",
+        "distLevel": 4
+    },
+    {
+        "distName": "南阳镇",
+        "distCode": "350924102",
+        "distLevel": 4
+    },
+    {
+        "distName": "南洋镇",
+        "distCode": "350881202",
+        "distLevel": 4
+    },
+    {
+        "distName": "南屿镇",
+        "distCode": "350121102",
+        "distLevel": 4
+    },
+    {
+        "distName": "南诏镇",
+        "distCode": "350624100",
+        "distLevel": 4
+    },
+    {
+        "distName": "内厝镇",
+        "distCode": "350213111",
+        "distLevel": 4
+    },
+    {
+        "distName": "内坑镇",
+        "distCode": "350582109",
+        "distLevel": 4
+    },
+    {
+        "distName": "宁化街道",
+        "distCode": "350103012",
+        "distLevel": 4
+    },
+    {
+        "distName": "瓯宁街道",
+        "distCode": "350783003",
+        "distLevel": 4
+    },
+    {
+        "distName": "潘渡镇",
+        "distCode": "350122200",
+        "distLevel": 4
+    },
+    {
+        "distName": "盘谷乡",
+        "distCode": "350125208",
+        "distLevel": 4
+    },
+    {
+        "distName": "盘亭乡",
+        "distCode": "350722206",
+        "distLevel": 4
+    },
+    {
+        "distName": "盘陀镇",
+        "distCode": "350623108",
+        "distLevel": 4
+    },
+    {
+        "distName": "泮境乡",
+        "distCode": "350823206",
+        "distLevel": 4
+    },
+    {
+        "distName": "泮洋乡",
+        "distCode": "350922203",
+        "distLevel": 4
+    },
+    {
+        "distName": "培丰镇",
+        "distCode": "350803107",
+        "distLevel": 4
+    },
+    {
+        "distName": "朋口镇",
+        "distCode": "350825103",
+        "distLevel": 4
+    },
+    {
+        "distName": "蓬壶镇",
+        "distCode": "350525104",
+        "distLevel": 4
+    },
+    {
+        "distName": "蓬华镇",
+        "distCode": "350583107",
+        "distLevel": 4
+    },
+    {
+        "distName": "蓬莱镇",
+        "distCode": "350524101",
+        "distLevel": 4
+    },
+    {
+        "distName": "平川街道",
+        "distCode": "350824100",
+        "distLevel": 4
+    },
+    {
+        "distName": "平海镇",
+        "distCode": "350305106",
+        "distLevel": 4
+    },
+    {
+        "distName": "平湖镇",
+        "distCode": "350922101",
+        "distLevel": 4
+    },
+    {
+        "distName": "平溪镇",
+        "distCode": "350924207",
+        "distLevel": 4
+    },
+    {
+        "distName": "平原镇",
+        "distCode": "350128105",
+        "distLevel": 4
+    },
+    {
+        "distName": "屏城乡",
+        "distCode": "350923200",
+        "distLevel": 4
+    },
+    {
+        "distName": "屏山乡",
+        "distCode": "350425201",
+        "distLevel": 4
+    },
+    {
+        "distName": "莆美镇",
+        "distCode": "350622103",
+        "distLevel": 4
+    },
+    {
+        "distName": "埔上镇",
+        "distCode": "350721103",
+        "distLevel": 4
+    },
+    {
+        "distName": "浦口镇",
+        "distCode": "350122114",
+        "distLevel": 4
+    },
+    {
+        "distName": "浦南镇",
+        "distCode": "350602100",
+        "distLevel": 4
+    },
+    {
+        "distName": "浦源镇",
+        "distCode": "350925102",
+        "distLevel": 4
+    },
+    {
+        "distName": "七步镇",
+        "distCode": "350925103",
+        "distLevel": 4
+    },
+    {
+        "distName": "七都镇",
+        "distCode": "350902102",
+        "distLevel": 4
+    },
+    {
+        "distName": "岐岭镇",
+        "distCode": "350803206",
+        "distLevel": 4
+    },
+    {
+        "distName": "奇韬镇",
+        "distCode": "350425107",
+        "distLevel": 4
+    },
+    {
+        "distName": "崎岭乡",
+        "distCode": "350628202",
+        "distLevel": 4
+    },
+    {
+        "distName": "起步镇",
+        "distCode": "350123102",
+        "distLevel": 4
+    },
+    {
+        "distName": "前黄镇",
+        "distCode": "350505105",
+        "distLevel": 4
+    },
+    {
+        "distName": "前楼镇",
+        "distCode": "350626105",
+        "distLevel": 4
+    },
+    {
+        "distName": "前坪乡",
+        "distCode": "350425209",
+        "distLevel": 4
+    },
+    {
+        "distName": "前岐镇",
+        "distCode": "350982101",
+        "distLevel": 4
+    },
+    {
+        "distName": "前沁农场",
+        "distCode": "350305400",
+        "distLevel": 4
+    },
+    {
+        "distName": "前亭镇",
+        "distCode": "350623110",
+        "distLevel": 4
+    },
+    {
+        "distName": "侨英街道",
+        "distCode": "350211002",
+        "distLevel": 4
+    },
+    {
+        "distName": "桥东镇",
+        "distCode": "350624103",
+        "distLevel": 4
+    },
+    {
+        "distName": "芹洋乡",
+        "distCode": "350924205",
+        "distLevel": 4
+    },
+    {
+        "distName": "青口镇",
+        "distCode": "350121105",
+        "distLevel": 4
+    },
+    {
+        "distName": "青水畲族乡",
+        "distCode": "350481204",
+        "distLevel": 4
+    },
+    {
+        "distName": "青阳街道",
+        "distCode": "350582001",
+        "distLevel": 4
+    },
+    {
+        "distName": "青州镇",
+        "distCode": "350427101",
+        "distLevel": 4
+    },
+    {
+        "distName": "清凉镇",
+        "distCode": "350125105",
+        "distLevel": 4
+    },
+    {
+        "distName": "清濛经济开发区",
+        "distCode": "350502400",
+        "distLevel": 4
+    },
+    {
+        "distName": "清源街道",
+        "distCode": "350503004",
+        "distLevel": 4
+    },
+    {
+        "distName": "清源镇",
+        "distCode": "350924202",
+        "distLevel": 4
+    },
+    {
+        "distName": "萩芦镇",
+        "distCode": "350303105",
+        "distLevel": 4
+    },
+    {
+        "distName": "虬江街道",
+        "distCode": "350427002",
+        "distLevel": 4
+    },
+    {
+        "distName": "曲溪乡",
+        "distCode": "350825208",
+        "distLevel": 4
+    },
+    {
+        "distName": "泉上镇",
+        "distCode": "350424101",
+        "distLevel": 4
+    },
+    {
+        "distName": "泉秀街道",
+        "distCode": "350503003",
+        "distLevel": 4
+    },
+    {
+        "distName": "仁寿镇",
+        "distCode": "350721106",
+        "distLevel": 4
+    },
+    {
+        "distName": "稔田镇",
+        "distCode": "350823104",
+        "distLevel": 4
+    },
+    {
+        "distName": "日溪乡",
+        "distCode": "350111202",
+        "distLevel": 4
+    },
+    {
+        "distName": "赛岐镇",
+        "distCode": "350981100",
+        "distLevel": 4
+    },
+    {
+        "distName": "三班镇",
+        "distCode": "350526102",
+        "distLevel": 4
+    },
+    {
+        "distName": "三叉街街道",
+        "distCode": "350104005",
+        "distLevel": 4
+    },
+    {
+        "distName": "三都镇",
+        "distCode": "350902109",
+        "distLevel": 4
+    },
+    {
+        "distName": "三江口镇",
+        "distCode": "350303100",
+        "distLevel": 4
+    },
+    {
+        "distName": "三沙镇",
+        "distCode": "350921106",
+        "distLevel": 4
+    },
+    {
+        "distName": "三山镇",
+        "distCode": "350181111",
+        "distLevel": 4
+    },
+    {
+        "distName": "三溪乡",
+        "distCode": "350124204",
+        "distLevel": 4
+    },
+    {
+        "distName": "富兴堡街道",
+        "distCode": "350403003",
+        "distLevel": 4
+    },
+    {
+        "distName": "三洲镇",
+        "distCode": "350821112",
+        "distLevel": 4
+    },
+    {
+        "distName": "沙埕镇",
+        "distCode": "350982102",
+        "distLevel": 4
+    },
+    {
+        "distName": "沙建镇",
+        "distCode": "350629102",
+        "distLevel": 4
+    },
+    {
+        "distName": "沙江镇",
+        "distCode": "350921104",
+        "distLevel": 4
+    },
+    {
+        "distName": "沙埔镇",
+        "distCode": "350181110",
+        "distLevel": 4
+    },
+    {
+        "distName": "沙芜乡",
+        "distCode": "350423204",
+        "distLevel": 4
+    },
+    {
+        "distName": "沙西镇",
+        "distCode": "350623114",
+        "distLevel": 4
+    },
+    {
+        "distName": "沙溪乡",
+        "distCode": "350421201",
+        "distLevel": 4
+    },
+    {
+        "distName": "厦港街道",
+        "distCode": "350203001",
+        "distLevel": 4
+    },
+    {
+        "distName": "晒口街道",
+        "distCode": "350781004",
+        "distLevel": 4
+    },
+    {
+        "distName": "山城镇",
+        "distCode": "350627100",
+        "distLevel": 4
+    },
+    {
+        "distName": "山格镇",
+        "distCode": "350628101",
+        "distLevel": 4
+    },
+    {
+        "distName": "山前街道",
+        "distCode": "350982003",
+        "distLevel": 4
+    },
+    {
+        "distName": "山亭镇",
+        "distCode": "350305109",
+        "distLevel": 4
+    },
+    {
+        "distName": "山霞镇",
+        "distCode": "350521108",
+        "distLevel": 4
+    },
+    {
+        "distName": "山下乡",
+        "distCode": "350722202",
+        "distLevel": 4
+    },
+    {
+        "distName": "山腰街道",
+        "distCode": "350505001",
+        "distLevel": 4
+    },
+    {
+        "distName": "杉城镇",
+        "distCode": "350429100",
+        "distLevel": 4
+    },
+    {
+        "distName": "杉洋镇",
+        "distCode": "350922105",
+        "distLevel": 4
+    },
+    {
+        "distName": "珊瑚乡",
+        "distCode": "350823212",
+        "distLevel": 4
+    },
+    {
+        "distName": "上白石镇",
+        "distCode": "350981102",
+        "distLevel": 4
+    },
+    {
+        "distName": "上渡街道",
+        "distCode": "350104006",
+        "distLevel": 4
+    },
+    {
+        "distName": "上海街道",
+        "distCode": "350103005",
+        "distLevel": 4
+    },
+    {
+        "distName": "上街镇",
+        "distCode": "350121107",
+        "distLevel": 4
+    },
+    {
+        "distName": "上京镇",
+        "distCode": "350425102",
+        "distLevel": 4
+    },
+    {
+        "distName": "上迳镇",
+        "distCode": "350181114",
+        "distLevel": 4
+    },
+    {
+        "distName": "上莲乡",
+        "distCode": "350124201",
+        "distLevel": 4
+    },
+    {
+        "distName": "上梅乡",
+        "distCode": "350782200",
+        "distLevel": 4
+    },
+    {
+        "distName": "上坪乡",
+        "distCode": "350481202",
+        "distLevel": 4
+    },
+    {
+        "distName": "上青乡",
+        "distCode": "350429201",
+        "distLevel": 4
+    },
+    {
+        "distName": "上涌镇",
+        "distCode": "350526108",
+        "distLevel": 4
+    },
+    {
+        "distName": "尚干镇",
+        "distCode": "350121103",
+        "distLevel": 4
+    },
+    {
+        "distName": "尚卿乡",
+        "distCode": "350524203",
+        "distLevel": 4
+    },
+    {
+        "distName": "社口镇",
+        "distCode": "350981104",
+        "distLevel": 4
+    },
+    {
+        "distName": "社硎乡",
+        "distCode": "350322202",
+        "distLevel": 4
+    },
+    {
+        "distName": "莘口镇",
+        "distCode": "350403100",
+        "distLevel": 4
+    },
+    {
+        "distName": "深沪镇",
+        "distCode": "350582105",
+        "distLevel": 4
+    },
+    {
+        "distName": "深桥镇",
+        "distCode": "350624104",
+        "distLevel": 4
+    },
+    {
+        "distName": "深土镇",
+        "distCode": "350623112",
+        "distLevel": 4
+    },
+    {
+        "distName": "省璜镇",
+        "distCode": "350124108",
+        "distLevel": 4
+    },
+    {
+        "distName": "省新镇",
+        "distCode": "350583100",
+        "distLevel": 4
+    },
+    {
+        "distName": "诗山镇",
+        "distCode": "350583106",
+        "distLevel": 4
+    },
+    {
+        "distName": "狮城镇",
+        "distCode": "350925100",
+        "distLevel": 4
+    },
+    {
+        "distName": "十方镇",
+        "distCode": "350824103",
+        "distLevel": 4
+    },
+    {
+        "distName": "石陂镇",
+        "distCode": "350722102",
+        "distLevel": 4
+    },
+    {
+        "distName": "石壁镇",
+        "distCode": "350424103",
+        "distLevel": 4
+    },
+    {
+        "distName": "石苍乡",
+        "distCode": "350322201",
+        "distLevel": 4
+    },
+    {
+        "distName": "石古农场",
+        "distCode": "350623402",
+        "distLevel": 4
+    },
+    {
+        "distName": "石鼓镇",
+        "distCode": "350525107",
+        "distLevel": 4
+    },
+    {
+        "distName": "石后乡",
+        "distCode": "350902202",
+        "distLevel": 4
+    },
+    {
+        "distName": "石井镇",
+        "distCode": "350583120",
+        "distLevel": 4
+    },
+    {
+        "distName": "石榴镇",
+        "distCode": "350623107",
+        "distLevel": 4
+    },
+    {
+        "distName": "石码街道",
+        "distCode": "350681100",
+        "distLevel": 4
+    },
+    {
+        "distName": "石牌镇",
+        "distCode": "350425101",
+        "distLevel": 4
+    },
+    {
+        "distName": "石亭街道",
+        "distCode": "350602103",
+        "distLevel": 4
+    },
+    {
+        "distName": "石屯镇",
+        "distCode": "350725102",
+        "distLevel": 4
+    },
+    {
+        "distName": "石竹街道",
+        "distCode": "350181006",
+        "distLevel": 4
+    },
+    {
+        "distName": "适中镇",
+        "distCode": "350802101",
+        "distLevel": 4
+    },
+    {
+        "distName": "首占镇",
+        "distCode": "350182102",
+        "distLevel": 4
+    },
+    {
+        "distName": "寿山乡",
+        "distCode": "350111201",
+        "distLevel": 4
+    },
+    {
+        "distName": "寿山乡",
+        "distCode": "350923205",
+        "distLevel": 4
+    },
+    {
+        "distName": "书坊乡",
+        "distCode": "350703201",
+        "distLevel": 4
+    },
+    {
+        "distName": "书峰乡",
+        "distCode": "350322203",
+        "distLevel": 4
+    },
+    {
+        "distName": "书洋镇",
+        "distCode": "350627108",
+        "distLevel": 4
+    },
+    {
+        "distName": "双城镇",
+        "distCode": "350926100",
+        "distLevel": 4
+    },
+    {
+        "distName": "双第华侨农场",
+        "distCode": "350681400",
+        "distLevel": 4
+    },
+    {
+        "distName": "双溪街道",
+        "distCode": "350721001",
+        "distLevel": 4
+    },
+    {
+        "distName": "双溪镇",
+        "distCode": "350923101",
+        "distLevel": 4
+    },
+    {
+        "distName": "双阳街道",
+        "distCode": "350504002",
+        "distLevel": 4
+    },
+    {
+        "distName": "双洋镇",
+        "distCode": "350881101",
+        "distLevel": 4
+    },
+    {
+        "distName": "水北街道",
+        "distCode": "350781003",
+        "distLevel": 4
+    },
+    {
+        "distName": "水北街镇",
+        "distCode": "350722105",
+        "distLevel": 4
+    },
+    {
+        "distName": "水北镇",
+        "distCode": "350781101",
+        "distLevel": 4
+    },
+    {
+        "distName": "水部街道",
+        "distCode": "350102008",
+        "distLevel": 4
+    },
+    {
+        "distName": "水东街道",
+        "distCode": "350702006",
+        "distLevel": 4
+    },
+    {
+        "distName": "水吉镇",
+        "distCode": "350703107",
+        "distLevel": 4
+    },
+    {
+        "distName": "水口镇",
+        "distCode": "350526106",
+        "distLevel": 4
+    },
+    {
+        "distName": "水口镇",
+        "distCode": "350922107",
+        "distLevel": 4
+    },
+    {
+        "distName": "水门畲族乡",
+        "distCode": "350921201",
+        "distLevel": 4
+    },
+    {
+        "distName": "水南街道",
+        "distCode": "350702005",
+        "distLevel": 4
+    },
+    {
+        "distName": "水南镇",
+        "distCode": "350428105",
+        "distLevel": 4
+    },
+    {
+        "distName": "水茜镇",
+        "distCode": "350424210",
+        "distLevel": 4
+    },
+    {
+        "distName": "水头镇",
+        "distCode": "350583119",
+        "distLevel": 4
+    },
+    {
+        "distName": "水源乡",
+        "distCode": "350783201",
+        "distLevel": 4
+    },
+    {
+        "distName": "顺阳乡",
+        "distCode": "350783200",
+        "distLevel": 4
+    },
+    {
+        "distName": "司前乡",
+        "distCode": "350723204",
+        "distLevel": 4
+    },
+    {
+        "distName": "四堡镇",
+        "distCode": "350825203",
+        "distLevel": 4
+    },
+    {
+        "distName": "四都镇",
+        "distCode": "350624101",
+        "distLevel": 4
+    },
+    {
+        "distName": "四都镇",
+        "distCode": "350821109",
+        "distLevel": 4
+    },
+    {
+        "distName": "四鹤街道",
+        "distCode": "350702004",
+        "distLevel": 4
+    },
+    {
+        "distName": "泗桥乡",
+        "distCode": "350925200",
+        "distLevel": 4
+    },
+    {
+        "distName": "松城街道",
+        "distCode": "350921001",
+        "distLevel": 4
+    },
+    {
+        "distName": "松港街道",
+        "distCode": "350921002",
+        "distLevel": 4
+    },
+    {
+        "distName": "松罗乡",
+        "distCode": "350981206",
+        "distLevel": 4
+    },
+    {
+        "distName": "松山镇",
+        "distCode": "350123101",
+        "distLevel": 4
+    },
+    {
+        "distName": "松下镇",
+        "distCode": "350182104",
+        "distLevel": 4
+    },
+    {
+        "distName": "松源街道",
+        "distCode": "350724001",
+        "distLevel": 4
+    },
+    {
+        "distName": "嵩口镇",
+        "distCode": "350125101",
+        "distLevel": 4
+    },
+    {
+        "distName": "嵩口镇",
+        "distCode": "350423102",
+        "distLevel": 4
+    },
+    {
+        "distName": "嵩溪镇",
+        "distCode": "350423101",
+        "distLevel": 4
+    },
+    {
+        "distName": "苏澳镇",
+        "distCode": "350128101",
+        "distLevel": 4
+    },
+    {
+        "distName": "苏坂镇",
+        "distCode": "350802202",
+        "distLevel": 4
+    },
+    {
+        "distName": "苏坑镇",
+        "distCode": "350525116",
+        "distLevel": 4
+    },
+    {
+        "distName": "濉溪镇",
+        "distCode": "350430100",
+        "distLevel": 4
+    },
+    {
+        "distName": "绥安镇",
+        "distCode": "350623100",
+        "distLevel": 4
+    },
+    {
+        "distName": "塔前镇",
+        "distCode": "350702109",
+        "distLevel": 4
+    },
+    {
+        "distName": "塔庄镇",
+        "distCode": "350124107",
+        "distLevel": 4
+    },
+    {
+        "distName": "台溪乡",
+        "distCode": "350426204",
+        "distLevel": 4
+    },
+    {
+        "distName": "苔菉镇",
+        "distCode": "350122113",
+        "distLevel": 4
+    },
+    {
+        "distName": "太拔镇",
+        "distCode": "350823203",
+        "distLevel": 4
+    },
+    {
+        "distName": "太华镇",
+        "distCode": "350425105",
+        "distLevel": 4
+    },
+    {
+        "distName": "太姥山镇",
+        "distCode": "350982104",
+        "distLevel": 4
+    },
+    {
+        "distName": "太平镇",
+        "distCode": "350624105",
+        "distLevel": 4
+    },
+    {
+        "distName": "太平镇",
+        "distCode": "350702108",
+        "distLevel": 4
+    },
+    {
+        "distName": "潭城街道",
+        "distCode": "350703001",
+        "distLevel": 4
+    },
+    {
+        "distName": "潭城镇",
+        "distCode": "350128100",
+        "distLevel": 4
+    },
+    {
+        "distName": "潭头镇",
+        "distCode": "350182114",
+        "distLevel": 4
+    },
+    {
+        "distName": "潭头镇",
+        "distCode": "350981103",
+        "distLevel": 4
+    },
+    {
+        "distName": "汤川乡",
+        "distCode": "350426201",
+        "distLevel": 4
+    },
+    {
+        "distName": "汤头乡",
+        "distCode": "350526202",
+        "distLevel": 4
+    },
+    {
+        "distName": "堂堡乡",
+        "distCode": "350803208",
+        "distLevel": 4
+    },
+    {
+        "distName": "棠口镇",
+        "distCode": "350923201",
+        "distLevel": 4
+    },
+    {
+        "distName": "塘前乡",
+        "distCode": "350125200",
+        "distLevel": 4
+    },
+    {
+        "distName": "塘前乡",
+        "distCode": "350825201",
+        "distLevel": 4
+    },
+    {
+        "distName": "桃城镇",
+        "distCode": "350525100",
+        "distLevel": 4
+    },
+    {
+        "distName": "桃溪镇",
+        "distCode": "350824105",
+        "distLevel": 4
+    },
+    {
+        "distName": "桃源镇",
+        "distCode": "350425104",
+        "distLevel": 4
+    },
+    {
+        "distName": "桃舟乡",
+        "distCode": "350524209",
+        "distLevel": 4
+    },
+    {
+        "distName": "天宝林场",
+        "distCode": "350602402",
+        "distLevel": 4
+    },
+    {
+        "distName": "天宝镇",
+        "distCode": "350602101",
+        "distLevel": 4
+    },
+    {
+        "distName": "田源乡",
+        "distCode": "350423203",
+        "distLevel": 4
+    },
+    {
+        "distName": "铁山街道",
+        "distCode": "350802009",
+        "distLevel": 4
+    },
+    {
+        "distName": "铁山镇",
+        "distCode": "350725103",
+        "distLevel": 4
+    },
+    {
+        "distName": "铁长乡",
+        "distCode": "350821201",
+        "distLevel": 4
+    },
+    {
+        "distName": "汀溪镇",
+        "distCode": "350212109",
+        "distLevel": 4
+    },
+    {
+        "distName": "汀州镇",
+        "distCode": "350821100",
+        "distLevel": 4
+    },
+    {
+        "distName": "廷坪乡",
+        "distCode": "350121204",
+        "distLevel": 4
+    },
+    {
+        "distName": "亭江镇",
+        "distCode": "350105101",
+        "distLevel": 4
+    },
+    {
+        "distName": "通北街道",
+        "distCode": "350602006",
+        "distLevel": 4
+    },
+    {
+        "distName": "通济街道",
+        "distCode": "350783002",
+        "distLevel": 4
+    },
+    {
+        "distName": "通泰街道",
+        "distCode": "350781002",
+        "distLevel": 4
+    },
+    {
+        "distName": "通贤镇",
+        "distCode": "350823210",
+        "distLevel": 4
+    },
+    {
+        "distName": "同安镇",
+        "distCode": "350125107",
+        "distLevel": 4
+    },
+    {
+        "distName": "桐城街道",
+        "distCode": "350982002",
+        "distLevel": 4
+    },
+    {
+        "distName": "桐山街道",
+        "distCode": "350982001",
+        "distLevel": 4
+    },
+    {
+        "distName": "铜陵镇",
+        "distCode": "350626106",
+        "distLevel": 4
+    },
+    {
+        "distName": "童坊镇",
+        "distCode": "350821105",
+        "distLevel": 4
+    },
+    {
+        "distName": "童游街道",
+        "distCode": "350703002",
+        "distLevel": 4
+    },
+    {
+        "distName": "透堡镇",
+        "distCode": "350122108",
+        "distLevel": 4
+    },
+    {
+        "distName": "涂坊镇",
+        "distCode": "350821110",
+        "distLevel": 4
+    },
+    {
+        "distName": "涂岭镇",
+        "distCode": "350505106",
+        "distLevel": 4
+    },
+    {
+        "distName": "涂寨镇",
+        "distCode": "350521109",
+        "distLevel": 4
+    },
+    {
+        "distName": "托溪乡",
+        "distCode": "350924206",
+        "distLevel": 4
+    },
+    {
+        "distName": "外山乡",
+        "distCode": "350525204",
+        "distLevel": 4
+    },
+    {
+        "distName": "外屯乡",
+        "distCode": "350725201",
+        "distLevel": 4
+    },
+    {
+        "distName": "湾坞工业集中区",
+        "distCode": "350981502",
+        "distLevel": 4
+    },
+    {
+        "distName": "湾坞镇",
+        "distCode": "350981111",
+        "distLevel": 4
+    },
+    {
+        "distName": "万安街道",
+        "distCode": "350504001",
+        "distLevel": 4
+    },
+    {
+        "distName": "万安农场",
+        "distCode": "350623401",
+        "distLevel": 4
+    },
+    {
+        "distName": "万安乡",
+        "distCode": "350722200",
+        "distLevel": 4
+    },
+    {
+        "distName": "万安镇",
+        "distCode": "350428101",
+        "distLevel": 4
+    },
+    {
+        "distName": "万安镇",
+        "distCode": "350802104",
+        "distLevel": 4
+    },
+    {
+        "distName": "万安镇",
+        "distCode": "350824201",
+        "distLevel": 4
+    },
+    {
+        "distName": "万全乡",
+        "distCode": "350428203",
+        "distLevel": 4
+    },
+    {
+        "distName": "王台镇",
+        "distCode": "350702107",
+        "distLevel": 4
+    },
+    {
+        "distName": "王庄街道",
+        "distCode": "350111002",
+        "distLevel": 4
+    },
+    {
+        "distName": "辋川镇",
+        "distCode": "350521114",
+        "distLevel": 4
+    },
+    {
+        "distName": "卫闽镇",
+        "distCode": "350781103",
+        "distLevel": 4
+    },
+    {
+        "distName": "渭田镇",
+        "distCode": "350724102",
+        "distLevel": 4
+    },
+    {
+        "distName": "温郊乡",
+        "distCode": "350423201",
+        "distLevel": 4
+    },
+    {
+        "distName": "温泉街道",
+        "distCode": "350102003",
+        "distLevel": 4
+    },
+    {
+        "distName": "文峰镇",
+        "distCode": "350628102",
+        "distLevel": 4
+    },
+    {
+        "distName": "文亨镇",
+        "distCode": "350825107",
+        "distLevel": 4
+    },
+    {
+        "distName": "文江镇",
+        "distCode": "350425206",
+        "distLevel": 4
+    },
+    {
+        "distName": "文岭镇",
+        "distCode": "350182112",
+        "distLevel": 4
+    },
+    {
+        "distName": "文武砂街道",
+        "distCode": "350182107",
+        "distLevel": 4
+    },
+    {
+        "distName": "吾祠乡",
+        "distCode": "350881204",
+        "distLevel": 4
+    },
+    {
+        "distName": "吾峰镇",
+        "distCode": "350525106",
+        "distLevel": 4
+    },
+    {
+        "distName": "吴航街道",
+        "distCode": "350182001",
+        "distLevel": 4
+    },
+    {
+        "distName": "吴家塘镇",
+        "distCode": "350781111",
+        "distLevel": 4
+    },
+    {
+        "distName": "吴山镇",
+        "distCode": "350425202",
+        "distLevel": 4
+    },
+    {
+        "distName": "吴屯乡",
+        "distCode": "350782201",
+        "distLevel": 4
+    },
+    {
+        "distName": "梧村街道",
+        "distCode": "350203008",
+        "distLevel": 4
+    },
+    {
+        "distName": "梧塘镇",
+        "distCode": "350303103",
+        "distLevel": 4
+    },
+    {
+        "distName": "梧桐镇",
+        "distCode": "350125102",
+        "distLevel": 4
+    },
+    {
+        "distName": "五凤街道",
+        "distCode": "350102009",
+        "distLevel": 4
+    },
+    {
+        "distName": "五夫镇",
+        "distCode": "350782102",
+        "distLevel": 4
+    },
+    {
+        "distName": "五里街镇",
+        "distCode": "350525101",
+        "distLevel": 4
+    },
+    {
+        "distName": "五显镇",
+        "distCode": "350212110",
+        "distLevel": 4
+    },
+    {
+        "distName": "五寨乡",
+        "distCode": "350628200",
+        "distLevel": 4
+    },
+    {
+        "distName": "武安镇",
+        "distCode": "350625100",
+        "distLevel": 4
+    },
+    {
+        "distName": "武东镇",
+        "distCode": "350824207",
+        "distLevel": 4
+    },
+    {
+        "distName": "武陵乡",
+        "distCode": "350425204",
+        "distLevel": 4
+    },
+    {
+        "distName": "武曲镇",
+        "distCode": "350924103",
+        "distLevel": 4
+    },
+    {
+        "distName": "武夷街道",
+        "distCode": "350782003",
+        "distLevel": 4
+    },
+    {
+        "distName": "西陂街道",
+        "distCode": "350802005",
+        "distLevel": 4
+    },
+    {
+        "distName": "西滨镇",
+        "distCode": "350426102",
+        "distLevel": 4
+    },
+    {
+        "distName": "西滨镇",
+        "distCode": "350582114",
+        "distLevel": 4
+    },
+    {
+        "distName": "西城街道",
+        "distCode": "350802003",
+        "distLevel": 4
+    },
+    {
+        "distName": "西城镇",
+        "distCode": "350426106",
+        "distLevel": 4
+    },
+    {
+        "distName": "西柯街道",
+        "distCode": "350212108",
+        "distLevel": 4
+    },
+    {
+        "distName": "西兰乡",
+        "distCode": "350123202",
+        "distLevel": 4
+    },
+    {
+        "distName": "西坪镇",
+        "distCode": "350524112",
+        "distLevel": 4
+    },
+    {
+        "distName": "西埔镇",
+        "distCode": "350626100",
+        "distLevel": 4
+    },
+    {
+        "distName": "西桥街道",
+        "distCode": "350602002",
+        "distLevel": 4
+    },
+    {
+        "distName": "西芹镇",
+        "distCode": "350702103",
+        "distLevel": 4
+    },
+    {
+        "distName": "西潭镇",
+        "distCode": "350624201",
+        "distLevel": 4
+    },
+    {
+        "distName": "西天尾镇",
+        "distCode": "350304100",
+        "distLevel": 4
+    },
+    {
+        "distName": "西溪乡",
+        "distCode": "350803201",
+        "distLevel": 4
+    },
+    {
+        "distName": "西洋镇",
+        "distCode": "350481100",
+        "distLevel": 4
+    },
+    {
+        "distName": "西园街道",
+        "distCode": "350582003",
+        "distLevel": 4
+    },
+    {
+        "distName": "西园镇",
+        "distCode": "350881201",
+        "distLevel": 4
+    },
+    {
+        "distName": "西苑乡",
+        "distCode": "350322200",
+        "distLevel": 4
+    },
+    {
+        "distName": "犀溪镇",
+        "distCode": "350924104",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪柄镇",
+        "distCode": "350981110",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪东乡",
+        "distCode": "350724203",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪口镇",
+        "distCode": "350430102",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪口镇",
+        "distCode": "350823112",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪美街道",
+        "distCode": "350583001",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪南镇",
+        "distCode": "350881103",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪南镇",
+        "distCode": "350921103",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪潭镇",
+        "distCode": "350981106",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪尾乡",
+        "distCode": "350426202",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪尾镇",
+        "distCode": "350981109",
+        "distLevel": 4
+    },
+    {
+        "distName": "溪源乡",
+        "distCode": "350430203",
+        "distLevel": 4
+    },
+    {
+        "distName": "熙岭乡",
+        "distCode": "350923203",
+        "distLevel": 4
+    },
+    {
+        "distName": "峡阳镇",
+        "distCode": "350702104",
+        "distLevel": 4
+    },
+    {
+        "distName": "硖门畲族乡",
+        "distCode": "350982200",
+        "distLevel": 4
+    },
+    {
+        "distName": "霞拔乡",
+        "distCode": "350125207",
+        "distLevel": 4
+    },
+    {
+        "distName": "霞葛镇",
+        "distCode": "350624106",
+        "distLevel": 4
+    },
+    {
+        "distName": "霞林街道",
+        "distCode": "350302003",
+        "distLevel": 4
+    },
+    {
+        "distName": "霞美镇",
+        "distCode": "350583117",
+        "distLevel": 4
+    },
+    {
+        "distName": "霞美镇",
+        "distCode": "350623105",
+        "distLevel": 4
+    },
+    {
+        "distName": "霞寨镇",
+        "distCode": "350628107",
+        "distLevel": 4
+    },
+    {
+        "distName": "下坝乡",
+        "distCode": "350824204",
+        "distLevel": 4
+    },
+    {
+        "distName": "下白石镇",
+        "distCode": "350981108",
+        "distLevel": 4
+    },
+    {
+        "distName": "下蔡林场",
+        "distCode": "350623408",
+        "distLevel": 4
+    },
+    {
+        "distName": "下党乡",
+        "distCode": "350924209",
+        "distLevel": 4
+    },
+    {
+        "distName": "下都镇",
+        "distCode": "350823201",
+        "distLevel": 4
+    },
+    {
+        "distName": "下渡街道",
+        "distCode": "350104007",
+        "distLevel": 4
+    },
+    {
+        "distName": "下宫镇",
+        "distCode": "350122204",
+        "distLevel": 4
+    },
+    {
+        "distName": "下河乡",
+        "distCode": "350622200",
+        "distLevel": 4
+    },
+    {
+        "distName": "下浒镇",
+        "distCode": "350921105",
+        "distLevel": 4
+    },
+    {
+        "distName": "下渠镇",
+        "distCode": "350429204",
+        "distLevel": 4
+    },
+    {
+        "distName": "下沙镇",
+        "distCode": "350781102",
+        "distLevel": 4
+    },
+    {
+        "distName": "下洋镇",
+        "distCode": "350525103",
+        "distLevel": 4
+    },
+    {
+        "distName": "下洋镇",
+        "distCode": "350803102",
+        "distLevel": 4
+    },
+    {
+        "distName": "下祝乡",
+        "distCode": "350124206",
+        "distLevel": 4
+    },
+    {
+        "distName": "夏道镇",
+        "distCode": "350702102",
+        "distLevel": 4
+    },
+    {
+        "distName": "夏坊乡",
+        "distCode": "350421204",
+        "distLevel": 4
+    },
+    {
+        "distName": "夏茂镇",
+        "distCode": "350427102",
+        "distLevel": 4
+    },
+    {
+        "distName": "夏阳乡",
+        "distCode": "350421202",
+        "distLevel": 4
+    },
+    {
+        "distName": "仙都镇",
+        "distCode": "350629105",
+        "distLevel": 4
+    },
+    {
+        "distName": "仙夹镇",
+        "distCode": "350525117",
+        "distLevel": 4
+    },
+    {
+        "distName": "仙师镇",
+        "distCode": "350803203",
+        "distLevel": 4
+    },
+    {
+        "distName": "仙阳镇",
+        "distCode": "350722104",
+        "distLevel": 4
+    },
+    {
+        "distName": "咸村镇",
+        "distCode": "350925101",
+        "distLevel": 4
+    },
+    {
+        "distName": "芗城区奶牛场",
+        "distCode": "350602400",
+        "distLevel": 4
+    },
+    {
+        "distName": "湘店镇",
+        "distCode": "350824209",
+        "distLevel": 4
+    },
+    {
+        "distName": "祥华乡",
+        "distCode": "350524208",
+        "distLevel": 4
+    },
+    {
+        "distName": "祥平街道",
+        "distCode": "350212002",
+        "distLevel": 4
+    },
+    {
+        "distName": "祥谦镇",
+        "distCode": "350121104",
+        "distLevel": 4
+    },
+    {
+        "distName": "祥芝镇",
+        "distCode": "350581103",
+        "distLevel": 4
+    },
+    {
+        "distName": "翔云镇",
+        "distCode": "350583104",
+        "distLevel": 4
+    },
+    {
+        "distName": "向阳乡",
+        "distCode": "350583201",
+        "distLevel": 4
+    },
+    {
+        "distName": "巷口街道",
+        "distCode": "350602004",
+        "distLevel": 4
+    },
+    {
+        "distName": "象洞镇",
+        "distCode": "350824206",
+        "distLevel": 4
+    },
+    {
+        "distName": "象湖镇",
+        "distCode": "350881106",
+        "distLevel": 4
+    },
+    {
+        "distName": "象园街道",
+        "distCode": "350111003",
+        "distLevel": 4
+    },
+    {
+        "distName": "肖家坊镇",
+        "distCode": "350781109",
+        "distLevel": 4
+    },
+    {
+        "distName": "小沧畲族乡",
+        "distCode": "350122205",
+        "distLevel": 4
+    },
+    {
+        "distName": "小池镇",
+        "distCode": "350802106",
+        "distLevel": 4
+    },
+    {
+        "distName": "小湖镇",
+        "distCode": "350703109",
+        "distLevel": 4
+    },
+    {
+        "distName": "小桥镇",
+        "distCode": "350783105",
+        "distLevel": 4
+    },
+    {
+        "distName": "小箬乡",
+        "distCode": "350121206",
+        "distLevel": 4
+    },
+    {
+        "distName": "小松镇",
+        "distCode": "350783109",
+        "distLevel": 4
+    },
+    {
+        "distName": "小陶镇",
+        "distCode": "350481103",
+        "distLevel": 4
+    },
+    {
+        "distName": "小溪镇",
+        "distCode": "350628100",
+        "distLevel": 4
+    },
+    {
+        "distName": "小岞镇",
+        "distCode": "350521113",
+        "distLevel": 4
+    },
+    {
+        "distName": "晓澳镇",
+        "distCode": "350122104",
+        "distLevel": 4
+    },
+    {
+        "distName": "晓阳镇",
+        "distCode": "350981105",
+        "distLevel": 4
+    },
+    {
+        "distName": "筱埕镇",
+        "distCode": "350122111",
+        "distLevel": 4
+    },
+    {
+        "distName": "斜滩镇",
+        "distCode": "350924101",
+        "distLevel": 4
+    },
+    {
+        "distName": "谢洋乡",
+        "distCode": "350425205",
+        "distLevel": 4
+    },
+    {
+        "distName": "新厝镇",
+        "distCode": "350181115",
+        "distLevel": 4
+    },
+    {
+        "distName": "新店镇",
+        "distCode": "350111101",
+        "distLevel": 4
+    },
+    {
+        "distName": "新店街道",
+        "distCode": "350213104",
+        "distLevel": 4
+    },
+    {
+        "distName": "新度镇",
+        "distCode": "350304102",
+        "distLevel": 4
+    },
+    {
+        "distName": "新丰街道",
+        "distCode": "350782002",
+        "distLevel": 4
+    },
+    {
+        "distName": "新港街道",
+        "distCode": "350103004",
+        "distLevel": 4
+    },
+    {
+        "distName": "新民街道",
+        "distCode": "350212106",
+        "distLevel": 4
+    },
+    {
+        "distName": "新桥街道",
+        "distCode": "350602003",
+        "distLevel": 4
+    },
+    {
+        "distName": "新桥乡",
+        "distCode": "350429200",
+        "distLevel": 4
+    },
+    {
+        "distName": "新桥镇",
+        "distCode": "350821103",
+        "distLevel": 4
+    },
+    {
+        "distName": "新桥镇",
+        "distCode": "350881100",
+        "distLevel": 4
+    },
+    {
+        "distName": "新泉镇",
+        "distCode": "350825105",
+        "distLevel": 4
+    },
+    {
+        "distName": "新塘街道",
+        "distCode": "350582005",
+        "distLevel": 4
+    },
+    {
+        "distName": "新圩镇",
+        "distCode": "350213103",
+        "distLevel": 4
+    },
+    {
+        "distName": "新圩镇",
+        "distCode": "350629103",
+        "distLevel": 4
+    },
+    {
+        "distName": "新县镇",
+        "distCode": "350303108",
+        "distLevel": 4
+    },
+    {
+        "distName": "新阳街道",
+        "distCode": "350205002",
+        "distLevel": 4
+    },
+    {
+        "distName": "新阳镇",
+        "distCode": "350426104",
+        "distLevel": 4
+    },
+    {
+        "distName": "星村镇",
+        "distCode": "350782100",
+        "distLevel": 4
+    },
+    {
+        "distName": "星溪乡",
+        "distCode": "350725200",
+        "distLevel": 4
+    },
+    {
+        "distName": "兴田镇",
+        "distCode": "350782101",
+        "distLevel": 4
+    },
+    {
+        "distName": "杏滨街道",
+        "distCode": "350211004",
+        "distLevel": 4
+    },
+    {
+        "distName": "杏陈镇",
+        "distCode": "350626103",
+        "distLevel": 4
+    },
+    {
+        "distName": "杏林街道",
+        "distCode": "350211003",
+        "distLevel": 4
+    },
+    {
+        "distName": "雄江镇",
+        "distCode": "350124109",
+        "distLevel": 4
+    },
+    {
+        "distName": "熊山街道",
+        "distCode": "350725001",
+        "distLevel": 4
+    },
+    {
+        "distName": "秀峰乡",
+        "distCode": "350628204",
+        "distLevel": 4
+    },
+    {
+        "distName": "秀篆镇",
+        "distCode": "350624108",
+        "distLevel": 4
+    },
+    {
+        "distName": "徐碧街道",
+        "distCode": "350402003",
+        "distLevel": 4
+    },
+    {
+        "distName": "徐墩镇",
+        "distCode": "350783100",
+        "distLevel": 4
+    },
+    {
+        "distName": "徐市镇",
+        "distCode": "350703103",
+        "distLevel": 4
+    },
+    {
+        "distName": "宣成乡",
+        "distCode": "350821204",
+        "distLevel": 4
+    },
+    {
+        "distName": "宣和镇",
+        "distCode": "350825210",
+        "distLevel": 4
+    },
+    {
+        "distName": "雪峰镇",
+        "distCode": "350421100",
+        "distLevel": 4
+    },
+    {
+        "distName": "浔中镇",
+        "distCode": "350526100",
+        "distLevel": 4
+    },
+    {
+        "distName": "牙城镇",
+        "distCode": "350921102",
+        "distLevel": 4
+    },
+    {
+        "distName": "岩前镇",
+        "distCode": "350403101",
+        "distLevel": 4
+    },
+    {
+        "distName": "岩前镇",
+        "distCode": "350824102",
+        "distLevel": 4
+    },
+    {
+        "distName": "岩山镇",
+        "distCode": "350802201",
+        "distLevel": 4
+    },
+    {
+        "distName": "岩溪镇",
+        "distCode": "350625101",
+        "distLevel": 4
+    },
+    {
+        "distName": "沿山镇",
+        "distCode": "350781104",
+        "distLevel": 4
+    },
+    {
+        "distName": "盐田畲族乡",
+        "distCode": "350921200",
+        "distLevel": 4
+    },
+    {
+        "distName": "颜厝镇",
+        "distCode": "350681108",
+        "distLevel": 4
+    },
+    {
+        "distName": "雁石镇",
+        "distCode": "350802102",
+        "distLevel": 4
+    },
+    {
+        "distName": "燕北街道",
+        "distCode": "350481004",
+        "distLevel": 4
+    },
+    {
+        "distName": "燕东街道",
+        "distCode": "350481001",
+        "distLevel": 4
+    },
+    {
+        "distName": "燕南街道",
+        "distCode": "350481003",
+        "distLevel": 4
+    },
+    {
+        "distName": "燕西街道",
+        "distCode": "350481002",
+        "distLevel": 4
+    },
+    {
+        "distName": "羊牯乡",
+        "distCode": "350821206",
+        "distLevel": 4
+    },
+    {
+        "distName": "阳头街道",
+        "distCode": "350981003",
+        "distLevel": 4
+    },
+    {
+        "distName": "阳下街道",
+        "distCode": "350181008",
+        "distLevel": 4
+    },
+    {
+        "distName": "杨梅乡",
+        "distCode": "350526200",
+        "distLevel": 4
+    },
+    {
+        "distName": "杨源乡",
+        "distCode": "350725202",
+        "distLevel": 4
+    },
+    {
+        "distName": "洋墩乡",
+        "distCode": "350721200",
+        "distLevel": 4
+    },
+    {
+        "distName": "洋后镇",
+        "distCode": "350702111",
+        "distLevel": 4
+    },
+    {
+        "distName": "洋口镇",
+        "distCode": "350721101",
+        "distLevel": 4
+    },
+    {
+        "distName": "洋里乡",
+        "distCode": "350121202",
+        "distLevel": 4
+    },
+    {
+        "distName": "洋溪镇",
+        "distCode": "350402101",
+        "distLevel": 4
+    },
+    {
+        "distName": "洋中街道",
+        "distCode": "350103010",
+        "distLevel": 4
+    },
+    {
+        "distName": "洋中镇",
+        "distCode": "350426103",
+        "distLevel": 4
+    },
+    {
+        "distName": "洋中镇",
+        "distCode": "350902107",
+        "distLevel": 4
+    },
+    {
+        "distName": "洋庄乡",
+        "distCode": "350782203",
+        "distLevel": 4
+    },
+    {
+        "distName": "一都镇",
+        "distCode": "350181119",
+        "distLevel": 4
+    },
+    {
+        "distName": "一都镇",
+        "distCode": "350525102",
+        "distLevel": 4
+    },
+    {
+        "distName": "伊家乡",
+        "distCode": "350430201",
+        "distLevel": 4
+    },
+    {
+        "distName": "义洲街道",
+        "distCode": "350103003",
+        "distLevel": 4
+    },
+    {
+        "distName": "音西街道",
+        "distCode": "350181007",
+        "distLevel": 4
+    },
+    {
+        "distName": "英都镇",
+        "distCode": "350583103",
+        "distLevel": 4
+    },
+    {
+        "distName": "英林镇",
+        "distCode": "350582112",
+        "distLevel": 4
+    },
+    {
+        "distName": "英山乡",
+        "distCode": "350926206",
+        "distLevel": 4
+    },
+    {
+        "distName": "营前街道",
+        "distCode": "350182003",
+        "distLevel": 4
+    },
+    {
+        "distName": "瀛洲街道",
+        "distCode": "350103001",
+        "distLevel": 4
+    },
+    {
+        "distName": "永福镇",
+        "distCode": "350881102",
+        "distLevel": 4
+    },
+    {
+        "distName": "永和镇",
+        "distCode": "350582111",
+        "distLevel": 4
+    },
+    {
+        "distName": "永宁镇",
+        "distCode": "350581106",
+        "distLevel": 4
+    },
+    {
+        "distName": "永平镇",
+        "distCode": "350824208",
+        "distLevel": 4
+    },
+    {
+        "distName": "永兴镇",
+        "distCode": "350722106",
+        "distLevel": 4
+    },
+    {
+        "distName": "尤溪口镇",
+        "distCode": "350426107",
+        "distLevel": 4
+    },
+    {
+        "distName": "游洋镇",
+        "distCode": "350322111",
+        "distLevel": 4
+    },
+    {
+        "distName": "余坊乡",
+        "distCode": "350428206",
+        "distLevel": 4
+    },
+    {
+        "distName": "余朋乡",
+        "distCode": "350423206",
+        "distLevel": 4
+    },
+    {
+        "distName": "渔溪镇",
+        "distCode": "350181113",
+        "distLevel": 4
+    },
+    {
+        "distName": "嵛山镇",
+        "distCode": "350982109",
+        "distLevel": 4
+    },
+    {
+        "distName": "屿头乡",
+        "distCode": "350128201",
+        "distLevel": 4
+    },
+    {
+        "distName": "玉斗镇",
+        "distCode": "350525112",
+        "distLevel": 4
+    },
+    {
+        "distName": "玉屏街道",
+        "distCode": "350181002",
+        "distLevel": 4
+    },
+    {
+        "distName": "玉山镇",
+        "distCode": "350783106",
+        "distLevel": 4
+    },
+    {
+        "distName": "玉田镇",
+        "distCode": "350182103",
+        "distLevel": 4
+    },
+    {
+        "distName": "元坑镇",
+        "distCode": "350721102",
+        "distLevel": 4
+    },
+    {
+        "distName": "园庄镇",
+        "distCode": "350322107",
+        "distLevel": 4
+    },
+    {
+        "distName": "月塘镇",
+        "distCode": "350305200",
+        "distLevel": 4
+    },
+    {
+        "distName": "岳峰镇",
+        "distCode": "350111102",
+        "distLevel": 4
+    },
+    {
+        "distName": "云陵工业开发区",
+        "distCode": "350622501",
+        "distLevel": 4
+    },
+    {
+        "distName": "云陵镇",
+        "distCode": "350622100",
+        "distLevel": 4
+    },
+    {
+        "distName": "云龙乡",
+        "distCode": "350124200",
+        "distLevel": 4
+    },
+    {
+        "distName": "筼筜街道",
+        "distCode": "350203009",
+        "distLevel": 4
+    },
+    {
+        "distName": "乍洋乡",
+        "distCode": "350926201",
+        "distLevel": 4
+    },
+    {
+        "distName": "宅中乡",
+        "distCode": "350926204",
+        "distLevel": 4
+    },
+    {
+        "distName": "寨里镇",
+        "distCode": "350723101",
+        "distLevel": 4
+    },
+    {
+        "distName": "张坂镇",
+        "distCode": "350521106",
+        "distLevel": 4
+    },
+    {
+        "distName": "张厝乡",
+        "distCode": "350781201",
+        "distLevel": 4
+    },
+    {
+        "distName": "漳墩镇",
+        "distCode": "350703108",
+        "distLevel": 4
+    },
+    {
+        "distName": "漳港街道",
+        "distCode": "350182004",
+        "distLevel": 4
+    },
+    {
+        "distName": "漳浦盐场",
+        "distCode": "350623400",
+        "distLevel": 4
+    },
+    {
+        "distName": "漳湾镇",
+        "distCode": "350902101",
+        "distLevel": 4
+    },
+    {
+        "distName": "樟城镇",
+        "distCode": "350125100",
+        "distLevel": 4
+    },
+    {
+        "distName": "樟湖镇",
+        "distCode": "350702101",
+        "distLevel": 4
+    },
+    {
+        "distName": "樟塘镇",
+        "distCode": "350626101",
+        "distLevel": 4
+    },
+    {
+        "distName": "长春镇",
+        "distCode": "350921101",
+        "distLevel": 4
+    },
+    {
+        "distName": "长卿镇",
+        "distCode": "350524114",
+        "distLevel": 4
+    },
+    {
+        "distName": "长乐乡",
+        "distCode": "350628203",
+        "distLevel": 4
+    },
+    {
+        "distName": "长龙镇",
+        "distCode": "350122107",
+        "distLevel": 4
+    },
+    {
+        "distName": "长桥农场",
+        "distCode": "350623403",
+        "distLevel": 4
+    },
+    {
+        "distName": "长桥镇",
+        "distCode": "350623109",
+        "distLevel": 4
+    },
+    {
+        "distName": "长桥镇",
+        "distCode": "350923103",
+        "distLevel": 4
+    },
+    {
+        "distName": "长庆镇",
+        "distCode": "350125106",
+        "distLevel": 4
+    },
+    {
+        "distName": "长泰经济开发区",
+        "distCode": "350625500",
+        "distLevel": 4
+    },
+    {
+        "distName": "长校镇",
+        "distCode": "350423104",
+        "distLevel": 4
+    },
+    {
+        "distName": "招商局漳州开发区",
+        "distCode": "350681501",
+        "distLevel": 4
+    },
+    {
+        "distName": "昭阳街道",
+        "distCode": "350781001",
+        "distLevel": 4
+    },
+    {
+        "distName": "诏安工业园区",
+        "distCode": "350624501",
+        "distLevel": 4
+    },
+    {
+        "distName": "诏安金都工业集中区",
+        "distCode": "350624502",
+        "distLevel": 4
+    },
+    {
+        "distName": "镇海街道",
+        "distCode": "350304001",
+        "distLevel": 4
+    },
+    {
+        "distName": "镇前镇",
+        "distCode": "350725104",
+        "distLevel": 4
+    },
+    {
+        "distName": "郑墩镇",
+        "distCode": "350724101",
+        "distLevel": 4
+    },
+    {
+        "distName": "郑坊镇",
+        "distCode": "350721201",
+        "distLevel": 4
+    },
+    {
+        "distName": "郑湖乡",
+        "distCode": "350427204",
+        "distLevel": 4
+    },
+    {
+        "distName": "芝山街道",
+        "distCode": "350783004",
+        "distLevel": 4
+    },
+    {
+        "distName": "芝山镇",
+        "distCode": "350602102",
+        "distLevel": 4
+    },
+    {
+        "distName": "止马镇",
+        "distCode": "350723102",
+        "distLevel": 4
+    },
+    {
+        "distName": "治平畲族乡",
+        "distCode": "350424207",
+        "distLevel": 4
+    },
+    {
+        "distName": "中堡镇",
+        "distCode": "350824104",
+        "distLevel": 4
+    },
+    {
+        "distName": "中城街道",
+        "distCode": "350802004",
+        "distLevel": 4
+    },
+    {
+        "distName": "中赤镇",
+        "distCode": "350824205",
+        "distLevel": 4
+    },
+    {
+        "distName": "中村乡",
+        "distCode": "350403201",
+        "distLevel": 4
+    },
+    {
+        "distName": "中都镇",
+        "distCode": "350823102",
+        "distLevel": 4
+    },
+    {
+        "distName": "中房镇",
+        "distCode": "350123103",
+        "distLevel": 4
+    },
+    {
+        "distName": "中华街道",
+        "distCode": "350203003",
+        "distLevel": 4
+    },
+    {
+        "distName": "中楼乡",
+        "distCode": "350128204",
+        "distLevel": 4
+    },
+    {
+        "distName": "中沙乡",
+        "distCode": "350424208",
+        "distLevel": 4
+    },
+    {
+        "distName": "中山镇",
+        "distCode": "350824101",
+        "distLevel": 4
+    },
+    {
+        "distName": "中西林场",
+        "distCode": "350623406",
+        "distLevel": 4
+    },
+    {
+        "distName": "中仙镇",
+        "distCode": "350426203",
+        "distLevel": 4
+    },
+    {
+        "distName": "忠门镇",
+        "distCode": "350305102",
+        "distLevel": 4
+    },
+    {
+        "distName": "忠信镇",
+        "distCode": "350722107",
+        "distLevel": 4
+    },
+    {
+        "distName": "钟山镇",
+        "distCode": "350322110",
+        "distLevel": 4
+    },
+    {
+        "distName": "朱口镇",
+        "distCode": "350429101",
+        "distLevel": 4
+    },
+    {
+        "distName": "竹管垅乡",
+        "distCode": "350924203",
+        "distLevel": 4
+    },
+    {
+        "distName": "竹岐乡",
+        "distCode": "350121200",
+        "distLevel": 4
+    },
+    {
+        "distName": "庄边镇",
+        "distCode": "350303107",
+        "distLevel": 4
+    },
+    {
+        "distName": "卓洋乡",
+        "distCode": "350922205",
+        "distLevel": 4
+    },
+    {
+        "distName": "濯田镇",
+        "distCode": "350821108",
+        "distLevel": 4
+    },
+    {
+        "distName": "紫帽镇",
+        "distCode": "350582113",
+        "distLevel": 4
+    },
+    {
+        "distName": "紫泥镇",
+        "distCode": "350681110",
+        "distLevel": 4
+    },
+    {
+        "distName": "紫山镇",
+        "distCode": "350521103",
+        "distLevel": 4
+    },
+    {
+        "distName": "紫云街道",
+        "distCode": "350702003",
+        "distLevel": 4
+    },
+    {
+        "distName": "祖墩乡",
+        "distCode": "350724205",
+        "distLevel": 4
+    },
+    {
+        "distName": "城关街道",
+        "distCode": "350403001",
+        "distLevel": 4
+    },
+    {
+        "distName": "白沙街道",
+        "distCode": "350403002",
+        "distLevel": 4
+    },
+    {
+        "distName": "三元区直辖",
+        "distCode": "350403900",
+        "distLevel": 4
+    },
+    {
+        "distName": "金古园开发区",
+        "distCode": "350427401",
+        "distLevel": 4
+    },
+    {
+        "distName": "厦门海沧保税港区",
+        "distCode": "350205407",
+        "distLevel": 4
+    },
+    {
+        "distName": "嵩屿街道",
+        "distCode": "350205999",
+        "distLevel": 4
+    },
+    {
+        "distName": "天竺山林场",
+        "distCode": "350205403",
+        "distLevel": 4
+    },
+    {
+        "distName": "火炬高技术开发区",
+        "distCode": "350206405",
+        "distLevel": 4
+    },
+    {
+        "distName": "象屿保税区",
+        "distCode": "350206406",
+        "distLevel": 4
+    },
+    {
+        "distName": "大帽山农场",
+        "distCode": "350213404",
+        "distLevel": 4
+    },
+    {
+        "distName": "后溪镇",
+        "distCode": "350211103",
+        "distLevel": 4
+    },
+    {
+        "distName": "后溪镇",
+        "distCode": "350211103",
+        "distLevel": 4
+    },
+    {
+        "distName": "天马华侨农场",
+        "distCode": "350211403",
+        "distLevel": 4
+    },
+    {
+        "distName": "省天马种猪场",
+        "distCode": "350211402",
+        "distLevel": 4
+    },
+    {
+        "distName": "第二农场",
+        "distCode": "350211401",
+        "distLevel": 4
+    },
+    {
+        "distName": "雪峰管委会",
+        "distCode": "350583400",
+        "distLevel": 4
+    },
+    {
+        "distName": "安平开发区",
+        "distCode": "350582400",
+        "distLevel": 4
+    },
+    {
+        "distName": "晋江市经济开发区",
+        "distCode": "350582401",
+        "distLevel": 4
+    },
+    {
+        "distName": "泉州出口加工区",
+        "distCode": "350582402",
+        "distLevel": 4
+    },
+    {
+        "distName": "步文街道",
+        "distCode": "350603101",
+        "distLevel": 4
+    },
+    {
+        "distName": "罗源湾",
+        "distCode": "350123500",
+        "distLevel": 4
+    },
+    {
+        "distName": "/",
+        "distCode": "/",
+        "distLevel": 4
+    }
+]

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llQueryResultDetailList"
+    style="@style/layout_linear_horizontal"
+    android:padding="10dp"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:layout_alignParentRight="true"
+    android:visibility="gone">
+
+    <fragment
+        android:id="@+id/fragQueryResultDetailList"
+        android:name="com.jwch.gwyt_project.fragment.QueryResultDetailListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/frag_query_result_detail_list" />
+
+
+
+</LinearLayout>

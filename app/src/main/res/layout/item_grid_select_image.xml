@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_allwarp"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_margin="@dimen/nSize5"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_weight="1"
+        android:paddingHorizontal="@dimen/dp_10">
+
+
+        <ImageView
+            android:id="@+id/imgPic"
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:scaleType="center" />
+
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/txt_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/nSize2"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_marginLeft="@dimen/nSize5"
+            android:text="图片名称" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivSelect"
+        style="@style/imgStyle30"
+        android:padding="@dimen/nSize5"
+        android:layout_marginHorizontal="@dimen/nSize5"/>
+
+</LinearLayout>

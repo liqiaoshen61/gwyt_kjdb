@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llTools"
+    android:layout_width="125dp"
+    android:layout_height="160dp"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="@dimen/nSize85"
+    android:layout_marginBottom="@dimen/nSize50"
+    android:background="@mipmap/bg_tools"
+    android:orientation="vertical"
+    android:padding="@dimen/nSize10"
+    android:visibility="gone">
+
+    <CheckBox
+        android:id="@+id/rbOverlayAnalysis"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/tools_switch_style"
+        android:button="@null"
+        android:checked="false"
+        android:drawableLeft="@mipmap/logo_overlay_analysis"
+        android:paddingLeft="@dimen/nSize5"
+        android:text=" 叠加分析"
+        android:textColor="@color/whiteColor"
+        android:visibility="gone" />
+
+    <CheckBox
+        android:id="@+id/rbHandSearch"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/tools_switch_style"
+        android:button="@null"
+        android:checked="false"
+        android:drawableLeft="@mipmap/icon_tool_search"
+        android:paddingLeft="@dimen/nSize5"
+        android:text=" 手势查询"
+        android:textColor="@color/whiteColor"
+        android:visibility="gone" />
+
+    <CheckBox
+        android:id="@+id/rbCoordinatePosition"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/tools_switch_style"
+        android:button="@null"
+        android:checked="false"
+        android:drawableLeft="@mipmap/logo_position_location"
+        android:paddingLeft="@dimen/nSize5"
+        android:text=" 坐标定位"
+        android:textColor="@color/whiteColor"
+        android:visibility="gone" />
+
+    <CheckBox
+        android:id="@+id/rbMeasure"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/tools_switch_style"
+        android:button="@null"
+        android:checked="false"
+        android:drawableLeft="@mipmap/icon_tool_measure"
+        android:paddingLeft="@dimen/nSize5"
+        android:text=" 测量"
+        android:textColor="@color/whiteColor"
+        android:visibility="visible" />
+
+    <CheckBox
+        android:id="@+id/rbMark"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/tools_switch_style"
+        android:button="@null"
+        android:checked="false"
+        android:drawableLeft="@mipmap/icon_tool_mark"
+        android:paddingLeft="@dimen/nSize5"
+        android:text=" 标绘"
+        android:textColor="@color/whiteColor"
+        android:visibility="gone" />
+
+
+    <CheckBox
+        android:id="@+id/rbBriefCase"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/tools_switch_style"
+        android:button="@null"
+        android:checked="false"
+        android:drawableLeft="@mipmap/icon_tool_briefcase"
+        android:paddingLeft="@dimen/nSize5"
+        android:text=" 公文包"
+        android:textColor="@color/whiteColor"
+        android:visibility="gone" />
+
+    <CheckBox
+        android:id="@+id/rbCompare"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/tools_switch_style"
+        android:button="@null"
+        android:checked="false"
+        android:drawableLeft="@mipmap/icon_tool_compare"
+        android:paddingLeft="@dimen/nSize5"
+        android:text=" 对比地图"
+        android:textColor="@color/whiteColor"
+        android:visibility="visible" />
+
+    </LinearLayout>

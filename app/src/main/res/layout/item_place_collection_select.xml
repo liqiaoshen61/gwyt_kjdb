@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlItem"
+    style="@style/layout_linear_vertical"
+    android:padding="5dp">
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="30dp"
+            android:layout_height="38dp"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+
+        <LinearLayout
+            style="@style/layout_linear_vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/iv_point"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/iv_point"
+                android:text=""
+                android:textColor="@color/whiteColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_name"
+                android:layout_alignLeft="@id/tv_name"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="@dimen/nSize3"
+                android:text=""
+                android:textColor="@color/whiteColor"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imgSelect"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:padding="@dimen/nSize2"
+            android:src="@mipmap/icon_square_unselect"
+           />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="@dimen/nSize7"
+        android:background="@drawable/bg_dash_line"
+        android:layerType="software"
+        android:paddingTop="@dimen/nSize5" />
+
+
+</LinearLayout>

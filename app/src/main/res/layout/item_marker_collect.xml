@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingHorizontal="5dp"
+    android:paddingVertical="5dp">
+
+
+
+    <LinearLayout
+        android:id="@+id/llMarkerItem"
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+
+        <LinearLayout
+          style="@style/layout_linear_vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/txt_big_white"
+                android:layout_marginBottom="@dimen/nSize4"
+                android:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                style="@style/txt_normal_white"
+                android:text="时间" />
+
+        </LinearLayout>
+
+        <LinearLayout
+          style="@style/layout_linear_horizontal"
+            android:layout_width="wrap_content"
+            android:background="@drawable/bg_hollow_gray2_border25"
+            android:paddingVertical="@dimen/nSize1"
+            android:paddingHorizontal="@dimen/nSize9">
+
+            <ImageView
+                android:id="@+id/imgSelect"
+                style="@style/imgStyle25"
+                android:padding="@dimen/nSize5"
+                android:src="@mipmap/icon_square_unselect"
+                android:layout_marginHorizontal="@dimen/nSize1"
+                android:visibility="visible" />
+
+
+            <ImageView
+                android:id="@+id/imgEdit"
+                style="@style/imgStyle25"
+                android:padding="@dimen/nSize5"
+                android:src="@mipmap/icon_edit3"
+                android:layout_marginHorizontal="@dimen/nSize1"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imgDelete"
+                style="@style/imgStyle25"
+                android:padding="@dimen/nSize5"
+                android:layout_marginHorizontal="@dimen/nSize1"
+                android:src="@mipmap/icon_clear2" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/nSize5"
+        android:background="@drawable/bg_dash_line"
+        android:layerType="software"
+        android:paddingTop="@dimen/nSize5" />
+
+</LinearLayout>

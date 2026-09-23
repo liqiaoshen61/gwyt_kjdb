@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 背景轨道 -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#33B0D5FF"/> <!-- 未填充部分的颜色 -->
+        </shape>
+    </item>
+
+
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <solid android:color="#11ce33"/>
+            </shape>
+        </clip>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <solid android:color="#B0D5FF" /> <!-- 已填充部分的颜色 -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>

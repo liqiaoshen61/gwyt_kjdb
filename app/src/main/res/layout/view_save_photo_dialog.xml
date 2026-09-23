@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white">
+
+    <!--    标题-->
+    <LinearLayout
+        android:id="@+id/top"
+        style="@style/dialog_header">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:padding="5sp"
+            android:text="保存图片"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center"
+        android:padding="@dimen/nSize12">
+
+        <TextView
+            style="@style/txt_big"
+            android:text="*"
+            android:layout_marginRight="@dimen/nSize1"
+            android:textColor="@color/qmui_config_color_red"/>
+
+        <TextView
+            style="@style/txt_big"
+            android:text="名称：" />
+
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edittext_bar"
+            android:hint="@string/please_input"
+            android:padding="@dimen/nSize5" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center"
+        android:padding="@dimen/nSize12">
+
+        <TextView
+            style="@style/txt_big"
+            android:text="*"
+            android:layout_marginRight="@dimen/nSize1"
+            android:textColor="@color/qmui_config_color_red"
+            android:visibility="invisible"/>
+
+        <TextView
+            style="@style/txt_big"
+            android:text="备注：" />
+
+
+        <EditText
+            android:id="@+id/etRemark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edittext_bar"
+            android:hint="@string/please_input"
+            android:padding="@dimen/nSize5" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/llScreenshot"
+        style="@style/layout_linear_horizontal"
+        android:padding="@dimen/nSize12">
+
+        <TextView
+            style="@style/txt_big"
+            android:text="同时保存截屏地图：" />
+
+        <RadioGroup
+            android:id="@+id/rgScreenshot"
+            style="@style/layout_linear_horizontal"
+            android:layout_height="@dimen/nSize30"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/cbScreenshot1"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="否"
+                android:padding="@dimen/nSize5" />
+
+            <RadioButton
+                android:id="@+id/cbScreenshot2"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="是"
+                android:padding="@dimen/nSize5" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <View
+        style="@style/layout_normal"
+        android:layout_height="@dimen/nSize1"
+        android:layout_marginTop="@dimen/nSize10"
+        android:background="@color/txt_gray" />
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:layout_height="@dimen/nSize45"
+        android:background="@color/bg_gray">
+
+        <TextView
+            android:id="@+id/tvCancle"
+            style="@style/txt_big"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:text="取消" />
+
+        <View
+            android:layout_width="@dimen/nSize1"
+            android:layout_height="match_parent"
+            android:background="@color/txt_gray" />
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/txt_big"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/nSize10"
+            android:text="确定" />
+
+    </LinearLayout>
+
+</LinearLayout>

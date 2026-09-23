@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layout_linear_vertical"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_right_frag"
+    android:padding="@dimen/nSize10">
+
+    <!--    Title-->
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:background="@mipmap/bg_frag_title"
+        android:paddingVertical="@dimen/nSize3">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/nSize20"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="图斑收藏"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp"
+            android:textStyle="italic|bold" />
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="@dimen/nSize7"
+            android:src="@mipmap/icon_frag_close" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nSize2"
+        android:layout_marginTop="@dimen/nSize4"
+        android:layout_marginBottom="@dimen/nSize8"
+        android:background="@drawable/bg_blue_line" />
+
+
+    <LinearLayout
+        style="@style/layout_linear_horizontal"
+        android:gravity="center">
+
+        <!--  搜索框  -->
+        <LinearLayout
+            android:id="@+id/llSearchBar"
+            style="@style/layout_linear_horizontal"
+            android:layout_height="@dimen/nSize40"
+            android:layout_marginHorizontal="@dimen/nSize12"
+            android:layout_marginVertical="@dimen/nSize5"
+            android:layout_weight="1"
+            android:background="@mipmap/bg_search_bar"
+            android:gravity="center_vertical"
+            android:padding="3dp">
+
+            <EditText
+                android:id="@+id/etSearch"
+                style="@style/layout_allmatch"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入搜索内容"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:textColor="@color/whiteColor"
+                android:textColorHint="@color/bg_gray"
+                android:textSize="14sp" />
+
+
+            <ImageView
+                android:id="@+id/tvClear"
+                style="@style/txt_normal"
+                android:layout_height="@dimen/nSize25"
+                android:gravity="center"
+                android:padding="5dp"
+                android:src="@mipmap/close_wd" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvSearch"
+                style="@style/txt_normal"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingLeft="@dimen/nSize7"
+                android:paddingRight="@dimen/nSize7"
+                android:text="搜索"
+                android:textColor="@color/whiteColor" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivNavigation"
+            style="@style/imgStyle35"
+            android:src="@mipmap/icon_navigation_unselect" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llNavigationTool"
+        style="@style/layout_linear_horizontal"
+        android:layout_marginHorizontal="@dimen/nSize12"
+        android:paddingHorizontal="@dimen/nSize6"
+        android:layout_marginVertical="6dp"
+        android:paddingVertical="@dimen/nSize8"
+        android:background="@drawable/bg_blue_bar2"
+        android:visibility="gone">
+
+        <TextView
+           android:id="@+id/tvSelectNavigationCount"
+            style="@style/txt_normal_white"
+            android:layout_weight="1"
+            android:text="当前已选择0条数据"/>
+
+        <LinearLayout
+            style="@style/layout_linear_horizontal"
+            android:layout_width="wrap_content">
+            <TextView
+                android:id="@+id/tvCancelNavigation"
+                style="@style/txt_normal_white"
+                android:padding="@dimen/nSize2"
+                android:layout_marginEnd="@dimen/nSize10"
+                android:text="取消"/>
+            <TextView
+                android:id="@+id/tvStartNavigation"
+                style="@style/txt_normal_white"
+                android:padding="@dimen/nSize2"
+                android:text="确定"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        style="@style/layout_allmatch"
+        android:layout_marginTop="@dimen/nSize5">
+        <!--    图斑收藏夹-->
+        <LinearLayout
+            android:id="@+id/llPatchCollection"
+            style="@style/layout_allmatch"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+
+            <com.jameni.jamenilistlib.view.RefreshView
+                android:id="@+id/lvPatch"
+                style="@style/layout_allmatch"
+                android:layout_marginBottom="@dimen/nSize5"
+                android:layout_weight="1" />
+
+
+            <LinearLayout
+                style="@style/layout_linear_horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvNavigationBtn"
+                    style="@style/txt_normal_white"
+                    android:background="@drawable/bg_te11111111111"
+                    android:paddingHorizontal="@dimen/nSize10"
+                    android:paddingVertical="@dimen/nSize5"
+                    android:text="多点导航"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvNodata"
+            style="@style/txt_big_white"
+            android:layout_centerInParent="true"
+            android:text="暂无数据"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

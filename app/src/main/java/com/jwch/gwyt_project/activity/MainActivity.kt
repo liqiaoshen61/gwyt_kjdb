@@ -125,6 +125,7 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
     lateinit var handleMapUtil: HandleMapUtil   //原地图
     lateinit var mapCompareUtil: HandleMapUtil  //对比地图
     lateinit var geometryEditorHelper: GeometryEditorHelper  //几何编辑器
+    private var gpkgTestController: com.jwch.gwyt_project.util.GpkgTestController? = null
     lateinit var locationManager: UnifiedLocationManager
 
     /** 设备朝向提供器：驱动地图上「我的位置」箭头随设备转动（懒加载，首次用到时才建） */
@@ -544,31 +545,12 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
 
     @SuppressLint("MissingPermission")
     override fun initViewListener() {
+        gpkgTestController = com.jwch.gwyt_project.util.GpkgTestController(
+            this, vb.mapView, vb.gpkgTestActions, vb.gpkgTestStatus
+        )
         vb.btnVerifyGpkg.setOnClickListener {
-            vb.btnVerifyGpkg.isEnabled = false
-            vb.btnVerifyGpkg.text = "正在验证…"
-            val probeDirectory = File(filesDir, "gpkg_probe")
-            Thread({
-                val result = com.jwch.gwyt_project.util.GpkgProbe.run(probeDirectory)
-                android.util.Log.i("GpkgProbe", result)
-                runOnUiThread {
-                    if (!isFinishing && !isDestroyed) {
-                        vb.btnVerifyGpkg.isEnabled = true
-                        vb.btnVerifyGpkg.text = "验证 GPKG"
-                        val text = android.widget.TextView(this).apply {
-                            setPadding(32, 24, 32, 24)
-                            setTextIsSelectable(true)
-                            this.text = result
-                        }
-                        val scroll = android.widget.ScrollView(this).apply { addView(text) }
-                        android.app.AlertDialog.Builder(this)
-                            .setTitle("GDAL / GPKG 验证结果")
-                            .setView(scroll)
-                            .setPositiveButton("确定", null)
-                            .show()
-                    }
-                }
-            }, "gpkg-probe").start()
+            vb.gpkgTestBody.visibility = if (vb.gpkgTestBody.visibility == android.view.View.VISIBLE)
+                android.view.View.GONE else android.view.View.VISIBLE
         }
         //防止穿透
         vb.includeViewAreaList.llAreaList.onClick { }
@@ -1182,7 +1164,9 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
         }
         // 选择模式下点击地图选中图形进行编辑
         handleMapUtil.tapInterceptor = { event ->
-            if (geometryEditorHelper.isInSelectMode()) {
+            if (gpkgTestController?.onTap(event) == true) {
+                true
+            } else if (geometryEditorHelper.isInSelectMode()) {
                 geometryEditorHelper.onMapTapped(event.x.toDouble(), event.y.toDouble())
                 true // 拦截，不执行后续地图逻辑
             } else false
@@ -2288,6 +2272,7 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        if (gpkgTestController?.onActivityResult(requestCode, resultCode, data) == true) return
 //        (resultCode == RESULT_OK).yes {
 //            when(requestCode){
 //
@@ -2410,6 +2395,8 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
     }
 
     override fun onDestroy() {
+        gpkgTestController?.dispose()
+        gpkgTestController = null
         locatingHandler.removeCallbacksAndMessages(null)
         vb.tvLocating.gone()
         compassHelper.stop()

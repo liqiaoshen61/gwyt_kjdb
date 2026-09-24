@@ -14,6 +14,7 @@ import com.esri.arcgisruntime.data.QueryParameters
 import com.esri.arcgisruntime.geometry.Geometry
 import com.esri.arcgisruntime.geometry.GeometryEngine
 import com.esri.arcgisruntime.geometry.GeometryType
+import com.esri.arcgisruntime.geometry.Envelope
 import com.esri.arcgisruntime.geometry.Point
 import com.esri.arcgisruntime.layers.FeatureLayer
 import com.esri.arcgisruntime.mapping.view.MapView
@@ -62,7 +63,7 @@ class GpkgTestController(
     private var exportZip: File? = null
     private val buttons = mutableListOf<Button>()
 
-    private data class DisplayLayer(val name: String, val overlay: GraphicsOverlay, val extent: com.esri.arcgisruntime.geometry.Geometry?)
+    private data class DisplayLayer(val name: String, val overlay: GraphicsOverlay, val extent: Envelope?)
 
     init {
         button("1 创建点线面 GPKG") { ensureClean { task("创建测试数据") {
@@ -241,7 +242,7 @@ class GpkgTestController(
     private data class DisplayContent(
         val name: String,
         val geometryType: GeometryType,
-        val extent: com.esri.arcgisruntime.geometry.Geometry?,
+        val extent: Envelope?,
         val features: List<Pair<Geometry, Map<String, Any>>>
     )
 
@@ -260,7 +261,7 @@ class GpkgTestController(
                 val extentValues = layer.GetExtent()
                 val extent = if (extentValues != null && extentValues.size >= 4) {
                     val esriJson = "{\"xmin\":${extentValues[0]},\"ymin\":${extentValues[2]},\"xmax\":${extentValues[1]},\"ymax\":${extentValues[3]},\"spatialReference\":{$geoJsonSrs}}"
-                    Geometry.fromJson(esriJson)
+                    Geometry.fromJson(esriJson) as? Envelope
                 } else null
                 val features = mutableListOf<Pair<Geometry, Map<String, Any>>>()
                 layer.ResetReading()

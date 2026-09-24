@@ -509,8 +509,11 @@ class GpkgTestController(
             check(!shape.hasZ() && !shape.hasM() && !shape.hasCurves()) { "当前测试只保存二维直线几何" }
             val targetSrs = graphic?.geometry?.spatialReference ?: layer.extent?.spatialReference
                 ?: error("图层缺少坐标系")
-            val projected = GeometryEngine.project(shape, targetSrs)
-            check(GeometryEngine.isSimple(projected)) { "几何存在自相交等问题，请修正后保存" }
+            // SketchEditor 输出的面环可能尚未完成方向/闭合等拓扑规范化；先 simplify，
+            // 再投影到 GPKG 图层坐标系后检查，避免把正常绘制的三角形误判为无效。
+            val normalized = GeometryEngine.simplify(shape)
+            val projected = GeometryEngine.project(normalized, targetSrs)
+            check(GeometryEngine.isSimple(projected)) { "几何规范化后仍不合法，可能存在自相交或重复节点，请调整后保存" }
             geometryJson = arcGisGeometryToGeoJson(projected)
         }
         task("保存修改") {

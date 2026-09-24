@@ -13,6 +13,8 @@ import java.util.zip.ZipOutputStream
 
 /** 测试工具的数据层；所有方法应在同一个后台队列运行，调用前关闭 ArcGIS GPKG。 */
 object GpkgTestData {
+    data class EditableField(val name: String, val type: Int, val typeName: String, val nullable: Boolean, val width: Int)
+
     private fun initialize() {
         check(ShpLoader.initGDAL()) { "GDAL 初始化失败，请检查原生库与设备架构" }
     }
@@ -110,6 +112,99 @@ object GpkgTestData {
         }
     }
 
+    fun editableFields(file: File, layerName: String): List<EditableField> = read(file) { ds ->
+        val layer = ds.GetLayerByName(layerName) ?: error("图层不存在：$layerName")
+        val definition = layer.GetLayerDefn()
+        (0 until definition.GetFieldCount()).mapNotNull { index ->
+            val field = definition.GetFieldDefn(index)
+            if (field.GetTypeName().equals("Integer", true) || field.GetTypeName().equals("Integer64", true) ||
+                field.GetTypeName().equals("Real", true) || field.GetTypeName().equals("String", true)) {
+                EditableField(field.GetName(), field.GetFieldType(), field.GetTypeName(), field.IsNullable() != 0, field.GetWidth())
+            } else null
+        }
+    }
+
+    /** 更新 GPKG 中已有要素；geometryGeoJson 为 null 时只更新属性。 */
+    fun updateFeature(file: File, layerName: String, fid: Long, geometryGeoJson: String?, changes: Map<String, Any?>) {
+        initialize()
+        val ds = ogr.Open(file.absolutePath, 1) ?: error("无法以写入模式打开 GPKG：${gdal.GetLastErrorMsg()}")
+        try {
+            val layer = ds.GetLayerByName(layerName) ?: error("图层不存在：$layerName")
+            val feature = layer.GetFeature(fid) ?: error("找不到 FID=$fid")
+            try {
+                if (geometryGeoJson != null) {
+                    val geometry = parseGeometryForLayer(layer, geometryGeoJson)
+                    try {
+                        layer.GetSpatialRef()?.let { srs -> geometry.AssignSpatialReference(srs) }
+                        check(feature.SetGeometry(geometry) == 0) { "设置新几何失败" }
+                    } finally { geometry.delete() }
+                }
+                setFields(feature, layer.GetLayerDefn(), changes)
+                check(layer.SetFeature(feature) == 0) { "写入要素失败：${gdal.GetLastErrorMsg()}" }
+                check(layer.SyncToDisk() == 0) { "同步图层失败：${gdal.GetLastErrorMsg()}" }
+            } finally { feature.delete() }
+        } finally { ds.delete() }
+    }
+
+    /** 新增要素并返回 GPKG 分配的 FID。 */
+    fun insertFeature(file: File, layerName: String, geometryGeoJson: String, changes: Map<String, Any?>): Long {
+        initialize()
+        val ds = ogr.Open(file.absolutePath, 1) ?: error("无法以写入模式打开 GPKG：${gdal.GetLastErrorMsg()}")
+        try {
+            val layer = ds.GetLayerByName(layerName) ?: error("图层不存在：$layerName")
+            val feature = Feature(layer.GetLayerDefn())
+            try {
+                val geometry = parseGeometryForLayer(layer, geometryGeoJson)
+                try {
+                    layer.GetSpatialRef()?.let { srs -> geometry.AssignSpatialReference(srs) }
+                    check(feature.SetGeometry(geometry) == 0) { "设置新几何失败" }
+                } finally { geometry.delete() }
+                setFields(feature, layer.GetLayerDefn(), changes)
+                check(layer.CreateFeature(feature) == 0) { "新增要素失败：${gdal.GetLastErrorMsg()}" }
+                check(layer.SyncToDisk() == 0) { "同步图层失败：${gdal.GetLastErrorMsg()}" }
+                return feature.GetFID()
+            } finally { feature.delete() }
+        } finally { ds.delete() }
+    }
+
+    fun deleteFeature(file: File, layerName: String, fid: Long) {
+        initialize()
+        val ds = ogr.Open(file.absolutePath, 1) ?: error("无法以写入模式打开 GPKG：${gdal.GetLastErrorMsg()}")
+        try {
+            val layer = ds.GetLayerByName(layerName) ?: error("图层不存在：$layerName")
+            check(layer.DeleteFeature(fid) == 0) { "删除 FID=$fid 失败：${gdal.GetLastErrorMsg()}" }
+            check(layer.SyncToDisk() == 0) { "同步图层失败：${gdal.GetLastErrorMsg()}" }
+        } finally { ds.delete() }
+    }
+
+    private fun setFields(feature: Feature, definition: org.gdal.ogr.FeatureDefn, changes: Map<String, Any?>) {
+        changes.forEach { (name, value) ->
+            val index = definition.GetFieldIndex(name)
+            check(index >= 0) { "字段不存在：$name" }
+            if (value == null) {
+                val field = definition.GetFieldDefn(index)
+                check(field.IsNullable() != 0) { "$name 不允许 NULL" }
+                feature.SetFieldNull(index)
+            } else when (definition.GetFieldDefn(index).GetFieldType()) {
+                ogr.OFTInteger -> feature.SetField(index, (value as Number).toInt())
+                ogr.OFTInteger64 -> feature.SetFieldInteger64(index, (value as Number).toLong())
+                ogr.OFTReal -> feature.SetField(index, (value as Number).toDouble())
+                ogr.OFTString -> feature.SetField(index, value.toString())
+                else -> error("暂不支持写入字段 $name")
+            }
+        }
+    }
+
+    private fun parseGeometryForLayer(layer: org.gdal.ogr.Layer, json: String): org.gdal.ogr.Geometry {
+        val parsed = ogr.CreateGeometryFromJson(json) ?: error("几何 JSON 无法解析")
+        return when (layer.GetGeomType() and 0xff) {
+            ogr.wkbMultiPoint -> ogr.ForceToMultiPoint(parsed)
+            ogr.wkbMultiLineString -> ogr.ForceToMultiLineString(parsed)
+            ogr.wkbMultiPolygon -> ogr.ForceToMultiPolygon(parsed)
+            else -> parsed
+        } ?: error("无法转换成目标图层要求的几何类型")
+    }
+
     fun importShp(shp: File, root: File): File {
         initialize()
         // 旧初始化代码强制 UTF-8；转换时尊重 cpg/DBF，完成后恢复原配置。
@@ -142,7 +237,7 @@ object GpkgTestData {
         return output
     }
 
-    /** ArcGIS 已保存并关闭后，用另一个引擎确认同一 FID 的属性已落盘。 */
+    /** 写入句柄关闭后，用独立 GDAL 数据源确认同一 FID 的属性和几何已落盘。 */
     fun verifySaved(file: File, layerName: String, fid: Long, changed: Map<String, Any?>): String = read(file) { ds ->
         val layer = ds.GetLayerByName(layerName) ?: error("保存后图层不存在")
         val feature = layer.GetFeature(fid) ?: error("保存后 FID=$fid 不存在")

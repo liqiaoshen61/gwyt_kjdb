@@ -3,6 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven {url 'https://nexus.geomatys.com/repository/maven-public/'}
         maven {url "https://jitpack.io" }
         maven {url "https://esri.jfrog.io/artifactory/arcgis" }
         maven {url "https://developer.huawei.com/repo/" }
@@ -22,6 +23,7 @@ dependencyResolutionManagement {
         jcenter()
         mavenCentral()
         maven{url "https://jitpack.io" }
+        maven {url 'https://nexus.geomatys.com/repository/maven-public/'}
         maven{url "https://esri.jfrog.io/artifactory/arcgis" }
         maven{url "https://developer.huawei.com/repo/" }
         maven{url "https://maven.aliyun.com/nexus/content/repositories/releases/" }

@@ -106,7 +106,7 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.1'
     implementation 'com.github.Jameni:JameniListLib:v1.1.0'
     implementation 'com.github.Jameni:JameniAllUtil:v1.1.2.3'
-    implementation 'com.github.Jameni:JameniBasePage:v1.2.0.2'
+    implementation 'com.github.Jameni:JameniBasePage:1.2.0.2'
     implementation 'com.github.Jameni:JameniSpUtil:v1.1.0'
     implementation 'com.github.Jameni:JameniDialog:v1.1.1'
     implementation 'com.github.Jameni:JameniPager:v1.1.0'

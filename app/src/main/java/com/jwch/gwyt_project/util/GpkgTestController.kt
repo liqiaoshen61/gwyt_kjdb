@@ -10,27 +10,23 @@ import android.widget.*
 import androidx.documentfile.provider.DocumentFile
 import com.esri.arcgisruntime.data.Feature
 import com.esri.arcgisruntime.data.Field
-import com.esri.arcgisruntime.data.GeoPackage
 import com.esri.arcgisruntime.data.QueryParameters
 import com.esri.arcgisruntime.geometry.Geometry
 import com.esri.arcgisruntime.geometry.GeometryEngine
 import com.esri.arcgisruntime.geometry.GeometryType
 import com.esri.arcgisruntime.geometry.Point
 import com.esri.arcgisruntime.layers.FeatureLayer
-import com.esri.arcgisruntime.loadable.LoadStatus
-import com.esri.arcgisruntime.loadable.Loadable
 import com.esri.arcgisruntime.mapping.view.MapView
+import com.esri.arcgisruntime.mapping.view.GraphicsOverlay
+import com.esri.arcgisruntime.mapping.view.Graphic
 import com.esri.arcgisruntime.mapping.view.SketchEditor
 import com.esri.arcgisruntime.mapping.view.SketchCreationMode
 import com.esri.arcgisruntime.symbology.SimpleFillSymbol
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol
-import com.esri.arcgisruntime.symbology.SimpleRenderer
 import kotlinx.coroutines.*
 import java.io.File
-import kotlin.coroutines.resume
-import kotlin.coroutines.resumeWithException
-import kotlin.coroutines.suspendCoroutine
+import com.google.gson.JsonParser
 
 /** 首页独立测试面板；只操作应用测试目录中的副本。 */
 class GpkgTestController(
@@ -51,8 +47,10 @@ class GpkgTestController(
     private var currentFile: File? = prefs.getString("file", null)?.let { File(it) }?.takeIf {
         it.isFile && it.canonicalPath.startsWith(root.canonicalPath + File.separator)
     }
-    private var gpkg: GeoPackage? = null
     private val layers = mutableListOf<FeatureLayer>()
+    private val displayLayers = mutableListOf<DisplayLayer>()
+    private var selectedDisplayLayer: DisplayLayer? = null
+    private var selectedGraphic: Graphic? = null
     private var selectedLayer: FeatureLayer? = null
     private var selected: Feature? = null
     private var newFeature = false
@@ -63,6 +61,8 @@ class GpkgTestController(
     private var disposed = false
     private var exportZip: File? = null
     private val buttons = mutableListOf<Button>()
+
+    private data class DisplayLayer(val name: String, val overlay: GraphicsOverlay, val extent: com.esri.arcgisruntime.geometry.Geometry?)
 
     init {
         button("1 创建点线面 GPKG") { ensureClean { task("创建测试数据") {
@@ -89,19 +89,25 @@ class GpkgTestController(
         button("5 加载地图") { ensureClean { task("加载 GPKG") { loadMap(true) } } }
         button("6 选择要素") { ensureClean { chooseLayer() } }
         button("查看所选属性") {
-            val feature = selected ?: error("请先在地图选择要素")
-            message("${feature.featureTable.tableName} 属性",
-                feature.attributes.entries.joinToString("\n") { "${it.key} = ${it.value ?: "NULL"}" })
+            val graphic = selectedGraphic
+            if (graphic != null) {
+                message("${selectedDisplayLayer?.name ?: "GPKG 图层"} 属性",
+                    graphic.attributes.entries.joinToString("\n") { "${it.key} = ${it.value ?: "NULL"}" })
+            } else {
+                val feature = selected ?: error("请先在地图选择要素")
+                message("${feature.featureTable.tableName} 属性",
+                    feature.attributes.entries.joinToString("\n") { "${it.key} = ${it.value ?: "NULL"}" })
+            }
         }
-        button("新增要素") { ensureClean { addFeature() } }
-        button("删除要素") { ensureClean { deleteFeature() } }
-        button("7 编辑形状") { editGeometry() }
+        button("新增要素") { ensureClean { requireEditableArcGisLayer(); addFeature() } }
+        button("删除要素") { ensureClean { requireEditableArcGisLayer(); deleteFeature() } }
+        button("7 编辑形状") { requireEditableArcGisLayer(); editGeometry() }
         button("撤销节点修改") {
             val editor = sketch ?: error("请先进入形状编辑")
             editor.undo()
         }
-        button("8 编辑属性") { editAttributes() }
-        button("9 保存修改") { save() }
+        button("8 编辑属性") { requireEditableArcGisLayer(); editAttributes() }
+        button("9 保存修改") { requireEditableArcGisLayer(); save() }
         button("取消编辑") { cancelEdit(); refreshStatus("已取消草稿，文件未改变") }
         button("10 重开核验") { ensureClean { task("关闭重开核验") {
             val file = requireFile()
@@ -181,12 +187,17 @@ class GpkgTestController(
 
     private fun refreshStatus(extra: String = "") {
         if (disposed) return
-        status.text = "${currentFile?.name ?: "尚未选择 GPKG"} | ${selectedLayer?.featureTable?.tableName ?: "未选图层"}" +
-            " | ${if (selected != null) "已选要素" else "未选要素"}" +
+        status.text = "${currentFile?.name ?: "尚未选择 GPKG"} | ${selectedLayer?.featureTable?.tableName ?: selectedDisplayLayer?.name ?: "未选图层"}" +
+            " | ${if (selected != null || selectedGraphic != null) "已选要素" else "未选要素"}" +
             (if (sketch != null || attributes.isNotEmpty()) " | 有未保存编辑" else "") + "\n$extra"
     }
 
     private fun requireFile(): File = currentFile?.takeIf { it.isFile } ?: error("请先创建或导入 GPKG")
+    private fun requireEditableArcGisLayer() {
+        check(displayLayers.isEmpty()) {
+            "当前以 GDAL + 图形叠加层方式加载，可显示和查看属性；几何及属性编辑写回 GDAL 尚未接入。"
+        }
+    }
     private fun setFile(file: File) {
         currentFile = file
         prefs.edit().putString("file", file.absolutePath).apply()
@@ -198,61 +209,122 @@ class GpkgTestController(
         else message("有未保存编辑", "请先点击“保存修改”或“取消编辑”，再切换文件、图层或导出。")
     }
 
-    private suspend fun awaitLoad(value: Loadable) {
-        if (value.loadStatus == LoadStatus.LOADED) return
-        suspendCoroutine<Unit> { continuation ->
-            lateinit var listener: Runnable
-            listener = Runnable {
-                value.removeDoneLoadingListener(listener)
-                if (value.loadStatus == LoadStatus.LOADED) continuation.resume(Unit)
-                else continuation.resumeWithException(value.loadError ?: IllegalStateException("图层加载失败"))
-            }
-            value.addDoneLoadingListener(listener)
-            value.loadAsync()
-        }
-    }
-
     private suspend fun loadMap(zoom: Boolean) {
         check(!disposed) { "页面已关闭" }
         val file = requireFile()
         unload()
-        val packageFile = GeoPackage(file.absolutePath)
-        gpkg = packageFile
+        val contents = withContext(Dispatchers.IO) { readDisplayLayers(file) }
+        check(contents.isNotEmpty()) { "GPKG 中没有可显示的矢量图层" }
+        contents.forEach { content ->
+            val overlay = GraphicsOverlay()
+            val symbol = when (content.geometryType) {
+                GeometryType.POINT, GeometryType.MULTIPOINT -> SimpleMarkerSymbol(SimpleMarkerSymbol.Style.CIRCLE, Color.RED, 12f)
+                GeometryType.POLYLINE -> SimpleLineSymbol(SimpleLineSymbol.Style.SOLID, Color.MAGENTA, 3f)
+                else -> SimpleFillSymbol(SimpleFillSymbol.Style.SOLID, 0x4433CC66,
+                    SimpleLineSymbol(SimpleLineSymbol.Style.SOLID, Color.rgb(0, 150, 60), 2f))
+            }
+            content.features.forEach { (geometry, attributes) -> overlay.graphics.add(Graphic(geometry, attributes, symbol)) }
+            map.graphicsOverlays.add(overlay)
+            displayLayers.add(DisplayLayer(content.name, overlay, content.extent))
+        }
+        selectedDisplayLayer = displayLayers.first()
+        if (zoom) {
+            val extent = displayLayers.mapNotNull { it.extent }.firstOrNull { !it.isEmpty }
+            if (extent != null) {
+                if (extent.width == 0.0 && extent.height == 0.0) map.setViewpointCenterAsync(extent.center, 10000.0)
+                else map.setViewpointGeometryAsync(extent, 80.0)
+            }
+        }
+        refreshStatus("已通过 GDAL 绘制 ${displayLayers.size} 个图层；点击“选择要素”选图层，再点地图。当前模式为显示/属性查看。")
+    }
+
+    private data class DisplayContent(
+        val name: String,
+        val geometryType: GeometryType,
+        val extent: com.esri.arcgisruntime.geometry.Geometry?,
+        val features: List<Pair<Geometry, Map<String, Any>>>
+    )
+
+    /** 只用 GDAL 读 GPKG，转换为 ArcGIS GraphicsOverlay 图形，避开受授权限制的 GeoPackageFeatureTable。 */
+    private fun readDisplayLayers(file: File): List<DisplayContent> {
+        check(ShpLoader.initGDAL()) { "GDAL 初始化失败" }
+        val source = org.gdal.ogr.ogr.Open(file.absolutePath, 0)
+            ?: error("GDAL 无法打开 GPKG：${org.gdal.gdal.gdal.GetLastErrorMsg()}")
         try {
-            awaitLoad(packageFile)
-            check(!disposed) { "页面已关闭" }
-            for (table in packageFile.geoPackageFeatureTables) {
-                awaitLoad(table)
-                check(!disposed) { "页面已关闭" }
-                if (!table.hasGeometry()) continue
-                val layer = FeatureLayer(table)
-                val symbol = when (table.geometryType) {
-                    GeometryType.POINT, GeometryType.MULTIPOINT -> SimpleMarkerSymbol(SimpleMarkerSymbol.Style.CIRCLE, Color.RED, 12f)
-                    GeometryType.POLYLINE -> SimpleLineSymbol(SimpleLineSymbol.Style.SOLID, Color.MAGENTA, 3f)
-                    else -> SimpleFillSymbol(SimpleFillSymbol.Style.SOLID, 0x4433CC66,
-                        SimpleLineSymbol(SimpleLineSymbol.Style.SOLID, Color.rgb(0, 150, 60), 2f))
+            val result = mutableListOf<DisplayContent>()
+            for (i in 0 until source.GetLayerCount()) {
+                val layer = source.GetLayer(i) ?: continue
+                val srs = layer.GetSpatialRef() ?: error("图层 ${layer.GetName()} 缺少坐标系，无法安全定位")
+                val geoJsonSrs = srs.GetAuthorityCode(null)?.toIntOrNull()?.let { "\"wkid\":$it" }
+                    ?: "\"wkt\":${com.google.gson.Gson().toJson(srs.ExportToWkt())}"
+                val extentValues = layer.GetExtent()
+                val extent = if (extentValues != null && extentValues.size >= 4) {
+                    val esriJson = "{\"xmin\":${extentValues[0]},\"ymin\":${extentValues[2]},\"xmax\":${extentValues[1]},\"ymax\":${extentValues[3]},\"spatialReference\":{$geoJsonSrs}}"
+                    Geometry.fromJson(esriJson)
+                } else null
+                val features = mutableListOf<Pair<Geometry, Map<String, Any>>>()
+                layer.ResetReading()
+                var feature = layer.GetNextFeature()
+                while (feature != null) {
+                    try {
+                        val ogrGeometry = feature.GetGeometryRef()
+                        if (ogrGeometry != null) {
+                            val geo = JsonParser.parseString(ogrGeometry.ExportToJson()).asJsonObject
+                            val coords = geo.get("coordinates") ?: error("图层 ${layer.GetName()} 存在空几何")
+                            val esriType = when (geo.get("type").asString) {
+                                "Point" -> "\"x\":${coords.asJsonArray[0]},\"y\":${coords.asJsonArray[1]}"
+                                "MultiPoint" -> "\"points\":$coords"
+                                "LineString" -> "\"paths\":[${coords}]"
+                                "MultiLineString" -> "\"paths\":$coords"
+                                "Polygon" -> "\"rings\":$coords"
+                                "MultiPolygon" -> {
+                                    val rings = coords.asJsonArray.flatMap { polygon -> polygon.asJsonArray.map { it } }
+                                    "\"rings\":${com.google.gson.Gson().toJsonTree(rings)}"
+                                }
+                                else -> error("暂不支持 ${geo.get("type").asString} 几何")
+                            }
+                            val geometryJson = "{$esriType,\"spatialReference\":{$geoJsonSrs}}"
+                            val geometry = Geometry.fromJson(geometryJson)
+                            val attrs = linkedMapOf<String, Any>("FID" to feature.GetFID())
+                            val definition = layer.GetLayerDefn()
+                            for (fieldIndex in 0 until definition.GetFieldCount()) {
+                                val field = definition.GetFieldDefn(fieldIndex)
+                                attrs[field.GetName()] = if (feature.IsFieldSetAndNotNull(fieldIndex))
+                                    feature.GetFieldAsString(fieldIndex) else "NULL"
+                            }
+                            features.add(geometry to attrs)
+                        }
+                    } finally { feature.delete() }
+                    feature = layer.GetNextFeature()
                 }
-                layer.renderer = SimpleRenderer(symbol)
-                layers.add(layer)
-                map.map.operationalLayers.add(layer)
-                awaitLoad(layer)
-                check(!disposed) { "页面已关闭" }
-            }
-            check(layers.isNotEmpty()) { "GPKG 中没有可显示的矢量图层" }
-            selectedLayer = layers.first()
-            if (zoom) {
-                val extent = layers.mapNotNull { it.fullExtent }.firstOrNull { !it.isEmpty }
-                if (extent != null) {
-                    if (extent.width == 0.0 && extent.height == 0.0) map.setViewpointCenterAsync(extent.center, 10000.0)
-                    else map.setViewpointGeometryAsync(extent, 80.0)
+                val geometryType = when (layer.GetGeomType() and 0xff) {
+                    org.gdal.ogr.ogr.wkbPoint -> GeometryType.POINT
+                    org.gdal.ogr.ogr.wkbMultiPoint -> GeometryType.MULTIPOINT
+                    org.gdal.ogr.ogr.wkbLineString, org.gdal.ogr.ogr.wkbMultiLineString -> GeometryType.POLYLINE
+                    org.gdal.ogr.ogr.wkbPolygon, org.gdal.ogr.ogr.wkbMultiPolygon -> GeometryType.POLYGON
+                    else -> error("暂不支持图层 ${layer.GetName()} 的几何类型 ${org.gdal.ogr.ogr.GeometryTypeToName(layer.GetGeomType())}")
                 }
+                if (features.isNotEmpty()) result.add(DisplayContent(layer.GetName(), geometryType, extent, features))
             }
-            refreshStatus("已加载 ${layers.size} 个图层；点击“选择要素”选图层，再点地图")
-        } catch (e: Exception) { unload(); throw e }
+            return result
+        } finally { source.delete() }
     }
 
     private fun chooseLayer() {
-        check(layers.isNotEmpty()) { "请先加载地图" }
+        check(displayLayers.isNotEmpty() || layers.isNotEmpty()) { "请先加载地图" }
+        if (displayLayers.isNotEmpty()) {
+            AlertDialog.Builder(activity).setTitle("选择地图图层")
+                .setItems(displayLayers.map { it.name }.toTypedArray()) { _, index ->
+                    selectedGraphic = null
+                    selected = null
+                    selectedDisplayLayer = displayLayers[index]
+                    displayLayers[index].extent?.let { extent ->
+                        if (!extent.isEmpty) map.setViewpointGeometryAsync(extent, 80.0)
+                    }
+                    refreshStatus("点击地图要素可查看属性。图形编辑/保存目前仍需迁移到 GDAL 写回。")
+                }.setNegativeButton("取消", null).show()
+            return
+        }
         AlertDialog.Builder(activity).setTitle("选择可操作图层")
             .setItems(layers.map { it.featureTable.tableName }.toTypedArray()) { _, index ->
                 selectedLayer?.clearSelection()
@@ -269,6 +341,30 @@ class GpkgTestController(
 
     /** 由原有 tapInterceptor 转发，避免另设触摸监听器破坏业务地图。 */
     fun onTap(event: MotionEvent): Boolean {
+        val displayLayer = selectedDisplayLayer
+        if (displayLayer != null) {
+            if (busy || disposed || sketch != null) return true
+            task("选择要素") {
+                val future = map.identifyGraphicsOverlayAsync(displayLayer.overlay,
+                    android.graphics.Point(event.x.toInt(), event.y.toInt()), 16.0, false, 20)
+                val result = withContext(Dispatchers.IO) { future.get() }
+                val graphics = result.graphics
+                check(graphics.isNotEmpty()) { "没有点中当前图层要素，请放大后重试" }
+                if (graphics.size == 1) {
+                    selectedGraphic = graphics.first()
+                    selected = null
+                    refreshStatus("已选择 FID ${graphics.first().attributes["FID"]}；可查看属性。")
+                } else {
+                    AlertDialog.Builder(activity).setTitle("选择重叠要素")
+                        .setItems(graphics.map { "FID ${it.attributes["FID"]}" }.toTypedArray()) { _, index ->
+                            selectedGraphic = graphics[index]
+                            selected = null
+                            refreshStatus("已选择 FID ${graphics[index].attributes["FID"]}；可查看属性。")
+                        }.setNegativeButton("取消", null).show()
+                }
+            }
+            return true
+        }
         val layer = selectedLayer ?: return false
         if (busy || disposed || sketch != null) return true
         if (attributes.isNotEmpty()) {
@@ -526,13 +622,15 @@ class GpkgTestController(
 
     private fun unload() {
         cancelEdit()
+        selectedGraphic = null
+        selectedDisplayLayer = null
         selectedLayer?.clearSelection()
         selected = null
         selectedLayer = null
         layers.forEach { map.map.operationalLayers.remove(it) }
         layers.clear()
-        gpkg?.close()
-        gpkg = null
+        displayLayers.forEach { map.graphicsOverlays.remove(it.overlay) }
+        displayLayers.clear()
     }
 
     fun onActivityResult(request: Int, result: Int, data: Intent?): Boolean {

@@ -7,6 +7,7 @@ import com.jwch.gwyt_project.R
 class ShpTreeAdapter : BaseNodeAdapter() {
 
     var onDeleteItem: ((ShpItem) -> Unit)? = null
+    var onEditItem: ((ShpItem) -> Unit)? = null
 
     init {
         addNodeProvider(

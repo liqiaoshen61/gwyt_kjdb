@@ -4,10 +4,8 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.view.MotionEvent
 import android.widget.*
-import androidx.documentfile.provider.DocumentFile
 import com.esri.arcgisruntime.geometry.Geometry
 import com.esri.arcgisruntime.geometry.GeometryEngine
 import com.esri.arcgisruntime.geometry.GeometryType
@@ -23,9 +21,10 @@ import com.esri.arcgisruntime.symbology.SimpleLineSymbol
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol
 import kotlinx.coroutines.*
 import java.io.File
+import java.security.MessageDigest
 import com.google.gson.JsonParser
 
-/** 首页独立测试面板；只操作应用测试目录中的副本。 */
+/** SHP 编辑面板；GDAL 在每个数据集的 GPKG 工作副本上读写。 */
 class GpkgTestController(
     private val activity: Activity,
     private val map: MapView,
@@ -33,15 +32,13 @@ class GpkgTestController(
     private val status: TextView
 ) {
     companion object {
-        private const val PICK_GPKG = 28701
-        private const val PICK_SHP_FOLDER = 28702
         private const val SAVE_ZIP = 28703
         private const val GRAPHIC_FID = "__gdal_internal_fid__"
     }
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
-    private val root = File(activity.getExternalFilesDir(null) ?: activity.filesDir, "gpkg_test")
-    private val prefs = activity.getSharedPreferences("gpkg_test", 0)
+    private val root = File(activity.getExternalFilesDir(null) ?: activity.filesDir, "shp_workspace")
+    private val prefs = activity.getSharedPreferences("shp_editor", 0)
     private var currentFile: File? = prefs.getString("file", null)?.let { File(it) }?.takeIf {
         it.isFile && it.canonicalPath.startsWith(root.canonicalPath + File.separator)
     }
@@ -55,6 +52,7 @@ class GpkgTestController(
     private var busy = false
     private var disposed = false
     private var exportZip: File? = null
+    private var sourceName: String = prefs.getString("source_name", null) ?: "SHP"
     private val buttons = mutableListOf<Button>()
 
     private data class DisplayLayer(
@@ -66,29 +64,13 @@ class GpkgTestController(
     )
 
     init {
-        button("1 创建点线面 GPKG") { ensureClean { task("创建测试数据") {
-            unload()
-            val file = withContext(Dispatchers.IO) { GpkgTestData.createSample(root) }
-            setFile(file)
-            message("创建成功", "已创建点、线、带洞面三个图层，并关闭重读核验。\n$file\n下一步点击“读取信息”或“加载地图”。")
-        } } }
-        button("2 SHP → GPKG") { ensureClean {
-            message("选择 SHP 所在目录", "接下来选择包含 SHP 的文件夹，再选择其中的数据集。需要同名 shp、shx、dbf、prj 文件；如有 cpg 也会复制。") {
-                activity.startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT_TREE), PICK_SHP_FOLDER)
-            }
-        } }
-        button("3 选择 GPKG") { ensureClean {
-            activity.startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-                type = "*/*"; addCategory(Intent.CATEGORY_OPENABLE)
-            }, PICK_GPKG)
-        } }
-        button("4 读取信息") { ensureClean { task("读取图层、字段和坐标系") {
+        section("图层与查看")
+        button("数据详情") { ensureClean { task("读取图层、字段和坐标系") {
             val file = requireFile()
-            unload()
             message("GPKG 信息", withContext(Dispatchers.IO) { GpkgTestData.inspect(file) })
         } } }
-        button("5 加载地图") { ensureClean { task("加载 GPKG") { loadMap(true) } } }
-        button("6 选择要素") { ensureClean { chooseLayer() } }
+        button("加载地图") { ensureClean { task("加载 GPKG") { loadMap(true) } } }
+        button("切换图层") { ensureClean { chooseLayer() } }
         button("查看所选属性") {
             val graphic = selectedGraphic
             if (graphic != null) {
@@ -97,27 +79,30 @@ class GpkgTestController(
                         .joinToString("\n") { "${it.key} = ${it.value ?: "NULL"}" })
             } else error("请先在地图选择要素")
         }
+        section("要素编辑")
         button("新增要素") { ensureClean { addFeature() } }
         button("删除要素") { ensureClean { deleteFeature() } }
-        button("7 编辑形状") { editGeometry() }
+        button("编辑形状") { editGeometry() }
         button("撤销节点修改") {
             val editor = sketch ?: error("请先进入形状编辑")
             editor.undo()
         }
-        button("8 编辑属性") { editAttributes() }
-        button("9 保存修改") { save() }
+        button("编辑属性") { editAttributes() }
+        button("保存修改") { save() }
         button("取消编辑") { cancelEdit(); refreshStatus("已取消草稿，文件未改变") }
-        button("10 重开核验") { ensureClean { task("关闭重开核验") {
+        section("成果")
+        button("重开核验") { ensureClean { task("关闭重开核验") {
             val file = requireFile()
             unload()
             val report = withContext(Dispatchers.IO) { GpkgTestData.inspect(file) }
             loadMap(false)
             message("已从磁盘重新读取", report)
         } } }
-        button("11 导出 SHP ZIP") { ensureClean { task("导出 SHP 并重读检查") {
+        button("导出 SHP") { ensureClean { task("导出 SHP 并重读检查") {
             val file = requireFile()
             unload()
-            exportZip = withContext(Dispatchers.IO) { GpkgTestData.exportShp(file, root) }
+            exportZip = withContext(Dispatchers.IO) { GpkgTestData.exportShp(file, root, sourceName) }
+            loadMap(false)
             message("导出完成", "${exportZip!!.absolutePath}\n\n已核对数量、字段名和坐标系。ZIP 内包含配套文件和核验报告；全部属性及几何仍需桌面复核。点击确定选择另存位置。") {
                 activity.startActivityForResult(Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
                     type = "application/zip"
@@ -126,14 +111,54 @@ class GpkgTestController(
                 }, SAVE_ZIP)
             }
         } } }
-        button("退出地图测试") { ensureClean { unload(); refreshStatus("已退出测试图层，恢复业务地图操作") } }
+        button("关闭编辑图层") { ensureClean { unload(); refreshStatus("已关闭编辑图层") } }
         refreshStatus()
+    }
+
+    fun openShp(shp: File) = ensureClean {
+        task("打开 ${shp.name}") {
+            check(shp.isFile && shp.extension.equals("shp", true)) { "请选择已导入的 SHP 文件" }
+            val key = withContext(Dispatchers.IO) {
+                MessageDigest.getInstance("SHA-256").digest(shp.canonicalPath.toByteArray())
+                    .joinToString("") { "%02x".format(it) }
+            }
+            val file = withContext(Dispatchers.IO) {
+                prefs.getString("source_$key", null)?.let { File(it) }?.takeIf { it.isFile }
+                    ?: GpkgTestData.importShp(shp, root)
+            }
+            unload()
+            sourceName = shp.nameWithoutExtension
+            prefs.edit().putString("source_$key", file.absolutePath)
+                .putString("source_name", sourceName).apply()
+            setFile(file)
+            loadMap(true)
+        }
+    }
+
+    fun showCurrent() {
+        if (currentFile?.isFile == true && displayLayers.isEmpty()) task("加载编辑图层") { loadMap(true) }
+    }
+
+    private fun section(title: String) {
+        actions.addView(TextView(activity).apply {
+            text = title
+            textSize = 13f
+            setTextColor(Color.WHITE)
+            val pad = (activity.resources.displayMetrics.density * 8).toInt()
+            setPadding(pad, pad, pad, 0)
+        })
     }
 
     private fun button(title: String, action: () -> Unit) {
         val button = Button(activity).apply {
             text = title
-            textSize = 12f
+            textSize = 14f
+            setTextColor(Color.WHITE)
+            setBackgroundResource(com.jwch.gwyt_project.R.drawable.bg_import_btn)
+            val margin = (activity.resources.displayMetrics.density * 4).toInt()
+            layoutParams = LinearLayout.LayoutParams(-1, (activity.resources.displayMetrics.density * 42).toInt()).apply {
+                setMargins(margin, margin, margin, margin)
+            }
             setOnClickListener {
                 if (!busy && !disposed) {
                     try { action() } catch (e: Exception) { message("操作失败", errorText(e)) }
@@ -168,7 +193,7 @@ class GpkgTestController(
     }
 
     private fun errorText(e: Exception): String {
-        android.util.Log.e("GpkgTest", "GPKG 测试失败", e)
+        android.util.Log.e("ShpEditor", "SHP 编辑失败", e)
         return generateSequence(e as Throwable?) { it.cause }.take(5)
             .joinToString("\n") { "${it.javaClass.simpleName}: ${it.message}" }
     }
@@ -185,12 +210,12 @@ class GpkgTestController(
 
     private fun refreshStatus(extra: String = "") {
         if (disposed) return
-        status.text = "${currentFile?.name ?: "尚未选择 GPKG"} | ${selectedDisplayLayer?.name ?: "未选图层"}" +
+        status.text = "${if (currentFile?.isFile == true) sourceName else "请从数据资源选择 SHP 并点击编辑"} | ${selectedDisplayLayer?.name ?: "未选图层"}" +
             " | ${if (selectedGraphic != null) "已选要素" else "未选要素"}" +
             (if (sketch != null || attributes.isNotEmpty()) " | 有未保存编辑" else "") + "\n$extra"
     }
 
-    private fun requireFile(): File = currentFile?.takeIf { it.isFile } ?: error("请先创建或导入 GPKG")
+    private fun requireFile(): File = currentFile?.takeIf { it.isFile } ?: error("请先从数据资源选择 SHP 并点击编辑")
     private fun setFile(file: File) {
         currentFile = file
         prefs.edit().putString("file", file.absolutePath).apply()
@@ -601,68 +626,25 @@ class GpkgTestController(
     }
 
     fun onActivityResult(request: Int, result: Int, data: Intent?): Boolean {
-        if (request !in listOf(PICK_GPKG, PICK_SHP_FOLDER, SAVE_ZIP)) return false
+        if (request != SAVE_ZIP) return false
         if (result != Activity.RESULT_OK) return true
         val uri = data?.data ?: return true
-        when (request) {
-            PICK_GPKG -> task("复制并检查 GPKG") {
-                val file = withContext(Dispatchers.IO) {
-                    val output = File(GpkgTestData.newDirectory(root, "selected"), "work.gpkg")
-                    activity.contentResolver.openInputStream(uri)?.use { input -> output.outputStream().use { input.copyTo(it) } }
-                        ?: error("无法读取所选文件")
-                    GpkgTestData.inspect(output) // 先验证，成功才切换当前文件。
-                    output
-                }
-                unload(); setFile(file)
-                message("已导入工作副本", "$file\n后续编辑只修改此副本。点击“加载地图”继续。")
-            }
-            PICK_SHP_FOLDER -> task("读取 SHP 目录") {
-                val documents = withContext(Dispatchers.IO) {
-                    DocumentFile.fromTreeUri(activity, uri)?.listFiles()?.filter {
-                        it.isFile && it.name?.endsWith(".shp", true) == true
-                    }.orEmpty()
-                }
-                check(documents.isNotEmpty()) { "所选目录没有 SHP，请选择文件直接所在目录" }
-                AlertDialog.Builder(activity).setTitle("选择要转换的 SHP")
-                    .setItems(documents.map { it.name ?: "SHP" }.toTypedArray()) { _, index -> importShp(uri, documents[index]) }
-                    .setNegativeButton("取消", null).show()
-            }
-            SAVE_ZIP -> task("另存 ZIP") {
+        task("另存 ZIP") {
                 val zip = exportZip?.takeIf { it.isFile } ?: error("导出文件已失效，请重新导出")
                 withContext(Dispatchers.IO) {
                     activity.contentResolver.openOutputStream(uri, "wt")?.use { output -> zip.inputStream().use { it.copyTo(output) } }
                         ?: error("无法写入所选位置")
                 }
                 message("另存成功", "SHP ZIP 已保存至你选择的位置。")
-            }
         }
         return true
-    }
-
-    private fun importShp(folderUri: Uri, selectedDocument: DocumentFile) = task("SHP 转 GPKG") {
-        val output = withContext(Dispatchers.IO) {
-            val directory = GpkgTestData.newDirectory(root, "shp_source")
-            val base = selectedDocument.name!!.substringBeforeLast('.')
-            val siblings = DocumentFile.fromTreeUri(activity, folderUri)?.listFiles().orEmpty()
-            siblings.filter { it.isFile && it.name?.substringBeforeLast('.')?.equals(base, true) == true }.forEach { doc ->
-                val ext = doc.name!!.substringAfterLast('.').lowercase()
-                if (ext in listOf("shp", "shx", "dbf", "prj", "cpg")) {
-                    val target = File(directory, "source.$ext")
-                    activity.contentResolver.openInputStream(doc.uri)?.use { input -> target.outputStream().use { input.copyTo(it) } }
-                        ?: error("无法读取 ${doc.name}")
-                }
-            }
-            GpkgTestData.importShp(File(directory, "source.shp"), root)
-        }
-        unload(); setFile(output)
-        message("转换完成", "$output\n已保留原坐标系并核对要素、字段数量。点击“读取信息”或“加载地图”继续。")
     }
 
     fun dispose() {
         disposed = true
         // 先从地图解绑；Activity 随后 dispose MapView，后续后台清理不得再访问地图。
         cancelEdit()
-        // 正在进行的持久化/复制任务完成后再关闭句柄，避免中途损坏测试文件。
+        // 正在进行的持久化/复制任务完成后再关闭句柄，避免中途损坏工作文件。
         if (!busy) { unload(); scope.cancel() }
     }
 }

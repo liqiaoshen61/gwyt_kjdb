@@ -551,6 +551,7 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
         vb.btnVerifyGpkg.setOnClickListener {
             vb.gpkgTestBody.visibility = if (vb.gpkgTestBody.visibility == android.view.View.VISIBLE)
                 android.view.View.GONE else android.view.View.VISIBLE
+            if (vb.gpkgTestBody.visibility == android.view.View.VISIBLE) gpkgTestController?.showCurrent()
         }
         //防止穿透
         vb.includeViewAreaList.llAreaList.onClick { }
@@ -1876,6 +1877,12 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
                 @Suppress("UNCHECKED_CAST")
                 val modelList = event.data as List<ShpModel>
                 handleMapUtil.drawShpList(modelList)
+            }
+            DataEvent.OPEN_SHP_EDITOR -> {
+                if (vb.includeViewSwitchMap.llSwitchMap.isShow()) vb.includeMenuList.llMenuMaps.performClick()
+                vb.gpkgTestBody.visibility = android.view.View.VISIBLE
+                handleMapUtil.shpGraphicsLayer.graphics.clear()
+                gpkgTestController?.openShp(java.io.File(event.data as String))
             }
             //关闭外部导入（现集成在 SwitchMap 中）
             DataEvent.CLOSE_GEOJSON_FRAG -> {

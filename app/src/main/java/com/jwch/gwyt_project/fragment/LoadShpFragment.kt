@@ -54,6 +54,9 @@ class LoadShpFragment : BaseFragment<FragLoadShpBinding>() {
         vb.lvMain.adapter = adapter
 
         adapter.onDeleteItem = { item -> showDeleteDialog(item) }
+        adapter.onEditItem = { item ->
+            item.shpModel?.let { EventBus.getDefault().post(DataEvent(DataEvent.OPEN_SHP_EDITOR, it.filePath)) }
+        }
 
         adapter.setOnItemClickListener { _, _, position ->
             val item = adapter.data[position] as? ShpItem ?: return@setOnItemClickListener

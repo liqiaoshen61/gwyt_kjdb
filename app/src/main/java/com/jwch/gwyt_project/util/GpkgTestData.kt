@@ -278,8 +278,9 @@ object GpkgTestData {
         }
     }
 
-    fun exportShp(file: File, root: File): File {
+    fun exportShp(file: File, root: File, sourceName: String = "layer"): File {
         initialize()
+        val safeName = sourceName.replace(Regex("[^\\p{L}\\p{N}_-]"), "_").ifBlank { "layer" }
         val driver = ogr.GetDriverByName("ESRI Shapefile") ?: error("缺少 SHP 驱动")
         val directory = newDirectory(root, "export")
         read(file) { source ->
@@ -305,14 +306,15 @@ object GpkgTestData {
             try {
                 for (i in 0 until source.GetLayerCount()) {
                     val layer = source.GetLayer(i)
-                    val copied = target.CopyLayer(layer, "layer_${i + 1}", Vector(listOf("ENCODING=UTF-8")))
+                    val copied = target.CopyLayer(layer, if (source.GetLayerCount() == 1) safeName else "${safeName}_${i + 1}", Vector(listOf("ENCODING=UTF-8")))
                     check(copied != null) { "导出 ${layer.GetName()} 失败：${gdal.GetLastErrorMsg()}" }
                 }
             } finally { target.delete() }
             val report = StringBuilder("源文件：${file.name}\n编码：UTF-8\n")
             for (i in 0 until source.GetLayerCount()) {
                 val original = source.GetLayer(i)
-                read(File(directory, "layer_${i + 1}.shp")) { exported ->
+                val outputName = if (source.GetLayerCount() == 1) safeName else "${safeName}_${i + 1}"
+                read(File(directory, "$outputName.shp")) { exported ->
                     val layer = exported.GetLayer(0)
                     check(layer.GetFeatureCount() == original.GetFeatureCount()) { "${original.GetName()} 导出数量不一致" }
                     check(layer.GetLayerDefn().GetFieldCount() == original.GetLayerDefn().GetFieldCount()) { "导出字段数量不一致" }
@@ -321,13 +323,13 @@ object GpkgTestData {
                     }
                     val exportedSrs = layer.GetSpatialRef() ?: error("导出坐标系丢失")
                     check(exportedSrs.IsSame(original.GetSpatialRef()) != 0) { "导出坐标系不一致" }
-                    report.append("${original.GetName()} → layer_${i + 1}.shp，${layer.GetFeatureCount()} 个要素；数量/字段名/坐标系核验通过\n")
+                    report.append("${original.GetName()} → $outputName.shp，${layer.GetFeatureCount()} 个要素；数量/字段名/坐标系核验通过\n")
                 }
             }
             report.append("本次未逐条比较全部属性和几何；请在桌面 GIS 中复核。样式和照片不包含在 SHP 中。\n")
             File(directory, "export_report.txt").writeText(report.toString())
         }
-        val zip = File(directory.parentFile, directory.name + ".zip")
+        val zip = File(directory.parentFile, "${safeName}_${directory.name}.zip")
         ZipOutputStream(zip.outputStream()).use { output ->
             directory.listFiles().orEmpty().filter { it.isFile }.forEach { child ->
                 output.putNextEntry(ZipEntry(child.name))

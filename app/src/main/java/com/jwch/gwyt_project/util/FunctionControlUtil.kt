@@ -57,7 +57,7 @@ class FunctionControlUtil {
     //数据资源顶部tab
     val TAB_DATA_RESOURCE = true //数据资源tab
     val TAB_EXTERNAL_IMPORT = false //外部导入tab(geojson)
-    val TAB_IMPORT_SHP = false //外部导入shp tab
+    val TAB_IMPORT_SHP = true //外部导入shp tab
 
     val CLEAR_ALL_KV = false //清除所有kv
 

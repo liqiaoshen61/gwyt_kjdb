@@ -44,6 +44,7 @@ class SurveyEditorController(
         it.isFile && it.canonicalPath.startsWith(root.canonicalPath + File.separator)
     }
     private val displayLayers = mutableListOf<DisplayLayer>()
+    private val selectionOverlay = GraphicsOverlay()
     private var selectedDisplayLayer: DisplayLayer? = null
     private var selectedGraphic: Graphic? = null
     private var newFeature = false
@@ -210,8 +211,33 @@ class SurveyEditorController(
                 selectionMode -> "点击地图选择一个要素"
                 else -> "浏览地图 · 拖动或缩放查看界线"
             } + "\n$note"
-        displayLayers.forEach { layer -> layer.overlay.graphics.forEach { it.isSelected = it === selectedGraphic } }
+        refreshSelectionHighlight()
         renderActions()
+    }
+
+    private fun refreshSelectionHighlight() {
+        selectionOverlay.graphics.clear()
+        // identify 返回的 Graphic 可能是不同的包装对象，用图层和 FID 匹配原图形。
+        val selectedFid = selectedGraphic?.attributes?.get(GRAPHIC_FID)?.toString()
+        displayLayers.forEach { layer ->
+            layer.overlay.graphics.forEach featureLoop@ { graphic ->
+                graphic.isSelected = false
+                if (selectedFid != null && layer === selectedDisplayLayer &&
+                    graphic.attributes[GRAPHIC_FID]?.toString() == selectedFid) {
+                    val geometry = graphic.geometry ?: return@featureLoop
+                    val color = Color.rgb(255, 215, 64)
+                    val symbol = when (geometry.geometryType) {
+                        GeometryType.POINT, GeometryType.MULTIPOINT ->
+                            SimpleMarkerSymbol(SimpleMarkerSymbol.Style.CIRCLE, color, 20f)
+                        GeometryType.POLYLINE ->
+                            SimpleLineSymbol(SimpleLineSymbol.Style.SOLID, color, 6f)
+                        else -> SimpleFillSymbol(SimpleFillSymbol.Style.SOLID, 0x55FFD740,
+                            SimpleLineSymbol(SimpleLineSymbol.Style.SOLID, color, 4f))
+                    }
+                    selectionOverlay.graphics.add(Graphic(geometry, symbol))
+                }
+            }
+        }
     }
 
     private fun renderActions() {
@@ -286,6 +312,7 @@ class SurveyEditorController(
             map.graphicsOverlays.add(overlay)
             displayLayers.add(DisplayLayer(content.name, overlay, content.extent, content.fields, content.geometryType))
         }
+        map.graphicsOverlays.add(selectionOverlay)
         selectedDisplayLayer = displayLayers.first()
         if (zoom && displayLayers.any { it.overlay.graphics.isNotEmpty() }) {
             val extent = displayLayers.mapNotNull { it.extent }.firstOrNull { !it.isEmpty }
@@ -673,6 +700,8 @@ class SurveyEditorController(
 
     private fun unload() {
         cancelEdit()
+        selectionOverlay.graphics.clear()
+        map.graphicsOverlays.remove(selectionOverlay)
         selectedGraphic = null
         selectedDisplayLayer = null
         displayLayers.forEach { map.graphicsOverlays.remove(it.overlay) }

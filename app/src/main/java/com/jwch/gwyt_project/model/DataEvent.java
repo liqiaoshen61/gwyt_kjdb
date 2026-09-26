@@ -77,7 +77,6 @@ public class DataEvent {
     public static final int DRAW_SELECT_SHP = 94;//绘制shp
     public static final int DRAW_SELECT_SHP_LIST = 95;//绘制shp列表（多选）
     public static final int CLOSE_SHP_FRAG = 96; //关闭导入shp
-    public static final int OPEN_SHP_EDITOR = 97; //在地图上编辑导入的 SHP
 
     public static final int ZTT_DATA_TO_AREA_STAT = 51;//把专题数据发送到行政区划 准备做统计
 

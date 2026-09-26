@@ -45,19 +45,6 @@
             android:layout_height="28dp"
             android:padding="3dp"
             android:src="@mipmap/feedback_close" />
-        <TextView
-            android:id="@+id/tvEditShp"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/bg_import_btn"
-            android:gravity="center"
-            android:minWidth="48dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:text="编辑"
-            android:textColor="@color/whiteColor"
-            android:textSize="13sp" />
     </LinearLayout>
 
 </LinearLayout>

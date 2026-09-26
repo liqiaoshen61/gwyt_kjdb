@@ -18,6 +18,22 @@
         android:gravity="left">
 
         <LinearLayout
+            android:id="@+id/llMenuSurvey"
+            style="@style/layout_linear_vertical"
+            android:layout_marginBottom="35dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="@dimen/nSize35"
+                android:layout_height="@dimen/nSize35"
+                android:src="@drawable/ic_survey_boundary" />
+            <TextView
+                style="@style/txt_main_menu"
+                android:layout_marginTop="@dimen/nSize12"
+                android:textColor="#B8C9DF"
+                android:text="勘界作业" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/llMenuMaps"
             style="@style/layout_linear_vertical"
             android:layout_marginBottom="35dp"

@@ -21,15 +21,16 @@ import com.esri.arcgisruntime.symbology.SimpleLineSymbol
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol
 import kotlinx.coroutines.*
 import java.io.File
-import java.security.MessageDigest
 import com.google.gson.JsonParser
 
 /** SHP 编辑面板；GDAL 在每个数据集的 GPKG 工作副本上读写。 */
-class GpkgTestController(
+class SurveyEditorController(
     private val activity: Activity,
     private val map: MapView,
     private val actions: LinearLayout,
-    private val status: TextView
+    private val status: TextView,
+    private val primaryActions: LinearLayout,
+    private val titleView: TextView
 ) {
     companion object {
         private const val SAVE_ZIP = 28703
@@ -54,6 +55,15 @@ class GpkgTestController(
     private var exportZip: File? = null
     private var sourceName: String = prefs.getString("source_name", null) ?: "SHP"
     private val buttons = mutableListOf<Button>()
+    var onOpened: (() -> Unit)? = null
+    var onSaved: ((File) -> Unit)? = null
+    private var workspaceActive = false
+    val isWorkspaceOpen: Boolean get() = workspaceActive
+    private var selectionMode = false
+    private var drawingFinished = false
+    private var pendingLeave: (() -> Unit)? = null
+    private var queuedExport = false
+    private var note = ""
 
     private data class DisplayLayer(
         val name: String,
@@ -63,109 +73,83 @@ class GpkgTestController(
         val geometryType: GeometryType
     )
 
-    init {
-        section("图层与查看")
-        button("数据详情") { ensureClean { task("读取图层、字段和坐标系") {
-            val file = requireFile()
-            message("GPKG 信息", withContext(Dispatchers.IO) { GpkgTestData.inspect(file) })
-        } } }
-        button("加载地图") { ensureClean { task("加载 GPKG") { loadMap(true) } } }
-        button("切换图层") { ensureClean { chooseLayer() } }
-        button("查看所选属性") {
-            val graphic = selectedGraphic
-            if (graphic != null) {
-                message("${selectedDisplayLayer?.name ?: "GPKG 图层"} 属性",
-                    graphic.attributes.entries.filter { it.key != GRAPHIC_FID }
-                        .joinToString("\n") { "${it.key} = ${it.value ?: "NULL"}" })
-            } else error("请先在地图选择要素")
-        }
-        section("要素编辑")
-        button("新增要素") { ensureClean { addFeature() } }
-        button("删除要素") { ensureClean { deleteFeature() } }
-        button("编辑形状") { editGeometry() }
-        button("撤销节点修改") {
-            val editor = sketch ?: error("请先进入形状编辑")
-            editor.undo()
-        }
-        button("编辑属性") { editAttributes() }
-        button("保存修改") { save() }
-        button("取消编辑") { cancelEdit(); refreshStatus("已取消草稿，文件未改变") }
-        section("成果")
-        button("重开核验") { ensureClean { task("关闭重开核验") {
-            val file = requireFile()
-            unload()
-            val report = withContext(Dispatchers.IO) { GpkgTestData.inspect(file) }
-            loadMap(false)
-            message("已从磁盘重新读取", report)
-        } } }
-        button("导出 SHP") { ensureClean { task("导出 SHP 并重读检查") {
+    init { refreshStatus() }
+
+    fun exportShp() = ensureClean {
+        if (!busy) AlertDialog.Builder(activity).setTitle("导出成果")
+            .setMessage("作业：$sourceName\n要素数量：${displayLayers.sumOf { it.overlay.graphics.size }}\n格式：SHP ZIP\n\n导出前检查数量、字段名和坐标系。")
+            .setNegativeButton("取消", null)
+            .setPositiveButton("导出并保存") { _, _ -> task("导出 SHP") {
             val file = requireFile()
             unload()
             exportZip = withContext(Dispatchers.IO) { GpkgTestData.exportShp(file, root, sourceName) }
             loadMap(false)
-            message("导出完成", "${exportZip!!.absolutePath}\n\n已核对数量、字段名和坐标系。ZIP 内包含配套文件和核验报告；全部属性及几何仍需桌面复核。点击确定选择另存位置。") {
-                activity.startActivityForResult(Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+            activity.startActivityForResult(Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
                     type = "application/zip"
                     addCategory(Intent.CATEGORY_OPENABLE)
                     putExtra(Intent.EXTRA_TITLE, exportZip!!.name)
                 }, SAVE_ZIP)
-            }
-        } } }
-        button("关闭编辑图层") { ensureClean { unload(); refreshStatus("已关闭编辑图层") } }
-        refreshStatus()
+            } }.show()
     }
 
-    fun openShp(shp: File) = ensureClean {
-        task("打开 ${shp.name}") {
-            check(shp.isFile && shp.extension.equals("shp", true)) { "请选择已导入的 SHP 文件" }
-            val key = withContext(Dispatchers.IO) {
-                MessageDigest.getInstance("SHA-256").digest(shp.canonicalPath.toByteArray())
-                    .joinToString("") { "%02x".format(it) }
-            }
-            val file = withContext(Dispatchers.IO) {
-                prefs.getString("source_$key", null)?.let { File(it) }?.takeIf { it.isFile }
-                    ?: GpkgTestData.importShp(shp, root)
-            }
+    fun openWorkspace(file: File, name: String, exportAfter: Boolean = false) = ensureClean {
+        task("打开 $name") {
+            check(file.isFile && file.canonicalPath.startsWith(root.canonicalPath + File.separator)) { "作业数据已失效，请重新导入" }
             unload()
-            sourceName = shp.nameWithoutExtension
-            prefs.edit().putString("source_$key", file.absolutePath)
-                .putString("source_name", sourceName).apply()
+            sourceName = name
+            workspaceActive = true
+            selectionMode = false
             setFile(file)
             loadMap(true)
+            onOpened?.invoke()
+            queuedExport = exportAfter
         }
     }
 
-    fun showCurrent() {
-        if (currentFile?.isFile == true && displayLayers.isEmpty()) task("加载编辑图层") { loadMap(true) }
+    fun selectLayer() = ensureClean { if (!busy) chooseLayer() }
+
+    fun showMore() = ensureClean {
+        if (!busy) AlertDialog.Builder(activity).setTitle("作业工具")
+            .setItems(arrayOf("数据详情", "重新读取")) { _, index ->
+                task(if (index == 0) "数据详情" else "重新读取") {
+                    val file = requireFile()
+                    if (index == 0) message("数据详情", withContext(Dispatchers.IO) { GpkgTestData.inspect(file) })
+                    else loadMap(false)
+                }
+            }.show()
     }
 
-    private fun section(title: String) {
-        actions.addView(TextView(activity).apply {
-            text = title
-            textSize = 13f
-            setTextColor(Color.WHITE)
-            val pad = (activity.resources.displayMetrics.density * 8).toInt()
-            setPadding(pad, pad, pad, 0)
-        })
+    fun requestLeave(after: () -> Unit) {
+        if (busy) { Toast.makeText(activity, "正在处理数据，请稍候", Toast.LENGTH_SHORT).show(); return }
+        fun leave() { unload(); workspaceActive = false; selectionMode = false; pendingLeave = null; after() }
+        if (sketch == null && attributes.isEmpty() && !newFeature) leave()
+        else AlertDialog.Builder(activity).setTitle("有未保存修改")
+            .setMessage("保存当前要素后返回作业列表？")
+            .setPositiveButton("保存") { _, _ ->
+                pendingLeave = { leave() }
+                try { save() } catch (e: Exception) { pendingLeave = null; message("无法保存", errorText(e)) }
+            }.setNegativeButton("放弃修改") { _, _ -> leave() }
+            .setNeutralButton("继续编辑", null).show()
     }
 
-    private fun button(title: String, action: () -> Unit) {
+    private fun button(title: String, host: LinearLayout = actions, action: () -> Unit) {
         val button = Button(activity).apply {
             text = title
             textSize = 14f
             setTextColor(Color.WHITE)
             setBackgroundResource(com.jwch.gwyt_project.R.drawable.bg_import_btn)
             val margin = (activity.resources.displayMetrics.density * 4).toInt()
-            layoutParams = LinearLayout.LayoutParams(-1, (activity.resources.displayMetrics.density * 42).toInt()).apply {
+            layoutParams = LinearLayout.LayoutParams(if (host === primaryActions) -2 else -1, (activity.resources.displayMetrics.density * 46).toInt()).apply {
                 setMargins(margin, margin, margin, margin)
             }
+            isEnabled = !busy
             setOnClickListener {
                 if (!busy && !disposed) {
                     try { action() } catch (e: Exception) { message("操作失败", errorText(e)) }
                 }
             }
         }
-        actions.addView(button)
+        host.addView(button)
         buttons.add(button)
     }
 
@@ -179,15 +163,21 @@ class GpkgTestController(
                 block()
                 refreshStatus("$label 完成")
             } catch (e: Exception) {
+                pendingLeave = null
                 refreshStatus("$label 失败")
                 message("$label 失败", errorText(e))
             } catch (e: LinkageError) {
+                pendingLeave = null
                 refreshStatus("原生库加载失败")
                 message("原生库错误", "${e.message}\n请检查当前 GDAL/ArcGIS 库与设备架构。")
             } finally {
                 busy = false
                 if (disposed) { unload(); scope.cancel() }
-                else buttons.forEach { it.isEnabled = true }
+                else {
+                    refreshStatus()
+                    if (queuedExport) { queuedExport = false; exportShp() }
+                    pendingLeave?.let { callback -> pendingLeave = null; callback() }
+                }
             }
         }
     }
@@ -210,12 +200,63 @@ class GpkgTestController(
 
     private fun refreshStatus(extra: String = "") {
         if (disposed) return
-        status.text = "${if (currentFile?.isFile == true) sourceName else "请从数据资源选择 SHP 并点击编辑"} | ${selectedDisplayLayer?.name ?: "未选图层"}" +
-            " | ${if (selectedGraphic != null) "已选要素" else "未选要素"}" +
-            (if (sketch != null || attributes.isNotEmpty()) " | 有未保存编辑" else "") + "\n$extra"
+        if (extra.isNotBlank()) note = extra
+        val dirty = sketch != null || attributes.isNotEmpty() || newFeature
+        titleView.text = "$sourceName  ·  ${if (busy) "处理中" else if (dirty) "未保存" else "已保存"}"
+        status.text = "${selectedDisplayLayer?.name ?: "图层未加载"}\n" +
+            when {
+                sketch != null -> if (drawingFinished) "绘制已完成，请填写属性并保存" else "正在${if (newFeature) "绘制新要素" else "修改形状"}"
+                selectedGraphic != null -> "已选择要素 ${selectedGraphic!!.attributes[GRAPHIC_FID]}"
+                selectionMode -> "点击地图选择一个要素"
+                else -> "浏览地图 · 拖动或缩放查看界线"
+            } + "\n$note"
+        displayLayers.forEach { layer -> layer.overlay.graphics.forEach { it.isSelected = it === selectedGraphic } }
+        renderActions()
     }
 
-    private fun requireFile(): File = currentFile?.takeIf { it.isFile } ?: error("请先从数据资源选择 SHP 并点击编辑")
+    private fun renderActions() {
+        actions.removeAllViews(); primaryActions.removeAllViews(); buttons.clear()
+        (actions.parent as? ScrollView)?.visibility = android.view.View.GONE
+        if (sketch != null) {
+            button("撤销节点", primaryActions) { sketch?.undo() }
+            button("取消", primaryActions) { cancelEdit(); refreshStatus("已取消修改") }
+            button(if (drawingFinished) "填写属性并保存" else "完成绘制", primaryActions) {
+                check(sketch?.isSketchValid == true) { "几何不完整，请继续绘制" }
+                drawingFinished = true
+                refreshStatus("确认属性后保存要素")
+                if (newFeature && selectedDisplayLayer?.fields?.isNotEmpty() == true) editAttributes(true)
+                else save()
+            }
+            return
+        }
+        button(if (!selectionMode) "● 浏览" else "浏览", primaryActions) { ensureClean {
+            selectionMode = false; selectedGraphic = null; refreshStatus("浏览地图")
+        } }
+        button(if (selectionMode) "● 选择要素" else "选择要素", primaryActions) { ensureClean {
+            selectionMode = true; refreshStatus("点击地图选择一个要素")
+        } }
+        button("＋ 新增要素", primaryActions) { ensureClean { addFeature() } }
+        val graphic = selectedGraphic
+        if (graphic != null) {
+            actions.addView(TextView(activity).apply {
+                text = graphic.attributes.entries.filter { it.key != GRAPHIC_FID }
+                    .joinToString("\n") { "${it.key}：${it.value ?: "空"}" }
+                setTextColor(Color.WHITE); textSize = 14f; setPadding(8, 8, 8, 8)
+            })
+            button("编辑属性") { editAttributes(true) }
+            button("编辑形状") { editGeometry() }
+            button("更多操作") {
+                AlertDialog.Builder(activity).setTitle("要素操作").setItems(arrayOf("删除要素")) { _, _ -> deleteFeature() }.show()
+            }
+        }
+        if (attributes.isNotEmpty()) {
+            button("保存要素") { save() }
+            button("取消修改") { cancelEdit(); refreshStatus("已取消修改") }
+        }
+        (actions.parent as? ScrollView)?.visibility = if (actions.childCount == 0) android.view.View.GONE else android.view.View.VISIBLE
+    }
+
+    private fun requireFile(): File = currentFile?.takeIf { it.isFile } ?: error("请先从勘界作业列表进入作业")
     private fun setFile(file: File) {
         currentFile = file
         prefs.edit().putString("file", file.absolutePath).apply()
@@ -224,7 +265,7 @@ class GpkgTestController(
 
     private fun ensureClean(action: () -> Unit) {
         if (sketch == null && attributes.isEmpty() && !newFeature) action()
-        else message("有未保存编辑", "请先点击“保存修改”或“取消编辑”，再切换文件、图层或导出。")
+        else message("有未保存修改", "请先完成绘制并保存要素，或取消当前修改，再切换图层或导出。")
     }
 
     private suspend fun loadMap(zoom: Boolean) {
@@ -246,14 +287,14 @@ class GpkgTestController(
             displayLayers.add(DisplayLayer(content.name, overlay, content.extent, content.fields, content.geometryType))
         }
         selectedDisplayLayer = displayLayers.first()
-        if (zoom) {
+        if (zoom && displayLayers.any { it.overlay.graphics.isNotEmpty() }) {
             val extent = displayLayers.mapNotNull { it.extent }.firstOrNull { !it.isEmpty }
             if (extent != null) {
                 if (extent.width == 0.0 && extent.height == 0.0) map.setViewpointCenterAsync(extent.center, 10000.0)
                 else map.setViewpointGeometryAsync(extent, 80.0)
             }
         }
-        refreshStatus("已通过 GDAL 绘制 ${displayLayers.size} 个图层；点击“选择要素”选图层，再点地图。当前模式为显示/属性查看。")
+        refreshStatus("${displayLayers.sumOf { it.overlay.graphics.size }} 个要素 · 点击底部工具开始作业")
     }
 
     private data class DisplayContent(
@@ -276,7 +317,7 @@ class GpkgTestController(
                 val srs = layer.GetSpatialRef() ?: error("图层 ${layer.GetName()} 缺少坐标系，无法安全定位")
                 val geoJsonSrs = srs.GetAuthorityCode(null)?.toIntOrNull()?.let { "\"wkid\":$it" }
                     ?: "\"wkt\":${com.google.gson.Gson().toJson(srs.ExportToWkt())}"
-                val extentValues = layer.GetExtent()
+                val extentValues = if (layer.GetFeatureCount().toLong() == 0L) doubleArrayOf(0.0, 0.0, 0.0, 0.0) else layer.GetExtent()
                 val extent = if (extentValues != null && extentValues.size >= 4) {
                     val esriJson = "{\"xmin\":${extentValues[0]},\"ymin\":${extentValues[2]},\"xmax\":${extentValues[1]},\"ymax\":${extentValues[3]},\"spatialReference\":{$geoJsonSrs}}"
                     Geometry.fromJson(esriJson) as? Envelope
@@ -331,7 +372,7 @@ class GpkgTestController(
                     org.gdal.ogr.ogr.wkbPolygon, org.gdal.ogr.ogr.wkbMultiPolygon -> GeometryType.POLYGON
                     else -> error("暂不支持图层 ${layer.GetName()} 的几何类型 ${org.gdal.ogr.ogr.GeometryTypeToName(layer.GetGeomType())}")
                 }
-                if (features.isNotEmpty()) result.add(DisplayContent(layer.GetName(), geometryType, extent, fields, features))
+                result.add(DisplayContent(layer.GetName(), geometryType, extent, fields, features))
             }
             return result
         } finally { source.delete() }
@@ -342,6 +383,7 @@ class GpkgTestController(
         AlertDialog.Builder(activity).setTitle("选择地图图层")
             .setItems(displayLayers.map { it.name }.toTypedArray()) { _, index ->
                 selectedGraphic = null
+                displayLayers.forEach { it.overlay.graphics.forEach { graphic -> graphic.isSelected = false } }
                 selectedDisplayLayer = displayLayers[index]
                 val extent = displayLayers[index].extent
                 if (extent != null && !extent.isEmpty) {
@@ -354,6 +396,8 @@ class GpkgTestController(
 
     /** 由原有 tapInterceptor 转发，避免另设触摸监听器破坏业务地图。 */
     fun onTap(event: MotionEvent): Boolean {
+        if (!workspaceActive) return false
+        if (!selectionMode && sketch == null) return true
         val displayLayer = selectedDisplayLayer
         if (displayLayer != null) {
             if (busy || disposed || sketch != null) return true
@@ -380,7 +424,7 @@ class GpkgTestController(
             }
             return true
         }
-        return false
+        return true
     }
 
     private fun editGeometry() {
@@ -388,10 +432,10 @@ class GpkgTestController(
         val layer = selectedDisplayLayer ?: error("请先选择图层")
         check(sketch == null) { "已经在编辑形状，可直接操作节点后保存" }
         val geometry = graphic.geometry ?: error("该要素没有几何")
-        check(!geometry.hasZ() && !geometry.hasM()) { "本测试暂只编辑二维要素，避免丢失 Z/M" }
-        check(!geometry.hasCurves()) { "本测试暂不编辑真曲线，避免改变曲线结构" }
+        check(!geometry.hasZ() && !geometry.hasM()) { "当前只支持二维要素编辑" }
+        check(!geometry.hasCurves()) { "当前暂不支持真曲线编辑" }
         check(geometry is Point || geometry.geometryType == GeometryType.POLYLINE || geometry.geometryType == GeometryType.POLYGON) {
-            "本测试支持点、线、面编辑；多点暂只展示"
+            "支持点、线、面编辑；多点要素暂只展示"
         }
         check(layer.extent?.spatialReference != null) { "图层缺少坐标系" }
         previousSketch = map.sketchEditor
@@ -406,7 +450,7 @@ class GpkgTestController(
             previousSketch = null
             throw e
         }
-        refreshStatus("拖动节点修改形状；完成后点击“保存修改”，将由 GDAL 写回 GPKG")
+        refreshStatus("拖动节点修改形状，完成后点击底部“完成绘制”")
     }
 
     private fun addFeature() {
@@ -416,7 +460,7 @@ class GpkgTestController(
             GeometryType.POINT -> SketchCreationMode.POINT
             GeometryType.POLYLINE -> SketchCreationMode.POLYLINE
             GeometryType.POLYGON -> SketchCreationMode.POLYGON
-            else -> error("新增测试仅支持点、线、面图层")
+            else -> error("新增要素支持点、线、面图层")
         }
         previousSketch = map.sketchEditor
         previousSketch?.stop()
@@ -433,7 +477,7 @@ class GpkgTestController(
             previousSketch = null
             throw e
         }
-        refreshStatus("在地图绘制新要素；可编辑属性，再点击保存写入 GPKG。取消不会写文件")
+        refreshStatus("在地图绘制要素，完成后填写属性并保存")
     }
 
     private fun deleteFeature() {
@@ -442,16 +486,17 @@ class GpkgTestController(
         val fid = (graphic.attributes[GRAPHIC_FID] as? Number)?.toLong()
             ?: graphic.attributes[GRAPHIC_FID]?.toString()?.toLongOrNull() ?: error("无法读取 FID")
         val file = requireFile()
-        AlertDialog.Builder(activity).setTitle("删除测试副本中的要素？")
+        AlertDialog.Builder(activity).setTitle("删除所选要素？")
             .setMessage("图层 $layerName，FID $fid。只修改当前工作副本；删除后不可撤销。")
             .setNegativeButton("取消", null)
             .setPositiveButton("删除") { _, _ -> task("删除要素") {
                 withContext(Dispatchers.IO) { GpkgTestData.deleteFeature(file, layerName, fid) }
+                onSaved?.invoke(file)
                 unload()
                 try {
                     withContext(Dispatchers.IO) { GpkgTestData.verifyDeleted(file, layerName, fid) }
                     if (!disposed) loadMap(false)
-                    message("删除成功", "GDAL 关闭重读核验：FID $fid 已不存在。")
+                    Toast.makeText(activity, "要素已删除", Toast.LENGTH_SHORT).show()
                 } catch (e: Exception) {
                     throw IllegalStateException("GDAL 已完成删除，但后续核验/刷新失败，请使用重开核验检查。", e)
                 }
@@ -460,7 +505,7 @@ class GpkgTestController(
 
     private data class Input(val field: GpkgTestData.EditableField, val edit: EditText, val nullBox: CheckBox, val old: Any?)
 
-    private fun editAttributes() {
+    private fun editAttributes(saveAfter: Boolean = false) {
         val layer = selectedDisplayLayer ?: error("请先加载地图并选择图层")
         val graphic = selectedGraphic
         check(graphic != null || newFeature) { "请先在地图选择要素，或先新增要素" }
@@ -480,9 +525,9 @@ class GpkgTestController(
             form.addView(edit); form.addView(nullBox)
             Input(field, edit, nullBox, value)
         }
-        val dialog = AlertDialog.Builder(activity).setTitle("编辑属性（暂存草稿）")
+        val dialog = AlertDialog.Builder(activity).setTitle(if (newFeature) "填写新要素属性" else "编辑要素属性")
             .setView(ScrollView(activity).apply { addView(form) })
-            .setPositiveButton("暂存", null).setNegativeButton("取消", null).create()
+            .setPositiveButton(if (saveAfter) "保存要素" else "暂存", null).setNegativeButton("取消", null).create()
         dialog.setOnShowListener {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                 try {
@@ -508,8 +553,9 @@ class GpkgTestController(
                         changes[input.field.name] = value
                     }
                     attributes.putAll(changes)
+                    if (saveAfter && (sketch != null || attributes.isNotEmpty())) save()
+                    else refreshStatus("属性没有变化")
                     dialog.dismiss()
-                    refreshStatus("属性已暂存，点击“保存修改”写入文件")
                 } catch (e: Exception) { inputError(e) }
             }
         }
@@ -531,7 +577,7 @@ class GpkgTestController(
             check(editor.isSketchValid) { "几何不完整，请继续编辑" }
             val shape = editor.geometry ?: error("几何为空")
             check(!shape.isEmpty) { "不允许保存空几何" }
-            check(!shape.hasZ() && !shape.hasM() && !shape.hasCurves()) { "当前测试只保存二维直线几何" }
+            check(!shape.hasZ() && !shape.hasM() && !shape.hasCurves()) { "当前只支持二维直线几何" }
             val targetSrs = graphic?.geometry?.spatialReference ?: layer.extent?.spatialReference
                 ?: error("图层缺少坐标系")
             // SketchEditor 输出的面环可能尚未完成方向/闭合等拓扑规范化；先 simplify，
@@ -541,14 +587,14 @@ class GpkgTestController(
             check(GeometryEngine.isSimple(projected)) { "几何规范化后仍不合法，可能存在自相交或重复节点，请调整后保存" }
             geometryJson = arcGisGeometryToGeoJson(projected)
         }
+        if (adding) layer.fields.filter { !it.nullable }.forEach { field ->
+            check(changes.containsKey(field.name) && changes[field.name] != null) { "请填写必填字段：${field.name}" }
+        }
         task("保存修改") {
-            sketch?.stop()
+            var written = false
             try {
                 val fid = withContext(Dispatchers.IO) {
                     if (adding) {
-                        layer.fields.filter { !it.nullable }.forEach { field ->
-                            check(changes.containsKey(field.name)) { "新增要素前请编辑必填字段：${field.name}" }
-                        }
                         val geometry = geometryJson ?: error("新增要素需要先绘制几何")
                         GpkgTestData.insertFeature(file, layerName, geometry, changes)
                     } else {
@@ -558,9 +604,10 @@ class GpkgTestController(
                         id
                     }
                 }
+                written = true
                 cancelEdit()
                 unload()
-                val report = withContext(Dispatchers.IO) { GpkgTestData.verifySaved(file, layerName, fid, changes) }
+                withContext(Dispatchers.IO) { GpkgTestData.verifySaved(file, layerName, fid, changes) }
                 if (!disposed) {
                     loadMap(false)
                     val reloadedLayer = displayLayers.first { it.name == layerName }
@@ -569,11 +616,17 @@ class GpkgTestController(
                     } ?: error("GDAL 写入后重读未找到 FID=$fid")
                     selectedDisplayLayer = reloadedLayer
                     selectedGraphic = reloadedGraphic
-                    message("保存成功并已重开", "$report\n\n已由 GDAL 重新读取并在地图上选中该要素。")
+                    selectionMode = true
+                    onSaved?.invoke(file)
+                    Toast.makeText(activity, "已保存并核验", Toast.LENGTH_SHORT).show()
+                    refreshStatus("要素已保存")
                 }
             } catch (e: Exception) {
-                unload()
-                throw IllegalStateException("GDAL 写入已启动，但后续重读/地图刷新失败；请点击“重开核验”检查文件状态。", e)
+                if (written) {
+                    unload()
+                    throw IllegalStateException("数据已写入，但重读核验失败。请从“更多 → 重新读取”检查数据。", e)
+                }
+                throw e
             }
         }
     }
@@ -615,6 +668,7 @@ class GpkgTestController(
         attributes.clear()
         if (newFeature) selectedGraphic = null
         newFeature = false
+        drawingFinished = false
     }
 
     private fun unload() {

@@ -357,54 +357,66 @@
         android:textColor="@color/white"
         android:visibility="gone"/>
 
-    <LinearLayout
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="12dp"
-        android:layout_marginTop="60dp"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btnVerifyGpkg"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_import_btn"
-            android:text="SHP 界线编辑 ▾"
-            android:textColor="@color/whiteColor" />
-
+    <FrameLayout
+        android:id="@+id/surveyWorkspace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
         <LinearLayout
-            android:id="@+id/gpkgTestBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/bg_main_gradient"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fillViewport="false"
-                android:maxHeight="430dp">
-                <LinearLayout
-                    android:id="@+id/gpkgTestActions"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </ScrollView>
-
-            <TextView
-                android:id="@+id/gpkgTestStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="4"
-                android:padding="8dp"
-                android:text="从数据资源选择 SHP，点击编辑"
-                android:textColor="@color/whiteColor"
-                android:textSize="12sp" />
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:padding="6dp">
+            <Button android:id="@+id/btnSurveyBack" android:layout_width="wrap_content" android:layout_height="48dp" android:text="‹ 作业列表" />
+            <TextView android:id="@+id/surveyTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:padding="8dp" android:textColor="@color/whiteColor" android:textSize="18sp" android:maxLines="2" />
+            <Button android:id="@+id/btnSurveyLayers" android:layout_width="wrap_content" android:layout_height="48dp" android:text="图层" />
+            <Button android:id="@+id/btnSurveyExport" android:layout_width="wrap_content" android:layout_height="48dp" android:text="导出" />
+            <Button android:id="@+id/btnSurveyMore" android:layout_width="wrap_content" android:layout_height="48dp" android:text="更多" />
         </LinearLayout>
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|top"
+            android:layout_marginEnd="80dp"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/bg_main_gradient"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:padding="8dp">
+            <TextView android:id="@+id/surveyStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp" android:textColor="@color/whiteColor" android:textSize="14sp" />
+            <ScrollView android:layout_width="match_parent" android:layout_height="250dp">
+                <LinearLayout android:id="@+id/surveyFeatureActions" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+            </ScrollView>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/surveyPrimaryActions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/bg_main_gradient"
+            android:clickable="true"
+            android:padding="6dp"
+            android:orientation="horizontal" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/surveyJobsPanel"
+        android:layout_width="380dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/bg_main_gradient"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone" />
 
     <!-- 几何编辑器 -->
     <include

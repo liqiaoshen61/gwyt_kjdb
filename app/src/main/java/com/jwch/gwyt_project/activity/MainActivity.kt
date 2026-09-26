@@ -125,7 +125,8 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
     lateinit var handleMapUtil: HandleMapUtil   //原地图
     lateinit var mapCompareUtil: HandleMapUtil  //对比地图
     lateinit var geometryEditorHelper: GeometryEditorHelper  //几何编辑器
-    private var gpkgTestController: com.jwch.gwyt_project.util.GpkgTestController? = null
+    private var surveyEditorController: com.jwch.gwyt_project.util.SurveyEditorController? = null
+    private var surveyJobsController: com.jwch.gwyt_project.util.SurveyJobsController? = null
     lateinit var locationManager: UnifiedLocationManager
 
     /** 设备朝向提供器：驱动地图上「我的位置」箭头随设备转动（懒加载，首次用到时才建） */
@@ -545,13 +546,41 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
 
     @SuppressLint("MissingPermission")
     override fun initViewListener() {
-        gpkgTestController = com.jwch.gwyt_project.util.GpkgTestController(
-            this, vb.mapView, vb.gpkgTestActions, vb.gpkgTestStatus
+        surveyEditorController = com.jwch.gwyt_project.util.SurveyEditorController(
+            this, vb.mapView, vb.surveyFeatureActions, vb.surveyStatus,
+            vb.surveyPrimaryActions, vb.surveyTitle
         )
-        vb.btnVerifyGpkg.setOnClickListener {
-            vb.gpkgTestBody.visibility = if (vb.gpkgTestBody.visibility == android.view.View.VISIBLE)
-                android.view.View.GONE else android.view.View.VISIBLE
-            if (vb.gpkgTestBody.visibility == android.view.View.VISIBLE) gpkgTestController?.showCurrent()
+        surveyJobsController = com.jwch.gwyt_project.util.SurveyJobsController(
+            this, vb.surveyJobsPanel,
+            { job, export ->
+                handleMapUtil.shpGraphicsLayer.graphics.clear()
+                surveyEditorController?.openWorkspace(java.io.File(job.file), job.name, export)
+            }, { setSurveyNavigation(false) }
+        )
+        surveyEditorController?.onOpened = {
+            surveyJobsController?.hide()
+            vb.surveyWorkspace.visibility = android.view.View.VISIBLE
+            setSurveyNavigation(true)
+        }
+        surveyEditorController?.onSaved = { file -> surveyJobsController?.markSaved(file) }
+        vb.includeMenuList.llMenuSurvey.setOnClickListener {
+            if (surveyEditorController?.isWorkspaceOpen == true) returnToSurveyJobs()
+            else if (surveyJobsController?.isVisible == true) {
+                surveyJobsController?.hide(); setSurveyNavigation(false)
+            } else {
+                closeAllMenu()
+                showRightContent(false)
+                surveyJobsController?.show()
+                setSurveyNavigation(true)
+            }
+        }
+        vb.btnSurveyBack.setOnClickListener { returnToSurveyJobs() }
+        vb.btnSurveyLayers.setOnClickListener { surveyEditorController?.selectLayer() }
+        vb.btnSurveyExport.setOnClickListener { surveyEditorController?.exportShp() }
+        vb.btnSurveyMore.setOnClickListener { surveyEditorController?.showMore() }
+        listOf(vb.btnSurveyBack, vb.btnSurveyLayers, vb.btnSurveyExport, vb.btnSurveyMore).forEach {
+            it.setBackgroundResource(R.drawable.bg_import_btn)
+            it.setTextColor(android.graphics.Color.WHITE)
         }
         //防止穿透
         vb.includeViewAreaList.llAreaList.onClick { }
@@ -1165,7 +1194,7 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
         }
         // 选择模式下点击地图选中图形进行编辑
         handleMapUtil.tapInterceptor = { event ->
-            if (gpkgTestController?.onTap(event) == true) {
+            if (surveyEditorController?.onTap(event) == true) {
                 true
             } else if (geometryEditorHelper.isInSelectMode()) {
                 geometryEditorHelper.onMapTapped(event.x.toDouble(), event.y.toDouble())
@@ -1878,12 +1907,6 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
                 val modelList = event.data as List<ShpModel>
                 handleMapUtil.drawShpList(modelList)
             }
-            DataEvent.OPEN_SHP_EDITOR -> {
-                if (vb.includeViewSwitchMap.llSwitchMap.isShow()) vb.includeMenuList.llMenuMaps.performClick()
-                vb.gpkgTestBody.visibility = android.view.View.VISIBLE
-                handleMapUtil.shpGraphicsLayer.graphics.clear()
-                gpkgTestController?.openShp(java.io.File(event.data as String))
-            }
             //关闭外部导入（现集成在 SwitchMap 中）
             DataEvent.CLOSE_GEOJSON_FRAG -> {
                 vb.includeMenuList.llMenuMaps.performClick()
@@ -2279,7 +2302,8 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (gpkgTestController?.onActivityResult(requestCode, resultCode, data) == true) return
+        if (surveyJobsController?.onActivityResult(requestCode, resultCode, data) == true) return
+        if (surveyEditorController?.onActivityResult(requestCode, resultCode, data) == true) return
 //        (resultCode == RESULT_OK).yes {
 //            when(requestCode){
 //
@@ -2402,8 +2426,10 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
     }
 
     override fun onDestroy() {
-        gpkgTestController?.dispose()
-        gpkgTestController = null
+        surveyJobsController?.dispose()
+        surveyJobsController = null
+        surveyEditorController?.dispose()
+        surveyEditorController = null
         locatingHandler.removeCallbacksAndMessages(null)
         vb.tvLocating.gone()
         compassHelper.stop()
@@ -2417,13 +2443,36 @@ class MainActivity : FullScreenActivity<PageMainBinding>(), CompoundButton.OnChe
     }
 
     override fun onBackPressed() {
-
-
+        if (surveyEditorController?.isWorkspaceOpen == true) { returnToSurveyJobs(); return }
+        if (surveyJobsController?.isVisible == true) {
+            surveyJobsController?.hide(); setSurveyNavigation(false); return
+        }
         showNormalDialog(context, "是否退出应用？") {
             it.yes {
                 PageManager.exit()
             }
         }
+    }
+
+    private fun returnToSurveyJobs() {
+        surveyEditorController?.requestLeave {
+            vb.surveyWorkspace.visibility = android.view.View.GONE
+            surveyJobsController?.show()
+            setSurveyNavigation(true)
+        }
+    }
+
+    private fun setSurveyNavigation(active: Boolean) {
+        // 通过作业栏返回后再进入其他模块，避免编辑过程中同时打开业务面板。
+        listOf(vb.includeMenuList.llMenuMaps, vb.includeMenuList.llMenuArea,
+            vb.includeMenuList.llMenuSearch, vb.includeMenuList.llMenuTools,
+            vb.includeMenuList.llMenuCollection, vb.includeMenuList.llAnalysis,
+            vb.includeMenuList.llMenuSetting).forEach {
+            it.isEnabled = !active
+            it.alpha = if (active) 0.45f else 1f
+        }
+        vb.includeViewRightTools.ivClearMap.isEnabled = !active
+        vb.includeMenuList.llMenuSurvey.setBackgroundResource(if (active) R.drawable.bg_import_btn else 0)
     }
 
     //工具

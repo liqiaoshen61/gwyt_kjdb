@@ -3,7 +3,6 @@ package com.jwch.gwyt_project.adapter.shp
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.chad.library.adapter.base.entity.node.BaseNode
 import com.chad.library.adapter.base.provider.BaseNodeProvider
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -51,9 +50,6 @@ class ShpFileProvider(override val itemViewType: Int, override val layoutId: Int
         // 删除按钮
         helper.getView<ImageView>(R.id.ivDelete).setOnClickListener {
             (getAdapter() as? ShpTreeAdapter)?.onDeleteItem?.invoke(item)
-        }
-        helper.getView<TextView>(R.id.tvEditShp).setOnClickListener {
-            (getAdapter() as? ShpTreeAdapter)?.onEditItem?.invoke(item)
         }
 
         // 根目录下隐藏占位图标，子级保留对齐

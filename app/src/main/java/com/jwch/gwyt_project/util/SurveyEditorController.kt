@@ -19,6 +19,7 @@ import com.esri.arcgisruntime.mapping.view.SketchCreationMode
 import com.esri.arcgisruntime.symbology.SimpleFillSymbol
 import com.esri.arcgisruntime.symbology.SimpleLineSymbol
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol
+import com.jwch.gwyt_project.R
 import kotlinx.coroutines.*
 import java.io.File
 import com.google.gson.JsonParser
@@ -597,18 +598,88 @@ class SurveyEditorController(
         check(graphic != null || newFeature) { "请先在地图选择要素，或先新增要素" }
         val fields = layer.fields
         check(fields.isNotEmpty()) { "没有可编辑的文本/整数/小数属性字段" }
-        val form = LinearLayout(activity).apply { orientation = LinearLayout.VERTICAL; setPadding(24, 12, 24, 12) }
+        val form = LinearLayout(activity).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(16), dp(14), dp(16), dp(12))
+            setBackgroundColor(Color.rgb(244, 248, 253))
+        }
+        form.addView(TextView(activity).apply {
+            text = "${if (newFeature) "新增要素" else "更新要素"} · 共 ${fields.size} 个属性项，带 * 为必填"
+            textSize = 13f
+            setTextColor(Color.rgb(73, 98, 128))
+            setPadding(dp(2), 0, dp(2), dp(12))
+        })
         val inputs = fields.map { field ->
             val value = if (attributes.containsKey(field.name)) attributes[field.name]
                 else graphic?.attributes?.get(field.name)?.takeUnless { it == "NULL" }
-            form.addView(TextView(activity).apply { text = "${field.name} (${field.typeName})" })
-            val edit = EditText(activity).apply { setText(value?.toString() ?: ""); isSingleLine = true }
+            val fieldCard = LinearLayout(activity).apply {
+                orientation = LinearLayout.VERTICAL
+                setPadding(dp(12), dp(8), dp(12), dp(8))
+                setBackgroundResource(R.drawable.bg_attribute_card)
+                layoutParams = LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(8) }
+            }
+            val fieldHeader = LinearLayout(activity).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = android.view.Gravity.CENTER_VERTICAL
+            }
+            fieldHeader.addView(TextView(activity).apply {
+                text = field.name
+                textSize = 14f
+                setTextColor(Color.rgb(34, 56, 82))
+                setTypeface(null, android.graphics.Typeface.BOLD)
+            }, LinearLayout.LayoutParams(0, -2, 1f))
+            val required = !field.nullable
+            fieldHeader.addView(TextView(activity).apply {
+                text = if (required) "* 必填" else fieldTypeLabel(field)
+                textSize = 11f
+                setTextColor(if (required) Color.rgb(190, 66, 74) else Color.rgb(105, 127, 151))
+                setPadding(dp(5), dp(2), dp(5), dp(2))
+            })
+            fieldCard.addView(fieldHeader)
+
+            val edit = EditText(activity).apply {
+                setText(value?.toString() ?: "")
+                hint = "请输入${field.name}"
+                isSingleLine = true
+                textSize = 15f
+                setTextColor(Color.rgb(31, 48, 69))
+                setHintTextColor(Color.rgb(143, 158, 176))
+                setPadding(dp(10), 0, dp(10), 0)
+                background = activity.getDrawable(R.drawable.bg_attribute_input)
+                inputType = when (field.type) {
+                    org.gdal.ogr.ogr.OFTInteger, org.gdal.ogr.ogr.OFTInteger64 ->
+                        android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_FLAG_SIGNED
+                    org.gdal.ogr.ogr.OFTReal -> android.text.InputType.TYPE_CLASS_NUMBER or
+                        android.text.InputType.TYPE_NUMBER_FLAG_SIGNED or android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
+                    else -> android.text.InputType.TYPE_CLASS_TEXT
+                }
+                if (field.type == org.gdal.ogr.ogr.OFTString && field.width > 0) {
+                    filters = arrayOf(android.text.InputFilter.LengthFilter(field.width))
+                }
+                addTextChangedListener(object : android.text.TextWatcher {
+                    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { error = null }
+                    override fun afterTextChanged(s: android.text.Editable?) = Unit
+                })
+            }
+            fieldCard.addView(edit, LinearLayout.LayoutParams(-1, dp(44)).apply { topMargin = dp(6) })
             val nullBox = CheckBox(activity).apply {
-                text = "空值 NULL"; isChecked = value == null && field.nullable; isEnabled = field.nullable
-                setOnCheckedChangeListener { _, checked -> edit.isEnabled = !checked }
+                text = "留空（NULL）"
+                textSize = 12f
+                setTextColor(Color.rgb(91, 111, 135))
+                buttonTintList = android.content.res.ColorStateList.valueOf(Color.rgb(53, 112, 176))
+                isChecked = value == null && field.nullable
+                isEnabled = field.nullable
+                visibility = if (field.nullable) android.view.View.VISIBLE else android.view.View.GONE
+                setOnCheckedChangeListener { _, checked ->
+                    edit.isEnabled = !checked
+                    edit.alpha = if (checked) 0.55f else 1f
+                }
             }
             edit.isEnabled = !nullBox.isChecked
-            form.addView(edit); form.addView(nullBox)
+            edit.alpha = if (nullBox.isChecked) 0.55f else 1f
+            fieldCard.addView(nullBox)
+            form.addView(fieldCard)
             Input(field, edit, nullBox, value)
         }
         val dialog = AlertDialog.Builder(activity).setTitle(if (newFeature) "填写新要素属性" else "编辑要素属性")
@@ -625,16 +696,22 @@ class SurveyEditorController(
                                 (!input.nullBox.isChecked && input.old != null && text == input.old.toString()))) {
                             return@forEach
                         }
-                        val value: Any? = if (input.nullBox.isChecked) {
-                            check(input.field.nullable) { "${input.field.name} 不允许 NULL" }; null
-                        } else when (input.field.type) {
-                            org.gdal.ogr.ogr.OFTString -> {
-                                check(input.field.width <= 0 || text.length <= input.field.width) { "${input.field.name} 长度超限" }; text
+                        val value: Any? = try {
+                            if (input.nullBox.isChecked) {
+                                check(input.field.nullable) { "此字段不允许留空" }; null
+                            } else when (input.field.type) {
+                                org.gdal.ogr.ogr.OFTString -> {
+                                    check(input.field.width <= 0 || text.length <= input.field.width) { "内容长度超出限制" }; text
+                                }
+                                org.gdal.ogr.ogr.OFTInteger -> text.toInt()
+                                org.gdal.ogr.ogr.OFTInteger64 -> text.toLong()
+                                org.gdal.ogr.ogr.OFTReal -> text.toDouble().also { check(it.isFinite()) { "请输入有效数值" } }
+                                else -> error("暂不支持该字段类型")
                             }
-                            org.gdal.ogr.ogr.OFTInteger -> text.toInt()
-                            org.gdal.ogr.ogr.OFTInteger64 -> text.toLong()
-                            org.gdal.ogr.ogr.OFTReal -> text.toDouble().also { check(it.isFinite()) { "数值必须有限" } }
-                            else -> error("不支持该字段类型")
+                        } catch (e: Exception) {
+                            input.edit.error = e.message ?: "输入格式不正确"
+                            input.edit.requestFocus()
+                            throw e
                         }
                         changes[input.field.name] = value
                     }
@@ -649,6 +726,13 @@ class SurveyEditorController(
     }
 
     private fun inputError(e: Exception) { Toast.makeText(activity, "输入有误：${e.message}", Toast.LENGTH_LONG).show() }
+
+    private fun fieldTypeLabel(field: GpkgTestData.EditableField): String = when (field.type) {
+        org.gdal.ogr.ogr.OFTString -> if (field.width > 0) "文本 · ${field.width} 字符" else "文本"
+        org.gdal.ogr.ogr.OFTInteger, org.gdal.ogr.ogr.OFTInteger64 -> "整数"
+        org.gdal.ogr.ogr.OFTReal -> "小数"
+        else -> field.typeName
+    }
 
     private fun save() {
         val layer = selectedDisplayLayer ?: error("请先加载地图并选择图层")

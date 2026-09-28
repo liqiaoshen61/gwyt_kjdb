@@ -273,21 +273,8 @@ class SettingDialog(context: Context) : JameniBaseDialog(context) {
 
 
     fun getDataUpdateTime() {
-        try {
-            val gson = GetJsonUtil.getJsonFromFile(Config.APPDB_PATH + "app_update_log.json")
-            if (gson.isNotBlank()) {
-                vb!!.llDataUpdateTime.show()
-                val list = getListFromJson<UpdateLog>(gson)
-                val dataUpdatetime =
-                    list.filter { it.update_type == "data" }.maxByOrNull { it.update_time }?.version
-                vb!!.tvDataUpdateTime.text = dataUpdatetime
-            } else {
-                vb!!.llDataUpdateTime.gone()
-            }
-        } catch (e: Exception) {
-            // JSON解析异常时隐藏更新时间区域
-            vb!!.llDataUpdateTime.gone()
-        }
+        // 暂时隐藏设置中的数据更新时间
+        vb?.llDataUpdateTime?.gone()
     }
 
     private fun setOnClick() {

@@ -97,6 +97,7 @@ class SurveyEditorController(
     fun openWorkspace(file: File, name: String, exportAfter: Boolean = false) = ensureClean {
         task("打开 $name") {
             check(file.isFile && file.canonicalPath.startsWith(root.canonicalPath + File.separator)) { "作业数据已失效，请重新导入" }
+            withContext(Dispatchers.IO) { GpkgTestData.ensureFieldsNullable(file) }
             unload()
             sourceName = name
             workspaceActive = true
@@ -590,7 +591,12 @@ class SurveyEditorController(
             } }.show()
     }
 
-    private data class Input(val field: GpkgTestData.EditableField, val edit: EditText, val nullBox: CheckBox, val old: Any?)
+    private data class Input(
+        val field: GpkgTestData.EditableField,
+        val edit: EditText,
+        val old: Any?,
+        val wasEverFilled: BooleanArray
+    )
 
     private fun editAttributes(saveAfter: Boolean = false) {
         val layer = selectedDisplayLayer ?: error("请先加载地图并选择图层")
@@ -604,7 +610,7 @@ class SurveyEditorController(
             setBackgroundColor(Color.rgb(244, 248, 253))
         }
         form.addView(TextView(activity).apply {
-            text = "${if (newFeature) "新增要素" else "更新要素"} · 共 ${fields.size} 个属性项，带 * 为必填"
+            text = "未填字段保存为空值；文本输入后删空会保存为空字符串"
             textSize = 13f
             setTextColor(Color.rgb(73, 98, 128))
             setPadding(dp(2), 0, dp(2), dp(12))
@@ -628,11 +634,10 @@ class SurveyEditorController(
                 setTextColor(Color.rgb(34, 56, 82))
                 setTypeface(null, android.graphics.Typeface.BOLD)
             }, LinearLayout.LayoutParams(0, -2, 1f))
-            val required = !field.nullable
             fieldHeader.addView(TextView(activity).apply {
-                text = if (required) "* 必填" else fieldTypeLabel(field)
+                text = fieldTypeLabel(field)
                 textSize = 11f
-                setTextColor(if (required) Color.rgb(190, 66, 74) else Color.rgb(105, 127, 151))
+                setTextColor(Color.rgb(105, 127, 151))
                 setPadding(dp(5), dp(2), dp(5), dp(2))
             })
             fieldCard.addView(fieldHeader)
@@ -656,31 +661,18 @@ class SurveyEditorController(
                 if (field.type == org.gdal.ogr.ogr.OFTString && field.width > 0) {
                     filters = arrayOf(android.text.InputFilter.LengthFilter(field.width))
                 }
-                addTextChangedListener(object : android.text.TextWatcher {
-                    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
-                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { error = null }
-                    override fun afterTextChanged(s: android.text.Editable?) = Unit
-                })
             }
             fieldCard.addView(edit, LinearLayout.LayoutParams(-1, dp(44)).apply { topMargin = dp(6) })
-            val nullBox = CheckBox(activity).apply {
-                text = "留空（NULL）"
-                textSize = 12f
-                setTextColor(Color.rgb(91, 111, 135))
-                buttonTintList = android.content.res.ColorStateList.valueOf(Color.rgb(53, 112, 176))
-                isChecked = value == null && field.nullable
-                isEnabled = field.nullable
-                visibility = if (field.nullable) android.view.View.VISIBLE else android.view.View.GONE
-                setOnCheckedChangeListener { _, checked ->
-                    edit.isEnabled = !checked
-                    edit.alpha = if (checked) 0.55f else 1f
+            val wasEverFilled = booleanArrayOf(value?.toString()?.isNotEmpty() == true)
+            edit.addTextChangedListener(object : android.text.TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { edit.error = null }
+                override fun afterTextChanged(s: android.text.Editable?) {
+                    if (!s.isNullOrEmpty()) wasEverFilled[0] = true
                 }
-            }
-            edit.isEnabled = !nullBox.isChecked
-            edit.alpha = if (nullBox.isChecked) 0.55f else 1f
-            fieldCard.addView(nullBox)
+            })
             form.addView(fieldCard)
-            Input(field, edit, nullBox, value)
+            Input(field, edit, value, wasEverFilled)
         }
         val dialog = AlertDialog.Builder(activity).setTitle(if (newFeature) "填写新要素属性" else "编辑要素属性")
             .setView(ScrollView(activity).apply { addView(form) })
@@ -692,13 +684,14 @@ class SurveyEditorController(
                     inputs.forEach { input ->
                         val text = input.edit.text.toString()
                         // 未改变的字段完全保留，避免对旧值做无意义类型转换。
-                        if (!newFeature && ((input.nullBox.isChecked && input.old == null) ||
-                                (!input.nullBox.isChecked && input.old != null && text == input.old.toString()))) {
+                        if (!newFeature &&
+                            ((input.old == null && text.isEmpty() && !input.wasEverFilled[0]) ||
+                                (input.old != null && text == input.old.toString()))) {
                             return@forEach
                         }
                         val value: Any? = try {
-                            if (input.nullBox.isChecked) {
-                                check(input.field.nullable) { "此字段不允许留空" }; null
+                            if (text.isEmpty()) {
+                                if (input.field.type == org.gdal.ogr.ogr.OFTString && input.wasEverFilled[0]) "" else null
                             } else when (input.field.type) {
                                 org.gdal.ogr.ogr.OFTString -> {
                                     check(input.field.width <= 0 || text.length <= input.field.width) { "内容长度超出限制" }; text
@@ -756,9 +749,6 @@ class SurveyEditorController(
             val projected = GeometryEngine.project(normalized, targetSrs)
             check(GeometryEngine.isSimple(projected)) { "几何规范化后仍不合法，可能存在自相交或重复节点，请调整后保存" }
             geometryJson = arcGisGeometryToGeoJson(projected)
-        }
-        if (adding) layer.fields.filter { !it.nullable }.forEach { field ->
-            check(changes.containsKey(field.name) && changes[field.name] != null) { "请填写必填字段：${field.name}" }
         }
         task("保存修改") {
             var written = false

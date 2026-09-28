@@ -28,7 +28,7 @@ class SurveyJobsController(
     data class Job(val id: String, var name: String, val file: String, var count: Long,
                    var savedAt: Long = 0, var geometry: String = "矢量", val source: String = "")
 
-    companion object { private const val IMPORT_FOLDER = 28704 }
+    companion object { private const val IMPORT_FOLDER = 28704; private const val PAGE_SIZE = 10 }
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
     private val prefs = activity.getSharedPreferences("survey_jobs", 0)
     private val root = File(activity.getExternalFilesDir(null) ?: activity.filesDir, "shp_workspace")
@@ -37,6 +37,12 @@ class SurveyJobsController(
     } catch (_: Exception) { mutableListOf<Job>() }
     private var busy = false
     private var disposed = false
+    private var searchQuery = ""
+    private var currentPage = 0
+    private var jobList: LinearLayout? = null
+    private var pageLabel: TextView? = null
+    private var previousPageButton: TextView? = null
+    private var nextPageButton: TextView? = null
     val isVisible: Boolean get() = panel.visibility == View.VISIBLE
 
     init { migrateExistingJobs() }
@@ -92,24 +98,84 @@ class SurveyJobsController(
     private fun render() {
         if (disposed) return
         panel.removeAllViews()
+        jobList = null; pageLabel = null; previousPageButton = null; nextPageButton = null
         val content = LinearLayout(activity).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(10), dp(10), dp(10), dp(10)) }
         panel.addView(content, FrameLayout.LayoutParams(-1, -1))
         val header = LinearLayout(activity).apply { orientation = LinearLayout.HORIZONTAL; gravity = android.view.Gravity.CENTER_VERTICAL }
         header.addView(label("勘界作业", 20f), LinearLayout.LayoutParams(0, -2, 1f))
         header.addView(button("关闭") { hide(); onClose() }, LinearLayout.LayoutParams(dp(70), dp(44)))
         content.addView(header)
-        content.addView(button(if (busy) "正在处理…" else "＋ 导入 SHP") {
+        val search = EditText(activity).apply {
+            hint = "搜索作业名称"
+            textSize = 14f
+            singleLine = true
+            setTextColor(Color.WHITE)
+            setHintTextColor(0xFFB9C4D0.toInt())
+            setPadding(dp(12), 0, dp(12), 0)
+            setBackgroundResource(R.drawable.bg_survey_action)
+            setText(searchQuery)
+            addTextChangedListener(object : android.text.TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    searchQuery = s?.toString().orEmpty()
+                    currentPage = 0
+                    renderJobPage()
+                }
+                override fun afterTextChanged(s: android.text.Editable?) = Unit
+            })
+        }
+        content.addView(search, LinearLayout.LayoutParams(-1, dp(42)).apply { setMargins(dp(4), dp(6), dp(4), dp(4)) })
+        content.addView(label(if (busy) "正在处理作业数据，请稍候。" else "共 ${jobs.size} 个作业 · 进入后自动加载地图"))
+        val list = LinearLayout(activity).apply { orientation = LinearLayout.VERTICAL }
+        jobList = list
+        content.addView(ScrollView(activity).apply { addView(list) }, LinearLayout.LayoutParams(-1, 0, 1f))
+        val pagination = LinearLayout(activity).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = android.view.Gravity.CENTER
+            setPadding(0, dp(4), 0, dp(4))
+        }
+        val prev = pageControl("上一页") { if (currentPage > 0) { currentPage--; renderJobPage() } }
+        previousPageButton = prev
+        pagination.addView(prev, LinearLayout.LayoutParams(0, dp(38), 1f).apply { setMargins(dp(3), 0, dp(3), 0) })
+        val page = label("", 13f).apply { gravity = android.view.Gravity.CENTER }
+        pageLabel = page
+        pagination.addView(page, LinearLayout.LayoutParams(dp(96), dp(38)))
+        val next = pageControl("下一页") { currentPage++; renderJobPage() }
+        nextPageButton = next
+        pagination.addView(next, LinearLayout.LayoutParams(0, dp(38), 1f).apply { setMargins(dp(3), 0, dp(3), 0) })
+        content.addView(pagination)
+        val importButton = button(if (busy) "正在处理…" else "＋ 导入 SHP") {
             AlertDialog.Builder(activity).setTitle("导入 SHP")
                 .setMessage("选择包含 SHP 的文件夹。每个数据集须有同名的 shp、shx、dbf、prj 文件；导入后自动创建勘界作业。")
                 .setPositiveButton("选择文件夹") { _, _ ->
                     activity.startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT_TREE), IMPORT_FOLDER)
                 }.setNegativeButton("取消", null).show()
-        })
-        content.addView(label(if (busy) "正在处理作业数据，请稍候。" else "共 ${jobs.size} 个作业 · 进入后自动加载地图"))
-        val list = LinearLayout(activity).apply { orientation = LinearLayout.VERTICAL }
-        content.addView(ScrollView(activity).apply { addView(list) }, LinearLayout.LayoutParams(-1, 0, 1f))
-        if (jobs.isEmpty()) list.addView(label("还没有勘界作业\n\n点击上方“导入 SHP”开始。", 16f))
-        jobs.sortedByDescending { it.savedAt }.forEach { job ->
+        }
+        content.addView(importButton)
+        renderJobPage()
+    }
+
+    private fun pageControl(title: String, click: () -> Unit) = TextView(activity).apply {
+        text = title; textSize = 14f; gravity = android.view.Gravity.CENTER
+        setTextColor(Color.WHITE); setBackgroundResource(R.drawable.bg_survey_action)
+        isEnabled = !busy
+        setOnClickListener { if (!busy) click() }
+    }
+
+    private fun renderJobPage() {
+        val list = jobList ?: return
+        list.removeAllViews()
+        val filtered = jobs.sortedByDescending { it.savedAt }.filter {
+            it.name.contains(searchQuery.trim(), ignoreCase = true)
+        }
+        val pageCount = maxOf(1, (filtered.size + PAGE_SIZE - 1) / PAGE_SIZE)
+        currentPage = currentPage.coerceIn(0, pageCount - 1)
+        val from = currentPage * PAGE_SIZE
+        val pageJobs = filtered.drop(from).take(PAGE_SIZE)
+        if (filtered.isEmpty()) {
+            list.addView(label(if (jobs.isEmpty()) "还没有勘界作业\n\n点击底部“导入 SHP”开始。" else "没有找到匹配名称的作业。", 16f))
+        }
+        pageJobs.forEach { job ->
             val card = LinearLayout(activity).apply {
                 orientation = LinearLayout.VERTICAL; setPadding(dp(6), dp(5), dp(6), dp(5))
                 setBackgroundResource(R.drawable.bg_import_btn)
@@ -119,13 +185,20 @@ class SurveyJobsController(
             val saved = if (job.savedAt == 0L) "尚未编辑" else "最近保存：" + SimpleDateFormat("MM-dd HH:mm", Locale.CHINA).format(Date(job.savedAt))
             card.addView(label("${job.geometry}图层 · ${job.count} 个要素　·　$saved", 12f).apply { setPadding(dp(6), 0, dp(6), dp(4)); maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END })
             val row = LinearLayout(activity).apply { orientation = LinearLayout.HORIZONTAL; gravity = android.view.Gravity.CENTER_VERTICAL }
-            row.addView(button("进入作业") { onOpen(job, false) }, LinearLayout.LayoutParams(dp(96), dp(38)).apply { setMargins(dp(2), dp(2), dp(4), dp(2)) })
-            row.addView(actionItem("重命名", R.drawable.ic_job_rename) { jobAction(job, 0) }, LinearLayout.LayoutParams(0, dp(38), 1f))
-            row.addView(actionItem("导出", R.drawable.ic_job_export) { jobAction(job, 1) }, LinearLayout.LayoutParams(0, dp(38), 1f))
-            row.addView(actionItem("删除", R.drawable.ic_job_delete) { jobAction(job, 2) }, LinearLayout.LayoutParams(0, dp(38), 1f))
+            val actionParams = { LinearLayout.LayoutParams(0, dp(38), 1f).apply { setMargins(dp(3), dp(2), dp(3), dp(2)) } }
+            row.addView(actionItem("加载图层", R.drawable.ic_job_layers) { onOpen(job, false) }, actionParams())
+            row.addView(actionItem("重命名", R.drawable.ic_job_rename) { jobAction(job, 0) }, actionParams())
+            row.addView(actionItem("导出", R.drawable.ic_job_export) { jobAction(job, 1) }, actionParams())
+            row.addView(actionItem("删除", R.drawable.ic_job_delete) { jobAction(job, 2) }, actionParams())
             card.addView(row); list.addView(card)
         }
+        pageLabel?.text = "${currentPage + 1} / $pageCount"
+        previousPageButton?.isEnabled = !busy && currentPage > 0
+        nextPageButton?.isEnabled = !busy && currentPage < pageCount - 1
+        previousPageButton?.alpha = if (previousPageButton?.isEnabled == true) 1f else 0.45f
+        nextPageButton?.alpha = if (nextPageButton?.isEnabled == true) 1f else 0.45f
     }
+
 
     private fun actionItem(title: String, icon: Int, click: () -> Unit) = LinearLayout(activity).apply {
         orientation = LinearLayout.HORIZONTAL

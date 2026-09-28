@@ -17,11 +17,11 @@ class FunctionControlUtil {
     val FILE_NEED_DECRYPTED = true //附件文件是否需要解密
 
     //左侧菜单按钮
-    val BUTTON_AREA = true //行政区划
+    val BUTTON_AREA = false //数据统计
     val BUTTON_SERACH = false //搜索
     val BUTTON_THEME_LAYER = true //专题图
-    val BUTTON_COLLECTION = true //收藏夹
-    val BUTTON_TOOL_BOX = true //工具
+    val BUTTON_COLLECTION = false //图斑收藏
+    val BUTTON_TOOL_BOX = false //新增记录
     val BUTTON_SETTING = true //设置
 
     //右下角按钮

@@ -226,8 +226,10 @@ object GpkgTestData {
             val target = driver.CreateDataSource(output.absolutePath, Vector(listOf("VERSION=1.2")))
                 ?: error("创建 GPKG 失败")
             try {
-                // 直接复制 OGR 图层，保留字段类型、空值、多部件和内环，不经过 ShpModel。
-                check(target.CopyLayer(layer, "imported") != null) { "转换失败：${gdal.GetLastErrorMsg()}" }
+                // 直接复制 OGR 图层，保留字段类型、多部件和内环，不经过 ShpModel。
+                val copied = target.CopyLayer(layer, "imported") ?: error("转换失败：${gdal.GetLastErrorMsg()}")
+                // SHP 没有可靠的字段必填约束。工作副本统一允许 NULL，匹配现场表单的空值规则。
+                makeFieldsNullable(copied)
             } finally { target.delete() }
             read(output) { converted ->
                 check(converted.GetLayer(0).GetFeatureCount() == layer.GetFeatureCount()) { "转换前后数量不一致" }
@@ -235,6 +237,37 @@ object GpkgTestData {
             }
         }
         return output
+    }
+
+    /** 只修改应用自己的 GPKG 工作副本，不触碰原始 SHP。 */
+    fun ensureFieldsNullable(file: File) = readWrite(file) { ds ->
+        for (layerIndex in 0 until ds.GetLayerCount()) {
+            val layer = ds.GetLayer(layerIndex) ?: continue
+            makeFieldsNullable(layer)
+            check(layer.SyncToDisk() == 0) { "同步图层 ${layer.GetName()} 失败：${gdal.GetLastErrorMsg()}" }
+        }
+    }
+
+    private fun makeFieldsNullable(layer: org.gdal.ogr.Layer) {
+        val initialCount = layer.GetLayerDefn().GetFieldCount()
+        for (fieldIndex in 0 until initialCount) {
+            val current = layer.GetLayerDefn().GetFieldDefn(fieldIndex)
+            if (current.IsNullable() != 0) continue
+            val name = current.GetName()
+            val nullableField = FieldDefn(name, current.GetFieldType())
+            try {
+                nullableField.SetNullable(1)
+                check(layer.AlterFieldDefn(fieldIndex, nullableField, ogr.ALTER_NULLABLE_FLAG) == 0) {
+                    "字段 $name 无法改为空值：${gdal.GetLastErrorMsg()}"
+                }
+            } finally { nullableField.delete() }
+        }
+    }
+
+    private fun <T> readWrite(file: File, action: (DataSource) -> T): T {
+        initialize()
+        val ds = ogr.Open(file.absolutePath, 1) ?: error("无法打开 GPKG 工作副本：${gdal.GetLastErrorMsg()}")
+        return try { action(ds) } finally { ds.delete() }
     }
 
     /** 写入句柄关闭后，用独立 GDAL 数据源确认同一 FID 的属性和几何已落盘。 */

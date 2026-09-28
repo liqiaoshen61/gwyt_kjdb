@@ -84,7 +84,7 @@ class SurveyJobsController(
     private fun button(title: String, click: () -> Unit) = Button(activity).apply {
         text = title; textSize = 14f; setTextColor(Color.WHITE)
         setBackgroundResource(R.drawable.bg_import_btn)
-        layoutParams = LinearLayout.LayoutParams(-1, dp(46)).apply { setMargins(dp(4), dp(4), dp(4), dp(4)) }
+        layoutParams = LinearLayout.LayoutParams(-1, dp(42)).apply { setMargins(dp(4), dp(3), dp(4), dp(3)) }
         isEnabled = !busy
         setOnClickListener { if (!busy) click() }
     }
@@ -111,23 +111,40 @@ class SurveyJobsController(
         if (jobs.isEmpty()) list.addView(label("还没有勘界作业\n\n点击上方“导入 SHP”开始。", 16f))
         jobs.sortedByDescending { it.savedAt }.forEach { job ->
             val card = LinearLayout(activity).apply {
-                orientation = LinearLayout.VERTICAL; setPadding(dp(8), dp(8), dp(8), dp(8))
+                orientation = LinearLayout.VERTICAL; setPadding(dp(6), dp(5), dp(6), dp(5))
                 setBackgroundResource(R.drawable.bg_import_btn)
-                layoutParams = LinearLayout.LayoutParams(-1, -2).apply { setMargins(0, dp(6), 0, dp(6)) }
+                layoutParams = LinearLayout.LayoutParams(-1, -2).apply { setMargins(0, dp(4), 0, dp(4)) }
             }
-            card.addView(label(job.name, 18f))
+            card.addView(label(job.name, 16f).apply { setPadding(dp(6), dp(3), dp(6), dp(2)); maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END })
             val saved = if (job.savedAt == 0L) "尚未编辑" else "最近保存：" + SimpleDateFormat("MM-dd HH:mm", Locale.CHINA).format(Date(job.savedAt))
-            card.addView(label("${job.geometry}图层 · ${job.count} 个要素\n$saved"))
-            val row = LinearLayout(activity).apply { orientation = LinearLayout.HORIZONTAL }
-            row.addView(button("进入作业") { onOpen(job, false) }, LinearLayout.LayoutParams(0, dp(46), 1f))
-            row.addView(button("更多") { more(job) }, LinearLayout.LayoutParams(dp(78), dp(46)))
+            card.addView(label("${job.geometry}图层 · ${job.count} 个要素　·　$saved", 12f).apply { setPadding(dp(6), 0, dp(6), dp(4)); maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END })
+            val row = LinearLayout(activity).apply { orientation = LinearLayout.HORIZONTAL; gravity = android.view.Gravity.CENTER_VERTICAL }
+            row.addView(button("进入作业") { onOpen(job, false) }, LinearLayout.LayoutParams(dp(96), dp(38)).apply { setMargins(dp(2), dp(2), dp(4), dp(2)) })
+            row.addView(actionItem("重命名", R.drawable.ic_job_rename) { jobAction(job, 0) }, LinearLayout.LayoutParams(0, dp(38), 1f))
+            row.addView(actionItem("导出", R.drawable.ic_job_export) { jobAction(job, 1) }, LinearLayout.LayoutParams(0, dp(38), 1f))
+            row.addView(actionItem("删除", R.drawable.ic_job_delete) { jobAction(job, 2) }, LinearLayout.LayoutParams(0, dp(38), 1f))
             card.addView(row); list.addView(card)
         }
     }
 
-    private fun more(job: Job) {
-        AlertDialog.Builder(activity).setTitle(job.name).setItems(arrayOf("重命名", "导出 SHP", "删除作业")) { _, index ->
-            when (index) {
+    private fun actionItem(title: String, icon: Int, click: () -> Unit) = LinearLayout(activity).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = android.view.Gravity.CENTER
+        setBackgroundResource(R.drawable.bg_survey_action)
+        isEnabled = !busy
+        setOnClickListener { if (!busy) click() }
+        addView(ImageView(activity).apply {
+            setImageResource(icon)
+            imageTintList = android.content.res.ColorStateList.valueOf(Color.WHITE)
+        }, LinearLayout.LayoutParams(dp(18), dp(18)))
+        addView(TextView(activity).apply {
+            text = title; textSize = 12f; setTextColor(Color.WHITE)
+            maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END
+        }, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dp(3) })
+    }
+
+    private fun jobAction(job: Job, index: Int) {
+        when (index) {
                 0 -> {
                     val input = EditText(activity).apply { setText(job.name); isSingleLine = true }
                     val dialog = AlertDialog.Builder(activity).setTitle("作业名称").setView(input)
@@ -145,8 +162,7 @@ class SurveyJobsController(
                     .setMessage("将删除“${job.name}”及本机保存的编辑成果。请先导出需要保留的数据。")
                     .setPositiveButton("删除") { _, _ -> deleteJob(job) }
                     .setNegativeButton("取消", null).show()
-            }
-        }.show()
+        }
     }
 
     private fun deleteJob(job: Job) {

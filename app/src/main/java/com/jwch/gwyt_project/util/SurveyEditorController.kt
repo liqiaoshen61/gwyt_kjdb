@@ -264,16 +264,55 @@ class SurveyEditorController(
         button("＋ 新增要素", primaryActions) { ensureClean { addFeature() } }
         val graphic = selectedGraphic
         if (graphic != null) {
-            actions.addView(TextView(activity).apply {
-                text = graphic.attributes.entries.filter { it.key != GRAPHIC_FID }
-                    .joinToString("\n") { "${it.key}：${it.value ?: "空"}" }
-                setTextColor(Color.WHITE); textSize = 14f; setPadding(8, 8, 8, 8)
-            })
-            button("编辑属性") { editAttributes(true) }
-            button("编辑形状") { editGeometry() }
-            button("更多操作") {
-                AlertDialog.Builder(activity).setTitle("要素操作").setItems(arrayOf("删除要素")) { _, _ -> deleteFeature() }.show()
+            val detailCard = LinearLayout(activity).apply {
+                orientation = LinearLayout.VERTICAL
+                setPadding(10, 8, 10, 8)
+                setBackgroundResource(com.jwch.gwyt_project.R.drawable.bg_selected_feature)
             }
+            val heading = LinearLayout(activity).apply { orientation = LinearLayout.HORIZONTAL; gravity = android.view.Gravity.CENTER_VERTICAL }
+            heading.addView(TextView(activity).apply {
+                text = "要素详情"
+                textSize = 15f
+                setTextColor(Color.WHITE)
+                setTypeface(null, android.graphics.Typeface.BOLD)
+            }, LinearLayout.LayoutParams(0, -2, 1f))
+            heading.addView(TextView(activity).apply {
+                text = "FID ${graphic.attributes[GRAPHIC_FID]}"
+                textSize = 11f
+                setTextColor(Color.rgb(205, 228, 250))
+            })
+            detailCard.addView(heading)
+
+            val attributesLayout = LinearLayout(activity).apply { orientation = LinearLayout.VERTICAL }
+            val visibleAttributes = graphic.attributes.entries.filter { it.key != GRAPHIC_FID }
+            visibleAttributes.forEach { entry ->
+                val row = LinearLayout(activity).apply { orientation = LinearLayout.HORIZONTAL; gravity = android.view.Gravity.CENTER_VERTICAL }
+                row.addView(TextView(activity).apply {
+                    text = entry.key; textSize = 12f; setTextColor(Color.rgb(195, 219, 241)); maxLines = 1
+                    ellipsize = android.text.TextUtils.TruncateAt.END
+                }, LinearLayout.LayoutParams(0, dp(24), 0.42f))
+                row.addView(TextView(activity).apply {
+                    text = if (entry.value == null || entry.value.toString() == "NULL") "空" else entry.value.toString()
+                    textSize = 12f; setTextColor(Color.WHITE); maxLines = 1
+                    ellipsize = android.text.TextUtils.TruncateAt.END
+                }, LinearLayout.LayoutParams(0, dp(24), 0.58f))
+                attributesLayout.addView(row)
+            }
+            val maxAttributesHeight = dp(128)
+            detailCard.addView(ScrollView(activity).apply {
+                isFillViewport = false
+                addView(attributesLayout)
+            }, LinearLayout.LayoutParams(-1, minOf(dp(visibleAttributes.size * 24), maxAttributesHeight)))
+
+            val actionsRow = LinearLayout(activity).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = android.view.Gravity.CENTER
+            }
+            actionsRow.addView(featureAction("属性", R.drawable.ic_job_rename) { editAttributes(true) }, LinearLayout.LayoutParams(0, dp(38), 1f))
+            actionsRow.addView(featureAction("形状", R.drawable.ic_geometry_edit) { editGeometry() }, LinearLayout.LayoutParams(0, dp(38), 1f))
+            actionsRow.addView(featureAction("删除", R.drawable.ic_job_delete, destructive = true) { deleteFeature() }, LinearLayout.LayoutParams(0, dp(38), 1f))
+            detailCard.addView(actionsRow)
+            actions.addView(detailCard)
         }
         if (attributes.isNotEmpty()) {
             button("保存要素") { save() }
@@ -281,6 +320,26 @@ class SurveyEditorController(
         }
         (actions.parent as? ScrollView)?.visibility = if (actions.childCount == 0) android.view.View.GONE else android.view.View.VISIBLE
     }
+
+    private fun featureAction(title: String, icon: Int, destructive: Boolean = false, click: () -> Unit) =
+        LinearLayout(activity).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = android.view.Gravity.CENTER
+            isEnabled = !busy
+            alpha = if (busy) 0.55f else 1f
+            setBackgroundResource(if (destructive) com.jwch.gwyt_project.R.drawable.bg_feature_delete else com.jwch.gwyt_project.R.drawable.bg_survey_action)
+            setOnClickListener { if (!busy && !disposed) click() }
+            addView(ImageView(activity).apply {
+                setImageResource(icon)
+                imageTintList = android.content.res.ColorStateList.valueOf(Color.WHITE)
+            }, LinearLayout.LayoutParams(dp(17), dp(17)))
+            addView(TextView(activity).apply {
+                text = title; textSize = 12f; setTextColor(Color.WHITE); maxLines = 1
+                ellipsize = android.text.TextUtils.TruncateAt.END
+            }, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dp(3) })
+        }
+
+    private fun dp(value: Int): Int = (value * activity.resources.displayMetrics.density).toInt()
 
     private fun requireFile(): File = currentFile?.takeIf { it.isFile } ?: error("请先从勘界作业列表进入作业")
     private fun setFile(file: File) {
